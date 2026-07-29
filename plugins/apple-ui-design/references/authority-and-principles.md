@@ -2,6 +2,8 @@
 
 Use this reference when project sources disagree, when Apple convention appears to conflict with product identity, or when an implementation shortcut would change the experience.
 
+All bundled skills use this file as their single authority and design-principle source.
+
 ## Authority Order
 
 Resolve decisions in this order unless the project explicitly defines a stronger order:

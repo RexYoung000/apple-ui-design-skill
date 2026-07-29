@@ -2,6 +2,8 @@
 
 Use this reference when a task needs product research, Apple guidance, shipped examples, UI or motion inspiration, or reusable assets.
 
+All bundled skills use this file as their single research and reuse-boundary source.
+
 ## Hybrid Research Model
 
 Use `source-registry.json` as a maintained set of starting points, then research at task time for the actual product, target user, platform, and design question. The registry improves repeatability; live research prevents stale or generic conclusions.
@@ -66,4 +68,4 @@ Use conditional sources only for their public preview. Do not ask the user to cr
 
 ## Registry Maintenance
 
-Run `python3 scripts/validate_source_registry.py` after editing `source-registry.json`. Recheck active entries periodically and whenever a redirect, access wall, licensing change, or material content change is observed.
+Repository maintainers must validate `source-registry.json` with the root source-registry validator after editing it. Recheck active entries periodically and whenever a redirect, access wall, licensing change, or material content change is observed.

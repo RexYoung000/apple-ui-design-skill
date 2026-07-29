@@ -2,6 +2,8 @@
 
 Use this reference when designing for more than one supported platform or adapting an existing experience.
 
+This is the detailed platform source for the adaptation workflow and for platform checks used by other bundled skills.
+
 ## Shared Product, User-Defined Platform Roles
 
 Start with the user’s product definition. Do not assume:

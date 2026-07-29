@@ -2,6 +2,8 @@
 
 Use this reference to plan evidence, review an interface, or determine whether a UI task is complete.
 
+The review skill owns formal findings; direction and adaptation use this file only to plan evidence and define honest completion.
+
 ## Validation Is Risk-Based
 
 Select checks based on the changed experience. Not every task needs every row, but every omitted high-risk scenario should be intentional.

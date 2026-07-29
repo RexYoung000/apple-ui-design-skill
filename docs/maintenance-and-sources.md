@@ -1,6 +1,8 @@
-# Maintenance and Current Sources
+# Repository Maintenance and Current Sources
 
-Use this reference when updating the skill, checking a version-sensitive rule, or adding a new Apple platform capability.
+Use this repository document when updating the plugin, checking a version-sensitive rule, or adding a new Apple platform capability.
+
+It is intentionally excluded from the installable package. Runtime source-selection rules live in `plugins/apple-ui-design/references/current-sources.md`.
 
 ## Stable vs Changeable Knowledge
 
@@ -51,7 +53,7 @@ Treat these as entry points, not as permission to apply every newest treatment. 
 
 ## Hybrid Source Registry
 
-Use `source-registry.json` as the curated starting set and `research-and-source-evidence.md` as the research and claim-labeling method.
+Use `plugins/apple-ui-design/references/source-registry.json` as the curated starting set and `plugins/apple-ui-design/references/research-and-source-evidence.md` as the research and claim-labeling method.
 
 - Keep stable official entry points and selected public sources in the registry.
 - Search live for the actual product, target user, platform, and design question.
@@ -87,7 +89,7 @@ Do not copy their rules wholesale. In particular, this skill intentionally rejec
 - arbitrary numeric design scores;
 - batch questionnaires when one material decision at a time is clearer.
 
-## Updating This Skill
+## Updating This Plugin
 
 When Apple introduces a new design language or platform capability:
 
@@ -117,6 +119,8 @@ Prefer a decision procedure over adding another absolute rule.
 ## Suggested Regression Prompts
 
 Use realistic prompts to check the skill’s behavior. The fixed product-starting-point suite at `evals/product-starting-point/cases.json` is the repeatable source of truth for the first three branches below; validate its structure with `python3 scripts/validate_product_starting_point_evals.py`.
+
+The plugin split and independent invocation evidence lives under `evals/plugin-split/runs/`.
 
 1. Small existing-product adjustment — must reuse verified user and interaction facts without forcing a new intake.
 2. Major existing-product redesign — must expose material evidence conflicts and ask only the highest-impact unresolved question.

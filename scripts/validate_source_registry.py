@@ -145,7 +145,13 @@ def main() -> int:
         "path",
         nargs="?",
         type=Path,
-        default=Path(__file__).resolve().parents[1] / "references" / "source-registry.json",
+        default=(
+            Path(__file__).resolve().parents[1]
+            / "plugins"
+            / "apple-ui-design"
+            / "references"
+            / "source-registry.json"
+        ),
     )
     parser.add_argument("--max-age-days", type=int, default=180)
     args = parser.parse_args()

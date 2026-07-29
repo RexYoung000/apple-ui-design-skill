@@ -24,7 +24,7 @@ The validator checks schema integrity, fixture availability, assertion presence,
 For each case:
 
 1. start a fresh agent with no prior conversation;
-2. tell it to use `SKILL.md`;
+2. tell it to use `plugins/apple-ui-design/skills/apple-ui-direction/SKILL.md`;
 3. provide only the case request and the listed raw fixtures;
 4. do not expose `cases.json` or its assertions;
 5. preserve the raw response;

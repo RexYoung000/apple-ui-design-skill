@@ -2,6 +2,8 @@
 
 Use this reference when choosing a prototype medium, generating SwiftUI, or translating approved design into an existing app.
 
+Bundled design skills use it to select evidence fidelity and hand work to engineering without claiming production ownership.
+
 ## Choose Fidelity by Decision
 
 Use the cheapest artifact that can answer the current question:

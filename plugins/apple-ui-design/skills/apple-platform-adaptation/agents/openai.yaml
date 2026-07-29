@@ -1,0 +1,4 @@
+interface:
+  display_name: "Apple Platform Adaptation"
+  short_description: "Adapt product experiences across Apple platforms"
+  default_prompt: "Use $apple-platform-adaptation to adapt this established product across its target Apple platforms."

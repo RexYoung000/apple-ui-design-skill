@@ -2,6 +2,8 @@
 
 Use this reference when establishing a direction, extending a design system, comparing alternatives, or creating a durable Apple Design Profile.
 
+The direction skill owns design-system changes; adaptation and review read this file only to preserve or assess established product DNA.
+
 ## Three Layers
 
 ### 1. Product principles

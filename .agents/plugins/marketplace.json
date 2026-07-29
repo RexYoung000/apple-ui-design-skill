@@ -1,0 +1,20 @@
+{
+  "name": "apple-ui-design",
+  "interface": {
+    "displayName": "Apple UI Design"
+  },
+  "plugins": [
+    {
+      "name": "apple-ui-design",
+      "source": {
+        "source": "local",
+        "path": "./plugins/apple-ui-design"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

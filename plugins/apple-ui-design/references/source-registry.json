@@ -1,5 +1,6 @@
 {
   "schema_version": 1,
+  "registry_scope": "shared-plugin-reference",
   "last_reviewed": "2026-07-29",
   "sources": [
     {

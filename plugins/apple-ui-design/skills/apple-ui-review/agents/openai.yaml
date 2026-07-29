@@ -1,0 +1,4 @@
+interface:
+  display_name: "Apple UI Review"
+  short_description: "Review Apple product UI with evidence and severity"
+  default_prompt: "Use $apple-ui-review to review this Apple product interface against confirmed intent and runtime evidence."

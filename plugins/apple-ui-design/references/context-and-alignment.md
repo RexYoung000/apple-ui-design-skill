@@ -2,6 +2,8 @@
 
 Use this reference for new design work, ambiguous requests, cross-platform expansion, or any change that may alter information hierarchy, navigation, brand, or a core flow.
 
+All bundled skills use this file as their single product-starting-point and evidence-label source.
+
 ## Inspect Before Asking
 
 Search for available evidence in this order:
@@ -88,8 +90,6 @@ Use `not yet researched` rather than leaving the evidence row absent. Keep the s
    - expose the zero-to-one evidence status before proposing a direction.
 
 Labels belong on decisions that influence the design, not on every sentence or minor styling value. Keep internal notes and user-facing output readable while preserving traceability.
-
-The fixed regression cases in `evals/product-starting-point/cases.json` exercise these three branches. Their `mode_contract_inputs` are the user and evidence inputs that mode-level delivery contracts should consume; their assertions are designed to become part of the broader regression system without changing this decision procedure.
 
 ## Material Questions
 

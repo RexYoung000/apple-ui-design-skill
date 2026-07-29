@@ -1,0 +1,38 @@
+{
+  "name": "apple-ui-design",
+  "version": "0.1.0",
+  "description": "Design, adapt, and review evidence-backed product interfaces for iOS, iPadOS, and macOS.",
+  "author": {
+    "name": "RexYoung000",
+    "url": "https://github.com/RexYoung000"
+  },
+  "homepage": "https://github.com/RexYoung000/apple-ui-design-skill",
+  "repository": "https://github.com/RexYoung000/apple-ui-design-skill",
+  "license": "MIT",
+  "keywords": [
+    "apple",
+    "ios",
+    "ipados",
+    "macos",
+    "product-design",
+    "ui-review"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Apple UI Design",
+    "shortDescription": "Design, adapt, and review Apple product interfaces",
+    "longDescription": "Three focused skills for product-first Apple UI direction, cross-platform adaptation, and evidence-based interface review.",
+    "developerName": "RexYoung000",
+    "category": "Design",
+    "capabilities": [
+      "Design",
+      "Review"
+    ],
+    "websiteURL": "https://github.com/RexYoung000/apple-ui-design-skill",
+    "defaultPrompt": [
+      "Define a distinctive UI direction for this Apple product.",
+      "Adapt this established iPhone experience for iPad and Mac.",
+      "Review this Apple UI against product intent and runtime evidence."
+    ]
+  }
+}

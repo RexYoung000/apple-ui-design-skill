@@ -2,6 +2,8 @@
 
 Use this reference during design, implementation, and review. Accessibility is a product outcome, not a final annotation pass.
 
+This is a shared plugin reference; each workflow applies only the checks relevant to its own outcome.
+
 ## Core Standard
 
 A user relying on the assistive behaviors in scope must be able to:

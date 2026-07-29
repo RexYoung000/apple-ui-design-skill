@@ -17,7 +17,13 @@ from validate_source_registry import validate  # noqa: E402
 
 class SourceRegistryTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.registry_path = REPO_ROOT / "references" / "source-registry.json"
+        self.registry_path = (
+            REPO_ROOT
+            / "plugins"
+            / "apple-ui-design"
+            / "references"
+            / "source-registry.json"
+        )
         self.registry = json.loads(self.registry_path.read_text(encoding="utf-8"))
 
     def validate_data(self, data: dict) -> tuple[list[str], list[str]]:

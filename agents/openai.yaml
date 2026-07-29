@@ -1,4 +1,6 @@
 interface:
-  display_name: "Apple UI Design"
-  short_description: "Design distinctive, evidence-backed Apple product UI"
-  default_prompt: "Use $apple-ui-design to define or improve this Apple product UI from project evidence, target-user context, and confirmed design intent."
+  display_name: "Apple UI Design (Legacy)"
+  short_description: "Route older explicit calls to the new Apple UI skills"
+  default_prompt: "Use $apple-ui-design to route this legacy request to the appropriate Apple UI plugin workflow."
+policy:
+  allow_implicit_invocation: false
