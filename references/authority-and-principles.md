@@ -6,15 +6,18 @@ Use this reference when project sources disagree, when Apple convention appears 
 
 Resolve decisions in this order unless the project explicitly defines a stronger order:
 
-1. Confirmed product goal and user decisions.
+1. Confirmed product, interaction, and motion decisions.
 2. Current repository instructions and authoritative product/design documents.
-3. Established UI behavior and design system in the shipping product.
-4. Accessibility, localization, privacy, and interaction reliability requirements.
-5. Current Apple platform guidance and native behavior.
-6. Team conventions and implementation patterns.
-7. External inspiration and general design taste.
+3. Verified target-user, task, and usage-context evidence.
+4. Established UI behavior and design system in the shipping product.
+5. Accessibility, localization, privacy, safety, and interaction outcomes that the project requires.
+6. Current Apple platform guidance and native behavior.
+7. Team conventions and implementation patterns.
+8. External examples, inspiration, and general design taste.
 
 Historical screenshots, archived documents, concept prototypes, and competitor behavior are evidence, not authority.
+
+User authority determines intended product direction. It does not convert a hypothesis into validated user need, erase an observed accessibility failure, or prove that an interaction works. When a decision carries a material risk, state the fact, impact, recommendation, and validation method. After the user understands the tradeoff, preserve their decision unless it conflicts with a higher legal, safety, or explicit project requirement.
 
 When two authoritative sources conflict:
 
@@ -35,6 +38,7 @@ Classify guidance before enforcing it:
 - **Exploration**: a hypothesis or reference that must not be treated as approved design.
 
 Do not turn a recommendation into a hard law merely because it is easy to test.
+Do not turn an accessibility outcome into a visual prescription when the same outcome can be achieved through custom presentation.
 
 ## Native and Distinctive
 
@@ -54,6 +58,8 @@ It does not require:
 - SF Symbols for every illustration;
 - the latest Apple material;
 - the absence of custom typography, color, shape, or motion.
+
+A native component is a useful way to inherit behavior, semantics, input handling, and system adaptation. It is not a requirement to keep the component’s default appearance. Custom controls and interactions are valid when they preserve the intended product model and expose the behavior needed by the target users and environments.
 
 A distinctive product still needs a small set of recognizable decisions tied to its subject and brand. Do not force a “signature detail” when the content and interaction already create identity.
 

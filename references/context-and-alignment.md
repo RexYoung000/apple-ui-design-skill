@@ -15,6 +15,55 @@ Search for available evidence in this order:
 
 Do not ask the user to restate facts that can be verified in the project.
 
+## Evidence Labels
+
+Keep these categories separate in notes, recommendations, and handoff:
+
+- **User-confirmed decision**: the intended product direction.
+- **Project fact**: verified in current documentation, assets, code, configuration, analytics, or runtime.
+- **External evidence**: supported by a named official source, shipped product, study, or public observation.
+- **Design inference**: a reasoned interpretation of available evidence.
+- **Unvalidated hypothesis**: plausible but not yet confirmed or tested.
+
+A user-confirmed decision has authority over direction. It does not become user research or runtime proof merely because it was approved.
+
+## Target User and Usage Context
+
+Define only the dimensions that change the design:
+
+- primary user and core task;
+- platform, device, window, and input methods;
+- usage frequency, proficiency, and environment;
+- task duration, interruption, collaboration, and continuity;
+- failure cost, privacy, trust, or destructive consequences;
+- accessibility and localization needs in scope;
+- relevant learned behaviors from the current product or comparable products.
+
+Do not invent age, occupation, personality, or lifestyle details unless supplied by evidence and relevant to the decision.
+
+### Existing product
+
+Extract facts from current requirements, interface, navigation, strings, assets, implementation, runtime behavior, support data, and analytics when available. Ask only about gaps or conflicts that would change the result.
+
+For a small reversible adjustment, reuse the established user and interaction model. For a major redesign, check whether the target user, core task, and existing model are still valid before preserving them.
+
+### Zero-to-one product
+
+Start from the user’s idea, audience hypothesis, constraints, and desired outcome. Research public market, product, Apple-platform, accessibility, and comparable-task evidence where useful. Separate what is observed from what is inferred.
+
+Before approving a high-fidelity direction, confirm at least the primary user, core task, target platform context, and material constraints. If research is absent, label the work as hypothesis-led. Never claim that a need is validated without interviews, behavioral data, market evidence, or another explicit basis.
+
+Before the first direction proposal, expose a compact status:
+
+```text
+Confirmed inputs:
+External evidence checked:
+Design hypotheses:
+Material unknowns:
+```
+
+Use `not yet researched` rather than leaving the evidence row absent. Keep the status proportional to the task, but make it visible enough that the user can challenge the assumptions before selecting a direction.
+
 ## Material Questions
 
 Ask when the answer would change one of these:
@@ -31,9 +80,9 @@ Ask when the answer would change one of these:
 
 Do not block on a small reversible choice such as a minor spacing value when established tokens and context provide a sound answer.
 
-## One Question per Round
+## Question Strategy
 
-Each alignment turn should:
+When the user or repository asks for progressive alignment, each turn should:
 
 1. lead with the observed fact;
 2. name the decision and why it matters;
@@ -42,7 +91,7 @@ Each alignment turn should:
 5. ask one question;
 6. accept a custom answer.
 
-Do not dump a generic intake questionnaire. Continue asking only while a material uncertainty remains.
+Do not dump a generic intake questionnaire. Independent factual checks can run in parallel. Follow the project’s preferred communication rhythm when it is known, and continue asking only while a material uncertainty remains.
 
 ## Platform Definition
 
@@ -85,6 +134,7 @@ Do not use a fixed formula such as “latest minus one.” Record:
 Use the project’s existing source of truth. Record:
 
 - decision;
+- evidence label and source;
 - reason;
 - affected platforms and flows;
 - rejected alternative only when the tradeoff matters later;

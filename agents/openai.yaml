@@ -1,4 +1,4 @@
 interface:
   display_name: "Apple UI Design"
-  short_description: "Design native Apple ecosystem product interfaces"
-  default_prompt: "Use $apple-ui-design to design or review this product UI for its intended iOS, iPadOS, and macOS platforms, starting from project context and confirmed product intent."
+  short_description: "Design distinctive, evidence-backed Apple product UI"
+  default_prompt: "Use $apple-ui-design to define or improve this Apple product UI from project evidence, target-user context, and confirmed design intent."

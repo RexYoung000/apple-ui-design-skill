@@ -49,6 +49,20 @@ Primary entry points:
 
 Treat these as entry points, not as permission to apply every newest treatment. Resolve current platform guidance against the project’s minimum versions and confirmed product intent.
 
+## Hybrid Source Registry
+
+Use `source-registry.json` as the curated starting set and `research-and-source-evidence.md` as the research and claim-labeling method.
+
+- Keep stable official entry points and selected public sources in the registry.
+- Search live for the actual product, target user, platform, and design question.
+- Use shipped products as observable precedent, not universal validation.
+- Mark Web, marketing, art, and implementation references as `inspiration only`.
+- Translate external inspiration through the approved product model and verify claimed Apple behavior in a native environment.
+- Prefer public, no-account sources; use public previews of limited sources only when they add unique evidence.
+- Do not package third-party screenshots or assets without verified reuse rights.
+
+The registry is a map, not a frozen archive or a ranking. Run `python3 scripts/validate_source_registry.py` after changing it.
+
 ## Comparative Sources Behind This Skill
 
 This skill was synthesized after comparing several design and SwiftUI skills. Revisit them when maintaining the corresponding area:

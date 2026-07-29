@@ -66,6 +66,10 @@ Match evidence to the claim:
 
 A successful build does not prove a usable interface. A screenshot does not prove interaction. A browser prototype does not prove native behavior.
 
+Native evidence verifies operation in the target environment, not visual conformity to Apple system apps. A custom interaction can pass when it behaves as intended for the confirmed users and inputs; a system-looking interface can fail when the core task does not work.
+
+For motion claims, provide a recording at representative speed and input conditions, plus the reduced-motion expression when in scope. Static timing values do not prove perceived rhythm, interruption, continuity, or comfort.
+
 ## Evidence-Based Review
 
 Assess:
@@ -123,6 +127,15 @@ How to verify:
 ```
 
 Ground critique in the actual artifact. Name the screen, state, platform, and environment. Avoid generic comments such as “make it more Apple-like” or “improve hierarchy.”
+
+Mark whether the recommendation is:
+
+- required to meet a confirmed product or experience outcome;
+- supported by current Apple platform guidance;
+- an optional optimization;
+- an exploration or reviewer preference.
+
+Do not present a platform recommendation or personal preference as if it overrides a confirmed interaction decision.
 
 ## Comparing Directions
 

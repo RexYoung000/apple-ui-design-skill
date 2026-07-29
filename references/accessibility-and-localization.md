@@ -15,6 +15,8 @@ A user relying on the assistive behaviors in scope must be able to:
 
 The visual implementation may vary. The outcome may not disappear.
 
+Accessibility constrains task outcomes, not brand expression. Native components often inherit useful semantics, but custom typography, color, shape, motion, controls, and interaction models remain valid when the required users can perceive, understand, operate, and recover from them.
+
 ## Information and Color
 
 - Do not use color as the only indicator of state, category, error, or progress.
@@ -48,6 +50,7 @@ Touch target guidance describes reliable hit areas, not mandatory visible contro
 - Avoid motion that competes with the task or obscures state.
 - Under reduced motion, preserve meaning using cross-fades, state changes, or reduced distance/intensity as appropriate.
 - Do not remove required feedback merely by disabling all animation.
+- Preserve suitable brand character under reduced motion through color, timing, fades, state changes, haptics, audio, or reduced distance and intensity where appropriate.
 
 ## iOS and iPadOS
 

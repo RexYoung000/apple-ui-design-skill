@@ -37,13 +37,16 @@ SwiftUI should express the approved design:
 
 - model states explicitly;
 - keep view hierarchy readable;
-- choose native containers and controls where they preserve the intended behavior;
-- customize visuals without discarding semantics;
+- prefer native containers and controls when they preserve the intended behavior and reduce semantic or system-integration risk;
+- customize their visuals without discarding behavior or semantics;
+- use custom controls and interactions when they serve the approved product model, then provide the required roles, states, actions, input behavior, and system-setting responses;
 - use availability checks and fallbacks for version-specific APIs;
 - create previews for meaningful states and sizes;
 - keep business logic out of presentation code.
 
 Do not change architecture, introduce dependencies, or perform broad refactors solely to make a screen easier to style. Route architecture and performance work to the applicable engineering skill.
+
+Native validation checks whether the intended behavior survives the real platform. It does not grade visual similarity to Apple system apps.
 
 ## Prototype Requirements
 

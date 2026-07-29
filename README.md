@@ -14,6 +14,8 @@ Apple UI Design is an agent skill for designing, adapting, implementing, and rev
 
 It starts from product intent and project evidence, then combines shared product DNA with platform-appropriate interaction. Apple conventions guide the experience without forcing every product into the same visual template.
 
+It supports both existing products and zero-to-one ideas. Existing products are read from their current evidence; new products use explicit hypotheses and public research without pretending that untested assumptions are validated user needs.
+
 ## What It Covers
 
 - Product and visual direction for Apple-platform experiences
@@ -26,12 +28,13 @@ It starts from product intent and project evidence, then combines shared product
 
 ## Core Principles
 
-1. **Product intent comes first.** Confirmed user needs determine what the interface must accomplish.
+1. **Product intent comes first.** Confirmed decisions define the intended experience, while evidence labels keep known user needs separate from hypotheses.
 2. **Project context is the local source of truth.** Existing requirements, design systems, components, assets, and platform targets are inspected before new decisions are made.
-3. **Native does not mean generic.** Apple conventions guide interaction, while brand and product DNA preserve a distinctive identity.
-4. **Platforms are adapted, not enlarged.** iPhone, iPad, and Mac experiences may share a product while differing in hierarchy, density, navigation, and input.
-5. **Accessibility and localization are designed in.** They are part of the interface definition, not a final checklist.
-6. **Visual quality requires evidence.** Compilation alone is not experience validation; important states and real interactions should be rendered and tested.
+3. **The user owns product direction.** The skill explains platform, usability, and accessibility implications without silently replacing confirmed interaction or motion decisions.
+4. **Native does not mean generic.** Native validation checks behavior and semantics, not resemblance to Apple system apps. Custom visuals and controls remain valid.
+5. **Platforms are adapted, not enlarged.** iPhone, iPad, and Mac experiences may share a product while differing in hierarchy, density, navigation, and input.
+6. **Accessibility and localization protect outcomes, not a default skin.** They are designed and validated without erasing brand expression.
+7. **Visual and motion quality require evidence.** Compilation alone is not experience validation; important states and real interactions should be rendered and tested.
 
 ## Operating Modes
 
@@ -75,6 +78,18 @@ and consistency with the product's existing design system.
 
 The skill will inspect available project evidence before asking questions. When a decision materially affects the product, it asks one focused question at a time and explains the recommended direction.
 
+For an existing product, it derives the user, core task, design DNA, and interaction model from current evidence. For a zero-to-one product, it separates user-confirmed decisions, external evidence, design inference, and unvalidated hypotheses.
+
+## Research and Inspiration
+
+The skill uses a hybrid research model:
+
+- a curated registry of Apple official sources, shipped examples, public UI and motion galleries, inspiration sites, and asset sources;
+- live research tailored to the current product and design question;
+- explicit labels that separate authority, observation, inspiration, and hypothesis.
+
+Web references such as 60fps, Recent, Awwwards, React Bits, and Magic UI may inspire visual or motion direction, but they do not prove Apple-native behavior. Third-party screenshots and assets are linked and observed rather than bundled unless reuse rights are verified.
+
 ## Repository Structure
 
 ```text
@@ -82,7 +97,7 @@ The skill will inspect available project evidence before asking questions. When 
 ├── SKILL.md
 ├── agents/
 │   └── openai.yaml
-└── references/
+├── references/
     ├── accessibility-and-localization.md
     ├── apple-platform-adaptation.md
     ├── authority-and-principles.md
@@ -90,12 +105,21 @@ The skill will inspect available project evidence before asking questions. When 
     ├── design-system-and-dna.md
     ├── maintenance-and-sources.md
     ├── prototyping-and-implementation.md
+    ├── research-and-source-evidence.md
+    ├── source-registry.json
     └── validation-and-review.md
+├── scripts/
+    └── validate_source_registry.py
+└── tests/
+    └── test_source_registry.py
 ```
 
 - `SKILL.md` defines the role, scope, workflow, review method, and routing rules.
 - `agents/openai.yaml` provides the display metadata and default invocation prompt.
 - `references/` contains focused guidance loaded only when relevant to the current task.
+- `references/source-registry.json` is a validated map of official, observable, inspirational, conditional, and excluded sources.
+- `scripts/validate_source_registry.py` checks required metadata, duplicate sources, HTTPS URLs, and review age.
+- `tests/test_source_registry.py` protects the registry validator’s required failure cases.
 
 ## Scope
 
