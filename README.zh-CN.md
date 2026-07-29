@@ -125,29 +125,39 @@ Skill 使用混合研究模式：
 ├── SKILL.md
 ├── agents/
 │   └── openai.yaml
+├── evals/
+│   └── product-starting-point/
+│       ├── README.md
+│       ├── cases.json
+│       ├── fixtures/
+│       └── runs/
 ├── references/
-    ├── accessibility-and-localization.md
-    ├── apple-platform-adaptation.md
-    ├── authority-and-principles.md
-    ├── context-and-alignment.md
-    ├── design-system-and-dna.md
-    ├── maintenance-and-sources.md
-    ├── prototyping-and-implementation.md
-    ├── research-and-source-evidence.md
-    ├── source-registry.json
-    └── validation-and-review.md
+│   ├── accessibility-and-localization.md
+│   ├── apple-platform-adaptation.md
+│   ├── authority-and-principles.md
+│   ├── context-and-alignment.md
+│   ├── design-system-and-dna.md
+│   ├── maintenance-and-sources.md
+│   ├── prototyping-and-implementation.md
+│   ├── research-and-source-evidence.md
+│   ├── source-registry.json
+│   └── validation-and-review.md
 ├── scripts/
-    └── validate_source_registry.py
+│   ├── validate_product_starting_point_evals.py
+│   └── validate_source_registry.py
 └── tests/
+    ├── test_product_starting_point_evals.py
     └── test_source_registry.py
 ```
 
 - `SKILL.md` 定义角色、范围、工作流程、评审方法与任务分流规则。
 - `agents/openai.yaml` 提供展示信息与默认调用提示词。
+- `evals/product-starting-point/` 提供固定的小改动、重大改版与从零产品证据场景、评审断言和保留的前向测试证据。
 - `references/` 存放按当前任务需要加载的专项设计指导。
 - `references/source-registry.json` 是经过校验的官方、案例、灵感、受限与排除来源地图。
+- `scripts/validate_product_starting_point_evals.py` 用于检查评测结构、必需场景、行为断言和固定素材路径。
 - `scripts/validate_source_registry.py` 用于检查必填元数据、重复来源、HTTPS 地址和核验日期。
-- `tests/test_source_registry.py` 用于保护资源校验器必须识别的错误场景。
+- `tests/` 用于保护评测与资源校验器必须识别的错误场景。
 
 ## 边界
 

@@ -125,29 +125,39 @@ Web references such as 60fps, Recent, Awwwards, React Bits, and Magic UI may ins
 ├── SKILL.md
 ├── agents/
 │   └── openai.yaml
+├── evals/
+│   └── product-starting-point/
+│       ├── README.md
+│       ├── cases.json
+│       ├── fixtures/
+│       └── runs/
 ├── references/
-    ├── accessibility-and-localization.md
-    ├── apple-platform-adaptation.md
-    ├── authority-and-principles.md
-    ├── context-and-alignment.md
-    ├── design-system-and-dna.md
-    ├── maintenance-and-sources.md
-    ├── prototyping-and-implementation.md
-    ├── research-and-source-evidence.md
-    ├── source-registry.json
-    └── validation-and-review.md
+│   ├── accessibility-and-localization.md
+│   ├── apple-platform-adaptation.md
+│   ├── authority-and-principles.md
+│   ├── context-and-alignment.md
+│   ├── design-system-and-dna.md
+│   ├── maintenance-and-sources.md
+│   ├── prototyping-and-implementation.md
+│   ├── research-and-source-evidence.md
+│   ├── source-registry.json
+│   └── validation-and-review.md
 ├── scripts/
-    └── validate_source_registry.py
+│   ├── validate_product_starting_point_evals.py
+│   └── validate_source_registry.py
 └── tests/
+    ├── test_product_starting_point_evals.py
     └── test_source_registry.py
 ```
 
 - `SKILL.md` defines the role, scope, workflow, review method, and routing rules.
 - `agents/openai.yaml` provides the display metadata and default invocation prompt.
+- `evals/product-starting-point/` contains fixed small-change, major-redesign, and zero-to-one evidence cases, review assertions, and preserved forward-test evidence.
 - `references/` contains focused guidance loaded only when relevant to the current task.
 - `references/source-registry.json` is a validated map of official, observable, inspirational, conditional, and excluded sources.
+- `scripts/validate_product_starting_point_evals.py` checks the evaluation schema, required scenarios, assertions, and fixture paths.
 - `scripts/validate_source_registry.py` checks required metadata, duplicate sources, HTTPS URLs, and review age.
-- `tests/test_source_registry.py` protects the registry validator’s required failure cases.
+- `tests/` protects the evaluation and source-registry validators’ required failure cases.
 
 ## Scope
 

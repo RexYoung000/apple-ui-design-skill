@@ -27,6 +27,8 @@ Keep these categories separate in notes, recommendations, and handoff:
 
 A user-confirmed decision has authority over direction. It does not become user research or runtime proof merely because it was approved.
 
+For a zero-to-one product, distinguish **user-confirmed product intent** from **validated user evidence**. An audience or need supplied by the user remains a user-confirmed hypothesis unless interviews, behavioral data, market evidence, or another explicit basis validates it. Never promote a fixture, brief, or user statement to a stronger evidence level than its source label.
+
 ## Target User and Usage Context
 
 Define only the dimensions that change the design:
@@ -47,6 +49,16 @@ Extract facts from current requirements, interface, navigation, strings, assets,
 
 For a small reversible adjustment, reuse the established user and interaction model. For a major redesign, check whether the target user, core task, and existing model are still valid before preserving them.
 
+Choose the response depth from the decision risk:
+
+| Situation | Required behavior |
+|---|---|
+| Small, reversible adjustment with sufficient project evidence | Reuse verified project facts and proceed. Do not make the user approve a new persona or repeat facts merely to demonstrate discovery. Surface only assumptions that could materially change the adjustment. |
+| Major redesign with consistent evidence | State the project facts and confirmed decisions that anchor the redesign, then proceed at the appropriate fidelity. Treat existing behavior as precedent, not proof that it must survive. |
+| Major redesign with conflicting or stale evidence | Separate the conflict into labelled facts, decisions, inferences, and hypotheses. Ask the single highest-impact unresolved question before committing to a direction. |
+
+Do not infer the intended future audience solely from the current interface. A shipped flow proves that the flow exists; it does not prove that the target user, task priority, or interaction model is still correct.
+
 ### Zero-to-one product
 
 Start from the user’s idea, audience hypothesis, constraints, and desired outcome. Research public market, product, Apple-platform, accessibility, and comparable-task evidence where useful. Separate what is observed from what is inferred.
@@ -56,13 +68,28 @@ Before approving a high-fidelity direction, confirm at least the primary user, c
 Before the first direction proposal, expose a compact status:
 
 ```text
-Confirmed inputs:
+Confirmed product intent and constraints:
 External evidence checked:
-Design hypotheses:
+Audience and design hypotheses:
 Material unknowns:
 ```
 
 Use `not yet researched` rather than leaving the evidence row absent. Keep the status proportional to the task, but make it visible enough that the user can challenge the assumptions before selecting a direction.
+
+## Starting-Point Decision Procedure
+
+1. Determine whether the artifact is an existing product or a zero-to-one product.
+2. Extract the smallest task-and-context profile needed for the current decision.
+3. Label every material conclusion as a user-confirmed decision, project fact, external evidence, design inference, or unvalidated hypothesis.
+4. Check for conflicts between intended direction and current evidence.
+5. Choose the response:
+   - proceed without a new intake for a sufficiently evidenced small change;
+   - expose the material conflict and ask one question for a major redesign;
+   - expose the zero-to-one evidence status before proposing a direction.
+
+Labels belong on decisions that influence the design, not on every sentence or minor styling value. Keep internal notes and user-facing output readable while preserving traceability.
+
+The fixed regression cases in `evals/product-starting-point/cases.json` exercise these three branches. Their `mode_contract_inputs` are the user and evidence inputs that mode-level delivery contracts should consume; their assertions are designed to become part of the broader regression system without changing this decision procedure.
 
 ## Material Questions
 

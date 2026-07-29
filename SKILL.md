@@ -73,7 +73,9 @@ For an existing product, derive the target user, core task, interaction model, d
 
 For a zero-to-one product, work with the user to define the target user and core task from the initial idea, constraints, public research, and explicit hypotheses. Do not invent demographic personas or claim that a need is validated without interviews, usage data, or equivalent evidence.
 
-Before presenting a zero-to-one direction, make the evidence status visible: list confirmed inputs, external evidence checked or not yet checked, design hypotheses, and material unknowns. Do not bury these distinctions inside confident design prose.
+An audience or need supplied by the user may be confirmed product intent while remaining an unvalidated user hypothesis. Preserve the source's evidence label; do not silently promote a brief, user statement, or shipped interface into validated user evidence.
+
+Before presenting a zero-to-one direction, make the evidence status visible: list confirmed product intent and constraints, external evidence checked or not yet checked, audience and design hypotheses, and material unknowns. Do not bury these distinctions inside confident design prose.
 
 Scale the depth to the decision. A small existing-screen adjustment rarely needs a new user profile; a zero-to-one direction or major redesign does.
 

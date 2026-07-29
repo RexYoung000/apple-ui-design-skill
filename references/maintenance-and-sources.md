@@ -116,16 +116,18 @@ Prefer a decision procedure over adding another absolute rule.
 
 ## Suggested Regression Prompts
 
-Use realistic prompts to check the skill’s behavior:
+Use realistic prompts to check the skill’s behavior. The fixed product-starting-point suite at `evals/product-starting-point/cases.json` is the repeatable source of truth for the first three branches below; validate its structure with `python3 scripts/validate_product_starting_point_evals.py`.
 
-1. “Redesign this existing iPhone screen” — must inspect the project before proposing style.
-2. “Make this iPhone app work on Mac” — must ask or infer product differences, not stretch the layout.
-3. “Use the newest Apple glass style” — must check minimum versions and product fit.
-4. “Give me three visual options” — must create meaningful hypotheses rather than recolors.
-5. “Review this screen” — must use evidence and severity, not arbitrary scores.
-6. “Implement this approved design” — must preserve project architecture and route technical concerns appropriately.
-7. “Make it accessible” — must explain task outcomes, not only add labels.
-8. “The project has no minimum version” — must help decide rather than silently choose.
+1. Small existing-product adjustment — must reuse verified user and interaction facts without forcing a new intake.
+2. Major existing-product redesign — must expose material evidence conflicts and ask only the highest-impact unresolved question.
+3. Zero-to-one direction — must show evidence status and hypotheses before committing to a direction.
+4. “Make this iPhone app work on Mac” — must ask or infer product differences, not stretch the layout.
+5. “Use the newest Apple glass style” — must check minimum versions and product fit.
+6. “Give me three visual options” — must create meaningful hypotheses rather than recolors.
+7. “Review this screen” — must use evidence and severity, not arbitrary scores.
+8. “Implement this approved design” — must preserve project architecture and route technical concerns appropriately.
+9. “Make it accessible” — must explain task outcomes, not only add labels.
+10. “The project has no minimum version” — must help decide rather than silently choose.
 
 ## Scope Expansion
 
