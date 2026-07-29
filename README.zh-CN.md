@@ -26,6 +26,21 @@ Apple UI Design 是一个用于 Apple 生态产品界面设计、适配与评审
 
 SwiftUI 生产架构、调试、性能、CI 与发布仍属于工程职责。以上 Skills 向相应工程工作流提供产品意图、界面决策、证据要求和验收标准。
 
+## 触发与工程边界
+
+是否调用内置 Skill 取决于用户要求的最终结果，而不是提示中是否出现 Apple、SwiftUI、UIKit 或 AppKit。
+
+- 产品方向、页面、流程、设计系统、交互、动效和设计型原型交给 `$apple-ui-direction`。
+- 将既有产品体验转化到其他 Apple 平台交给 `$apple-platform-adaptation`。
+- UI 批评、审计、验证、验收评审和问题优先级交给 `$apple-ui-review`。
+- 编译、并发、状态管理、架构、性能、API 用法、测试基础设施、CI、打包与发布交给适用的工程工作流。
+
+当代码是回答已确认设计问题所必需的最低成本证据，并且不会改变既有架构时，设计 Skill 可以创建一次性原生原型，或执行范围明确的 SwiftUI 表现层改动。生产集成、业务逻辑、数据、依赖、广泛重构及工程正确性不属于其独立职责。
+
+UIKit 与 AppKit 项目仍然可以使用本 Plugin 完成设计、适配与评审。Plugin 会检查它们的真实证据并交付与框架匹配的设计决策，但不会承诺 SwiftUI 实现、静默迁移框架，也不会在缺少适用工程工作流和原生验证时宣称 UIKit/AppKit 生产集成已经完成。
+
+三个内置 Skill 的目标已经相互区分，因此保留隐式调用，并在各自 `agents/openai.yaml` 中明确声明同一策略。根级旧版兼容路由仍然只能显式调用。
+
 ## 核心原则
 
 1. **产品意图优先。** 已确认的决策定义预期体验，同时通过证据标签区分已知用户需求与假设。
@@ -139,6 +154,10 @@ Skill 使用混合研究模式：
 ├── evals/
 │   ├── plugin-split/
 │   │   └── runs/
+│   ├── trigger-routing/
+│   │   ├── README.md
+│   │   ├── cases.json
+│   │   └── runs/
 │   ├── delivery-contracts/
 │   │   ├── README.md
 │   │   ├── cases.json
@@ -159,11 +178,13 @@ Skill 使用混合研究模式：
 │           ├── apple-ui-direction/
 │           └── apple-ui-review/
 ├── scripts/
+│   ├── validate_trigger_routing_evals.py
 │   ├── validate_product_starting_point_evals.py
 │   ├── validate_delivery_contract_evals.py
 │   ├── validate_plugin_architecture.py
 │   └── validate_source_registry.py
 └── tests/
+    ├── test_trigger_routing_evals.py
     ├── test_plugin_architecture.py
     ├── test_delivery_contract_evals.py
     ├── test_product_starting_point_evals.py
@@ -176,9 +197,11 @@ Skill 使用混合研究模式：
 - `.agents/plugins/marketplace.json` 通过公开 GitHub 仓库暴露 Plugin。
 - 根级 `SKILL.md` 与 `agents/openai.yaml` 只为旧版独立安装提供显式调用兼容。
 - `evals/plugin-split/` 保留三个内置 Skills 的独立前向测试与安装后新会话证据。
+- `evals/trigger-routing/` 区分正向设计意图、仅工程负例和设计与工程混合边界案例。
 - `evals/delivery-contracts/` 为六类交付合同分别提供一项真实任务与可观察的证据断言。
 - `evals/product-starting-point/` 提供固定的小改动、重大改版与从零产品证据场景、评审断言和保留的前向测试证据。
 - `scripts/validate_delivery_contract_evals.py` 用于检查合同覆盖、固定素材、必需产物、禁止声明和证据要求。
+- `scripts/validate_trigger_routing_evals.py` 用于检查路由覆盖、实现边界和必须覆盖的工程负例领域。
 - `scripts/validate_product_starting_point_evals.py` 用于检查评测结构、必需场景、行为断言和固定素材路径。
 - `scripts/validate_plugin_architecture.py` 用于保护 Skill 边界、共享规则所有权和安装包纯度。
 - `tests/` 用于保护 Plugin 架构、评测与资源校验器必须识别的错误场景。

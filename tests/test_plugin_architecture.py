@@ -126,6 +126,22 @@ class PluginArchitectureTests(unittest.TestCase):
                 any("delivery-contracts.md" in error for error in errors)
             )
 
+    def test_missing_engineering_routing_reference_is_rejected(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            fixture = self.make_fixture(temp_dir)
+            (
+                fixture
+                / "plugins"
+                / "apple-ui-design"
+                / "references"
+                / "engineering-routing.md"
+            ).unlink()
+
+            errors = validate(fixture)
+            self.assertTrue(
+                any("engineering-routing.md" in error for error in errors)
+            )
+
     def test_skill_without_delivery_contract_link_is_rejected(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             fixture = self.make_fixture(temp_dir)
@@ -150,6 +166,58 @@ class PluginArchitectureTests(unittest.TestCase):
             self.assertIn(
                 "apple-ui-review must directly apply the shared delivery contracts",
                 errors,
+            )
+
+    def test_skill_without_engineering_routing_link_is_rejected(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            fixture = self.make_fixture(temp_dir)
+            review_skill = (
+                fixture
+                / "plugins"
+                / "apple-ui-design"
+                / "skills"
+                / "apple-ui-review"
+                / "SKILL.md"
+            )
+            review_contents = review_skill.read_text(encoding="utf-8")
+            review_skill.write_text(
+                review_contents.replace(
+                    "`../../references/engineering-routing.md`",
+                    "`../../references/validation-and-review.md`",
+                ),
+                encoding="utf-8",
+            )
+
+            errors = validate(fixture)
+            self.assertIn(
+                "apple-ui-review must directly apply the engineering routing rules",
+                errors,
+            )
+
+    def test_implicit_invocation_policy_must_match_frontmatter(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            fixture = self.make_fixture(temp_dir)
+            agent_yaml = (
+                fixture
+                / "plugins"
+                / "apple-ui-design"
+                / "skills"
+                / "apple-ui-direction"
+                / "agents"
+                / "openai.yaml"
+            )
+            contents = agent_yaml.read_text(encoding="utf-8")
+            agent_yaml.write_text(
+                contents.replace(
+                    "allow_implicit_invocation: true",
+                    "allow_implicit_invocation: false",
+                ),
+                encoding="utf-8",
+            )
+
+            errors = validate(fixture)
+            self.assertTrue(
+                any("must explicitly enable implicit invocation" in error for error in errors)
             )
 
     def test_missing_delivery_contract_heading_is_rejected(self) -> None:

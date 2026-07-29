@@ -15,16 +15,17 @@ EXPECTED_SKILLS = {
     "apple-ui-direction": {
         "required_headings": {"## Required Starting Point", "## Successful Result"},
         "description_markers": {
-            "visual direction",
-            "Do not use for cross-platform adaptation",
+            "requested outcome",
+            "implementation-only Swift",
             "critique-only review",
         },
     },
     "apple-platform-adaptation": {
         "required_headings": {"## Required Inputs", "## Successful Result"},
         "description_markers": {
-            "Adapt an established product experience",
-            "Do not use for a zero-to-one visual direction",
+            "Adapt an established",
+            "requested outcome",
+            "implementation-only Swift",
             "critique-only review",
         },
     },
@@ -32,7 +33,8 @@ EXPECTED_SKILLS = {
         "required_headings": {"## Required Evidence", "## Successful Result"},
         "description_markers": {
             "Review an existing",
-            "create a new direction",
+            "requested outcome",
+            "implementation-only Swift",
             "cross-platform adaptation",
         },
     },
@@ -45,6 +47,7 @@ REQUIRED_SHARED_REFERENCES = {
     "current-sources.md",
     "design-system-and-dna.md",
     "delivery-contracts.md",
+    "engineering-routing.md",
     "prototyping-and-implementation.md",
     "research-and-source-evidence.md",
     "source-registry.json",
@@ -60,6 +63,17 @@ FORBIDDEN_PACKAGE_ENTRIES = {
 }
 REFERENCE_PATTERN = re.compile(r"`(\.\./\.\./references/[^`]+)`")
 DELIVERY_CONTRACT_REFERENCE = "../../references/delivery-contracts.md"
+ENGINEERING_ROUTING_REFERENCE = "../../references/engineering-routing.md"
+ENGINEERING_NEGATIVE_MARKERS = {
+    "compilation",
+    "concurrency",
+    "architecture",
+    "performance",
+    "API usage",
+    "CI",
+    "packaging",
+    "release",
+}
 REQUIRED_DELIVERY_CONTRACT_HEADINGS = {
     "## Contract 1: Visual Direction",
     "## Contract 2: Screen or Flow",
@@ -157,6 +171,11 @@ def validate(repo_root: Path) -> list[str]:
                 errors.append(
                     f"{skill_name} description missing boundary marker: {marker!r}"
                 )
+        for marker in ENGINEERING_NEGATIVE_MARKERS:
+            if marker not in description:
+                errors.append(
+                    f"{skill_name} description missing engineering negative: {marker!r}"
+                )
         for heading in contract["required_headings"]:
             if heading not in contents:
                 errors.append(f"{skill_name} missing contract heading: {heading}")
@@ -175,6 +194,10 @@ def validate(repo_root: Path) -> list[str]:
         if DELIVERY_CONTRACT_REFERENCE not in referenced_paths:
             errors.append(
                 f"{skill_name} must directly apply the shared delivery contracts"
+            )
+        if ENGINEERING_ROUTING_REFERENCE not in referenced_paths:
+            errors.append(
+                f"{skill_name} must directly apply the engineering routing rules"
             )
         for relative_path in referenced_paths:
             resolved = (skill_root / relative_path).resolve()
@@ -199,6 +222,11 @@ def validate(repo_root: Path) -> list[str]:
             if f"${skill_name}" not in agent_contents:
                 errors.append(
                     f"{skill_name} agents/openai.yaml default prompt must mention ${skill_name}"
+                )
+            if "allow_implicit_invocation: true" not in agent_contents:
+                errors.append(
+                    f"{skill_name} agents/openai.yaml must explicitly enable "
+                    "implicit invocation"
                 )
 
     if not references_root.is_dir():

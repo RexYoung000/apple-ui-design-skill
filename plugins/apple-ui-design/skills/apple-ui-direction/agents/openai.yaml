@@ -1,4 +1,6 @@
 interface:
   display_name: "Apple UI Direction"
   short_description: "Define Apple product UI direction and design systems"
-  default_prompt: "Use $apple-ui-direction to define this Apple product interface from product intent and project evidence."
+  default_prompt: "Use $apple-ui-direction to define a visible Apple product UI direction from product intent and project evidence."
+policy:
+  allow_implicit_invocation: true

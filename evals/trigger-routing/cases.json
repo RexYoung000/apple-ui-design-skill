@@ -1,0 +1,358 @@
+{
+  "schema_version": 1,
+  "suite": "trigger-routing",
+  "purpose": "Protect the boundary between Apple UI design outcomes, framework-aware design support, bounded SwiftUI prototyping, and implementation-only engineering work.",
+  "linked_issues": [
+    5,
+    4
+  ],
+  "cases": [
+    {
+      "id": "positive-zero-to-one-direction",
+      "case_kind": "positive",
+      "request": "为一个帮助研究生整理访谈洞察的 iPad 应用定义两套有实质差异的视觉与交互方向，并做出可比较的关键页面。",
+      "expected_primary_route": "apple-ui-direction",
+      "allowed_support_routes": [],
+      "framework": "framework-neutral",
+      "engineering_domain": "none",
+      "implementation_scope": "design-artifact-only",
+      "must_do": [
+        "选择 Apple UI Direction 并交付可见方向证据",
+        "把未验证的用户与视觉判断标记为假设"
+      ],
+      "must_not_do": [
+        "因为目标平台是 iPad 就转入通用 SwiftUI 工程实现",
+        "只交付文字描述而没有可比较画面"
+      ]
+    },
+    {
+      "id": "positive-existing-direction",
+      "case_kind": "positive",
+      "request": "重新设计现有 iPhone 记账产品的月度洞察页，保留现有品牌语言，但重做信息层级、图表叙事和页面动效。",
+      "expected_primary_route": "apple-ui-direction",
+      "allowed_support_routes": [],
+      "framework": "framework-neutral",
+      "engineering_domain": "none",
+      "implementation_scope": "design-artifact-only",
+      "must_do": [
+        "选择 Apple UI Direction 并先读取现有产品证据",
+        "把页面与动效方向作为主要交付结果"
+      ],
+      "must_not_do": [
+        "把任务当成跨平台适配",
+        "把未请求的架构重构加入范围"
+      ]
+    },
+    {
+      "id": "positive-platform-adaptation-mac",
+      "case_kind": "positive",
+      "request": "把已经上线的 iPhone 旅行计划体验适配到 Mac，重新定义窗口、侧栏、命令、键盘和多窗口行为，不要只是拉宽手机页面。",
+      "expected_primary_route": "apple-platform-adaptation",
+      "allowed_support_routes": [],
+      "framework": "framework-neutral",
+      "engineering_domain": "none",
+      "implementation_scope": "adaptation-decision",
+      "must_do": [
+        "选择 Apple Platform Adaptation",
+        "区分共享产品 DNA 与 Mac 特有行为"
+      ],
+      "must_not_do": [
+        "重新定义一个无关的新品牌方向",
+        "把 iPhone 布局等比放大"
+      ]
+    },
+    {
+      "id": "positive-platform-adaptation-ipad",
+      "case_kind": "positive",
+      "request": "现有 macOS 文献管理器要支持 iPadOS，请定义紧凑和宽窗口下的层级、拖放、键盘、指针与连续性方案。",
+      "expected_primary_route": "apple-platform-adaptation",
+      "allowed_support_routes": [],
+      "framework": "framework-neutral",
+      "engineering_domain": "none",
+      "implementation_scope": "adaptation-decision",
+      "must_do": [
+        "选择 Apple Platform Adaptation",
+        "覆盖关键窗口状态和输入方式"
+      ],
+      "must_not_do": [
+        "把任务路由为零到一产品方向",
+        "没有原生证据就宣称窗口与输入行为已验证"
+      ]
+    },
+    {
+      "id": "positive-screenshot-review",
+      "case_kind": "positive",
+      "request": "评审这张 iOS 订阅确认页截图，按用户影响排列问题，说明哪些只是静态画面无法验证。",
+      "expected_primary_route": "apple-ui-review",
+      "allowed_support_routes": [],
+      "framework": "framework-neutral",
+      "engineering_domain": "none",
+      "implementation_scope": "review-only",
+      "must_do": [
+        "选择 Apple UI Review",
+        "限制结论到截图能够支持的证据层级"
+      ],
+      "must_not_do": [
+        "直接重做一套新视觉方向",
+        "从截图推断运行行为已经验证"
+      ]
+    },
+    {
+      "id": "positive-runtime-review",
+      "case_kind": "positive",
+      "request": "根据现有 macOS App、录屏和键盘测试结果做一次发布前 UI 验收评审，优先指出阻塞核心任务的问题。",
+      "expected_primary_route": "apple-ui-review",
+      "allowed_support_routes": [],
+      "framework": "appkit",
+      "engineering_domain": "none",
+      "implementation_scope": "review-only",
+      "must_do": [
+        "选择 Apple UI Review",
+        "按证据和严重度组织可操作发现"
+      ],
+      "must_not_do": [
+        "因为项目使用 AppKit 就切换成 SwiftUI 原型任务",
+        "用审美偏好制造阻塞问题"
+      ]
+    },
+    {
+      "id": "negative-swift-compilation",
+      "case_kind": "negative",
+      "request": "这个 Swift 泛型函数报 Type of expression is ambiguous without a type annotation，帮我定位编译错误并修复。",
+      "expected_primary_route": "engineering-workflow",
+      "allowed_support_routes": [],
+      "framework": "framework-neutral",
+      "engineering_domain": "compilation",
+      "implementation_scope": "engineering-required",
+      "must_do": [
+        "直接按 Swift 编译问题处理"
+      ],
+      "must_not_do": [
+        "加载任何 Apple UI Design 内置 Skill",
+        "把编译问题包装成界面设计任务"
+      ]
+    },
+    {
+      "id": "negative-swift-concurrency",
+      "case_kind": "negative",
+      "request": "修复 Swift 6 并发检查中的 Main actor-isolated property can not be mutated 错误，并说明 Sendable 风险。",
+      "expected_primary_route": "engineering-workflow",
+      "allowed_support_routes": [],
+      "framework": "framework-neutral",
+      "engineering_domain": "concurrency",
+      "implementation_scope": "engineering-required",
+      "must_do": [
+        "按并发与语言正确性问题处理"
+      ],
+      "must_not_do": [
+        "加载任何 Apple UI Design 内置 Skill",
+        "提出无关的 UI 方向"
+      ]
+    },
+    {
+      "id": "negative-swiftui-architecture-performance",
+      "case_kind": "negative",
+      "request": "这个 SwiftUI 列表滚动掉帧，而且 Observable 状态导致整棵视图树重复刷新，请用 Instruments 定位并重构状态架构。",
+      "expected_primary_route": "engineering-workflow",
+      "allowed_support_routes": [],
+      "framework": "swiftui",
+      "engineering_domain": "architecture-performance",
+      "implementation_scope": "engineering-required",
+      "must_do": [
+        "按性能分析与状态架构任务处理"
+      ],
+      "must_not_do": [
+        "因为出现 SwiftUI 就加载 Apple UI Direction",
+        "用视觉调整代替性能证据"
+      ]
+    },
+    {
+      "id": "negative-framework-api",
+      "case_kind": "negative",
+      "request": "NavigationStack 的 navigationDestination(for:) 在 iOS 18 上该怎么组织类型路由？请给出 API 用法和兼容性方案。",
+      "expected_primary_route": "engineering-workflow",
+      "allowed_support_routes": [],
+      "framework": "swiftui",
+      "engineering_domain": "api",
+      "implementation_scope": "engineering-required",
+      "must_do": [
+        "按 SwiftUI API 与版本兼容问题处理"
+      ],
+      "must_not_do": [
+        "加载 Apple UI Direction",
+        "把 API 查询扩张为导航体验重设计"
+      ]
+    },
+    {
+      "id": "negative-ci-release",
+      "case_kind": "negative",
+      "request": "GitHub Actions 的 macOS 构建签名失败，请修好证书导入、归档和 TestFlight 上传步骤。",
+      "expected_primary_route": "engineering-workflow",
+      "allowed_support_routes": [],
+      "framework": "framework-neutral",
+      "engineering_domain": "ci-release",
+      "implementation_scope": "engineering-required",
+      "must_do": [
+        "按 CI、签名和发布任务处理"
+      ],
+      "must_not_do": [
+        "加载任何 Apple UI Design 内置 Skill",
+        "把发布流水线问题归入 UI 验收"
+      ]
+    },
+    {
+      "id": "negative-uikit-engineering",
+      "case_kind": "negative",
+      "request": "这个 UIKit 页面 push 后偶发崩溃，堆栈指向 diffable data source snapshot，帮我定位生命周期和数据一致性问题。",
+      "expected_primary_route": "engineering-workflow",
+      "allowed_support_routes": [],
+      "framework": "uikit",
+      "engineering_domain": "uikit-engineering",
+      "implementation_scope": "engineering-required",
+      "must_do": [
+        "按 UIKit 崩溃与数据一致性问题处理"
+      ],
+      "must_not_do": [
+        "承诺用 SwiftUI 重写页面",
+        "加载 Apple UI Review 代替崩溃诊断"
+      ]
+    },
+    {
+      "id": "negative-appkit-engineering",
+      "case_kind": "negative",
+      "request": "NSDocument 自动保存会造成重复写入，帮我检查 AppKit API、线程与文件协调实现。",
+      "expected_primary_route": "engineering-workflow",
+      "allowed_support_routes": [],
+      "framework": "appkit",
+      "engineering_domain": "appkit-engineering",
+      "implementation_scope": "engineering-required",
+      "must_do": [
+        "按 AppKit API、线程和文件协调问题处理"
+      ],
+      "must_not_do": [
+        "加载 Apple Platform Adaptation",
+        "用界面规范代替工程修复"
+      ]
+    },
+    {
+      "id": "boundary-bounded-swiftui-prototype",
+      "case_kind": "boundary",
+      "request": "用一个独立 SwiftUI 原型比较底部标签栏和分栏导航，目标是确定现有 iPad 产品的信息架构，不接入业务数据。",
+      "expected_primary_route": "apple-ui-direction",
+      "allowed_support_routes": [],
+      "framework": "swiftui",
+      "engineering_domain": "none",
+      "implementation_scope": "bounded-design-led",
+      "must_do": [
+        "选择 Apple UI Direction 并把代码限制为设计验证原型",
+        "运行或渲染原型后再声明原型完成"
+      ],
+      "must_not_do": [
+        "把原型冒充生产集成",
+        "引入业务数据或改造应用架构"
+      ]
+    },
+    {
+      "id": "boundary-approved-swiftui-view-change",
+      "case_kind": "boundary",
+      "request": "设计已经确认，请把现有 SwiftUI 设置页的视觉层级和组件状态按设计稿落到视图层；不要改状态模型、持久化或导航架构。",
+      "expected_primary_route": "apple-ui-direction",
+      "allowed_support_routes": [
+        "engineering-workflow"
+      ],
+      "framework": "swiftui",
+      "engineering_domain": "none",
+      "implementation_scope": "bounded-design-led",
+      "must_do": [
+        "把范围限制在表现层并保留现有工程边界",
+        "按真实运行证据分别报告设计与代码状态"
+      ],
+      "must_not_do": [
+        "顺手重构状态、持久化或导航架构",
+        "仅凭编译通过宣称体验已验收"
+      ]
+    },
+    {
+      "id": "boundary-uikit-accessibility-review",
+      "case_kind": "boundary",
+      "request": "评审这个 UIKit 结账流程的 VoiceOver 顺序、动态字体和错误恢复，给工程团队明确的修改与验证清单。",
+      "expected_primary_route": "apple-ui-review",
+      "allowed_support_routes": [
+        "engineering-workflow"
+      ],
+      "framework": "uikit",
+      "engineering_domain": "none",
+      "implementation_scope": "mixed-handoff",
+      "must_do": [
+        "选择 Apple UI Review 并基于 UIKit 真实证据评审",
+        "把生产修改明确交给工程工作流"
+      ],
+      "must_not_do": [
+        "承诺 SwiftUI 实现",
+        "未经运行证据就宣称 VoiceOver 已通过"
+      ]
+    },
+    {
+      "id": "boundary-appkit-adaptation-integration",
+      "case_kind": "boundary",
+      "request": "把现有 UIKit iPhone 工作流适配成原生 Mac 产品，同时需要最终接入 AppKit 菜单、命令和多窗口。",
+      "expected_primary_route": "apple-platform-adaptation",
+      "allowed_support_routes": [
+        "engineering-workflow"
+      ],
+      "framework": "appkit",
+      "engineering_domain": "none",
+      "implementation_scope": "mixed-handoff",
+      "must_do": [
+        "由 Apple Platform Adaptation 定义平台体验",
+        "由工程工作流承担 AppKit 生产集成和 API 正确性"
+      ],
+      "must_not_do": [
+        "用 SwiftUI 手机形状原型证明 AppKit 行为",
+        "静默迁移现有 UIKit 或 AppKit 架构"
+      ]
+    },
+    {
+      "id": "boundary-review-and-fix",
+      "case_kind": "boundary",
+      "request": "先评审这个 macOS 搜索流程的录屏，然后修复所有确认的问题并准备发布。",
+      "expected_primary_route": "apple-ui-review",
+      "allowed_support_routes": [
+        "apple-ui-direction",
+        "engineering-workflow"
+      ],
+      "framework": "framework-neutral",
+      "engineering_domain": "none",
+      "implementation_scope": "mixed-handoff",
+      "must_do": [
+        "先用 Apple UI Review 建立证据化问题清单",
+        "把需要重设计与生产修复的工作分别路由"
+      ],
+      "must_not_do": [
+        "在评审前假设所有问题都成立",
+        "让 UI Review 独立承担发布"
+      ]
+    },
+    {
+      "id": "boundary-ambiguous-ui-slow",
+      "case_kind": "boundary",
+      "request": "这个 SwiftUI 搜索界面感觉很慢，帮我优化一下。",
+      "expected_primary_route": "clarify-route",
+      "allowed_support_routes": [
+        "apple-ui-review",
+        "engineering-workflow"
+      ],
+      "framework": "swiftui",
+      "engineering_domain": "none",
+      "implementation_scope": "mixed-handoff",
+      "must_do": [
+        "先区分感知反馈问题与可测量性能问题",
+        "只问一个会改变路由的关键问题或先检查可用运行证据"
+      ],
+      "must_not_do": [
+        "因为 SwiftUI 自动选择 Apple UI Direction",
+        "没有性能数据就断言根因"
+      ]
+    }
+  ]
+}

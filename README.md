@@ -26,6 +26,21 @@ The installable plugin contains three focused skills. They share one evidence an
 
 Production SwiftUI architecture, debugging, performance, CI, and release work remain engineering responsibilities. These skills provide product intent, interface decisions, evidence requirements, and acceptance criteria to the applicable engineering workflow.
 
+## Trigger and Engineering Boundaries
+
+The requested outcome—not the presence of words such as Apple, SwiftUI, UIKit, or AppKit—determines whether a bundled skill should run.
+
+- Direction, screen, flow, design-system, interaction, motion, and design-led prototype requests route to `$apple-ui-direction`.
+- Translation of an established product between Apple platforms routes to `$apple-platform-adaptation`.
+- Critique, audit, validation, acceptance review, and prioritized UI findings route to `$apple-ui-review`.
+- Compilation, concurrency, state management, architecture, performance, API usage, testing infrastructure, CI, packaging, and release route to an applicable engineering workflow.
+
+The design skills may create a disposable native prototype or make a bounded presentation-layer SwiftUI change when code is required to answer an approved design question and existing architecture remains intact. Production integration, business logic, data, dependencies, broad refactors, and engineering correctness remain outside their independent ownership.
+
+UIKit and AppKit products remain valid design, adaptation, and review targets. The plugin inspects their actual evidence and produces framework-aware decisions, but it does not promise SwiftUI implementation, silently migrate frameworks, or claim UIKit/AppKit production integration without an applicable engineering workflow and native verification.
+
+The three bundled skills keep implicit invocation enabled because their outcomes are now distinct. Each `agents/openai.yaml` declares the same policy explicitly. The legacy root compatibility router remains explicit-only.
+
 ## Core Principles
 
 1. **Product intent comes first.** Confirmed decisions define the intended experience, while evidence labels keep known user needs separate from hypotheses.
@@ -137,6 +152,10 @@ Web references such as 60fps, Recent, Awwwards, React Bits, and Magic UI may ins
 ├── evals/
 │   ├── plugin-split/
 │   │   └── runs/
+│   ├── trigger-routing/
+│   │   ├── README.md
+│   │   ├── cases.json
+│   │   └── runs/
 │   ├── delivery-contracts/
 │   │   ├── README.md
 │   │   ├── cases.json
@@ -157,11 +176,13 @@ Web references such as 60fps, Recent, Awwwards, React Bits, and Magic UI may ins
 │           ├── apple-ui-direction/
 │           └── apple-ui-review/
 ├── scripts/
+│   ├── validate_trigger_routing_evals.py
 │   ├── validate_product_starting_point_evals.py
 │   ├── validate_delivery_contract_evals.py
 │   ├── validate_plugin_architecture.py
 │   └── validate_source_registry.py
 └── tests/
+    ├── test_trigger_routing_evals.py
     ├── test_plugin_architecture.py
     ├── test_delivery_contract_evals.py
     ├── test_product_starting_point_evals.py
@@ -174,9 +195,11 @@ Web references such as 60fps, Recent, Awwwards, React Bits, and Magic UI may ins
 - `.agents/plugins/marketplace.json` exposes the plugin through the public GitHub repository.
 - Root `SKILL.md` and `agents/openai.yaml` provide explicit-call compatibility for legacy standalone installations only.
 - `evals/plugin-split/` preserves independent forward-test and installed-session evidence for all three bundled skills.
+- `evals/trigger-routing/` separates positive design intents, implementation-only negatives, and mixed design-engineering boundary cases.
 - `evals/delivery-contracts/` defines one realistic task and observable evidence assertions for each of the six delivery contracts.
 - `evals/product-starting-point/` contains fixed small-change, major-redesign, and zero-to-one evidence cases, review assertions, and preserved forward-test evidence.
 - `scripts/validate_delivery_contract_evals.py` checks contract coverage, fixture integrity, required artifacts, forbidden claims, and evidence expectations.
+- `scripts/validate_trigger_routing_evals.py` checks route coverage, implementation boundaries, and the required engineering-negative domains.
 - `scripts/validate_product_starting_point_evals.py` checks the evaluation schema, required scenarios, assertions, and fixture paths.
 - `scripts/validate_plugin_architecture.py` protects skill boundaries, shared-reference ownership, and package hygiene.
 - `tests/` protects the plugin architecture, evaluation, and source-registry validators.

@@ -4,6 +4,8 @@ Use this reference when choosing a prototype medium, generating SwiftUI, or tran
 
 Bundled design skills use it to select evidence fidelity and hand work to engineering without claiming production ownership.
 
+Read `engineering-routing.md` first when the task includes implementation code. It defines when a design artifact is sufficient, when bounded design-led SwiftUI work is allowed, and when an engineering workflow is required.
+
 ## Choose Fidelity by Decision
 
 Use the cheapest artifact that can answer the current question:
@@ -49,6 +51,14 @@ SwiftUI should express the approved design:
 Do not change architecture, introduce dependencies, or perform broad refactors solely to make a screen easier to style. Route architecture and performance work to the applicable engineering skill.
 
 Native validation checks whether the intended behavior survives the real platform. It does not grade visual similarity to Apple system apps.
+
+## UIKit and AppKit
+
+UIKit and AppKit products remain first-class design, adaptation, and review targets. Inspect their actual view hierarchy, navigation, windows, commands, focus behavior, assets, state model, and runtime evidence.
+
+Do not rewrite a UIKit or AppKit product into SwiftUI because SwiftUI is easier to prototype. A separate SwiftUI prototype may answer a bounded design question only when it is labelled as a prototype and does not stand in for UIKit or AppKit integration evidence.
+
+Production UIKit and AppKit implementation, framework API correctness, interoperability, architecture, testing, packaging, and release belong to an applicable engineering workflow.
 
 ## Prototype Requirements
 

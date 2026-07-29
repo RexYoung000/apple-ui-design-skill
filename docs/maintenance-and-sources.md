@@ -122,6 +122,18 @@ Use realistic prompts to check the skill’s behavior. The fixed product-startin
 
 The plugin split and independent invocation evidence lives under `evals/plugin-split/runs/`.
 The six mode-level delivery contracts live in `evals/delivery-contracts/cases.json`; validate their structure with `python3 scripts/validate_delivery_contract_evals.py`.
+Trigger ownership and engineering boundaries live in `evals/trigger-routing/cases.json`; validate their structure with `python3 scripts/validate_trigger_routing_evals.py`.
+
+Each trigger-routing case must identify:
+
+- whether it is a positive design intent, an implementation-only negative, or a mixed boundary;
+- the requested user-visible outcome rather than relying on framework keywords;
+- one expected primary route;
+- any allowed supporting route;
+- the permitted implementation scope;
+- required routing behavior and forbidden promises.
+
+The suite must cover each bundled design skill, pure Swift compilation and concurrency, performance and architecture, API questions, CI or release, UIKit, AppKit, bounded SwiftUI view work, and mixed design-engineering handoffs. Keep implicit invocation enabled only while fresh-session tests show that these negative engineering prompts do not load a bundled design skill.
 
 Each delivery-contract case must identify:
 

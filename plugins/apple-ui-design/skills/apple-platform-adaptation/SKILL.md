@@ -1,6 +1,6 @@
 ---
 name: apple-platform-adaptation
-description: Adapt an established product experience between iOS, iPadOS, and macOS while preserving shared product DNA and defining platform-specific hierarchy, navigation, windowing, density, and input behavior. Use when an existing screen, flow, or product must work on another supported Apple platform or across multiple Apple platforms. Do not use for a zero-to-one visual direction, critique-only review, or general SwiftUI engineering.
+description: Adapt an established iOS, iPadOS, or macOS product experience to another Apple platform or a multi-platform model. Use when the requested outcome is platform-specific hierarchy, navigation, windowing, density, input, continuity, or a shared-versus-specific adaptation decision. Do not use for zero-to-one direction, critique-only review, or implementation-only Swift, SwiftUI, UIKit, or AppKit work such as compilation, concurrency, architecture, state management, performance, API usage, CI, packaging, or release.
 ---
 
 # Apple Platform Adaptation
@@ -20,7 +20,7 @@ Derive from the project before asking:
 
 If platform roles or feature relationships are unresolved and would change the information architecture, ask one highest-impact question. Never impose primary, peer, or companion labels.
 
-Read `../../references/authority-and-principles.md`, `../../references/context-and-alignment.md`, `../../references/delivery-contracts.md`, and `../../references/apple-platform-adaptation.md` before defining the adaptation. Select the Platform Adaptation contract and state its artifact and evidence gate.
+Read `../../references/authority-and-principles.md`, `../../references/context-and-alignment.md`, `../../references/engineering-routing.md`, `../../references/delivery-contracts.md`, and `../../references/apple-platform-adaptation.md` before defining the adaptation. Select the Platform Adaptation contract and state its artifact and evidence gate. Decide whether the result stops at design evidence, includes a bounded design-led prototype, or requires engineering partnership.
 
 ## Adaptation Workflow
 
@@ -65,6 +65,8 @@ Read `../../references/prototyping-and-implementation.md` and `../../references/
 
 Use visible layout evidence for each material size class or window state. Exercise input and window behavior in native environments before claiming platform adaptation is verified. Pair with an engineering skill when production implementation is requested.
 
+UIKit and AppKit products remain valid adaptation inputs. Preserve their actual architecture and framework unless the user has separately approved a migration. Do not promise SwiftUI production integration for them, and do not use an iOS-shaped SwiftUI mockup as proof of AppKit window, menu, command, focus, or multi-window behavior.
+
 ## Successful Result
 
 Deliver:
@@ -83,4 +85,4 @@ Do not redefine the whole product direction unless the adaptation reveals a mate
 
 ## Boundaries
 
-Route a new brand, new product, or broad visual-system exploration to `$apple-ui-direction`. Route formal critique of an existing adaptation to `$apple-ui-review`. Route Swift architecture, state refactoring, debugging, performance, CI, packaging, and release work to an applicable engineering workflow.
+Route a new brand, new product, or broad visual-system exploration to `$apple-ui-direction`. Route formal critique of an existing adaptation to `$apple-ui-review`. Route Swift correctness, framework API work, architecture, state refactoring, debugging, performance, tests, CI, packaging, and release to an applicable engineering workflow. Keep platform experience decisions and acceptance criteria in this skill when the task is mixed.

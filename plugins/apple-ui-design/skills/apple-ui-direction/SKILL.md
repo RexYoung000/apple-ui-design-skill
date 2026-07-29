@@ -1,6 +1,6 @@
 ---
 name: apple-ui-direction
-description: Define or redesign Apple product UI direction for iOS, iPadOS, or macOS. Use for zero-to-one or existing products when the requested outcome is a visual direction, screen or flow, navigation model, design system, interaction or motion concept, or design-led native prototype. Do not use for cross-platform adaptation of an established experience, critique-only review, or general Swift and SwiftUI engineering.
+description: Define or redesign an iOS, iPadOS, or macOS product interface. Use when the requested outcome is a visual direction, screen or flow design, navigation model, design system, interaction or motion concept, or design-led prototype for a zero-to-one or existing product. Do not use for critique-only review, established cross-platform adaptation, or implementation-only Swift, SwiftUI, UIKit, or AppKit work such as compilation, concurrency, architecture, state management, performance, API usage, CI, packaging, or release.
 ---
 
 # Apple UI Direction
@@ -25,8 +25,9 @@ Before proposing a direction:
 2. Read `../../references/authority-and-principles.md`.
 3. Read `../../references/context-and-alignment.md` and determine whether the product is existing or zero-to-one.
 4. Derive or align the primary user, core task, target platform context, material constraints, and requested artifact.
-5. Read `../../references/delivery-contracts.md`, select one primary contract, and state its artifact and evidence gate.
-6. Ask only the highest-impact unresolved question. Do not ask the user to repeat project facts.
+5. Read `../../references/engineering-routing.md` and decide whether the result is a design artifact, bounded design-led implementation, or a design-to-engineering handoff.
+6. Read `../../references/delivery-contracts.md`, select one primary contract, and state its artifact and evidence gate.
+7. Ask only the highest-impact unresolved question. Do not ask the user to repeat project facts.
 
 For a small reversible change with sufficient evidence, reuse the established user and interaction model. For a major redesign, recheck whether that model still supports the intended product. For zero-to-one work, expose confirmed product intent, research status, hypotheses, and material unknowns before direction claims.
 
@@ -65,7 +66,7 @@ Follow the selected contract in `../../references/delivery-contracts.md`. Match 
 - use native SwiftUI preview, simulator, or a real macOS app when claiming Apple-native behavior;
 - use real project components and representative content for an existing product.
 
-Read `../../references/prototyping-and-implementation.md`. A browser prototype does not prove native behavior, and production integration belongs to the project’s engineering workflow.
+Read `../../references/prototyping-and-implementation.md`. A browser prototype does not prove native behavior, and production integration belongs to the project’s engineering workflow. A bounded SwiftUI presentation-layer change is allowed only when it directly validates an approved design question and preserves architecture, domain state, data, dependencies, and delivery mechanics.
 
 ### 6. Design accessibility and localization into the result
 
@@ -92,3 +93,14 @@ Deliver:
 - the exact visual and interaction acceptance path.
 
 Do not finish with only polished prose when the request requires a visual or operable design artifact.
+
+## Engineering Boundary
+
+The requested outcome, not a framework keyword, determines ownership.
+
+- Create design specifications or handoff evidence when implementation was not requested or the direction remains unresolved.
+- Create a disposable SwiftUI prototype or make a bounded presentation-layer SwiftUI change only under the conditions in `../../references/engineering-routing.md`.
+- For UIKit or AppKit projects, inspect and design against the actual framework and runtime evidence. Do not promise SwiftUI production implementation or migrate frameworks by convenience.
+- Route compilation, concurrency, architecture, state management, persistence, networking, performance, API correctness, test infrastructure, CI, signing, packaging, and release to an applicable engineering workflow.
+
+For mixed tasks, retain ownership of intended experience and acceptance criteria while the engineering workflow owns production correctness and integration.

@@ -1,6 +1,6 @@
 ---
 name: apple-ui-review
-description: Review an existing iOS, iPadOS, or macOS design, prototype, or UI implementation against confirmed product intent, platform behavior, accessibility, localization, craft, and runtime evidence. Use for critique, audit, validation, acceptance review, or prioritizing UI findings. Do not use when the primary request is to create a new direction, perform cross-platform adaptation, or debug general Swift code.
+description: Review an existing iOS, iPadOS, or macOS design, screenshot, prototype, recording, or UI implementation. Use when the requested outcome is critique, audit, validation, acceptance review, or prioritized findings against product intent, platform behavior, accessibility, localization, craft, or runtime evidence. Do not use for a new direction, cross-platform adaptation, or implementation-only Swift, SwiftUI, UIKit, or AppKit work such as compilation, concurrency, architecture, state management, performance, API usage, CI, packaging, or release.
 ---
 
 # Apple UI Review
@@ -12,9 +12,9 @@ Assess an existing artifact against its intended product outcome. Report evidenc
 Before reviewing:
 
 1. Inspect repository instructions, product intent, target users and tasks, platform scope, design system, screenshots, recordings, implementation, tests, and runtime evidence that are available.
-2. Read `../../references/authority-and-principles.md` and `../../references/context-and-alignment.md`.
+2. Read `../../references/authority-and-principles.md`, `../../references/context-and-alignment.md`, and `../../references/engineering-routing.md`.
 3. Read `../../references/delivery-contracts.md`, select the UI Review contract, and state its evidence gate.
-4. Identify the exact artifact, screen, state, platform, environment, and requested review depth.
+4. Identify the exact artifact, screen, state, framework, platform, environment, and requested review depth.
 5. Ask only for missing evidence that would materially change the findings.
 
 A user-provided screenshot or recording can support review of what it shows. Text description alone supports only unverified consultation. A build result does not prove usable interaction.
@@ -95,4 +95,4 @@ If there are no actionable findings, say so and name the evidence limits. Do not
 
 ## Boundaries
 
-Route creation of a new product or visual direction to `$apple-ui-direction`. Route redesign for another Apple platform to `$apple-platform-adaptation`. Route Swift correctness, architecture, performance, CI, packaging, and release diagnosis to an applicable engineering workflow.
+Route creation of a new product or visual direction to `$apple-ui-direction`. Route redesign for another Apple platform to `$apple-platform-adaptation`. Review UIKit and AppKit evidence directly without promising SwiftUI replacement. Route Swift correctness, framework API work, architecture, state management, performance, test infrastructure, CI, packaging, and release diagnosis to an applicable engineering workflow. A review may define the intended correction and verification path; it does not independently own production integration.
