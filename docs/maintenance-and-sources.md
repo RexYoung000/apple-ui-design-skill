@@ -123,6 +123,26 @@ Use realistic prompts to check the skill’s behavior. The fixed product-startin
 The plugin split and independent invocation evidence lives under `evals/plugin-split/runs/`.
 The six mode-level delivery contracts live in `evals/delivery-contracts/cases.json`; validate their structure with `python3 scripts/validate_delivery_contract_evals.py`.
 Trigger ownership and engineering boundaries live in `evals/trigger-routing/cases.json`; validate their structure with `python3 scripts/validate_trigger_routing_evals.py`.
+The release-level trigger and output matrix lives in `evals/skill-regression/cases.json`. Run the complete deterministic gate with `python3 scripts/run_regression_checks.py`.
+
+The unified matrix must contain exactly five scenario types for each bundled skill:
+
+1. **direct** — explicitly names the intended workflow or outcome;
+2. **indirect** — expresses the same product goal without a skill name;
+3. **incomplete** — withholds evidence that would materially change the result;
+4. **negative** — is an implementation-only engineering request that must not load a bundled design skill;
+5. **risk** — invites unsupported version, asset, runtime, accessibility, or completion claims.
+
+Each case must include fixed fixture paths, required and forbidden skill loads, required output-pattern groups, forbidden output patterns, and human-readable behavior assertions. Do not pass the patterns or assertions to the live model.
+
+`evals/skill-regression/goldens.json` protects reviewed high-quality outputs with SHA-256 checksums. Changing a golden is an explicit review action: update the content, rerun its case evaluator, review the diff, then update the checksum. Do not automatically rewrite golden outputs from a live model run.
+
+GitHub Actions runs deterministic validators, golden checks, and unit tests. It intentionally does not call Codex or any online model. To assess a model or prompt change, save the raw JSONL trace and final response from a fresh session and run:
+
+```bash
+python3 scripts/evaluate_skill_regression_output.py \
+  <case-id> --trace <trace.jsonl> --output <output.md>
+```
 
 Each trigger-routing case must identify:
 

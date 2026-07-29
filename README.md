@@ -68,6 +68,30 @@ Exact visual values must come from project evidence, a rendered artifact, or rem
 
 Completion is reported in distinct stages: **direction aligned**, **design complete**, **prototype complete**, **code complete**, **experience verified**, and **user accepted**. A later stage is never inferred from an earlier one.
 
+## Regression Testing
+
+The repository uses two complementary regression layers:
+
+- **Deterministic CI checks** validate plugin structure, source integrity, delivery contracts, product starting points, routing rules, the fixed 15-case skill matrix, output assertions, and protected golden-output checksums.
+- **Fresh-session model checks** run selected prompts without exposing their assertions, then evaluate the saved skill trace and final output against the same case definition.
+
+Each bundled skill has one direct request, one indirect request, one incomplete-information case, one implementation-only negative, and one evidence-risk boundary case. Every case includes fixed input material, the expected loaded and forbidden skills, required output behavior, and forbidden claims.
+
+Run the complete deterministic gate:
+
+```bash
+python3 scripts/run_regression_checks.py
+```
+
+Evaluate a saved fresh-session result:
+
+```bash
+python3 scripts/evaluate_skill_regression_output.py \
+  <case-id> --trace <trace.jsonl> --output <output.md>
+```
+
+CI deliberately does not call a live model: network availability and model variation are not deterministic release gates. Live results are preserved separately and must never receive the hidden assertions in their prompts.
+
 ## Install the Plugin
 
 Add this public repository as a Codex marketplace, then install the plugin:
@@ -147,6 +171,9 @@ Web references such as 60fps, Recent, Awwwards, React Bits, and Magic UI may ins
 ├── .agents/
 │   └── plugins/
 │       └── marketplace.json
+├── .github/
+│   └── workflows/
+│       └── validate.yml
 ├── docs/
 │   └── maintenance-and-sources.md
 ├── evals/
@@ -156,6 +183,11 @@ Web references such as 60fps, Recent, Awwwards, React Bits, and Magic UI may ins
 │   │   ├── README.md
 │   │   ├── cases.json
 │   │   └── runs/
+│   ├── skill-regression/
+│   │   ├── README.md
+│   │   ├── cases.json
+│   │   ├── fixtures/
+│   │   └── goldens.json
 │   ├── delivery-contracts/
 │   │   ├── README.md
 │   │   ├── cases.json
@@ -176,12 +208,17 @@ Web references such as 60fps, Recent, Awwwards, React Bits, and Magic UI may ins
 │           ├── apple-ui-direction/
 │           └── apple-ui-review/
 ├── scripts/
+│   ├── run_regression_checks.py
+│   ├── evaluate_skill_regression_output.py
+│   ├── validate_skill_regression_evals.py
 │   ├── validate_trigger_routing_evals.py
 │   ├── validate_product_starting_point_evals.py
 │   ├── validate_delivery_contract_evals.py
 │   ├── validate_plugin_architecture.py
 │   └── validate_source_registry.py
 └── tests/
+    ├── test_skill_regression_evals.py
+    ├── test_skill_regression_output.py
     ├── test_trigger_routing_evals.py
     ├── test_plugin_architecture.py
     ├── test_delivery_contract_evals.py
@@ -196,13 +233,17 @@ Web references such as 60fps, Recent, Awwwards, React Bits, and Magic UI may ins
 - Root `SKILL.md` and `agents/openai.yaml` provide explicit-call compatibility for legacy standalone installations only.
 - `evals/plugin-split/` preserves independent forward-test and installed-session evidence for all three bundled skills.
 - `evals/trigger-routing/` separates positive design intents, implementation-only negatives, and mixed design-engineering boundary cases.
+- `evals/skill-regression/` is the unified 15-case trigger-and-output matrix and golden-output registry.
 - `evals/delivery-contracts/` defines one realistic task and observable evidence assertions for each of the six delivery contracts.
 - `evals/product-starting-point/` contains fixed small-change, major-redesign, and zero-to-one evidence cases, review assertions, and preserved forward-test evidence.
 - `scripts/validate_delivery_contract_evals.py` checks contract coverage, fixture integrity, required artifacts, forbidden claims, and evidence expectations.
 - `scripts/validate_trigger_routing_evals.py` checks route coverage, implementation boundaries, and the required engineering-negative domains.
+- `scripts/evaluate_skill_regression_output.py` checks a saved trace and response against one case without exposing assertions to the model.
+- `scripts/run_regression_checks.py` is the single deterministic local and CI entry point.
 - `scripts/validate_product_starting_point_evals.py` checks the evaluation schema, required scenarios, assertions, and fixture paths.
 - `scripts/validate_plugin_architecture.py` protects skill boundaries, shared-reference ownership, and package hygiene.
 - `tests/` protects the plugin architecture, evaluation, and source-registry validators.
+- `.github/workflows/validate.yml` runs the same deterministic gate for pushes and pull requests.
 
 ## Scope
 

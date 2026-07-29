@@ -68,6 +68,30 @@ UIKit 与 AppKit 项目仍然可以使用本 Plugin 完成设计、适配与评�
 
 完成状态必须分层表达：**方向已对齐**、**设计完成**、**原型完成**、**代码完成**、**体验已验证**、**用户已验收**。不得从前一阶段自动推导后一阶段。
 
+## 回归测试
+
+仓库使用两层互补的回归机制：
+
+- **确定性 CI 检查**用于验证 Plugin 结构、来源完整性、交付合同、产品起点、路由规则、固定的 15 案例 Skill 矩阵、输出断言和受保护的黄金输出校验和。
+- **全新会话模型检查**在不泄露断言的前提下运行选定 Prompt，再用同一案例定义检查保存的 Skill 加载轨迹与最终输出。
+
+每个内置 Skill 都固定包含一个直接请求、一个间接请求、一个信息不足案例、一个仅工程负例和一个证据风险边界案例。每个案例都包含固定输入素材、应加载和禁止加载的 Skill、必需输出行为以及禁止声明。
+
+运行完整确定性门禁：
+
+```bash
+python3 scripts/run_regression_checks.py
+```
+
+检查一次保存的新会话结果：
+
+```bash
+python3 scripts/evaluate_skill_regression_output.py \
+  <case-id> --trace <trace.jsonl> --output <output.md>
+```
+
+CI 不调用在线模型，因为网络状态和模型波动不应伪装成确定性的发布门禁。真实模型运行需要单独保存，并且 Prompt 中不得包含隐藏断言。
+
 ## 安装 Plugin
 
 先将本公开仓库添加为 Codex Marketplace，再安装 Plugin：
@@ -149,6 +173,9 @@ Skill 使用混合研究模式：
 ├── .agents/
 │   └── plugins/
 │       └── marketplace.json
+├── .github/
+│   └── workflows/
+│       └── validate.yml
 ├── docs/
 │   └── maintenance-and-sources.md
 ├── evals/
@@ -158,6 +185,11 @@ Skill 使用混合研究模式：
 │   │   ├── README.md
 │   │   ├── cases.json
 │   │   └── runs/
+│   ├── skill-regression/
+│   │   ├── README.md
+│   │   ├── cases.json
+│   │   ├── fixtures/
+│   │   └── goldens.json
 │   ├── delivery-contracts/
 │   │   ├── README.md
 │   │   ├── cases.json
@@ -178,12 +210,17 @@ Skill 使用混合研究模式：
 │           ├── apple-ui-direction/
 │           └── apple-ui-review/
 ├── scripts/
+│   ├── run_regression_checks.py
+│   ├── evaluate_skill_regression_output.py
+│   ├── validate_skill_regression_evals.py
 │   ├── validate_trigger_routing_evals.py
 │   ├── validate_product_starting_point_evals.py
 │   ├── validate_delivery_contract_evals.py
 │   ├── validate_plugin_architecture.py
 │   └── validate_source_registry.py
 └── tests/
+    ├── test_skill_regression_evals.py
+    ├── test_skill_regression_output.py
     ├── test_trigger_routing_evals.py
     ├── test_plugin_architecture.py
     ├── test_delivery_contract_evals.py
@@ -198,13 +235,17 @@ Skill 使用混合研究模式：
 - 根级 `SKILL.md` 与 `agents/openai.yaml` 只为旧版独立安装提供显式调用兼容。
 - `evals/plugin-split/` 保留三个内置 Skills 的独立前向测试与安装后新会话证据。
 - `evals/trigger-routing/` 区分正向设计意图、仅工程负例和设计与工程混合边界案例。
+- `evals/skill-regression/` 是统一的 15 案例触发与输出矩阵及黄金输出注册表。
 - `evals/delivery-contracts/` 为六类交付合同分别提供一项真实任务与可观察的证据断言。
 - `evals/product-starting-point/` 提供固定的小改动、重大改版与从零产品证据场景、评审断言和保留的前向测试证据。
 - `scripts/validate_delivery_contract_evals.py` 用于检查合同覆盖、固定素材、必需产物、禁止声明和证据要求。
 - `scripts/validate_trigger_routing_evals.py` 用于检查路由覆盖、实现边界和必须覆盖的工程负例领域。
+- `scripts/evaluate_skill_regression_output.py` 在不向模型泄露断言的情况下检查一次保存的加载轨迹和响应。
+- `scripts/run_regression_checks.py` 是本地和 CI 共用的唯一确定性入口。
 - `scripts/validate_product_starting_point_evals.py` 用于检查评测结构、必需场景、行为断言和固定素材路径。
 - `scripts/validate_plugin_architecture.py` 用于保护 Skill 边界、共享规则所有权和安装包纯度。
 - `tests/` 用于保护 Plugin 架构、评测与资源校验器必须识别的错误场景。
+- `.github/workflows/validate.yml` 会在 push 与 pull request 中执行同一套确定性门禁。
 
 ## 边界
 

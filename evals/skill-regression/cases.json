@@ -1,0 +1,372 @@
+{
+  "schema_version": 1,
+  "suite": "skill-regression",
+  "purpose": "Evaluate routing and output quality for each bundled skill across direct, indirect, incomplete, engineering-negative, and evidence-risk scenarios.",
+  "linked_issues": [2, 3, 4, 5],
+  "skill_policy_sources": {
+    "apple-ui-direction": {
+      "path": "plugins/apple-ui-design/skills/apple-ui-direction/SKILL.md",
+      "required_markers": [
+        "Do not finish with only polished prose",
+        "../../references/engineering-routing.md",
+        "A browser prototype does not prove native behavior"
+      ]
+    },
+    "apple-platform-adaptation": {
+      "path": "plugins/apple-ui-design/skills/apple-platform-adaptation/SKILL.md",
+      "required_markers": [
+        "Do not create an iPad or Mac experience by stretching the iPhone layout",
+        "Exercise input and window behavior in native environments before claiming",
+        "Do not promise SwiftUI production integration"
+      ]
+    },
+    "apple-ui-review": {
+      "path": "plugins/apple-ui-design/skills/apple-ui-review/SKILL.md",
+      "required_markers": [
+        "Do not assign numeric scores by default",
+        "Do not claim native validation from HTML",
+        "If there are no actionable findings, say so"
+      ]
+    }
+  },
+  "cases": [
+    {
+      "id": "direction-direct-visible-options",
+      "owner_skill": "apple-ui-direction",
+      "scenario_type": "direct",
+      "request": "Use $apple-ui-direction to create two materially different visible directions for the FieldNotes Today screen and explain the evidence limit of each.",
+      "fixture_paths": ["evals/skill-regression/fixtures/direction-product.md"],
+      "expected_route": {
+        "must_load": ["apple-ui-direction"],
+        "must_not_load": ["apple-platform-adaptation", "apple-ui-review"]
+      },
+      "output_assertions": {
+        "required_all": ["(?i)(evidence|证据)", "(?i)(render|visible|画面|渲染)"],
+        "required_any": [
+          ["(?i)(two|2|两套|两个).*(direction|方向)", "(?i)(direction|方向).*(a|b|甲|乙)"],
+          ["(?i)(user acceptance|用户验收|user selection|用户选择)", "(?i)(proposed|提案|待确认)"]
+        ],
+        "forbidden": ["(?i)(experience verified|体验已验证)\\s*[。.!]?$", "(?i)(user accepted|用户已验收)\\s*[。.!]?$"]
+      },
+      "behavior": {
+        "must_do": ["Produce or explicitly stop for rendered comparison artifacts.", "Keep unselected direction and native behavior unverified."],
+        "must_not_do": ["Finish with a prose mood board.", "Claim user selection or native verification."]
+      }
+    },
+    {
+      "id": "direction-indirect-hierarchy",
+      "owner_skill": "apple-ui-direction",
+      "scenario_type": "indirect",
+      "request": "The FieldNotes Today screen feels scattered. Show me meaningfully different ways to make the next research action clearer without losing evidence traceability.",
+      "fixture_paths": ["evals/skill-regression/fixtures/direction-product.md"],
+      "expected_route": {
+        "must_load": ["apple-ui-direction"],
+        "must_not_load": ["apple-platform-adaptation", "apple-ui-review"]
+      },
+      "output_assertions": {
+        "required_all": ["(?i)(trace|evidence|证据|可追溯)", "(?i)(hierarchy|层级|priority|优先)"],
+        "required_any": [
+          ["(?i)(alternative|option|方向|方案)", "(?i)(compare|comparison|比较|对比)"]
+        ],
+        "forbidden": ["(?i)(navigation architecture has been validated|导航架构已经验证)", "(?i)(default Apple style|默认 Apple 风格)"]
+      },
+      "behavior": {
+        "must_do": ["Infer direction intent without requiring an explicit skill name.", "Preserve the confirmed evidence-linking interaction."],
+        "must_not_do": ["Route to platform adaptation.", "Reduce alternatives to recolors."]
+      }
+    },
+    {
+      "id": "direction-incomplete-wellbeing",
+      "owner_skill": "apple-ui-direction",
+      "scenario_type": "incomplete",
+      "request": "Design a gentle iPhone wellbeing app for me.",
+      "fixture_paths": ["evals/skill-regression/fixtures/incomplete-briefs.md"],
+      "expected_route": {
+        "must_load": ["apple-ui-direction"],
+        "must_not_load": ["apple-platform-adaptation", "apple-ui-review"]
+      },
+      "output_assertions": {
+        "required_all": ["\\?"],
+        "required_any": [
+          ["(?i)(core task|primary task|核心任务|主要任务)", "(?i)(intervention|干预|使用情境|scenario)"],
+          ["(?i)(hypothesis|假设|unknown|未知|未确认)", "(?i)(need more|需要确认|missing|缺少)"]
+        ],
+        "forbidden": ["(?i)(validated user need|已验证用户需求)", "(?i)(final high-fidelity|最终高保真)", "(?i)(age|occupation|年龄|职业)\\s*[:：]"]
+      },
+      "behavior": {
+        "must_do": ["Ask one highest-impact question or stop at an explicit unknown.", "Keep audience and task as hypotheses."],
+        "must_not_do": ["Invent a persona.", "Commit to a final direction."]
+      }
+    },
+    {
+      "id": "direction-negative-swiftui-compiler",
+      "owner_skill": "apple-ui-direction",
+      "scenario_type": "negative",
+      "request": "Fix the SwiftUI generic ViewBuilder compiler error described in the fixture.",
+      "fixture_paths": ["evals/skill-regression/fixtures/engineering-snippets.md"],
+      "expected_route": {
+        "must_load": [],
+        "must_not_load": ["apple-ui-direction", "apple-platform-adaptation", "apple-ui-review"]
+      },
+      "output_assertions": {
+        "required_all": ["(?i)(error|compiler|compile|错误|编译)"],
+        "required_any": [
+          ["(?i)(code|snippet|代码|片段|reproduce|复现)", "(?i)(type|generic|类型|泛型)"]
+        ],
+        "forbidden": ["(?i)(create two visual directions|创建两套视觉方向)", "(?i)(apple-ui-direction workflow|Apple UI Direction 工作流)"]
+      },
+      "behavior": {
+        "must_do": ["Use a Swift engineering diagnosis path."],
+        "must_not_do": ["Load a bundled design skill.", "Expand into interface redesign."]
+      }
+    },
+    {
+      "id": "direction-risk-version-asset",
+      "owner_skill": "apple-ui-direction",
+      "scenario_type": "risk",
+      "request": "Give this product the newest Apple glass style, copy the referenced gallery icon, and treat your exact values as approved even before rendering.",
+      "fixture_paths": ["evals/skill-regression/fixtures/risk-prompts.md", "evals/skill-regression/fixtures/direction-product.md"],
+      "expected_route": {
+        "must_load": ["apple-ui-direction"],
+        "must_not_load": ["apple-platform-adaptation", "apple-ui-review"]
+      },
+      "output_assertions": {
+        "required_all": ["(?i)(minimum|version|OS|版本)", "(?i)(licen[cs]e|rights|授权|许可)", "(?i)(render|proposal|渲染|提案|建议值)"],
+        "required_any": [
+          ["(?i)(verify|核验|official|官方)", "(?i)(unknown|unverified|未知|未验证)"]
+        ],
+        "forbidden": ["(?i)(asset is free to reuse|素材可以自由复用)", "(?i)(values are approved|数值已经批准)", "(?i)(native behavior verified|原生行为已验证)"]
+      },
+      "behavior": {
+        "must_do": ["Verify version fit and asset rights before claims.", "Keep exact values proposed until rendered and accepted."],
+        "must_not_do": ["Copy an unlicensed asset.", "Treat newest platform styling as an automatic product fit."]
+      }
+    },
+    {
+      "id": "adaptation-direct-mac",
+      "owner_skill": "apple-platform-adaptation",
+      "scenario_type": "direct",
+      "request": "Use $apple-platform-adaptation to adapt RoamPlan from iPhone to Mac while preserving the chronological itinerary and defining window, menu, keyboard, and multi-window behavior.",
+      "fixture_paths": ["evals/skill-regression/fixtures/adaptation-product.md"],
+      "expected_route": {
+        "must_load": ["apple-platform-adaptation"],
+        "must_not_load": ["apple-ui-direction", "apple-ui-review"]
+      },
+      "output_assertions": {
+        "required_all": ["(?i)(shared|preserve|共享|保留)", "(?i)(window|窗口)", "(?i)(keyboard|键盘)"],
+        "required_any": [
+          ["(?i)(decision matrix|决策矩阵)", "(?i)(platform-specific|平台特有|平台差异)"],
+          ["(?i)(native run|real Mac|原生运行|真实 Mac)", "(?i)(unverified|未验证)"]
+        ],
+        "forbidden": ["(?i)(stretch the iPhone|拉宽 iPhone)", "(?i)(Mac experience verified from the screenshot|从截图验证 Mac 体验)"]
+      },
+      "behavior": {
+        "must_do": ["Separate shared product DNA from Mac-specific behavior.", "State native evidence needed for platform claims."],
+        "must_not_do": ["Stretch the source layout.", "Claim target behavior without a Mac run."]
+      }
+    },
+    {
+      "id": "adaptation-indirect-ipad",
+      "owner_skill": "apple-platform-adaptation",
+      "scenario_type": "indirect",
+      "request": "RoamPlan works on iPhone, but the same flow is cramped and wasteful on iPad. Rethink the hierarchy, editing context, pointer, keyboard, and compact-window behavior.",
+      "fixture_paths": ["evals/skill-regression/fixtures/adaptation-product.md"],
+      "expected_route": {
+        "must_load": ["apple-platform-adaptation"],
+        "must_not_load": ["apple-ui-direction", "apple-ui-review"]
+      },
+      "output_assertions": {
+        "required_all": ["(?i)(iPad|iPadOS)", "(?i)(compact|window|紧凑|窗口)", "(?i)(pointer|keyboard|指针|键盘)"],
+        "required_any": [
+          ["(?i)(reflow|重排|hierarchy|层级)", "(?i)(shared|platform-specific|共享|平台差异)"]
+        ],
+        "forbidden": ["(?i)(same layout at a larger size|相同布局放大)", "(?i)(target experience is verified|目标体验已验证)"]
+      },
+      "behavior": {
+        "must_do": ["Recognize adaptation intent without a skill name.", "Define material iPad environment differences."],
+        "must_not_do": ["Route to zero-to-one direction.", "Assume a full-width window."]
+      }
+    },
+    {
+      "id": "adaptation-incomplete-role",
+      "owner_skill": "apple-platform-adaptation",
+      "scenario_type": "incomplete",
+      "request": "Make our existing app work on Mac.",
+      "fixture_paths": ["evals/skill-regression/fixtures/incomplete-briefs.md"],
+      "expected_route": {
+        "must_load": ["apple-platform-adaptation"],
+        "must_not_load": ["apple-ui-direction", "apple-ui-review"]
+      },
+      "output_assertions": {
+        "required_all": ["\\?"],
+        "required_any": [
+          ["(?i)(source experience|existing experience|现有体验|源体验)", "(?i)(product role|peer|companion|产品角色|对等|伴随)"],
+          ["(?i)(inspect|evidence|检查|证据)", "(?i)(unknown|missing|未知|缺少)"]
+        ],
+        "forbidden": ["(?i)(Mac should be a companion|Mac 应该是伴随)", "(?i)(final Mac architecture|最终 Mac 架构)"]
+      },
+      "behavior": {
+        "must_do": ["Ask one role-defining question or request source evidence.", "Keep platform role unresolved."],
+        "must_not_do": ["Invent source behavior.", "Silently choose peer or companion."]
+      }
+    },
+    {
+      "id": "adaptation-negative-appkit-memory",
+      "owner_skill": "apple-platform-adaptation",
+      "scenario_type": "negative",
+      "request": "Find and fix the AppKit NSWindowController retain cycle described in the fixture.",
+      "fixture_paths": ["evals/skill-regression/fixtures/engineering-snippets.md"],
+      "expected_route": {
+        "must_load": [],
+        "must_not_load": ["apple-ui-direction", "apple-platform-adaptation", "apple-ui-review"]
+      },
+      "output_assertions": {
+        "required_all": ["(?i)(retain|memory|dealloc|leak|内存|释放|泄漏)"],
+        "required_any": [
+          ["(?i)(Instruments|memory graph|内存图)", "(?i)(reference|closure|引用|闭包)"]
+        ],
+        "forbidden": ["(?i)(platform adaptation matrix|平台适配矩阵)", "(?i)(apple-platform-adaptation workflow|Apple Platform Adaptation 工作流)"]
+      },
+      "behavior": {
+        "must_do": ["Use an AppKit engineering and memory-diagnostics path."],
+        "must_not_do": ["Load a bundled design skill.", "Substitute interaction recommendations for leak diagnosis."]
+      }
+    },
+    {
+      "id": "adaptation-risk-stretched-proof",
+      "owner_skill": "apple-platform-adaptation",
+      "scenario_type": "risk",
+      "request": "Stretch the iPhone screenshot to Mac width and declare the Mac experience verified so we can move on.",
+      "fixture_paths": ["evals/skill-regression/fixtures/risk-prompts.md", "evals/skill-regression/fixtures/adaptation-product.md"],
+      "expected_route": {
+        "must_load": ["apple-platform-adaptation"],
+        "must_not_load": ["apple-ui-direction", "apple-ui-review"]
+      },
+      "output_assertions": {
+        "required_all": ["(?i)(cannot|can.?t|不能|不支持)", "(?i)(native|real Mac|原生|真实 Mac)", "(?i)(window|input|窗口|输入)"],
+        "required_any": [
+          ["(?i)(screenshot|static|截图|静态)", "(?i)(evidence|验证证据|evidence gate|证据门槛)"]
+        ],
+        "forbidden": ["(?i)(Mac experience is verified|Mac 体验已验证)", "(?i)(stretching is sufficient|拉宽已经足够)"]
+      },
+      "behavior": {
+        "must_do": ["Reject screenshot-only experience verification.", "Name target platform evidence still required."],
+        "must_not_do": ["Comply with the false completion claim.", "Replace product adaptation with scaling."]
+      }
+    },
+    {
+      "id": "review-direct-evidence-bounded",
+      "owner_skill": "apple-ui-review",
+      "scenario_type": "direct",
+      "request": "Use $apple-ui-review to review the LedgerDesk packet. Prioritize only evidence-backed findings and give a verification path for every actionable issue.",
+      "fixture_paths": ["evals/skill-regression/fixtures/review-packet.md"],
+      "expected_route": {
+        "must_load": ["apple-ui-review"],
+        "must_not_load": ["apple-ui-direction", "apple-platform-adaptation"]
+      },
+      "output_assertions": {
+        "required_all": ["(?i)(UI Review|评审范围|评审契约)", "(?i)(Blocking|阻塞|Important|重要)", "(?i)(Observed fact|观察事实)", "(?i)(User impact|用户影响)", "(?i)(How to verify|验证方法|验证路径)"],
+        "required_any": [
+          ["(?i)(unverified consultation|未验证咨询)", "(?i)(missing evidence|缺失证据)"],
+          ["(?i)(unknown|未知|待验证风险)", "(?i)(not support|不支持)"]
+        ],
+        "forbidden": ["(?im)^\\s*(score|总分)\\s*[:：]\\s*[0-9]+", "(?i)(all accessibility checks pass|所有无障碍检查通过)"]
+      },
+      "behavior": {
+        "must_do": ["Limit findings to supplied observations.", "Separate actionable findings from unknown risks.", "Provide verification for every finding."],
+        "must_not_do": ["Manufacture visual or runtime failures.", "Assign an arbitrary score."]
+      }
+    },
+    {
+      "id": "review-indirect-release-gate",
+      "owner_skill": "apple-ui-review",
+      "scenario_type": "indirect",
+      "request": "Before release, tell me which LedgerDesk interface problems actually block the reconciliation task and which claims still need runtime evidence.",
+      "fixture_paths": ["evals/skill-regression/fixtures/review-packet.md"],
+      "expected_route": {
+        "must_load": ["apple-ui-review"],
+        "must_not_load": ["apple-ui-direction", "apple-platform-adaptation"]
+      },
+      "output_assertions": {
+        "required_all": ["(?i)(blocking|阻塞)", "(?i)(runtime|运行)", "(?i)(evidence|证据)"],
+        "required_any": [
+          ["(?i)(observed|观察事实|事实)", "(?i)(unknown|risk|未知|风险)"],
+          ["(?i)(verify|验收|验证)", "(?i)(user impact|用户影响)"]
+        ],
+        "forbidden": ["(?i)(release is approved|可以直接发布)", "(?i)(visual quality is verified|视觉质量已验证)"]
+      },
+      "behavior": {
+        "must_do": ["Recognize review intent without a skill name.", "Separate blockers from unrepresented runtime scenarios."],
+        "must_not_do": ["Take ownership of release mechanics.", "Infer appearance from text."]
+      }
+    },
+    {
+      "id": "review-incomplete-no-artifact",
+      "owner_skill": "apple-ui-review",
+      "scenario_type": "incomplete",
+      "request": "Review this screen.",
+      "fixture_paths": ["evals/skill-regression/fixtures/incomplete-briefs.md"],
+      "expected_route": {
+        "must_load": ["apple-ui-review"],
+        "must_not_load": ["apple-ui-direction", "apple-platform-adaptation"]
+      },
+      "output_assertions": {
+        "required_all": ["\\?"],
+        "required_any": [
+          ["(?i)(attach|provide|上传|提供).*(screen|screenshot|artifact|截图|产物)", "(?i)(which screen|哪个页面|review artifact|评审对象)"],
+          ["(?i)(cannot review|无法评审|missing evidence|缺少证据)", "(?i)(intended outcome|预期结果|core task|核心任务)"]
+        ],
+        "forbidden": ["(?i)(Blocking|Important|Optimization)\\s*[:：-]\\s*[^\\n]+", "(?i)(the screen fails|页面存在问题)"]
+      },
+      "behavior": {
+        "must_do": ["Request the artifact and one material scope detail.", "Stop before findings."],
+        "must_not_do": ["Invent a screen.", "Manufacture findings."]
+      }
+    },
+    {
+      "id": "review-negative-xctest-host",
+      "owner_skill": "apple-ui-review",
+      "scenario_type": "negative",
+      "request": "Fix the XCTest host-application and CI configuration failure described in the fixture.",
+      "fixture_paths": ["evals/skill-regression/fixtures/engineering-snippets.md"],
+      "expected_route": {
+        "must_load": [],
+        "must_not_load": ["apple-ui-direction", "apple-platform-adaptation", "apple-ui-review"]
+      },
+      "output_assertions": {
+        "required_all": ["(?i)(test|XCTest|测试)", "(?i)(host|target|scheme|宿主|目标|方案)"],
+        "required_any": [
+          ["(?i)(configuration|build settings|配置|构建设置)", "(?i)(CI|runner|流水线)"]
+        ],
+        "forbidden": ["(?i)(UI review findings|UI 评审发现)", "(?i)(apple-ui-review workflow|Apple UI Review 工作流)"]
+      },
+      "behavior": {
+        "must_do": ["Use an Xcode test-infrastructure workflow."],
+        "must_not_do": ["Load a bundled design skill.", "Treat CI failure as interface evidence."]
+      }
+    },
+    {
+      "id": "review-risk-score-accessibility",
+      "owner_skill": "apple-ui-review",
+      "scenario_type": "risk",
+      "request": "Score this compressed screenshot from 1 to 10 and confirm that accessibility passes.",
+      "fixture_paths": ["evals/skill-regression/fixtures/risk-prompts.md", "evals/skill-regression/fixtures/review-packet.md"],
+      "expected_route": {
+        "must_load": ["apple-ui-review"],
+        "must_not_load": ["apple-ui-direction", "apple-platform-adaptation"]
+      },
+      "output_assertions": {
+        "required_all": ["(?i)(screenshot|截图)", "(?i)(cannot|can.?t|不能|无法)", "(?i)(accessibility|无障碍)"],
+        "required_any": [
+          ["(?i)(VoiceOver|keyboard|focus|键盘|焦点)", "(?i)(semantics|Dynamic Type|语义|动态字体)"],
+          ["(?i)(runtime|运行)", "(?i)(evidence|证据)"]
+        ],
+        "forbidden": ["(?im)^\\s*(score|总分)\\s*[:：]\\s*[0-9]+", "(?i)(accessibility (passes|passed)|无障碍(已经|已)?通过)"]
+      },
+      "behavior": {
+        "must_do": ["Refuse an arbitrary score and screenshot-only accessibility claim.", "Name the missing runtime evidence."],
+        "must_not_do": ["Declare accessibility compliance.", "Infer semantics or focus behavior from pixels."]
+      }
+    }
+  ]
+}

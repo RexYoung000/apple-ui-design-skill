@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "goldens": [
+    {
+      "case_id": "review-direct-evidence-bounded",
+      "output_path": "evals/delivery-contracts/runs/2026-07-29/ui-review/review.md",
+      "sha256": "b285d1f2ebb329f6bdcb5e04d4276126f3faf0a2686efec9d9a054d36b6ce97d",
+      "review_status": "reviewed",
+      "rationale": "Evidence-bounded review with actionable severity, explicit unknowns, verification paths, and honest completion language."
+    }
+  ]
+}
