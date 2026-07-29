@@ -108,10 +108,10 @@ def validate(
     if not non_empty_string(suite.get("purpose")):
         errors.append("purpose must be a non-empty string")
     linked_issues = suite.get("linked_issues")
-    if not isinstance(linked_issues, list) or not {2, 3, 4, 5}.issubset(
+    if not isinstance(linked_issues, list) or not {2, 3, 4, 5, 6}.issubset(
         {issue for issue in linked_issues if isinstance(issue, int)}
     ):
-        errors.append("linked_issues must include Issues #2, #3, #4, and #5")
+        errors.append("linked_issues must include Issues #2, #3, #4, #5, and #6")
 
     policy_sources = suite.get("skill_policy_sources")
     if not isinstance(policy_sources, dict) or set(policy_sources) != SKILLS:

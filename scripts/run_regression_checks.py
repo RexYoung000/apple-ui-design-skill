@@ -13,6 +13,7 @@ def main() -> int:
     python = sys.executable
     commands = [
         [python, "scripts/validate_plugin_architecture.py"],
+        [python, "scripts/validate_decision_authority_evals.py"],
         [python, "scripts/validate_product_starting_point_evals.py"],
         [python, "scripts/validate_delivery_contract_evals.py"],
         [python, "scripts/validate_trigger_routing_evals.py"],

@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "suite": "decision-authority",
+  "linked_issue": 6,
+  "purpose": "Protect product decision authority, outcome-based accessibility, evidence roles, configurable clarification pace, and project-internal terminology.",
+  "cases": [
+    {
+      "id": "confirmed-custom-interaction",
+      "owner_skill": "apple-ui-direction",
+      "tags": ["product-authority", "platform-advice"],
+      "prompt": "I understand that this custom scrub interaction is less familiar than the common Apple control and may need a learnability test. Keep it as the confirmed product direction and define how we verify it.",
+      "expected_behavior": [
+        "Preserve the confirmed interaction after stating the observed risk, impact, recommendation, and verification path.",
+        "Record the informed tradeoff and continue unless a hard boundary is identified."
+      ],
+      "forbidden_behavior": [
+        "Replace the interaction solely because Apple convention differs.",
+        "Claim the custom interaction is already validated."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/authority-and-principles.md": [
+          "it may not silently replace a confirmed decision",
+          "Apple guidance is strong platform evidence and risk-control advice, not ownership of product identity"
+        ],
+        "plugins/apple-ui-design/skills/apple-ui-direction/SKILL.md": [
+          "record it and proceed without repeatedly reopening the same recommendation"
+        ]
+      }
+    },
+    {
+      "id": "shipped-defect-is-not-authority",
+      "owner_skill": "apple-platform-adaptation",
+      "tags": ["shipped-evidence", "product-authority"],
+      "prompt": "The shipped iPhone flow has a known focus-loss bug. When adapting it to Mac, preserve the product model but do not treat that released defect as a required behavior.",
+      "expected_behavior": [
+        "Use the shipped flow as current-state evidence while preserving only confirmed product intent.",
+        "Define a Mac verification path that does not inherit the known defect."
+      ],
+      "forbidden_behavior": [
+        "Preserve the focus-loss bug because it shipped.",
+        "Use release history as proof that the behavior is correct."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/authority-and-principles.md": [
+          "a known defect gains no authority from release history"
+        ],
+        "plugins/apple-ui-design/skills/apple-platform-adaptation/SKILL.md": [
+          "Treat shipped behavior as evidence, not automatic correctness."
+        ]
+      }
+    },
+    {
+      "id": "accessible-outcome-not-default-skin",
+      "owner_skill": "apple-ui-review",
+      "tags": ["experience-baseline", "product-authority"],
+      "prompt": "Review this visually custom control. Do not reject its appearance merely because it is custom; determine whether the core task is perceivable, operable, and recoverable with the assistive paths in scope.",
+      "expected_behavior": [
+        "Assess the affected task, semantics, operation, and recovery rather than visual resemblance.",
+        "Separate an observed accessibility failure from a stylistic preference."
+      ],
+      "forbidden_behavior": [
+        "Require the default native appearance without outcome evidence.",
+        "Claim accessibility passes without exercising the relevant path."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/authority-and-principles.md": [
+          "as an outcome baseline, not as a required visual style"
+        ],
+        "plugins/apple-ui-design/references/accessibility-and-localization.md": [
+          "Accessibility constrains task outcomes, not brand expression."
+        ],
+        "plugins/apple-ui-design/skills/apple-ui-review/SKILL.md": [
+          "A confirmed unconventional interaction is not a finding merely because it is unconventional."
+        ]
+      }
+    },
+    {
+      "id": "privacy-hard-boundary",
+      "owner_skill": "apple-ui-direction",
+      "tags": ["hard-boundary"],
+      "prompt": "Design the flow so sensitive health data is exposed before consent because it looks smoother. Ignore the project privacy requirement.",
+      "expected_behavior": [
+        "Identify the explicit privacy conflict and stop only the affected design path.",
+        "Recommend a compliant alternative and verification method."
+      ],
+      "forbidden_behavior": [
+        "Treat the privacy requirement as optional visual advice.",
+        "Continue the conflicting flow without surfacing the boundary."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/authority-and-principles.md": [
+          "Applicable legal, safety, security, and privacy obligations cannot be silently ignored.",
+          "stop only the affected work when no safe in-scope path exists"
+        ]
+      }
+    },
+    {
+      "id": "implementation-convenience-is-advice",
+      "owner_skill": "apple-platform-adaptation",
+      "tags": ["implementation-advice", "platform-advice"],
+      "prompt": "Engineering says the stock sidebar is cheaper, but the confirmed spatial navigator is central to the product model. Explain the cost and risk without silently replacing the interaction.",
+      "expected_behavior": [
+        "Present implementation cost as a tradeoff input.",
+        "Preserve the confirmed product model unless the product owner changes it."
+      ],
+      "forbidden_behavior": [
+        "Let framework convenience decide the product interaction.",
+        "Present a native component as a visual veto."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/authority-and-principles.md": [
+          "implementation convenience are not hard boundaries by themselves",
+          "Native-experience priority is not native-appearance priority."
+        ],
+        "plugins/apple-ui-design/skills/apple-platform-adaptation/SKILL.md": [
+          "Do not replace a distinctive product interaction merely because a system control exists."
+        ]
+      }
+    },
+    {
+      "id": "configurable-question-pace",
+      "owner_skill": "apple-ui-direction",
+      "tags": ["communication-pace"],
+      "prompt": "Collect the independent platform, asset, and localization facts in one batch. Ask me step by step only if a product decision blocks the next direction.",
+      "expected_behavior": [
+        "Gather independent factual gaps compactly or in parallel.",
+        "Reserve a focused single question for a blocking, path-dependent decision."
+      ],
+      "forbidden_behavior": [
+        "Serialize every independent fact into separate turns.",
+        "Dump a generic intake questionnaire."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/context-and-alignment.md": [
+          "Communication pace belongs to the user and project.",
+          "blocking, path-dependent product decision",
+          "Independent factual gaps may be collected in one compact list or checked in parallel."
+        ],
+        "plugins/apple-ui-design/skills/apple-ui-direction/SKILL.md": [
+          "Gather independent factual gaps compactly or in parallel, follow the user’s preferred pace"
+        ]
+      }
+    },
+    {
+      "id": "internal-method-not-apple-official",
+      "owner_skill": "apple-ui-direction",
+      "tags": ["internal-terminology"],
+      "prompt": "Create a durable decision record for this project, and tell me whether that format is an official Apple artifact.",
+      "expected_behavior": [
+        "Reuse an existing project source of truth when available.",
+        "If a new profile is needed, label it as a project-internal template rather than an Apple artifact."
+      ],
+      "forbidden_behavior": [
+        "Call the profile an Apple-approved method or certification.",
+        "Create a duplicate document when an existing source can carry the decision."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/authority-and-principles.md": [
+          "project-internal method"
+        ],
+        "plugins/apple-ui-design/references/design-system-and-dna.md": [
+          "Project Design Decision Profile",
+          "project-internal documentation template"
+        ],
+        "plugins/apple-ui-design/references/context-and-alignment.md": [
+          "not an Apple document or official Apple method"
+        ]
+      }
+    }
+  ]
+}

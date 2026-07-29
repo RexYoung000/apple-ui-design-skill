@@ -70,6 +70,8 @@ A successful build does not prove a usable interface. A screenshot does not prov
 
 Native evidence verifies operation in the target environment, not visual conformity to Apple system apps. A custom interaction can pass when it behaves as intended for the confirmed users and inputs; a system-looking interface can fail when the core task does not work.
 
+Native validation reports observed behavior and risk. It does not gain authority to replace a confirmed product decision. If the product owner accepts a non-hard-boundary risk after the fact, impact, recommendation, and verification gap are clear, record the tradeoff and keep the unverified claim visible.
+
 For motion claims, provide a recording at representative speed and input conditions, plus the reduced-motion expression when in scope. Static timing values do not prove perceived rhythm, interruption, continuity, or comfort.
 
 ## Evidence-Based Review

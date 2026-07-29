@@ -15,7 +15,7 @@ Before reviewing:
 2. Read `../../references/authority-and-principles.md`, `../../references/context-and-alignment.md`, and `../../references/engineering-routing.md`.
 3. Read `../../references/delivery-contracts.md`, select the UI Review contract, and state its evidence gate.
 4. Identify the exact artifact, screen, state, framework, platform, environment, and requested review depth.
-5. Ask only for missing evidence that would materially change the findings.
+5. Ask one focused question when a blocking, path-dependent uncertainty would materially change the findings. Request independent artifacts or factual evidence compactly, and follow the user’s preferred communication pace.
 
 A user-provided screenshot or recording can support review of what it shows. Text description alone supports only unverified consultation. A build result does not prove usable interaction.
 
@@ -57,6 +57,8 @@ Use:
 
 Do not assign numeric scores by default. Do not inflate severity because a solution differs from reviewer taste.
 
+Apple guidance, native components, shipped patterns, and reviewer preference are evidence or advice, not product authority. A confirmed unconventional interaction is not a finding merely because it is unconventional. Report a finding only when the supplied evidence shows a product, task, required-experience, or hard-boundary impact.
+
 For each finding, provide:
 
 ```text
@@ -69,6 +71,8 @@ How to verify:
 ```
 
 Mark whether the recommendation is required by confirmed intent, supported by current Apple guidance, an optional optimization, or an exploration.
+
+For a disputed recommendation, state the observed fact, user impact, recommendation, and verification path. If the product owner understands and accepts a non-hard-boundary risk, record the decision and remaining evidence gap without repeatedly escalating the same advice.
 
 ### 4. Verify claims at the right level
 

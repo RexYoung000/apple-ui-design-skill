@@ -11,7 +11,7 @@ Before producing a direction or finding:
 1. derive known product facts from the project;
 2. separate confirmed decisions, observed implementation, external evidence, design inference, and unvalidated hypotheses;
 3. name the artifact requested and the decision it must support;
-4. ask one highest-impact question only when the missing answer would materially change the artifact;
+4. ask one focused question only when a blocking, path-dependent decision would materially change the artifact; gather independent factual gaps compactly or in parallel;
 5. pause when required source material, user approval, or runtime access is unavailable and cannot be safely substituted.
 
 For an existing product, inspect its requirements, current interface, components, assets, content, platform targets, and available runtime behavior. Preserve confirmed boundaries unless the user approves a change.

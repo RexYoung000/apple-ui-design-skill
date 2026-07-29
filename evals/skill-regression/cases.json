@@ -2,7 +2,7 @@
   "schema_version": 1,
   "suite": "skill-regression",
   "purpose": "Evaluate routing and output quality for each bundled skill across direct, indirect, incomplete, engineering-negative, and evidence-risk scenarios.",
-  "linked_issues": [2, 3, 4, 5],
+  "linked_issues": [2, 3, 4, 5, 6],
   "skill_policy_sources": {
     "apple-ui-direction": {
       "path": "plugins/apple-ui-design/skills/apple-ui-direction/SKILL.md",
@@ -94,7 +94,7 @@
         "forbidden": ["(?i)(validated user need|已验证用户需求)", "(?i)(final high-fidelity|最终高保真)", "(?i)(age|occupation|年龄|职业)\\s*[:：]"]
       },
       "behavior": {
-        "must_do": ["Ask one highest-impact question or stop at an explicit unknown.", "Keep audience and task as hypotheses."],
+        "must_do": ["Ask one focused question only if the missing product decision is blocking and path-dependent, or stop at an explicit unknown.", "Keep audience and task as hypotheses."],
         "must_not_do": ["Invent a persona.", "Commit to a final direction."]
       }
     },
@@ -206,7 +206,7 @@
         "forbidden": ["(?i)(Mac should be a companion|Mac 应该是伴随)", "(?i)(final Mac architecture|最终 Mac 架构)"]
       },
       "behavior": {
-        "must_do": ["Ask one role-defining question or request source evidence.", "Keep platform role unresolved."],
+        "must_do": ["Ask one role-defining question only if it blocks the next path, or request independent source evidence compactly.", "Keep platform role unresolved."],
         "must_not_do": ["Invent source behavior.", "Silently choose peer or companion."]
       }
     },

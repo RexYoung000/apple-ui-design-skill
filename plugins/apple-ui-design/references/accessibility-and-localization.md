@@ -15,7 +15,7 @@ A user relying on the assistive behaviors in scope must be able to:
 - understand destructive consequences;
 - perceive progress, selection, and completion.
 
-The visual implementation may vary. The outcome may not disappear.
+The visual implementation may vary. If a required outcome disappears, report the exact task failure and do not claim that scenario is accessible or verified. Follow the hard-boundary and informed-tradeoff procedure in `authority-and-principles.md` rather than silently imposing a replacement design.
 
 Accessibility constrains task outcomes, not brand expression. Native components often inherit useful semantics, but custom typography, color, shape, motion, controls, and interaction models remain valid when the required users can perceive, understand, operate, and recover from them.
 

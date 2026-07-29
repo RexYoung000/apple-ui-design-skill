@@ -1,6 +1,6 @@
 # Design System and Product DNA
 
-Use this reference when establishing a direction, extending a design system, comparing alternatives, or creating a durable Apple Design Profile.
+Use this reference when establishing a direction, extending a design system, comparing alternatives, or creating a durable Project Design Decision Profile.
 
 The direction skill owns design-system changes; adaptation and review read this file only to preserve or assess established product DNA.
 
@@ -151,12 +151,12 @@ For each direction, state:
 
 Do not present superficial recolors as separate directions.
 
-## Minimal Apple Design Profile
+## Minimal Project Design Decision Profile
 
-Create only when the project lacks an appropriate durable source:
+This profile is a **project-internal documentation template**, not an Apple document, certification, or official Apple design method. Create it only when the project lacks an appropriate durable source:
 
 ```markdown
-# Apple Design Profile
+# Project Design Decision Profile
 
 ## Product principles
 ## Target platforms and minimum versions

@@ -18,7 +18,7 @@ Derive from the project before asking:
 - minimum versions, windows, orientations, and input modes;
 - shared product DNA and confirmed interaction decisions.
 
-If platform roles or feature relationships are unresolved and would change the information architecture, ask one highest-impact question. Never impose primary, peer, or companion labels.
+If unresolved platform roles or feature relationships would block and materially change the information architecture, ask one focused, path-dependent question. Gather independent platform facts compactly or in parallel, follow the user’s preferred pace, and never impose primary, peer, or companion labels.
 
 Read `../../references/authority-and-principles.md`, `../../references/context-and-alignment.md`, `../../references/engineering-routing.md`, `../../references/delivery-contracts.md`, and `../../references/apple-platform-adaptation.md` before defining the adaptation. Select the Platform Adaptation contract and state its artifact and evidence gate. Decide whether the result stops at design evidence, includes a bounded design-led prototype, or requires engineering partnership.
 
@@ -40,6 +40,8 @@ Record:
 - continuity requirements between devices.
 
 Do not create an iPad or Mac experience by stretching the iPhone layout. Do not replace a distinctive product interaction merely because a system control exists.
+
+When a confirmed interaction differs from common Apple behavior, state the observed platform fact, user impact, recommendation, and native verification path. If the product owner knowingly retains the choice and no hard boundary remains, record the tradeoff and adapt it faithfully rather than repeatedly substituting the conventional control.
 
 Read `../../references/design-system-and-dna.md` to preserve shared product DNA without redesigning it by default.
 

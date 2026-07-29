@@ -87,7 +87,7 @@ Do not copy their rules wholesale. In particular, this skill intentionally rejec
 - treating HIG as the owner of product identity;
 - folding broad architecture, performance, and Instruments work into UI design;
 - arbitrary numeric design scores;
-- batch questionnaires when one material decision at a time is clearer.
+- generic intake questionnaires that ignore whether questions are blocking, dependent, or independently verifiable.
 
 ## Updating This Plugin
 
@@ -116,6 +116,17 @@ Before releasing an update, check for contradictions involving:
 
 Prefer a decision procedure over adding another absolute rule.
 
+The decision-layer names, evidence labels, delivery contracts, and Project Design Decision Profile in this repository are project-internal methods. Do not present them as Apple terminology, Apple certification, or an official Apple workflow.
+
+The authority model must preserve these distinctions:
+
+- confirmed product decisions own intended product direction;
+- experience baselines define what can honestly be claimed, not a mandatory visual skin;
+- Apple guidance and native components supply platform evidence and risk controls;
+- shipped behavior supplies current-state evidence, including evidence of defects;
+- implementation convenience and external inspiration may inform a tradeoff but never silently decide it;
+- an informed user choice proceeds unless an applicable hard boundary remains.
+
 ## Suggested Regression Prompts
 
 Use realistic prompts to check the skill’s behavior. The fixed product-starting-point suite at `evals/product-starting-point/cases.json` is the repeatable source of truth for the first three branches below; validate its structure with `python3 scripts/validate_product_starting_point_evals.py`.
@@ -124,6 +135,7 @@ The plugin split and independent invocation evidence lives under `evals/plugin-s
 The six mode-level delivery contracts live in `evals/delivery-contracts/cases.json`; validate their structure with `python3 scripts/validate_delivery_contract_evals.py`.
 Trigger ownership and engineering boundaries live in `evals/trigger-routing/cases.json`; validate their structure with `python3 scripts/validate_trigger_routing_evals.py`.
 The release-level trigger and output matrix lives in `evals/skill-regression/cases.json`. Run the complete deterministic gate with `python3 scripts/run_regression_checks.py`.
+The decision-authority contract lives in `evals/decision-authority/cases.json`; validate it with `python3 scripts/validate_decision_authority_evals.py`.
 
 The unified matrix must contain exactly five scenario types for each bundled skill:
 
@@ -168,7 +180,7 @@ Each delivery-contract case must identify:
 Do not pass the assertions or desired result to the forward-test agent. A contract passes only when the response produces or explicitly stops for the missing artifact instead of substituting polished prose.
 
 1. Small existing-product adjustment — must reuse verified user and interaction facts without forcing a new intake.
-2. Major existing-product redesign — must expose material evidence conflicts and ask only the highest-impact unresolved question.
+2. Major existing-product redesign — must expose material evidence conflicts and ask one focused question only when a blocking decision changes the next path.
 3. Zero-to-one direction — must show evidence status and hypotheses before committing to a direction.
 4. “Make this iPhone app work on Mac” — must ask or infer product differences, not stretch the layout.
 5. “Use the newest Apple glass style” — must check minimum versions and product fit.

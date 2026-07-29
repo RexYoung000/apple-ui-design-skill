@@ -51,6 +51,19 @@ UIKit 与 AppKit 项目仍然可以使用本 Plugin 完成设计、适配与评�
 6. **可访问性与本地化保护体验结果，而非统一皮肤。** 它们从设计阶段进入验证，同时保留品牌表达。
 7. **视觉与动效质量需要证据。** 编译成功不等于体验通过；重要状态和真实交互需要经过渲染与验证。
 
+## 决策权与取舍
+
+Plugin 不再使用一个包办所有问题的权威排序，而是区分：
+
+- 法律、安全、信息安全、隐私、合同，以及项目明确要求的核心体验硬边界；
+- 用户或项目产品负责人的产品结果、目标用户、品牌、交互与动效决策；
+- 核心任务可感知、可操作、可恢复等体验结果底线；
+- 作为不同强度证据或建议的 Apple 规范、原生行为、已发布界面、实现约束与外部灵感。
+
+Apple 规范和原生组件可以揭示风险、降低实现不确定性，但不拥有产品视觉身份。已经上线的行为只是现状证据，不自动代表正确。当重要选择存在分歧时，Plugin 会说明观察事实、用户影响、推荐方案、验证路径和最终决策。用户在理解取舍后确认选择，除非仍存在硬边界冲突，否则 Skill 会记录并继续，不反复争夺决策权。
+
+沟通节奏可以由用户定义。只有阻塞且会改变后续路径的产品决策，才默认一次聚焦一个问题；彼此独立的事实缺口可以集中收集或并行核实。
+
 ## 交付合同
 
 每项任务只选择一个主要合同。合同定义开始前需要什么证据、用户最终获得什么产物，以及现有证据最多能支持哪一级完成声明。
@@ -91,6 +104,8 @@ python3 scripts/evaluate_skill_regression_output.py \
 ```
 
 CI 不调用在线模型，因为网络状态和模型波动不应伪装成确定性的发布门禁。真实模型运行需要单独保存，并且 Prompt 中不得包含隐藏断言。
+
+Issue #6 另有一套 7 案例决策权回归，覆盖已确认的自定义交互、已上线缺陷、无障碍结果、隐私硬边界、实现便利、沟通节奏与项目内部术语。
 
 ## 安装 Plugin
 
@@ -149,7 +164,7 @@ Codex 也可以在请求与 Skill 描述匹配时自动选择它：
 使用 Apple Platform Adaptation 将这个现有 iPhone 流程适配到 iPad 和 Mac。
 ```
 
-被选中的 Skill 会先检查项目中已有的证据，再提出问题。当某项决定会实质影响产品时，它会一次只确认一个关键问题，并说明推荐方向及理由。
+被选中的 Skill 会先检查项目中已有的证据，再提出问题。对于阻塞且会改变后续路径的产品决策，它默认一次确认一个关键问题并说明推荐理由；独立事实可以集中收集，用户也可以选择逐步、批量、工作坊或“明确假设后继续”的沟通节奏。
 
 对于已有产品，Skill 会从当前证据提取目标用户、核心任务、设计 DNA 和交互模型。对于从零产品，Skill 会明确区分用户确认、外部证据、设计推断与待验证假设。
 
@@ -181,6 +196,10 @@ Skill 使用混合研究模式：
 ├── evals/
 │   ├── plugin-split/
 │   │   └── runs/
+│   ├── decision-authority/
+│   │   ├── README.md
+│   │   ├── cases.json
+│   │   └── runs/
 │   ├── trigger-routing/
 │   │   ├── README.md
 │   │   ├── cases.json
@@ -211,6 +230,7 @@ Skill 使用混合研究模式：
 │           └── apple-ui-review/
 ├── scripts/
 │   ├── run_regression_checks.py
+│   ├── validate_decision_authority_evals.py
 │   ├── evaluate_skill_regression_output.py
 │   ├── validate_skill_regression_evals.py
 │   ├── validate_trigger_routing_evals.py
@@ -219,6 +239,7 @@ Skill 使用混合研究模式：
 │   ├── validate_plugin_architecture.py
 │   └── validate_source_registry.py
 └── tests/
+    ├── test_decision_authority_evals.py
     ├── test_skill_regression_evals.py
     ├── test_skill_regression_output.py
     ├── test_trigger_routing_evals.py

@@ -54,7 +54,7 @@
           "Identify that the current freelancer evidence conflicts with the proposed agency direction.",
           "Label project facts, design inference, and the unresolved future-audience hypothesis distinctly.",
           "Treat the current interface as evidence rather than proof that its information architecture should be preserved.",
-          "Ask one highest-impact question about the intended next-version audience before committing to an information architecture."
+          "Ask one focused question about the intended next-version audience before committing only because this unresolved decision is blocking and path-dependent."
         ],
         "must_not_do": [
           "Ask for facts already present in the fixtures.",

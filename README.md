@@ -51,6 +51,19 @@ The three bundled skills keep implicit invocation enabled because their outcomes
 6. **Accessibility and localization protect outcomes, not a default skin.** They are designed and validated without erasing brand expression.
 7. **Visual and motion quality require evidence.** Compilation alone is not experience validation; important states and real interactions should be rendered and tested.
 
+## Decision Authority and Tradeoffs
+
+The plugin does not use one universal authority ranking. It separates:
+
+- hard legal, safety, security, privacy, contractual, and explicitly required core-experience boundaries;
+- user- or project-owner decisions about product outcomes, audience, brand, interaction, and motion;
+- experience outcome baselines such as perceiving, operating, and recovering through the core task;
+- Apple guidance, native behavior, shipped UI, implementation constraints, and external inspiration as differently weighted evidence or advice.
+
+Apple guidance and native components can reveal risk and reduce implementation uncertainty, but they do not own the product’s visual identity. Existing shipped behavior is evidence, not automatic correctness. When a material choice is disputed, the plugin states the observed fact, user impact, recommendation, verification path, and recorded decision. Once an informed choice is confirmed, it proceeds unless a hard boundary remains.
+
+Communication pace is configurable. One focused question is the default only for a blocking, path-dependent product decision; independent factual gaps may be gathered compactly or checked in parallel.
+
 ## Delivery Contracts
 
 Every task selects one primary contract. The contract defines the evidence required before work begins, the artifact the user receives, and the strongest completion claim the available evidence supports.
@@ -91,6 +104,8 @@ python3 scripts/evaluate_skill_regression_output.py \
 ```
 
 CI deliberately does not call a live model: network availability and model variation are not deterministic release gates. Live results are preserved separately and must never receive the hidden assertions in their prompts.
+
+Issue #6 also has a seven-case decision-authority suite covering confirmed custom interactions, shipped defects, accessibility outcomes, privacy boundaries, implementation convenience, communication pace, and project-internal terminology.
 
 ## Install the Plugin
 
@@ -147,7 +162,7 @@ Install **Apple UI Design** from **Plugins**. In a new chat, type `@`, select th
 Use Apple Platform Adaptation to adapt this existing iPhone flow for iPad and Mac.
 ```
 
-The selected skill inspects available project evidence before asking questions. When a decision materially affects the product, it asks one focused question at a time and explains the recommended direction.
+The selected skill inspects available project evidence before asking questions. For a blocking, path-dependent product decision it defaults to one focused question and explains the recommendation; independent facts may be gathered together, and the user can choose a step-by-step, batch, workshop, or explicit-assumptions pace.
 
 For an existing product, it derives the user, core task, design DNA, and interaction model from current evidence. For a zero-to-one product, it separates user-confirmed decisions, external evidence, design inference, and unvalidated hypotheses.
 
@@ -179,6 +194,10 @@ Web references such as 60fps, Recent, Awwwards, React Bits, and Magic UI may ins
 ├── evals/
 │   ├── plugin-split/
 │   │   └── runs/
+│   ├── decision-authority/
+│   │   ├── README.md
+│   │   ├── cases.json
+│   │   └── runs/
 │   ├── trigger-routing/
 │   │   ├── README.md
 │   │   ├── cases.json
@@ -209,6 +228,7 @@ Web references such as 60fps, Recent, Awwwards, React Bits, and Magic UI may ins
 │           └── apple-ui-review/
 ├── scripts/
 │   ├── run_regression_checks.py
+│   ├── validate_decision_authority_evals.py
 │   ├── evaluate_skill_regression_output.py
 │   ├── validate_skill_regression_evals.py
 │   ├── validate_trigger_routing_evals.py
@@ -217,6 +237,7 @@ Web references such as 60fps, Recent, Awwwards, React Bits, and Magic UI may ins
 │   ├── validate_plugin_architecture.py
 │   └── validate_source_registry.py
 └── tests/
+    ├── test_decision_authority_evals.py
     ├── test_skill_regression_evals.py
     ├── test_skill_regression_output.py
     ├── test_trigger_routing_evals.py

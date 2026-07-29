@@ -27,7 +27,7 @@ Before proposing a direction:
 4. Derive or align the primary user, core task, target platform context, material constraints, and requested artifact.
 5. Read `../../references/engineering-routing.md` and decide whether the result is a design artifact, bounded design-led implementation, or a design-to-engineering handoff.
 6. Read `../../references/delivery-contracts.md`, select one primary contract, and state its artifact and evidence gate.
-7. Ask only the highest-impact unresolved question. Do not ask the user to repeat project facts.
+7. Ask one focused question only when a blocking, path-dependent product decision would change the next design artifact. Gather independent factual gaps compactly or in parallel, follow the user’s preferred pace, and do not ask them to repeat project facts.
 
 For a small reversible change with sufficient evidence, reuse the established user and interaction model. For a major redesign, recheck whether that model still supports the intended product. For zero-to-one work, expose confirmed product intent, research status, hypotheses, and material unknowns before direction claims.
 
@@ -56,6 +56,8 @@ Use the project’s design system when it is coherent. When direction is genuine
 Read `../../references/design-system-and-dna.md` for visual direction, tokens, components, or durable design-system work.
 
 Preserve the user’s ownership of interaction and motion decisions. Explain platform or usability risk and provide a verification path; do not silently replace confirmed choices.
+
+For a material disagreement, state the observed fact, user impact, recommendation, and verification path, then let the product owner decide. If they understand a non-hard-boundary tradeoff and retain the original direction, record it and proceed without repeatedly reopening the same recommendation. Apple guidance, shipped patterns, and implementation convenience remain evidence or advice rather than product authority.
 
 ### 5. Make the result visible
 

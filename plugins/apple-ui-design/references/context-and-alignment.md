@@ -57,7 +57,7 @@ Choose the response depth from the decision risk:
 |---|---|
 | Small, reversible adjustment with sufficient project evidence | Reuse verified project facts and proceed. Do not make the user approve a new persona or repeat facts merely to demonstrate discovery. Surface only assumptions that could materially change the adjustment. |
 | Major redesign with consistent evidence | State the project facts and confirmed decisions that anchor the redesign, then proceed at the appropriate fidelity. Treat existing behavior as precedent, not proof that it must survive. |
-| Major redesign with conflicting or stale evidence | Separate the conflict into labelled facts, decisions, inferences, and hypotheses. Ask the single highest-impact unresolved question before committing to a direction. |
+| Major redesign with conflicting or stale evidence | Separate the conflict into labelled facts, decisions, inferences, and hypotheses. Ask one focused question before committing only when the unresolved decision is blocking and path-dependent. |
 
 Do not infer the intended future audience solely from the current interface. A shipped flow proves that the flow exists; it does not prove that the target user, task priority, or interaction model is still correct.
 
@@ -86,7 +86,7 @@ Use `not yet researched` rather than leaving the evidence row absent. Keep the s
 4. Check for conflicts between intended direction and current evidence.
 5. Choose the response:
    - proceed without a new intake for a sufficiently evidenced small change;
-   - expose the material conflict and ask one question for a major redesign;
+   - expose the material conflict and ask one focused question for a major redesign only when the next path depends on it;
    - expose the zero-to-one evidence status before proposing a direction.
 
 Labels belong on decisions that influence the design, not on every sentence or minor styling value. Keep internal notes and user-facing output readable while preserving traceability.
@@ -109,7 +109,11 @@ Do not block on a small reversible choice such as a minor spacing value when est
 
 ## Question Strategy
 
-When the user or repository asks for progressive alignment, each turn should:
+Communication pace belongs to the user and project. Support step-by-step alignment, compact batch questions, a workshop-style decision pass, or an explicit-assumptions mode.
+
+Use one focused question by default only when a blocking, path-dependent product decision would materially change the next artifact or implementation path. Independent factual gaps may be collected in one compact list or checked in parallel. Do not serialize unrelated research merely to enforce a conversational pattern.
+
+When progressive alignment is selected, each decision turn should:
 
 1. lead with the observed fact;
 2. name the decision and why it matters;
@@ -118,7 +122,7 @@ When the user or repository asks for progressive alignment, each turn should:
 5. ask one question;
 6. accept a custom answer.
 
-Do not dump a generic intake questionnaire. Independent factual checks can run in parallel. Follow the project’s preferred communication rhythm when it is known, and continue asking only while a material uncertainty remains.
+Do not dump a generic intake questionnaire. Follow the project’s preferred communication rhythm when it is known, and continue asking only while a material uncertainty remains. Once the user understands a documented tradeoff and confirms a direction, record it and proceed rather than reopening the same recommendation.
 
 ## Platform Definition
 
@@ -163,9 +167,11 @@ Use the project’s existing source of truth. Record:
 - decision;
 - evidence label and source;
 - reason;
+- observed impact and recommendation when a material tradeoff was accepted;
 - affected platforms and flows;
 - rejected alternative only when the tradeoff matters later;
 - validation requirement;
+- remaining gap and revisit trigger;
 - date or version when the project convention calls for it.
 
-Create a new design profile only when no current document can carry reusable decisions.
+Create a new **Project Design Decision Profile** only when no current document can carry reusable decisions. This is a project-internal template, not an Apple document or official Apple method.
