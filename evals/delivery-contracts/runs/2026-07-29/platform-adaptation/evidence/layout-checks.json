@@ -1,0 +1,669 @@
+{
+  "generatedAt": "2026-07-29T08:26:55.613Z",
+  "renderer": "Google Chrome headless static browser render",
+  "evidenceBoundary": "Static HTML layout only; does not verify iPadOS or macOS native behavior.",
+  "allPassed": true,
+  "results": [
+    {
+      "target": {
+        "mode": "ipad-compact",
+        "width": 744,
+        "height": 900
+      },
+      "pass": true,
+      "assertions": {
+        "chromeViewportMatchesKnownInset": true,
+        "noHorizontalOverflow": true,
+        "noVerticalOverflow": true,
+        "radialInsideViewport": true,
+        "radialCenteredInCanvas": true,
+        "requiredElementsVisible": true,
+        "libraryVisibilityMatches": true,
+        "inspectorVisibilityMatches": true,
+        "compactInspectorVisibilityMatches": true
+      },
+      "measurements": {
+        "mode": "ipad-compact",
+        "viewport": {
+          "width": 744,
+          "height": 813,
+          "devicePixelRatio": 1
+        },
+        "document": {
+          "scrollWidth": 744,
+          "scrollHeight": 813,
+          "horizontalOverflow": false,
+          "verticalOverflow": false
+        },
+        "radialCenterOffsetFromCanvas": 0,
+        "radialInsideViewport": true,
+        "elements": {
+          "appShell": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 0,
+              "y": 0,
+              "width": 744,
+              "height": 813,
+              "right": 744,
+              "bottom": 813
+            }
+          },
+          "topbar": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 0,
+              "y": 0,
+              "width": 744,
+              "height": 60,
+              "right": 744,
+              "bottom": 60
+            }
+          },
+          "libraryPanel": {
+            "exists": true,
+            "visible": false,
+            "bounds": null
+          },
+          "canvasPanel": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 0,
+              "y": 60,
+              "width": 744,
+              "height": 753,
+              "right": 744,
+              "bottom": 813
+            }
+          },
+          "inspectorPanel": {
+            "exists": true,
+            "visible": false,
+            "bounds": null
+          },
+          "radialTimeline": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 117,
+              "y": 111,
+              "width": 510,
+              "height": 510,
+              "right": 627,
+              "bottom": 621
+            }
+          },
+          "transport": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 0,
+              "y": 748,
+              "width": 744,
+              "height": 65,
+              "right": 744,
+              "bottom": 813
+            }
+          },
+          "importAction": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 543.3,
+              "y": 10.5,
+              "width": 76.5,
+              "height": 38,
+              "right": 619.8,
+              "bottom": 48.5
+            }
+          },
+          "exportAction": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 626.8,
+              "y": 10.5,
+              "width": 103.2,
+              "height": 38,
+              "right": 730,
+              "bottom": 48.5
+            }
+          },
+          "selectionCallout": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 257,
+              "y": 540.3,
+              "width": 230,
+              "height": 42,
+              "right": 487,
+              "bottom": 582.3
+            }
+          },
+          "compactSwitcher": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 0,
+              "y": 587,
+              "width": 744,
+              "height": 47,
+              "right": 744,
+              "bottom": 634
+            }
+          },
+          "compactInspector": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 18,
+              "y": 634,
+              "width": 708,
+              "height": 106,
+              "right": 726,
+              "bottom": 740
+            }
+          }
+        }
+      }
+    },
+    {
+      "target": {
+        "mode": "ipad-expansive",
+        "width": 1366,
+        "height": 1024
+      },
+      "pass": true,
+      "assertions": {
+        "chromeViewportMatchesKnownInset": true,
+        "noHorizontalOverflow": true,
+        "noVerticalOverflow": true,
+        "radialInsideViewport": true,
+        "radialCenteredInCanvas": true,
+        "requiredElementsVisible": true,
+        "libraryVisibilityMatches": true,
+        "inspectorVisibilityMatches": true,
+        "compactInspectorVisibilityMatches": true
+      },
+      "measurements": {
+        "mode": "ipad-expansive",
+        "viewport": {
+          "width": 1366,
+          "height": 937,
+          "devicePixelRatio": 1
+        },
+        "document": {
+          "scrollWidth": 1366,
+          "scrollHeight": 937,
+          "horizontalOverflow": false,
+          "verticalOverflow": false
+        },
+        "radialCenterOffsetFromCanvas": 0,
+        "radialInsideViewport": true,
+        "elements": {
+          "appShell": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 0,
+              "y": 0,
+              "width": 1366,
+              "height": 937,
+              "right": 1366,
+              "bottom": 937
+            }
+          },
+          "topbar": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 0,
+              "y": 0,
+              "width": 1366,
+              "height": 62,
+              "right": 1366,
+              "bottom": 62
+            }
+          },
+          "libraryPanel": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 0,
+              "y": 62,
+              "width": 236,
+              "height": 875,
+              "right": 236,
+              "bottom": 937
+            }
+          },
+          "canvasPanel": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 236,
+              "y": 62,
+              "width": 830,
+              "height": 875,
+              "right": 1066,
+              "bottom": 937
+            }
+          },
+          "inspectorPanel": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 1066,
+              "y": 62,
+              "width": 300,
+              "height": 875,
+              "right": 1366,
+              "bottom": 937
+            }
+          },
+          "radialTimeline": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 341,
+              "y": 181,
+              "width": 620,
+              "height": 620,
+              "right": 961,
+              "bottom": 801
+            }
+          },
+          "transport": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 236,
+              "y": 873,
+              "width": 830,
+              "height": 64,
+              "right": 1066,
+              "bottom": 937
+            }
+          },
+          "importAction": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 1165.3,
+              "y": 11.5,
+              "width": 76.5,
+              "height": 38,
+              "right": 1241.8,
+              "bottom": 49.5
+            }
+          },
+          "exportAction": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 1248.8,
+              "y": 11.5,
+              "width": 103.2,
+              "height": 38,
+              "right": 1352,
+              "bottom": 49.5
+            }
+          },
+          "selectionCallout": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 536,
+              "y": 808.2,
+              "width": 230,
+              "height": 42,
+              "right": 766,
+              "bottom": 850.2
+            }
+          },
+          "compactSwitcher": {
+            "exists": true,
+            "visible": false,
+            "bounds": null
+          },
+          "compactInspector": {
+            "exists": true,
+            "visible": false,
+            "bounds": null
+          }
+        }
+      }
+    },
+    {
+      "target": {
+        "mode": "mac-minimum",
+        "width": 900,
+        "height": 640
+      },
+      "pass": true,
+      "assertions": {
+        "chromeViewportMatchesKnownInset": true,
+        "noHorizontalOverflow": true,
+        "noVerticalOverflow": true,
+        "radialInsideViewport": true,
+        "radialCenteredInCanvas": true,
+        "requiredElementsVisible": true,
+        "libraryVisibilityMatches": true,
+        "inspectorVisibilityMatches": true,
+        "compactInspectorVisibilityMatches": true
+      },
+      "measurements": {
+        "mode": "mac-minimum",
+        "viewport": {
+          "width": 900,
+          "height": 553,
+          "devicePixelRatio": 1
+        },
+        "document": {
+          "scrollWidth": 900,
+          "scrollHeight": 553,
+          "horizontalOverflow": false,
+          "verticalOverflow": false
+        },
+        "radialCenterOffsetFromCanvas": 0,
+        "radialInsideViewport": true,
+        "elements": {
+          "appShell": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 0,
+              "y": 0,
+              "width": 900,
+              "height": 553,
+              "right": 900,
+              "bottom": 553
+            }
+          },
+          "topbar": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 0,
+              "y": 0,
+              "width": 900,
+              "height": 50,
+              "right": 900,
+              "bottom": 50
+            }
+          },
+          "libraryPanel": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 0,
+              "y": 50,
+              "width": 184,
+              "height": 479,
+              "right": 184,
+              "bottom": 529
+            }
+          },
+          "canvasPanel": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 184,
+              "y": 50,
+              "width": 716,
+              "height": 479,
+              "right": 900,
+              "bottom": 529
+            }
+          },
+          "inspectorPanel": {
+            "exists": true,
+            "visible": false,
+            "bounds": null
+          },
+          "radialTimeline": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 317,
+              "y": 98,
+              "width": 450,
+              "height": 450,
+              "right": 767,
+              "bottom": 548
+            }
+          },
+          "transport": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 184,
+              "y": 481,
+              "width": 716,
+              "height": 48,
+              "right": 900,
+              "bottom": 529
+            }
+          },
+          "importAction": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 631.4,
+              "y": 9.5,
+              "width": 76.5,
+              "height": 30,
+              "right": 707.9,
+              "bottom": 39.5
+            }
+          },
+          "exportAction": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 787.8,
+              "y": 9.5,
+              "width": 103.2,
+              "height": 30,
+              "right": 891,
+              "bottom": 39.5
+            }
+          },
+          "selectionCallout": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 427,
+              "y": 439,
+              "width": 230,
+              "height": 42,
+              "right": 657,
+              "bottom": 481
+            }
+          },
+          "compactSwitcher": {
+            "exists": true,
+            "visible": false,
+            "bounds": null
+          },
+          "compactInspector": {
+            "exists": true,
+            "visible": false,
+            "bounds": null
+          }
+        }
+      }
+    },
+    {
+      "target": {
+        "mode": "mac-expanded",
+        "width": 1440,
+        "height": 900
+      },
+      "pass": true,
+      "assertions": {
+        "chromeViewportMatchesKnownInset": true,
+        "noHorizontalOverflow": true,
+        "noVerticalOverflow": true,
+        "radialInsideViewport": true,
+        "radialCenteredInCanvas": true,
+        "requiredElementsVisible": true,
+        "libraryVisibilityMatches": true,
+        "inspectorVisibilityMatches": true,
+        "compactInspectorVisibilityMatches": true
+      },
+      "measurements": {
+        "mode": "mac-expanded",
+        "viewport": {
+          "width": 1440,
+          "height": 813,
+          "devicePixelRatio": 1
+        },
+        "document": {
+          "scrollWidth": 1440,
+          "scrollHeight": 813,
+          "horizontalOverflow": false,
+          "verticalOverflow": false
+        },
+        "radialCenterOffsetFromCanvas": 0,
+        "radialInsideViewport": true,
+        "elements": {
+          "appShell": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 813,
+              "right": 1440,
+              "bottom": 813
+            }
+          },
+          "topbar": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 0,
+              "y": 0,
+              "width": 1440,
+              "height": 54,
+              "right": 1440,
+              "bottom": 54
+            }
+          },
+          "libraryPanel": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 0,
+              "y": 54,
+              "width": 224,
+              "height": 733,
+              "right": 224,
+              "bottom": 787
+            }
+          },
+          "canvasPanel": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 224,
+              "y": 54,
+              "width": 912,
+              "height": 733,
+              "right": 1136,
+              "bottom": 787
+            }
+          },
+          "inspectorPanel": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 1136,
+              "y": 54,
+              "width": 304,
+              "height": 733,
+              "right": 1440,
+              "bottom": 787
+            }
+          },
+          "radialTimeline": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 355,
+              "y": 113,
+              "width": 650,
+              "height": 650,
+              "right": 1005,
+              "bottom": 763
+            }
+          },
+          "transport": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 224,
+              "y": 732,
+              "width": 912,
+              "height": 55,
+              "right": 1136,
+              "bottom": 787
+            }
+          },
+          "importAction": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 1241.3,
+              "y": 10.5,
+              "width": 76.5,
+              "height": 32,
+              "right": 1317.8,
+              "bottom": 42.5
+            }
+          },
+          "exportAction": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 1324.8,
+              "y": 10.5,
+              "width": 103.2,
+              "height": 32,
+              "right": 1428,
+              "bottom": 42.5
+            }
+          },
+          "selectionCallout": {
+            "exists": true,
+            "visible": true,
+            "bounds": {
+              "x": 565,
+              "y": 671.2,
+              "width": 230,
+              "height": 42,
+              "right": 795,
+              "bottom": 713.2
+            }
+          },
+          "compactSwitcher": {
+            "exists": true,
+            "visible": false,
+            "bounds": null
+          },
+          "compactInspector": {
+            "exists": true,
+            "visible": false,
+            "bounds": null
+          }
+        }
+      }
+    }
+  ]
+}

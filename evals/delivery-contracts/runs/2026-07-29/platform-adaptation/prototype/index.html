@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OrbitCut — Platform adaptation layouts</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="app-shell" aria-label="OrbitCut layout proposal">
+    <header class="topbar">
+      <div class="brand-group">
+        <div class="brand-mark" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="brand-copy">
+          <strong>OrbitCut</strong>
+          <span>Summer Loop</span>
+        </div>
+      </div>
+
+      <nav class="history-controls" aria-label="Edit history">
+        <button class="icon-button" aria-label="Undo">↶</button>
+        <button class="icon-button is-disabled" aria-label="Redo" aria-disabled="true">↷</button>
+      </nav>
+
+      <div class="top-actions">
+        <button class="quiet-button import-button"><span>＋</span> Import</button>
+        <button class="quiet-button inspector-button">Inspect</button>
+        <button class="primary-button export-button">Export Loop</button>
+      </div>
+    </header>
+
+    <aside class="library-panel" aria-label="Clip library">
+      <div class="panel-heading">
+        <div>
+          <span class="eyebrow">Media</span>
+          <h2>Clips</h2>
+        </div>
+        <button class="small-button" aria-label="Add clip">＋</button>
+      </div>
+
+      <div class="library-summary">
+        <strong>6 clips</strong>
+        <span>24.0 sec loop</span>
+      </div>
+
+      <div class="clip-list" id="clipList"></div>
+
+      <div class="drop-zone">
+        <span class="drop-icon">↓</span>
+        <strong>Drop clips here</strong>
+        <small>or choose Import</small>
+      </div>
+    </aside>
+
+    <section class="canvas-panel" id="canvasPanel" aria-label="Radial timeline editor">
+      <div class="environment-badge" id="environmentBadge">Target layout</div>
+
+      <div class="canvas-heading">
+        <div>
+          <span class="eyebrow">Composition</span>
+          <h1>24-second loop</h1>
+        </div>
+        <div class="canvas-tools">
+          <button class="tool-button is-active">Arrange</button>
+          <button class="tool-button">Trim</button>
+          <button class="tool-button zoom-button">−&nbsp; 100% &nbsp;+</button>
+        </div>
+      </div>
+
+      <div class="radial-stage">
+        <svg class="radial-timeline" viewBox="0 0 560 560" role="img" aria-labelledby="timelineTitle timelineDesc">
+          <title id="timelineTitle">Radial timeline with six clips</title>
+          <desc id="timelineDesc">The selected Ocean Foam clip begins at 8.4 seconds and lasts 4.6 seconds.</desc>
+          <defs>
+            <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="6"></feGaussianBlur>
+            </filter>
+          </defs>
+          <circle class="orbit-halo" cx="280" cy="280" r="204"></circle>
+          <circle class="orbit-base" cx="280" cy="280" r="188"></circle>
+          <g id="segmentLayer"></g>
+          <circle class="orbit-inner" cx="280" cy="280" r="128"></circle>
+          <line class="playhead-line" x1="280" y1="69" x2="280" y2="124"></line>
+          <circle class="playhead-dot" cx="280" cy="67" r="7"></circle>
+          <g class="center-readout">
+            <text class="time-main" x="280" y="250" text-anchor="middle">00:08.4</text>
+            <text class="time-label" x="280" y="276" text-anchor="middle">PLAYHEAD</text>
+            <circle class="preview-disc" cx="280" cy="324" r="31"></circle>
+            <path class="preview-triangle" d="M272 308 L272 340 L298 324 Z"></path>
+          </g>
+          <g id="tickLayer"></g>
+        </svg>
+
+        <div class="selection-callout">
+          <span class="selection-swatch"></span>
+          <div>
+            <strong>Ocean Foam</strong>
+            <small>Selected · 08.4–13.0 sec</small>
+          </div>
+          <kbd>⌘ 3</kbd>
+        </div>
+      </div>
+
+      <div class="compact-switcher" aria-label="Compact workspace panel">
+        <button>Clips <span>6</span></button>
+        <button class="is-active">Edit <span>1 selected</span></button>
+      </div>
+
+      <section class="compact-inspector" aria-label="Selected clip properties">
+        <div class="compact-inspector-head">
+          <div><span class="selection-swatch"></span><strong>Ocean Foam</strong></div>
+          <button>Done</button>
+        </div>
+        <div class="compact-fields">
+          <label>Start <span>08.4 s</span></label>
+          <label>Duration <span>04.6 s</span></label>
+          <label>Volume <span>100%</span></label>
+        </div>
+      </section>
+
+      <footer class="transport" aria-label="Preview controls">
+        <div class="transport-time"><strong>00:08.4</strong><span>/ 00:24.0</span></div>
+        <div class="transport-controls">
+          <button aria-label="Previous clip">|◀</button>
+          <button class="play-button" aria-label="Play">▶</button>
+          <button aria-label="Next clip">▶|</button>
+        </div>
+        <div class="transport-status">
+          <span class="loop-indicator">↻</span>
+          <span>Loop preview</span>
+          <kbd>Space</kbd>
+        </div>
+      </footer>
+    </section>
+
+    <aside class="inspector-panel" id="inspectorPanel" aria-label="Inspector">
+      <div class="panel-heading inspector-heading">
+        <div>
+          <span class="eyebrow">Selection</span>
+          <h2>Ocean Foam</h2>
+        </div>
+        <button class="icon-button" aria-label="More options">•••</button>
+      </div>
+
+      <div class="preview-tile ocean-preview">
+        <span>CLIP 03</span>
+        <strong>Ocean Foam</strong>
+      </div>
+
+      <section class="property-group">
+        <h3>Timing</h3>
+        <label><span>Start</span><output>00:08.4</output></label>
+        <label><span>Duration</span><output>00:04.6</output></label>
+        <label><span>End</span><output>00:13.0</output></label>
+      </section>
+
+      <section class="property-group">
+        <h3>Playback</h3>
+        <label><span>Speed</span><output>1.0×</output></label>
+        <label><span>Volume</span><output>100%</output></label>
+      </section>
+
+      <section class="property-group">
+        <h3>Arrange</h3>
+        <div class="nudge-grid">
+          <button>− 0.1s</button>
+          <button>+ 0.1s</button>
+        </div>
+        <small class="shortcut-note">Arrow keys nudge · Shift for 1 sec</small>
+      </section>
+
+      <button class="destructive-button">Remove from loop</button>
+    </aside>
+
+    <footer class="statusbar">
+      <span><i class="status-dot"></i> Project saved locally</span>
+      <span>24.0 sec · 1080 × 1080 · 30 fps</span>
+    </footer>
+  </main>
+  <script src="./app.js"></script>
+</body>
+</html>

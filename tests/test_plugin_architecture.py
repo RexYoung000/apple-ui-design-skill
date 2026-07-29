@@ -110,6 +110,74 @@ class PluginArchitectureTests(unittest.TestCase):
                 errors,
             )
 
+    def test_missing_delivery_contract_reference_is_rejected(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            fixture = self.make_fixture(temp_dir)
+            (
+                fixture
+                / "plugins"
+                / "apple-ui-design"
+                / "references"
+                / "delivery-contracts.md"
+            ).unlink()
+
+            errors = validate(fixture)
+            self.assertTrue(
+                any("delivery-contracts.md" in error for error in errors)
+            )
+
+    def test_skill_without_delivery_contract_link_is_rejected(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            fixture = self.make_fixture(temp_dir)
+            review_skill = (
+                fixture
+                / "plugins"
+                / "apple-ui-design"
+                / "skills"
+                / "apple-ui-review"
+                / "SKILL.md"
+            )
+            review_contents = review_skill.read_text(encoding="utf-8")
+            review_skill.write_text(
+                review_contents.replace(
+                    "`../../references/delivery-contracts.md`",
+                    "`../../references/validation-and-review.md`",
+                ),
+                encoding="utf-8",
+            )
+
+            errors = validate(fixture)
+            self.assertIn(
+                "apple-ui-review must directly apply the shared delivery contracts",
+                errors,
+            )
+
+    def test_missing_delivery_contract_heading_is_rejected(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            fixture = self.make_fixture(temp_dir)
+            contracts = (
+                fixture
+                / "plugins"
+                / "apple-ui-design"
+                / "references"
+                / "delivery-contracts.md"
+            )
+            contents = contracts.read_text(encoding="utf-8")
+            contracts.write_text(
+                contents.replace(
+                    "## Contract 5: Native Prototype",
+                    "## Native Prototype",
+                ),
+                encoding="utf-8",
+            )
+
+            errors = validate(fixture)
+            self.assertIn(
+                "delivery contracts missing required heading: "
+                "## Contract 5: Native Prototype",
+                errors,
+            )
+
 
 if __name__ == "__main__":
     unittest.main()

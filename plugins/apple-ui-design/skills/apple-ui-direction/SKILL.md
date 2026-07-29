@@ -25,7 +25,8 @@ Before proposing a direction:
 2. Read `../../references/authority-and-principles.md`.
 3. Read `../../references/context-and-alignment.md` and determine whether the product is existing or zero-to-one.
 4. Derive or align the primary user, core task, target platform context, material constraints, and requested artifact.
-5. Ask only the highest-impact unresolved question. Do not ask the user to repeat project facts.
+5. Read `../../references/delivery-contracts.md`, select one primary contract, and state its artifact and evidence gate.
+6. Ask only the highest-impact unresolved question. Do not ask the user to repeat project facts.
 
 For a small reversible change with sufficient evidence, reuse the established user and interaction model. For a major redesign, recheck whether that model still supports the intended product. For zero-to-one work, expose confirmed product intent, research status, hypotheses, and material unknowns before direction claims.
 
@@ -33,7 +34,7 @@ For a small reversible change with sufficient evidence, reuse the established us
 
 ### 1. Establish the design problem
 
-State the user outcome, affected flow or system, target platforms, and evidence labels. Separate confirmed direction from project facts, external evidence, design inference, and unvalidated hypotheses.
+State the user outcome, affected flow or system, target platforms, selected delivery contract, and evidence labels. Separate confirmed direction from project facts, external evidence, design inference, and unvalidated hypotheses.
 
 ### 2. Define platform and version scope
 
@@ -57,7 +58,7 @@ Preserve the user’s ownership of interaction and motion decisions. Explain pla
 
 ### 5. Make the result visible
 
-Match fidelity to the decision:
+Follow the selected contract in `../../references/delivery-contracts.md`. Match fidelity to the decision:
 
 - use static visuals or lightweight HTML for early visual hypotheses;
 - use an interactive prototype for flow and state questions;
@@ -86,6 +87,7 @@ Deliver:
 - shared DNA or component changes when in scope;
 - evidence labels and sources for material conclusions;
 - validation completed and evidence produced;
+- the strongest completion stage supported by that evidence;
 - remaining hypotheses, risks, and unverified scenarios;
 - the exact visual and interaction acceptance path.
 

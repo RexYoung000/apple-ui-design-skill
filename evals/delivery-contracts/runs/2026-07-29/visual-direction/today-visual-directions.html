@@ -1,0 +1,773 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HearthDay — Today visual direction comparison</title>
+  <style>
+    :root {
+      /* Project values */
+      --surface-base: #F7F2EA;
+      --content-primary: #292522;
+      --action-primary: #A44E37;
+
+      /* Rendered proposals — open to visual acceptance */
+      --surface-raised: #FFF9F1;
+      --surface-warm: #EFE4D8;
+      --surface-task: #F4E7DF;
+      --content-secondary: #6A625C;
+      --content-muted: #746A64;
+      --line-soft: #DED3C8;
+      --shadow-warm: rgba(78, 54, 42, 0.12);
+      --white: #FFFFFF;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+      margin: 0;
+      background: #E9E3DB;
+      color: var(--content-primary);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    body {
+      padding: 44px 48px 52px;
+    }
+
+    .comparison-board {
+      width: min(1440px, 100%);
+      margin: 0 auto;
+    }
+
+    .board-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 30px;
+    }
+
+    .board-kicker {
+      margin: 0 0 8px;
+      color: var(--action-primary);
+      font-size: 12px;
+      font-weight: 760;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .board-title {
+      margin: 0;
+      max-width: 740px;
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: 690;
+      letter-spacing: -0.035em;
+      line-height: 1.06;
+    }
+
+    .board-summary {
+      max-width: 400px;
+      margin: 0;
+      color: #5B534D;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .directions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 30px;
+    }
+
+    .direction {
+      display: grid;
+      grid-template-columns: 390px minmax(170px, 1fr);
+      align-items: start;
+      gap: 24px;
+      padding: 22px;
+      border: 1px solid rgba(72, 56, 46, 0.08);
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.52);
+      box-shadow: 0 18px 50px rgba(58, 44, 35, 0.07);
+    }
+
+    .phone {
+      position: relative;
+      width: 390px;
+      height: 844px;
+      overflow: hidden;
+      border: 1px solid rgba(41, 37, 34, 0.12);
+      border-radius: 44px;
+      background: var(--surface-base);
+      box-shadow:
+        0 22px 50px rgba(57, 42, 34, 0.16),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+    }
+
+    .status-bar {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 54px;
+      padding: 10px 25px 0;
+      font-size: 14px;
+      font-weight: 650;
+      letter-spacing: -0.01em;
+    }
+
+    .status-icons {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .cellular {
+      display: flex;
+      align-items: end;
+      gap: 2px;
+      height: 12px;
+    }
+
+    .cellular i {
+      width: 3px;
+      border-radius: 2px;
+      background: currentColor;
+    }
+
+    .cellular i:nth-child(1) { height: 4px; }
+    .cellular i:nth-child(2) { height: 6px; }
+    .cellular i:nth-child(3) { height: 9px; }
+    .cellular i:nth-child(4) { height: 12px; }
+
+    .wifi {
+      width: 15px;
+      height: 11px;
+      border-top: 2px solid currentColor;
+      border-radius: 50%;
+      transform: scaleY(0.8);
+    }
+
+    .battery {
+      width: 22px;
+      height: 10px;
+      padding: 1px;
+      border: 1.4px solid currentColor;
+      border-radius: 3px;
+    }
+
+    .battery::after {
+      content: "";
+      display: block;
+      width: 15px;
+      height: 100%;
+      border-radius: 1px;
+      background: currentColor;
+    }
+
+    .home-indicator {
+      position: absolute;
+      z-index: 5;
+      bottom: 9px;
+      left: 50%;
+      width: 134px;
+      height: 5px;
+      border-radius: 4px;
+      background: var(--content-primary);
+      transform: translateX(-50%);
+      opacity: 0.88;
+    }
+
+    .direction-notes {
+      min-width: 0;
+      padding: 12px 2px 0;
+    }
+
+    .direction-label {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      margin-bottom: 18px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--content-primary);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 720;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .direction-name {
+      margin: 0 0 10px;
+      font-size: 25px;
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      line-height: 1.08;
+    }
+
+    .direction-idea {
+      margin: 0 0 28px;
+      color: #5B534D;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .note-group {
+      margin: 0 0 22px;
+    }
+
+    .note-group h3 {
+      margin: 0 0 7px;
+      color: var(--action-primary);
+      font-size: 11px;
+      font-weight: 760;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .note-group p {
+      margin: 0;
+      color: #5B534D;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    /* Direction A — Calm editorial */
+    .editorial {
+      padding: 0 25px 36px;
+    }
+
+    .editorial .greeting {
+      margin-top: 28px;
+      color: var(--content-secondary);
+      font-size: 15px;
+      font-weight: 520;
+      letter-spacing: -0.01em;
+    }
+
+    .editorial .date {
+      margin-top: 6px;
+      font-size: 34px;
+      font-weight: 680;
+      letter-spacing: -0.045em;
+      line-height: 1.02;
+    }
+
+    .editorial .date span {
+      display: block;
+    }
+
+    .editorial .section-eyebrow {
+      margin-top: 52px;
+      color: var(--action-primary);
+      font-size: 11px;
+      font-weight: 760;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .editorial .primary-commitment {
+      position: relative;
+      margin-top: 13px;
+      padding: 0 44px 27px 0;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .editorial .primary-title {
+      max-width: 260px;
+      margin: 0;
+      font-size: 35px;
+      font-weight: 640;
+      letter-spacing: -0.045em;
+      line-height: 1.02;
+    }
+
+    .editorial .primary-circle {
+      position: absolute;
+      top: 4px;
+      right: 1px;
+      width: 34px;
+      height: 34px;
+      border: 2px solid var(--action-primary);
+      border-radius: 50%;
+      background: transparent;
+    }
+
+    .editorial .primary-meta {
+      margin-top: 16px;
+      color: var(--content-muted);
+      font-size: 13px;
+    }
+
+    .editorial .secondary-row {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      min-height: 76px;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .editorial .secondary-circle {
+      flex: 0 0 auto;
+      width: 27px;
+      height: 27px;
+      border: 1.7px solid var(--action-primary);
+      border-radius: 50%;
+    }
+
+    .editorial .secondary-row strong {
+      font-size: 17px;
+      font-weight: 590;
+      letter-spacing: -0.02em;
+    }
+
+    .editorial .complete-row {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      min-height: 68px;
+      color: var(--content-muted);
+    }
+
+    .editorial .complete-circle {
+      position: relative;
+      flex: 0 0 auto;
+      width: 27px;
+      height: 27px;
+      border-radius: 50%;
+      background: var(--action-primary);
+    }
+
+    .editorial .complete-circle::after {
+      content: "";
+      position: absolute;
+      top: 7px;
+      left: 6px;
+      width: 12px;
+      height: 6px;
+      border-bottom: 2px solid var(--white);
+      border-left: 2px solid var(--white);
+      transform: rotate(-45deg);
+    }
+
+    .editorial .complete-row span:last-child {
+      font-size: 16px;
+      text-decoration: line-through;
+      text-decoration-thickness: 1px;
+    }
+
+    .editorial .end-note {
+      margin-top: 41px;
+      padding-left: 16px;
+      border-left: 2px solid rgba(164, 78, 55, 0.42);
+      color: var(--content-secondary);
+      font-family: "New York", ui-serif, Georgia, serif;
+      font-size: 15px;
+      font-style: italic;
+      line-height: 1.45;
+    }
+
+    /* Direction B — Direct task-led */
+    .task-led-phone {
+      background:
+        radial-gradient(circle at 85% 11%, rgba(164, 78, 55, 0.09), transparent 30%),
+        var(--surface-base);
+    }
+
+    .task-led {
+      padding: 0 20px 34px;
+    }
+
+    .task-led .header-row {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 24px;
+      padding: 0 4px;
+    }
+
+    .task-led .greeting {
+      margin: 0 0 5px;
+      color: var(--content-secondary);
+      font-size: 14px;
+      font-weight: 520;
+    }
+
+    .task-led .date {
+      margin: 0;
+      font-size: 30px;
+      font-weight: 690;
+      letter-spacing: -0.045em;
+      line-height: 1.05;
+    }
+
+    .task-led .progress-copy {
+      padding-bottom: 2px;
+      color: var(--action-primary);
+      font-size: 13px;
+      font-weight: 680;
+    }
+
+    .task-led .focus-label {
+      margin: 40px 4px 10px;
+      color: var(--action-primary);
+      font-size: 11px;
+      font-weight: 760;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .task-led .focus-card {
+      position: relative;
+      min-height: 234px;
+      padding: 26px 25px 24px;
+      border: 1px solid rgba(164, 78, 55, 0.18);
+      border-radius: 28px;
+      background: var(--surface-task);
+      box-shadow: 0 15px 30px rgba(109, 67, 48, 0.11);
+    }
+
+    .task-led .focus-card h2 {
+      max-width: 260px;
+      margin: 0;
+      font-size: 34px;
+      font-weight: 680;
+      letter-spacing: -0.045em;
+      line-height: 1.03;
+    }
+
+    .task-led .focus-card p {
+      margin: 12px 0 0;
+      color: var(--content-secondary);
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .task-led .complete-control {
+      position: absolute;
+      right: 23px;
+      bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--action-primary);
+      font-size: 13px;
+      font-weight: 680;
+    }
+
+    .task-led .complete-control .circle {
+      width: 34px;
+      height: 34px;
+      border: 2px solid var(--action-primary);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.34);
+    }
+
+    .task-led .other-label {
+      margin: 29px 4px 8px;
+      color: var(--content-secondary);
+      font-size: 12px;
+      font-weight: 680;
+      letter-spacing: 0.02em;
+    }
+
+    .task-led .compact-list {
+      overflow: hidden;
+      border: 1px solid rgba(77, 60, 51, 0.08);
+      border-radius: 20px;
+      background: rgba(255, 249, 241, 0.8);
+    }
+
+    .task-led .compact-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-height: 63px;
+      padding: 0 17px;
+    }
+
+    .task-led .compact-row + .compact-row {
+      border-top: 1px solid var(--line-soft);
+    }
+
+    .task-led .compact-circle {
+      position: relative;
+      flex: 0 0 auto;
+      width: 26px;
+      height: 26px;
+      border: 1.7px solid var(--action-primary);
+      border-radius: 50%;
+    }
+
+    .task-led .compact-row strong {
+      font-size: 16px;
+      font-weight: 590;
+      letter-spacing: -0.02em;
+    }
+
+    .task-led .compact-row.completed {
+      color: var(--content-muted);
+    }
+
+    .task-led .compact-row.completed .compact-circle {
+      border: 0;
+      background: var(--action-primary);
+    }
+
+    .task-led .compact-row.completed .compact-circle::after {
+      content: "";
+      position: absolute;
+      top: 7px;
+      left: 6px;
+      width: 12px;
+      height: 6px;
+      border-bottom: 2px solid var(--white);
+      border-left: 2px solid var(--white);
+      transform: rotate(-45deg);
+    }
+
+    .task-led .compact-row.completed strong {
+      font-weight: 500;
+      text-decoration: line-through;
+      text-decoration-thickness: 1px;
+    }
+
+    .task-led .end-note {
+      margin: 29px 10px 0;
+      color: var(--content-secondary);
+      font-size: 14px;
+      line-height: 1.45;
+      text-align: center;
+    }
+
+    .task-led .end-note strong {
+      color: var(--content-primary);
+      font-weight: 650;
+    }
+
+    .board-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      margin-top: 26px;
+      padding: 0 4px;
+      color: #645B55;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .board-footer p {
+      margin: 0;
+    }
+
+    .project-token {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      white-space: nowrap;
+    }
+
+    .swatch {
+      width: 14px;
+      height: 14px;
+      border: 1px solid rgba(41, 37, 34, 0.15);
+      border-radius: 50%;
+    }
+
+    @media (max-width: 1250px) {
+      .directions {
+        grid-template-columns: 1fr;
+      }
+
+      .direction {
+        grid-template-columns: 390px 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      body {
+        padding: 24px 16px;
+      }
+
+      .board-header,
+      .board-footer {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .direction {
+        grid-template-columns: 1fr;
+      }
+
+      .phone {
+        width: min(390px, 100%);
+        justify-self: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="comparison-board">
+    <header class="board-header">
+      <div>
+        <p class="board-kicker">HearthDay · Today screen</p>
+        <h1 class="board-title">Two ways to make what still matters feel unmistakable—without losing warmth.</h1>
+      </div>
+      <p class="board-summary">
+        Static visual hypotheses for iPhone. Both retain the approved commitment model and completion affordance; they differ in how strongly the next commitment is separated from the day.
+      </p>
+    </header>
+
+    <section class="directions" aria-label="Visual direction comparison">
+      <article class="direction" id="direction-a">
+        <div class="phone" aria-label="Direction A, calm editorial Today screen">
+          <div class="status-bar" aria-hidden="true">
+            <span>9:41</span>
+            <span class="status-icons">
+              <span class="cellular"><i></i><i></i><i></i><i></i></span>
+              <span class="wifi"></span>
+              <span class="battery"></span>
+            </span>
+          </div>
+          <div class="editorial">
+            <div class="greeting">Good morning</div>
+            <div class="date"><span>Tuesday,</span> 29 July</div>
+
+            <div class="section-eyebrow">Still for today</div>
+            <section class="primary-commitment" aria-label="Walk after lunch, incomplete">
+              <h2 class="primary-title">Walk after lunch</h2>
+              <span class="primary-circle" aria-hidden="true"></span>
+              <div class="primary-meta">One gentle step at a time</div>
+            </section>
+
+            <div class="secondary-row" aria-label="Call Mum, incomplete">
+              <span class="secondary-circle" aria-hidden="true"></span>
+              <strong>Call Mum</strong>
+            </div>
+
+            <div class="complete-row" aria-label="Read 20 pages, completed">
+              <span class="complete-circle" aria-hidden="true"></span>
+              <span>Read 20 pages</span>
+            </div>
+
+            <p class="end-note">Whatever is left can wait for tomorrow.</p>
+          </div>
+          <div class="home-indicator" aria-hidden="true"></div>
+        </div>
+
+        <aside class="direction-notes">
+          <span class="direction-label">Direction A</span>
+          <h2 class="direction-name">Calm editorial</h2>
+          <p class="direction-idea">Focus comes from type scale, rhythm, and generous space. The screen reads like a quiet daily page, not a productivity dashboard.</p>
+
+          <div class="note-group">
+            <h3>Optimizes</h3>
+            <p>Reflection, calm, and a private ritual around a deliberately small list.</p>
+          </div>
+          <div class="note-group">
+            <h3>Tradeoff</h3>
+            <p>The next action is visually clear, but completion remains understated and less “tap me now.”</p>
+          </div>
+          <div class="note-group">
+            <h3>Platform implication</h3>
+            <p>Relies on Dynamic Type-aware reflow; the large commitment title must expand without hiding the remaining list.</p>
+          </div>
+          <div class="note-group">
+            <h3>Visual acceptance question</h3>
+            <p>Does the strong typographic pause feel focused, or too much like reading rather than doing?</p>
+          </div>
+        </aside>
+      </article>
+
+      <article class="direction" id="direction-b">
+        <div class="phone task-led-phone" aria-label="Direction B, direct task-led Today screen">
+          <div class="status-bar" aria-hidden="true">
+            <span>9:41</span>
+            <span class="status-icons">
+              <span class="cellular"><i></i><i></i><i></i><i></i></span>
+              <span class="wifi"></span>
+              <span class="battery"></span>
+            </span>
+          </div>
+          <div class="task-led">
+            <div class="header-row">
+              <div>
+                <p class="greeting">Good morning</p>
+                <h2 class="date">Tuesday, 29 July</h2>
+              </div>
+              <div class="progress-copy">1 of 3 done</div>
+            </div>
+
+            <div class="focus-label">Focus now</div>
+            <section class="focus-card" aria-label="Walk after lunch, incomplete">
+              <h2>Walk after lunch</h2>
+              <p>The one thing to keep in view.</p>
+              <div class="complete-control">
+                <span>Complete</span>
+                <span class="circle" aria-hidden="true"></span>
+              </div>
+            </section>
+
+            <div class="other-label">Also today</div>
+            <div class="compact-list">
+              <div class="compact-row" aria-label="Call Mum, incomplete">
+                <span class="compact-circle" aria-hidden="true"></span>
+                <strong>Call Mum</strong>
+              </div>
+              <div class="compact-row completed" aria-label="Read 20 pages, completed">
+                <span class="compact-circle" aria-hidden="true"></span>
+                <strong>Read 20 pages</strong>
+              </div>
+            </div>
+
+            <p class="end-note"><strong>Enough for today.</strong><br>Anything left can wait.</p>
+          </div>
+          <div class="home-indicator" aria-hidden="true"></div>
+        </div>
+
+        <aside class="direction-notes">
+          <span class="direction-label">Direction B</span>
+          <h2 class="direction-name">Direct task-led</h2>
+          <p class="direction-idea">Focus comes from a warm, elevated task surface and an explicit completion cue. The next action is immediate; everything else becomes supporting context.</p>
+
+          <div class="note-group">
+            <h3>Optimizes</h3>
+            <p>Fast recognition and action when the app is opened for a short check-in.</p>
+          </div>
+          <div class="note-group">
+            <h3>Tradeoff</h3>
+            <p>The elevated card introduces more “task manager” energy and slightly reduces the page-like intimacy.</p>
+          </div>
+          <div class="note-group">
+            <h3>Platform implication</h3>
+            <p>The card needs a generous full-row hit area and clear VoiceOver state; color is reinforced by label, shape, and order.</p>
+          </div>
+          <div class="note-group">
+            <h3>Visual acceptance question</h3>
+            <p>Does the large task surface feel reassuringly direct, or too insistent for HearthDay?</p>
+          </div>
+        </aside>
+      </article>
+    </section>
+
+    <footer class="board-footer">
+      <p>Exploration status: rendered proposals, not yet user-selected. Static HTML does not verify native iOS behavior.</p>
+      <p class="project-token">
+        <span class="swatch" style="background:#F7F2EA"></span> surfaceBase
+        <span class="swatch" style="background:#292522"></span> contentPrimary
+        <span class="swatch" style="background:#A44E37"></span> actionPrimary
+      </p>
+    </footer>
+  </main>
+</body>
+</html>

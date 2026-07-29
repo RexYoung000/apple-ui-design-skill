@@ -13,8 +13,9 @@ Before reviewing:
 
 1. Inspect repository instructions, product intent, target users and tasks, platform scope, design system, screenshots, recordings, implementation, tests, and runtime evidence that are available.
 2. Read `../../references/authority-and-principles.md` and `../../references/context-and-alignment.md`.
-3. Identify the exact artifact, screen, state, platform, environment, and requested review depth.
-4. Ask only for missing evidence that would materially change the findings.
+3. Read `../../references/delivery-contracts.md`, select the UI Review contract, and state its evidence gate.
+4. Identify the exact artifact, screen, state, platform, environment, and requested review depth.
+5. Ask only for missing evidence that would materially change the findings.
 
 A user-provided screenshot or recording can support review of what it shows. Text description alone supports only unverified consultation. A build result does not prove usable interaction.
 
@@ -87,6 +88,7 @@ Deliver:
 - recommendations that preserve confirmed product ownership;
 - validation methods for every actionable finding;
 - unresolved risks and unrepresented scenarios;
+- the strongest completion stage supported by the supplied evidence;
 - a concise user acceptance path.
 
 If there are no actionable findings, say so and name the evidence limits. Do not manufacture issues to fill a report.

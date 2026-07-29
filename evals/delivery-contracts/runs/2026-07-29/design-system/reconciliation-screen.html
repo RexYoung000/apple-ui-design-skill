@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LedgerDesk · Zahlungsabgleich</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="screen-artifact">
+      <header class="screen-caption">
+        <div>
+          <p class="eyebrow">Representative product screen</p>
+          <h1>Status- und Aktionssystem im Zahlungsabgleich</h1>
+          <p>German content expansion · selected payment + unresolved outcome + suggested invoice</p>
+        </div>
+        <div class="screen-note">Rendered proposal · navigation intentionally unchanged / out of scope</div>
+      </header>
+
+      <section class="app-window" aria-label="LedgerDesk Zahlungsabgleich">
+        <div class="titlebar">
+          <div class="traffic-lights" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="window-title">LedgerDesk</div>
+          <div class="period-control">Juli 2026 ▾</div>
+        </div>
+
+        <header class="product-toolbar">
+          <div>
+            <h2>Zahlungsabgleich</h2>
+            <p>8 Zahlungen · 3 benötigen Aufmerksamkeit</p>
+          </div>
+          <div class="toolbar-actions">
+            <label class="search-field" aria-label="Zahlungen durchsuchen">
+              <span aria-hidden="true">⌕</span>
+              <input type="search" placeholder="Zahlungen durchsuchen" />
+            </label>
+            <button class="action secondary" type="button">Filter</button>
+          </div>
+        </header>
+
+        <div class="screen-grid">
+          <aside class="payment-pane" aria-labelledby="payment-list-title">
+            <div class="pane-header">
+              <h3 id="payment-list-title">Eingehende Zahlungen</h3>
+              <span>Nach Datum sortiert</span>
+            </div>
+            <div class="product-row-stack">
+              <button class="reconciliation-row is-selected" type="button" aria-current="true">
+                <span class="row-icon warning" aria-hidden="true">!</span>
+                <span class="row-content">
+                  <span class="row-titleline"><span class="row-title">Krause Maschinenbau GmbH</span><span class="row-amount">8.420,00 €</span></span>
+                  <span class="row-meta"><span>DE64 1108</span><span>14. Juli</span></span>
+                </span>
+                <span class="badge warning">Nicht zugeordnet</span>
+              </button>
+
+              <button class="reconciliation-row" type="button">
+                <span class="row-icon" aria-hidden="true">BK</span>
+                <span class="row-content">
+                  <span class="row-titleline"><span class="row-title">Baukontor West</span><span class="row-amount">2.480,00 €</span></span>
+                  <span class="row-meta"><span>DE71 3004</span><span>12. Juli</span></span>
+                </span>
+                <span class="badge neutral">Ausstehend</span>
+              </button>
+
+              <button class="reconciliation-row is-resolved" type="button">
+                <span class="row-icon resolved" aria-hidden="true">✓</span>
+                <span class="row-content">
+                  <span class="row-titleline"><span class="row-title">Studio Nordlicht</span><span class="row-amount">1.260,00 €</span></span>
+                  <span class="row-meta"><span>Rechnung 2026-184</span><span>09:42</span></span>
+                </span>
+                <span class="badge matched">Zugeordnet</span>
+              </button>
+
+              <button class="reconciliation-row is-warning" type="button">
+                <span class="row-icon warning" aria-hidden="true">!</span>
+                <span class="row-content">
+                  <span class="row-titleline"><span class="row-title">Überweisung ohne Referenz</span><span class="row-amount">640,00 €</span></span>
+                  <span class="row-meta"><span>DE19 9201</span><span>11. Juli</span></span>
+                </span>
+                <span class="badge warning">Prüfen</span>
+              </button>
+
+              <button class="reconciliation-row" type="button">
+                <span class="row-icon" aria-hidden="true">MH</span>
+                <span class="row-content">
+                  <span class="row-titleline"><span class="row-title">Möbelhaus Hansa</span><span class="row-amount">3.090,00 €</span></span>
+                  <span class="row-meta"><span>DE54 2205</span><span>10. Juli</span></span>
+                </span>
+                <span class="badge neutral">Ausstehend</span>
+              </button>
+            </div>
+          </aside>
+
+          <section class="detail-pane" aria-labelledby="detail-title">
+            <header class="detail-header">
+              <div>
+                <p class="detail-kicker">Zahlung vom 14. Juli 2026</p>
+                <h3 id="detail-title">Krause Maschinenbau GmbH</h3>
+                <p>Referenz: KM-240714 · DE64 1108 0000 7420</p>
+              </div>
+              <div class="detail-amount">8.420,00 €</div>
+            </header>
+
+            <div class="message-banner" role="status">
+              <span class="banner-icon" aria-hidden="true">!</span>
+              <div>
+                <strong>Zahlung konnte keiner Rechnung zugeordnet werden</strong>
+                <p>Prüfen Sie den vorgeschlagenen Treffer oder markieren Sie die Zahlung bewusst als geklärt.</p>
+              </div>
+            </div>
+
+            <section class="candidate-section" aria-labelledby="candidate-title">
+              <h4 id="candidate-title">Mögliche Rechnungen</h4>
+              <button class="invoice-card is-suggested" type="button" aria-pressed="true">
+                <span class="radio" aria-hidden="true"></span>
+                <span>
+                  <span class="invoice-title">Rechnung 2026-241 · Krause Maschinenbau GmbH</span>
+                  <span class="invoice-meta">Fällig 18. Juli · Referenz teilweise übereinstimmend</span>
+                </span>
+                <span class="invoice-amount"><strong>8.420,00 €</strong><span>Gleicher Betrag</span></span>
+              </button>
+              <button class="invoice-card" type="button" aria-pressed="false">
+                <span class="radio" aria-hidden="true"></span>
+                <span>
+                  <span class="invoice-title">Rechnung 2026-238 · Krause Maschinenbau GmbH</span>
+                  <span class="invoice-meta">Überfällig seit 5. Juli · Abweichende Referenz</span>
+                </span>
+                <span class="invoice-amount"><strong>8.240,00 €</strong><span>180,00 € Differenz</span></span>
+              </button>
+            </section>
+
+            <footer class="detail-footer">
+              <div class="left-actions">
+                <button class="action secondary" type="button">Als geklärt markieren</button>
+                <button class="action destructive" type="button">Zahlung entfernen</button>
+              </div>
+              <div class="right-actions">
+                <span class="key-hint"><kbd>esc</kbd> Abbrechen</span>
+                <button class="action primary is-focused" type="button">Zahlung zuordnen <kbd>↵</kbd></button>
+              </div>
+            </footer>
+          </section>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

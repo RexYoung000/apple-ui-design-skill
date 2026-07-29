@@ -36,6 +36,23 @@ SwiftUI 生产架构、调试、性能、CI 与发布仍属于工程职责。以
 6. **可访问性与本地化保护体验结果，而非统一皮肤。** 它们从设计阶段进入验证，同时保留品牌表达。
 7. **视觉与动效质量需要证据。** 编译成功不等于体验通过；重要状态和真实交互需要经过渲染与验证。
 
+## 交付合同
+
+每项任务只选择一个主要合同。合同定义开始前需要什么证据、用户最终获得什么产物，以及现有证据最多能支持哪一级完成声明。
+
+| 合同 | 最低交付物 | 声明完成所需证据 |
+|---|---|---|
+| 视觉方向 | 使用代表性真实内容的关键画面；方向未确定时提供具有实质差异的可见方案 | 已渲染画面；不能只凭文字或精确参数宣称高保真方向完成 |
+| 页面或流程 | 覆盖必要状态、转换、恢复和输入行为的可操作路径 | 交互原型或运行实现；静态画面只能证明外观 |
+| 设计系统 | 语义 Token、组件意图、代表性状态及其在真实产品页面中的应用 | 已渲染组件状态和至少一个代表性产品应用 |
+| 跨平台适配 | 共享与平台差异矩阵，以及每个目标环境的代表布局和输入行为 | 各关键尺寸的可见证据；涉及窗口、输入或平台行为的声明必须经过原生运行 |
+| 原生原型 | 有明确范围的 SwiftUI 行为、代表性状态、无障碍语义、版本降级，以及有动效时的 Reduce Motion 表达 | SwiftUI Preview、模拟器或真机，或真实 macOS App；交互与动效声明需要录屏 |
+| UI 评审 | 证据状态，以及按严重度排列的事实、影响、建议和验证方法 | 结论受用户提供的产物与运行证据约束；只有文字时只能提供未验证咨询 |
+
+所有精确视觉值都必须来自项目依据、已渲染产物，或明确标记为“建议值、尚未验证”。交互与动效决定仍属于用户：Plugin 可以建议、制作原型和验证，但不能静默替换已确认的产品选择。
+
+完成状态必须分层表达：**方向已对齐**、**设计完成**、**原型完成**、**代码完成**、**体验已验证**、**用户已验收**。不得从前一阶段自动推导后一阶段。
+
 ## 安装 Plugin
 
 先将本公开仓库添加为 Codex Marketplace，再安装 Plugin：
@@ -122,6 +139,11 @@ Skill 使用混合研究模式：
 ├── evals/
 │   ├── plugin-split/
 │   │   └── runs/
+│   ├── delivery-contracts/
+│   │   ├── README.md
+│   │   ├── cases.json
+│   │   ├── fixtures/
+│   │   └── runs/
 │   └── product-starting-point/
 │       ├── README.md
 │       ├── cases.json
@@ -138,10 +160,12 @@ Skill 使用混合研究模式：
 │           └── apple-ui-review/
 ├── scripts/
 │   ├── validate_product_starting_point_evals.py
+│   ├── validate_delivery_contract_evals.py
 │   ├── validate_plugin_architecture.py
 │   └── validate_source_registry.py
 └── tests/
     ├── test_plugin_architecture.py
+    ├── test_delivery_contract_evals.py
     ├── test_product_starting_point_evals.py
     └── test_source_registry.py
 ```
@@ -152,7 +176,9 @@ Skill 使用混合研究模式：
 - `.agents/plugins/marketplace.json` 通过公开 GitHub 仓库暴露 Plugin。
 - 根级 `SKILL.md` 与 `agents/openai.yaml` 只为旧版独立安装提供显式调用兼容。
 - `evals/plugin-split/` 保留三个内置 Skills 的独立前向测试与安装后新会话证据。
+- `evals/delivery-contracts/` 为六类交付合同分别提供一项真实任务与可观察的证据断言。
 - `evals/product-starting-point/` 提供固定的小改动、重大改版与从零产品证据场景、评审断言和保留的前向测试证据。
+- `scripts/validate_delivery_contract_evals.py` 用于检查合同覆盖、固定素材、必需产物、禁止声明和证据要求。
 - `scripts/validate_product_starting_point_evals.py` 用于检查评测结构、必需场景、行为断言和固定素材路径。
 - `scripts/validate_plugin_architecture.py` 用于保护 Skill 边界、共享规则所有权和安装包纯度。
 - `tests/` 用于保护 Plugin 架构、评测与资源校验器必须识别的错误场景。

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LedgerDesk · Status and Action System</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="artifact">
+      <header class="artifact-header">
+        <div>
+          <p class="eyebrow">LedgerDesk / macOS</p>
+          <h1>A status system that separates selection, resolution, and risk.</h1>
+          <p class="lede">
+            Calm, precise states for a high-cost reconciliation task. Meaning is carried by
+            wording, icon shape, border, and surface—not color alone.
+          </p>
+        </div>
+        <div class="legend" aria-label="Value provenance legend">
+          <span><i class="project"></i> Project-sourced core</span>
+          <span><i class="proposal"></i> Rendered proposal</span>
+        </div>
+      </header>
+
+      <section class="system-grid" aria-label="Rendered component states">
+        <article class="spec-panel">
+          <header class="panel-heading">
+            <h2>Reconciliation row</h2>
+            <p>Independent interaction + outcome states</p>
+          </header>
+          <div class="panel-content row-stack">
+            <button class="reconciliation-row" type="button">
+              <span class="state-label">Default</span>
+              <span class="row-icon" aria-hidden="true">BL</span>
+              <span class="row-content">
+                <span class="row-titleline"><span class="row-title">Bauleitung Krüger</span><span class="row-amount">€ 2,480.00</span></span>
+                <span class="row-meta"><span>DE71 3004</span><span>12 Jul 2026</span></span>
+              </span>
+              <span class="row-trailing" aria-hidden="true">›</span>
+            </button>
+
+            <button class="reconciliation-row is-selected" type="button" aria-current="true">
+              <span class="state-label">Selected</span>
+              <span class="row-icon" aria-hidden="true">KM</span>
+              <span class="row-content">
+                <span class="row-titleline"><span class="row-title">Krause Maschinenbau</span><span class="row-amount">€ 8,420.00</span></span>
+                <span class="row-meta"><span>DE64 1108</span><span>14 Jul 2026</span></span>
+              </span>
+              <span class="badge warning">Unmatched</span>
+            </button>
+
+            <button class="reconciliation-row is-resolved" type="button">
+              <span class="state-label">Resolved</span>
+              <span class="row-icon resolved" aria-hidden="true">✓</span>
+              <span class="row-content">
+                <span class="row-titleline"><span class="row-title">Studio Nordlicht</span><span class="row-amount">€ 1,260.00</span></span>
+                <span class="row-meta"><span>Invoice 2026-184</span><span>Resolved 09:42</span></span>
+              </span>
+              <span class="badge matched">Matched</span>
+            </button>
+
+            <button class="reconciliation-row is-warning is-focused" type="button">
+              <span class="state-label">Keyboard focus</span>
+              <span class="row-icon warning" aria-hidden="true">!</span>
+              <span class="row-content">
+                <span class="row-titleline"><span class="row-title">Transfer without reference</span><span class="row-amount">€ 640.00</span></span>
+                <span class="row-meta"><span>DE19 9201</span><span>Needs review</span></span>
+              </span>
+              <span class="badge warning">Unmatched</span>
+            </button>
+          </div>
+        </article>
+
+        <article class="spec-panel">
+          <header class="panel-heading">
+            <h2>Status badges</h2>
+            <p>Semantic label + redundant shape</p>
+          </header>
+          <div class="panel-content badge-grid">
+            <div class="badge-sample"><span>Positive outcome</span><span class="badge matched">Matched</span></div>
+            <div class="badge-sample"><span>Needs attention</span><span class="badge warning">Unmatched</span></div>
+            <div class="badge-sample"><span>High-cost conflict</span><span class="badge critical">Conflict</span></div>
+            <div class="badge-sample"><span>No outcome yet</span><span class="badge neutral">Pending</span></div>
+            <div class="badge-sample long"><span>German / long</span><span class="badge warning">Nicht zugeordnet</span></div>
+            <div class="badge-sample long"><span>German / resolved</span><span class="badge matched">Als geklärt markiert</span></div>
+          </div>
+        </article>
+
+        <article class="spec-panel wide">
+          <header class="panel-heading">
+            <h2>Action hierarchy</h2>
+            <p>Primary = advance · Secondary = inspect/defer · Destructive = irreversible risk</p>
+          </header>
+          <div class="panel-content actions-section">
+            <section class="action-family" aria-labelledby="primary-title">
+              <h3 id="primary-title">Primary action</h3>
+              <div class="action-states">
+                <div class="action-sample"><span>Default</span><button class="action primary" type="button">Match payment</button></div>
+                <div class="action-sample"><span>Hover</span><button class="action primary is-hover" type="button">Match payment</button></div>
+                <div class="action-sample"><span>Keyboard focus</span><button class="action primary is-focused" type="button">Match payment</button></div>
+                <div class="action-sample"><span>Disabled</span><button class="action primary" type="button" disabled>Match payment</button></div>
+              </div>
+            </section>
+
+            <section class="action-family" aria-labelledby="secondary-title">
+              <h3 id="secondary-title">Secondary action</h3>
+              <div class="action-states">
+                <div class="action-sample"><span>Default</span><button class="action secondary" type="button">Review details</button></div>
+                <div class="action-sample"><span>Hover</span><button class="action secondary is-hover" type="button">Review details</button></div>
+                <div class="action-sample"><span>Keyboard focus</span><button class="action secondary is-focused" type="button">Review details</button></div>
+                <div class="action-sample"><span>Disabled</span><button class="action secondary" type="button" disabled>Review details</button></div>
+              </div>
+            </section>
+
+            <section class="action-family" aria-labelledby="destructive-title">
+              <h3 id="destructive-title">Destructive action</h3>
+              <div class="action-states">
+                <div class="action-sample"><span>Default</span><button class="action destructive" type="button">Remove match</button></div>
+                <div class="action-sample"><span>Hover</span><button class="action destructive is-hover" type="button">Remove match</button></div>
+                <div class="action-sample"><span>Keyboard focus</span><button class="action destructive is-focused" type="button">Remove match</button></div>
+                <div class="action-sample"><span>Disabled</span><button class="action destructive" type="button" disabled>Remove match</button></div>
+              </div>
+            </section>
+          </div>
+        </article>
+      </section>
+
+      <section class="token-strip" aria-label="Core semantic colors">
+        <div class="token"><div class="token-color" style="--swatch: var(--surface-canvas)"></div><div class="token-copy"><strong>surfaceCanvas</strong><span>#F4F1EB · project</span></div></div>
+        <div class="token"><div class="token-color" style="--swatch: var(--content-primary)"></div><div class="token-copy"><strong>contentPrimary</strong><span>#242321 · project</span></div></div>
+        <div class="token"><div class="token-color" style="--swatch: var(--action-primary)"></div><div class="token-copy"><strong>actionPrimary</strong><span>#2F675D · project</span></div></div>
+        <div class="token"><div class="token-color" style="--swatch: var(--status-warning)"></div><div class="token-copy"><strong>statusWarning</strong><span>#B46A24 · project</span></div></div>
+        <div class="token"><div class="token-color" style="--swatch: var(--content-critical)"></div><div class="token-copy"><strong>contentCritical</strong><span>#A53B36 · project</span></div></div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -44,6 +44,7 @@ REQUIRED_SHARED_REFERENCES = {
     "context-and-alignment.md",
     "current-sources.md",
     "design-system-and-dna.md",
+    "delivery-contracts.md",
     "prototyping-and-implementation.md",
     "research-and-source-evidence.md",
     "source-registry.json",
@@ -58,6 +59,15 @@ FORBIDDEN_PACKAGE_ENTRIES = {
     "tests",
 }
 REFERENCE_PATTERN = re.compile(r"`(\.\./\.\./references/[^`]+)`")
+DELIVERY_CONTRACT_REFERENCE = "../../references/delivery-contracts.md"
+REQUIRED_DELIVERY_CONTRACT_HEADINGS = {
+    "## Contract 1: Visual Direction",
+    "## Contract 2: Screen or Flow",
+    "## Contract 3: Design System",
+    "## Contract 4: Platform Adaptation",
+    "## Contract 5: Native Prototype",
+    "## Contract 6: UI Review",
+}
 
 
 def load_json(path: Path, label: str, errors: list[str]) -> dict | None:
@@ -162,6 +172,10 @@ def validate(repo_root: Path) -> list[str]:
         referenced_paths = REFERENCE_PATTERN.findall(contents)
         if not referenced_paths:
             errors.append(f"{skill_name} must link directly to shared references")
+        if DELIVERY_CONTRACT_REFERENCE not in referenced_paths:
+            errors.append(
+                f"{skill_name} must directly apply the shared delivery contracts"
+            )
         for relative_path in referenced_paths:
             resolved = (skill_root / relative_path).resolve()
             try:
@@ -199,6 +213,18 @@ def validate(repo_root: Path) -> list[str]:
                 "missing shared references: "
                 + ", ".join(sorted(missing_references))
             )
+        try:
+            delivery_contracts = (
+                references_root / "delivery-contracts.md"
+            ).read_text(encoding="utf-8")
+        except OSError:
+            pass
+        else:
+            for heading in REQUIRED_DELIVERY_CONTRACT_HEADINGS:
+                if heading not in delivery_contracts:
+                    errors.append(
+                        f"delivery contracts missing required heading: {heading}"
+                    )
 
     if (root / "references").exists():
         errors.append("root references directory duplicates plugin shared ownership")

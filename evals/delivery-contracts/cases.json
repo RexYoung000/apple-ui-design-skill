@@ -1,0 +1,243 @@
+{
+  "schema_version": 1,
+  "suite": "delivery-contracts",
+  "purpose": "Verify artifact delivery and honest completion claims for all six Apple UI design contracts.",
+  "linked_issues": [3, 4, 14],
+  "cases": [
+    {
+      "id": "visual-direction-existing-product",
+      "contract": "visual-direction",
+      "owner_skill": "apple-ui-direction",
+      "starting_point": "existing-product",
+      "request": "Create a more focused but still warm visual direction for the Today screen. I need something I can actually look at and compare, not a written mood board.",
+      "fixture_paths": [
+        "evals/delivery-contracts/fixtures/visual-direction.md"
+      ],
+      "run_evidence_paths": [
+        "evals/delivery-contracts/runs/2026-07-29/visual-direction/today-visual-directions.png",
+        "evals/delivery-contracts/runs/2026-07-29/visual-direction/validation-report.md"
+      ],
+      "expected_artifacts": [
+        "rendered key screen with representative content",
+        "at least two materially different visible hypotheses",
+        "visual comparison and user acceptance path"
+      ],
+      "evidence_requirements": [
+        "rendered artifacts are preserved",
+        "exact values are linked to project tokens or labelled rendered proposals"
+      ],
+      "forbidden_claims": [
+        "direction aligned before user selection",
+        "Apple-native behavior verified from a static or browser artifact"
+      ],
+      "assertions": {
+        "must_do": [
+          "Reuse the confirmed product boundary and representative content.",
+          "Produce visible alternatives that differ in hierarchy or interaction emphasis rather than color alone.",
+          "Label the visual result as proposed until user selection."
+        ],
+        "must_not_do": [
+          "Finish with prose, token values, or a mood board only.",
+          "Redesign navigation or task behavior outside the requested boundary."
+        ]
+      }
+    },
+    {
+      "id": "screen-flow-recovery",
+      "contract": "screen-flow",
+      "owner_skill": "apple-ui-direction",
+      "starting_point": "zero-to-one",
+      "request": "Design and prototype the first-run import flow, including permission denial and retry. I need to operate the path, not just see disconnected screens.",
+      "fixture_paths": [
+        "evals/delivery-contracts/fixtures/screen-flow.md"
+      ],
+      "run_evidence_paths": [
+        "evals/delivery-contracts/runs/2026-07-29/screen-flow/prototype/index.html",
+        "evals/delivery-contracts/runs/2026-07-29/screen-flow/evidence/operations-tested.json"
+      ],
+      "expected_artifacts": [
+        "operable happy path",
+        "permission-denied and retry path",
+        "state and transition map"
+      ],
+      "evidence_requirements": [
+        "the scoped path is exercised",
+        "static screenshots are not used as interaction proof"
+      ],
+      "forbidden_claims": [
+        "native permission behavior verified from a browser prototype",
+        "flow complete when denial or retry cannot be operated"
+      ],
+      "assertions": {
+        "must_do": [
+          "Keep mocked system permission behavior explicit.",
+          "Include cancellation, denial, retry, progress, and completion states.",
+          "Provide exact steps for user acceptance."
+        ],
+        "must_not_do": [
+          "Invent access to protected media.",
+          "Treat a linked storyboard as an operable prototype."
+        ]
+      }
+    },
+    {
+      "id": "design-system-real-application",
+      "contract": "design-system",
+      "owner_skill": "apple-ui-direction",
+      "starting_point": "existing-product",
+      "request": "Consolidate the product's status and action styles into a small design system, and show that it works on the reconciliation screen.",
+      "fixture_paths": [
+        "evals/delivery-contracts/fixtures/design-system.md"
+      ],
+      "run_evidence_paths": [
+        "evals/delivery-contracts/runs/2026-07-29/design-system/evidence/component-states.html.png",
+        "evals/delivery-contracts/runs/2026-07-29/design-system/evidence/reconciliation-screen.html.png"
+      ],
+      "expected_artifacts": [
+        "semantic tokens",
+        "rendered representative component states",
+        "representative reconciliation screen using the system"
+      ],
+      "evidence_requirements": [
+        "existing project values and new proposals are distinguished",
+        "the system is shown with realistic English and German content"
+      ],
+      "forbidden_claims": [
+        "design system complete from a token table alone",
+        "accessibility verified without relevant rendered or runtime evidence"
+      ],
+      "assertions": {
+        "must_do": [
+          "Preserve the high-risk reconciliation meaning and existing brand character.",
+          "Cover normal, selected, warning, resolved, disabled, and focus states.",
+          "Show one real product screen rather than only isolated swatches."
+        ],
+        "must_not_do": [
+          "Replace project values with a generic Apple palette without explanation.",
+          "Force identical component geometry across iOS and macOS."
+        ]
+      }
+    },
+    {
+      "id": "platform-adaptation-radial-editor",
+      "contract": "platform-adaptation",
+      "owner_skill": "apple-platform-adaptation",
+      "starting_point": "existing-product",
+      "request": "Adapt this established radial timeline editor from iPhone to iPad and Mac while keeping the radial model central.",
+      "fixture_paths": [
+        "evals/delivery-contracts/fixtures/platform-adaptation.md"
+      ],
+      "run_evidence_paths": [
+        "evals/delivery-contracts/runs/2026-07-29/platform-adaptation/decision-matrix.md",
+        "evals/delivery-contracts/runs/2026-07-29/platform-adaptation/evidence/layout-checks.json",
+        "evals/delivery-contracts/runs/2026-07-29/platform-adaptation/evidence/mac-expanded.png"
+      ],
+      "expected_artifacts": [
+        "shared-versus-platform-specific decision matrix",
+        "representative iPad compact and expansive layouts",
+        "representative macOS minimum and expanded layouts",
+        "input and interaction mapping"
+      ],
+      "evidence_requirements": [
+        "visible target-layout evidence is preserved",
+        "unrun windowing, command, focus, and input behavior remains unverified"
+      ],
+      "forbidden_claims": [
+        "platform adaptation experience verified from static layouts",
+        "radial interaction replaced without user approval"
+      ],
+      "assertions": {
+        "must_do": [
+          "Preserve the radial timeline as confirmed product DNA.",
+          "Translate touch gestures into explicit pointer, keyboard, menu, and accessibility paths.",
+          "Distinguish layout-complete evidence from native-behavior evidence."
+        ],
+        "must_not_do": [
+          "Stretch the iPhone screen into larger empty canvases.",
+          "Assume source and target platforms have identical feature roles."
+        ]
+      }
+    },
+    {
+      "id": "native-prototype-motion",
+      "contract": "native-prototype",
+      "owner_skill": "apple-ui-direction",
+      "starting_point": "existing-product",
+      "request": "Build a scoped native prototype for the expandable session card and validate its interruption, reversal, and Reduce Motion behavior.",
+      "fixture_paths": [
+        "evals/delivery-contracts/fixtures/native-prototype.md"
+      ],
+      "run_evidence_paths": [
+        "evals/delivery-contracts/runs/2026-07-29/native-prototype/StillpointPrototype/Sources/StillpointPrototypeApp.swift",
+        "evals/delivery-contracts/runs/2026-07-29/native-prototype/VALIDATION.md",
+        "evals/delivery-contracts/runs/2026-07-29/native-prototype/evidence/recordings/standard-interruption-reversal.mp4",
+        "evals/delivery-contracts/runs/2026-07-29/native-prototype/evidence/recordings/reduce-motion-interruption-reversal.mp4"
+      ],
+      "expected_artifacts": [
+        "runnable scoped SwiftUI prototype",
+        "representative collapsed and expanded states",
+        "native runtime log",
+        "recording of standard and reduced-motion behavior"
+      ],
+      "evidence_requirements": [
+        "target Apple runtime and environment are identified",
+        "the standard and reduced-motion paths are both exercised",
+        "mocked production boundaries are disclosed"
+      ],
+      "forbidden_claims": [
+        "experience verified from compilation",
+        "motion verified from timing values or HTML",
+        "user accepted without user confirmation"
+      ],
+      "assertions": {
+        "must_do": [
+          "Preserve the approved product interaction and motion character.",
+          "Keep state feedback and brand meaning under Reduce Motion.",
+          "Separate prototype completeness from production integration."
+        ],
+        "must_not_do": [
+          "Delete all feedback when Reduce Motion is enabled.",
+          "Refactor unrelated production architecture."
+        ]
+      }
+    },
+    {
+      "id": "ui-review-evidence-bounded",
+      "contract": "ui-review",
+      "owner_skill": "apple-ui-review",
+      "starting_point": "existing-product",
+      "request": "Review the current Mac reconciliation screen and prioritize only evidence-backed UI problems.",
+      "fixture_paths": [
+        "evals/delivery-contracts/fixtures/ui-review.md"
+      ],
+      "run_evidence_paths": [
+        "evals/delivery-contracts/runs/2026-07-29/ui-review/review.md"
+      ],
+      "expected_artifacts": [
+        "review scope and evidence statement",
+        "severity-ordered actionable findings",
+        "verification path for each finding"
+      ],
+      "evidence_requirements": [
+        "findings are limited to represented states and inputs",
+        "missing runtime evidence is named"
+      ],
+      "forbidden_claims": [
+        "visual or experience validation from text description",
+        "runtime behavior inferred from appearance",
+        "user preference presented as a requirement"
+      ],
+      "assertions": {
+        "must_do": [
+          "Use observed fact, user impact, recommendation, and verification for each finding.",
+          "Distinguish blocking, important, and optimization severity.",
+          "Preserve confirmed custom visual and interaction decisions."
+        ],
+        "must_not_do": [
+          "Assign an arbitrary numeric score.",
+          "Recommend making the interface more Apple-like without a task-level reason."
+        ]
+      }
+    }
+  ]
+}

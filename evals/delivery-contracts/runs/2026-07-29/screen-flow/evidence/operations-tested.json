@@ -1,0 +1,395 @@
+{
+  "generatedAt": "2026-07-29T08:39:47.863Z",
+  "environment": {
+    "medium": "HTML interaction prototype",
+    "browser": "Google Chrome headless via Playwright Core",
+    "viewport": "390x844 CSS pixels",
+    "deviceScaleFactor": 1,
+    "nativeRuntime": false
+  },
+  "summary": {
+    "checks": 54,
+    "passed": 54,
+    "failed": 0
+  },
+  "results": [
+    {
+      "path": "initial",
+      "operation": "Reach welcome",
+      "expected": "welcome",
+      "observed": "welcome",
+      "passed": true
+    },
+    {
+      "path": "happy path",
+      "operation": "Reach explanation",
+      "expected": "explanation",
+      "observed": "explanation",
+      "passed": true
+    },
+    {
+      "path": "happy path",
+      "operation": "Reach permission",
+      "expected": "permission",
+      "observed": "permission",
+      "passed": true
+    },
+    {
+      "path": "happy path",
+      "operation": "Permission handoff boundary label",
+      "expected": "Simulated iOS permission handoff",
+      "observed": "Simulated iOS permission handoff",
+      "passed": true
+    },
+    {
+      "path": "happy path",
+      "operation": "Reach limited",
+      "expected": "limited",
+      "observed": "limited",
+      "passed": true
+    },
+    {
+      "path": "happy path",
+      "operation": "Reach selection",
+      "expected": "selection",
+      "observed": "selection",
+      "passed": true
+    },
+    {
+      "path": "happy path",
+      "operation": "Import action before selection",
+      "expected": "disabled",
+      "observed": "disabled",
+      "passed": true
+    },
+    {
+      "path": "happy path",
+      "operation": "Selection count",
+      "expected": "3 selected",
+      "observed": "3 selected",
+      "passed": true
+    },
+    {
+      "path": "happy path",
+      "operation": "Reach importing",
+      "expected": "importing",
+      "observed": "importing",
+      "passed": true
+    },
+    {
+      "path": "happy path",
+      "operation": "Reach complete",
+      "expected": "complete",
+      "observed": "complete",
+      "passed": true
+    },
+    {
+      "path": "happy path",
+      "operation": "Completion privacy confirmation",
+      "expected": "visible",
+      "observed": "visible",
+      "passed": true
+    },
+    {
+      "path": "setup",
+      "operation": "Reach welcome",
+      "expected": "welcome",
+      "observed": "welcome",
+      "passed": true
+    },
+    {
+      "path": "permission denial + retry",
+      "operation": "Reach explanation",
+      "expected": "explanation",
+      "observed": "explanation",
+      "passed": true
+    },
+    {
+      "path": "permission denial + retry",
+      "operation": "Reach permission",
+      "expected": "permission",
+      "observed": "permission",
+      "passed": true
+    },
+    {
+      "path": "permission denial + retry",
+      "operation": "Reach denied",
+      "expected": "denied",
+      "observed": "denied",
+      "passed": true
+    },
+    {
+      "path": "permission denial + retry",
+      "operation": "Denial truthfulness",
+      "expected": "visible",
+      "observed": "visible",
+      "passed": true
+    },
+    {
+      "path": "permission denial + retry",
+      "operation": "Reach permission",
+      "expected": "permission",
+      "observed": "permission",
+      "passed": true
+    },
+    {
+      "path": "permission denial + retry",
+      "operation": "Reach limited",
+      "expected": "limited",
+      "observed": "limited",
+      "passed": true
+    },
+    {
+      "path": "permission denial + retry",
+      "operation": "Reach selection",
+      "expected": "selection",
+      "observed": "selection",
+      "passed": true
+    },
+    {
+      "path": "permission denial + retry",
+      "operation": "Import action before selection",
+      "expected": "disabled",
+      "observed": "disabled",
+      "passed": true
+    },
+    {
+      "path": "permission denial + retry",
+      "operation": "Selection count",
+      "expected": "1 selected",
+      "observed": "1 selected",
+      "passed": true
+    },
+    {
+      "path": "permission denial + retry",
+      "operation": "Reach importing",
+      "expected": "importing",
+      "observed": "importing",
+      "passed": true
+    },
+    {
+      "path": "permission denial + retry",
+      "operation": "Reach complete",
+      "expected": "complete",
+      "observed": "complete",
+      "passed": true
+    },
+    {
+      "path": "setup",
+      "operation": "Reach welcome",
+      "expected": "welcome",
+      "observed": "welcome",
+      "passed": true
+    },
+    {
+      "path": "import failure + retry",
+      "operation": "Reach explanation",
+      "expected": "explanation",
+      "observed": "explanation",
+      "passed": true
+    },
+    {
+      "path": "import failure + retry",
+      "operation": "Reach permission",
+      "expected": "permission",
+      "observed": "permission",
+      "passed": true
+    },
+    {
+      "path": "import failure + retry",
+      "operation": "Reach limited",
+      "expected": "limited",
+      "observed": "limited",
+      "passed": true
+    },
+    {
+      "path": "import failure + retry",
+      "operation": "Reach selection",
+      "expected": "selection",
+      "observed": "selection",
+      "passed": true
+    },
+    {
+      "path": "import failure + retry",
+      "operation": "Import action before selection",
+      "expected": "disabled",
+      "observed": "disabled",
+      "passed": true
+    },
+    {
+      "path": "import failure + retry",
+      "operation": "Selection count",
+      "expected": "2 selected",
+      "observed": "2 selected",
+      "passed": true
+    },
+    {
+      "path": "import failure + retry",
+      "operation": "Reach importing",
+      "expected": "importing",
+      "observed": "importing",
+      "passed": true
+    },
+    {
+      "path": "import failure + retry",
+      "operation": "Reach failure",
+      "expected": "failure",
+      "observed": "failure",
+      "passed": true
+    },
+    {
+      "path": "import failure + retry",
+      "operation": "Selection preserved in failure copy",
+      "expected": "visible",
+      "observed": "visible",
+      "passed": true
+    },
+    {
+      "path": "import failure + retry",
+      "operation": "Reach importing",
+      "expected": "importing",
+      "observed": "importing",
+      "passed": true
+    },
+    {
+      "path": "import failure + retry",
+      "operation": "Reach complete",
+      "expected": "complete",
+      "observed": "complete",
+      "passed": true
+    },
+    {
+      "path": "setup",
+      "operation": "Reach welcome",
+      "expected": "welcome",
+      "observed": "welcome",
+      "passed": true
+    },
+    {
+      "path": "cancellation",
+      "operation": "Reach explanation",
+      "expected": "explanation",
+      "observed": "explanation",
+      "passed": true
+    },
+    {
+      "path": "cancellation",
+      "operation": "Reach permission",
+      "expected": "permission",
+      "observed": "permission",
+      "passed": true
+    },
+    {
+      "path": "cancellation",
+      "operation": "Reach welcome",
+      "expected": "welcome",
+      "observed": "welcome",
+      "passed": true
+    },
+    {
+      "path": "cancellation",
+      "operation": "Reach explanation",
+      "expected": "explanation",
+      "observed": "explanation",
+      "passed": true
+    },
+    {
+      "path": "cancellation",
+      "operation": "Reach permission",
+      "expected": "permission",
+      "observed": "permission",
+      "passed": true
+    },
+    {
+      "path": "cancellation",
+      "operation": "Reach limited",
+      "expected": "limited",
+      "observed": "limited",
+      "passed": true
+    },
+    {
+      "path": "cancellation",
+      "operation": "Reach selection",
+      "expected": "selection",
+      "observed": "selection",
+      "passed": true
+    },
+    {
+      "path": "cancellation",
+      "operation": "Reach explanation",
+      "expected": "explanation",
+      "observed": "explanation",
+      "passed": true
+    },
+    {
+      "path": "cancellation",
+      "operation": "Reach importing",
+      "expected": "importing",
+      "observed": "importing",
+      "passed": true
+    },
+    {
+      "path": "cancellation",
+      "operation": "Reach selection",
+      "expected": "selection",
+      "observed": "selection",
+      "passed": true
+    },
+    {
+      "path": "cancellation",
+      "operation": "Selection after cancelling import",
+      "expected": "1 selected",
+      "observed": "1 selected",
+      "passed": true
+    },
+    {
+      "path": "setup",
+      "operation": "Reach welcome",
+      "expected": "welcome",
+      "observed": "welcome",
+      "passed": true
+    },
+    {
+      "path": "keyboard + focus",
+      "operation": "Reach permission",
+      "expected": "permission",
+      "observed": "permission",
+      "passed": true
+    },
+    {
+      "path": "keyboard + focus",
+      "operation": "Initial modal focus",
+      "expected": "Allow selected photos",
+      "observed": "Allow selected photos",
+      "passed": true
+    },
+    {
+      "path": "keyboard + focus",
+      "operation": "Escape dismisses modal",
+      "expected": "explanation",
+      "observed": "explanation",
+      "passed": true
+    },
+    {
+      "path": "keyboard + focus",
+      "operation": "Focus returns to trigger",
+      "expected": "Choose photos",
+      "observed": "Choose photos",
+      "passed": true
+    },
+    {
+      "path": "reduced motion",
+      "operation": "Screen transition duration",
+      "expected": "1e-06s",
+      "observed": "1e-06s",
+      "passed": true
+    },
+    {
+      "path": "reduced motion",
+      "operation": "Reach explanation",
+      "expected": "explanation",
+      "observed": "explanation",
+      "passed": true
+    }
+  ]
+}

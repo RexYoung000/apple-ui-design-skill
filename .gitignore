@@ -1,1 +1,6 @@
 .DS_Store
+evals/**/derived-data/
+evals/**/*.xcresult/
+evals/**/evidence/logs/aborted-*
+evals/**/evidence/logs/failed-*
+evals/**/evidence/screenshots/recording-*.png

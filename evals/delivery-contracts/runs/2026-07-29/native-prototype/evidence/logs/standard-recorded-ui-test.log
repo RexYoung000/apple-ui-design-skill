@@ -1,0 +1,59 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -project StillpointPrototype.xcodeproj -scheme StillpointPrototype -configuration Debug -destination "platform=iOS Simulator,id=B0EFA40E-0B76-4DE7-9C52-4DF2EA1DA360" -derivedDataPath ../derived-data -parallel-testing-enabled NO "-only-testing:StillpointPrototypeUITests/StillpointPrototypeUITests/testInterruptionReversalAndFinalIntent"
+
+2026-07-29 16:37:36.937118+0800 StillpointPrototypeUITests-Runner[57983:727216] [Default] Running tests...
+Test Suite 'Selected tests' started at 2026-07-29 16:37:37.307.
+Test Suite 'StillpointPrototypeUITests.xctest' started at 2026-07-29 16:37:37.308.
+Test Suite 'StillpointPrototypeUITests' started at 2026-07-29 16:37:37.308.
+Test Case '-[StillpointPrototypeUITests.StillpointPrototypeUITests testInterruptionReversalAndFinalIntent]' started.
+    t =     0.00s Start Test at 2026-07-29 16:37:37.308
+    t =     0.02s Set Up
+    t =     0.02s Open com.stillpoint.prototype
+    t =     0.02s     Launch com.stillpoint.prototype
+    t =     0.02s         Terminate com.stillpoint.prototype:57196
+    t =     3.66s         Setting up automation session
+    t =     3.94s         Wait for com.stillpoint.prototype to idle
+    t =     5.05s Waiting 3.0s for Button (First Match) to exist
+    t =     6.08s     Checking `Expect predicate `existsNoRetry == 1` for object Button (First Match)`
+    t =     6.09s         Checking existence of `Button (First Match)`
+    t =     6.13s Find the Button (First Match)
+    t =     6.14s Tap "SessionCard" Button with 3 taps and 1 touch
+    t =     6.14s     Wait for com.stillpoint.prototype to idle
+    t =     6.14s     Find the "SessionCard" Button
+    t =     6.15s     Check for interrupting elements affecting "SessionCard" Button
+    t =     6.16s     Synthesize event
+    t =     6.57s     Wait for com.stillpoint.prototype to idle
+    t =     6.57s Waiting 2.0s for Button (First Match) to exist
+    t =     7.61s     Checking `Expect predicate `existsNoRetry == 1` for object Button (First Match)`
+    t =     7.61s         Checking existence of `Button (First Match)`
+    t =     7.62s Find the Button (First Match)
+    t =     7.64s Find the "SessionCard" Button
+    t =     7.65s Tap "PauseAction" Button
+    t =     7.65s     Wait for com.stillpoint.prototype to idle
+    t =     7.65s     Find the "PauseAction" Button
+    t =     7.66s     Check for interrupting elements affecting "PauseAction" Button
+    t =     7.67s     Synthesize event
+    t =     7.96s     Wait for com.stillpoint.prototype to idle
+    t =     7.97s Find the "SessionCard" Button
+    t =     7.98s Tap Button (First Match)
+    t =     7.98s     Wait for com.stillpoint.prototype to idle
+    t =     7.98s     Find the Button (First Match)
+    t =     7.99s     Check for interrupting elements affecting "FinishAction" Button
+    t =     8.00s     Synthesize event
+    t =     8.29s     Wait for com.stillpoint.prototype to idle
+    t =     8.29s Find the "SessionCard" Button
+    t =     8.31s Tear Down
+Test Case '-[StillpointPrototypeUITests.StillpointPrototypeUITests testInterruptionReversalAndFinalIntent]' passed (8.535 seconds).
+Test Suite 'StillpointPrototypeUITests' passed at 2026-07-29 16:37:45.844.
+	 Executed 1 test, with 0 failures (0 unexpected) in 8.535 (8.536) seconds
+Test Suite 'StillpointPrototypeUITests.xctest' passed at 2026-07-29 16:37:45.844.
+	 Executed 1 test, with 0 failures (0 unexpected) in 8.535 (8.537) seconds
+Test Suite 'Selected tests' passed at 2026-07-29 16:37:45.845.
+	 Executed 1 test, with 0 failures (0 unexpected) in 8.535 (8.538) seconds
+
+Test session results, code coverage, and logs:
+	/Users/rexyoung/Desktop/vibe coding/apple-ui-design-skill/evals/delivery-contracts/runs/2026-07-29/native-prototype/derived-data/Logs/Test/Test-StillpointPrototype-2026.07.29_16-37-35-+0800.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

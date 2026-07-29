@@ -36,6 +36,23 @@ Production SwiftUI architecture, debugging, performance, CI, and release work re
 6. **Accessibility and localization protect outcomes, not a default skin.** They are designed and validated without erasing brand expression.
 7. **Visual and motion quality require evidence.** Compilation alone is not experience validation; important states and real interactions should be rendered and tested.
 
+## Delivery Contracts
+
+Every task selects one primary contract. The contract defines the evidence required before work begins, the artifact the user receives, and the strongest completion claim the available evidence supports.
+
+| Contract | Minimum deliverable | Evidence required to claim completion |
+|---|---|---|
+| Visual direction | Key screens with representative content and visibly meaningful alternatives when direction is unresolved | Rendered screens; no high-fidelity claim from prose or token values alone |
+| Screen or flow | An operable path covering the necessary states, transitions, recovery, and input behavior | Interactive prototype or running implementation; static screens support appearance only |
+| Design system | Semantic tokens, component intent, representative states, and application to real product screens | Rendered component states and at least one representative product application |
+| Platform adaptation | Shared-versus-specific decision matrix plus representative layouts and input behavior for each target environment | Visible evidence for material sizes; native runs for windowing, input, or platform-behavior claims |
+| Native prototype | Scoped SwiftUI behavior with representative states, accessibility semantics, version fallback, and reduced-motion behavior when motion is present | SwiftUI Preview, Simulator or device run, or a real macOS app; recordings for interaction and motion claims |
+| UI review | Evidence status plus severity-ordered findings using fact, impact, recommendation, and verification | Findings are limited to the supplied artifact and runtime evidence; text-only input is unverified consultation |
+
+Exact visual values must come from project evidence, a rendered artifact, or remain explicitly marked as proposed and unverified. Interaction and motion decisions remain user-owned: the plugin may recommend, prototype, and test them, but it may not silently replace confirmed product choices.
+
+Completion is reported in distinct stages: **direction aligned**, **design complete**, **prototype complete**, **code complete**, **experience verified**, and **user accepted**. A later stage is never inferred from an earlier one.
+
 ## Install the Plugin
 
 Add this public repository as a Codex marketplace, then install the plugin:
@@ -120,6 +137,11 @@ Web references such as 60fps, Recent, Awwwards, React Bits, and Magic UI may ins
 ├── evals/
 │   ├── plugin-split/
 │   │   └── runs/
+│   ├── delivery-contracts/
+│   │   ├── README.md
+│   │   ├── cases.json
+│   │   ├── fixtures/
+│   │   └── runs/
 │   └── product-starting-point/
 │       ├── README.md
 │       ├── cases.json
@@ -136,10 +158,12 @@ Web references such as 60fps, Recent, Awwwards, React Bits, and Magic UI may ins
 │           └── apple-ui-review/
 ├── scripts/
 │   ├── validate_product_starting_point_evals.py
+│   ├── validate_delivery_contract_evals.py
 │   ├── validate_plugin_architecture.py
 │   └── validate_source_registry.py
 └── tests/
     ├── test_plugin_architecture.py
+    ├── test_delivery_contract_evals.py
     ├── test_product_starting_point_evals.py
     └── test_source_registry.py
 ```
@@ -150,7 +174,9 @@ Web references such as 60fps, Recent, Awwwards, React Bits, and Magic UI may ins
 - `.agents/plugins/marketplace.json` exposes the plugin through the public GitHub repository.
 - Root `SKILL.md` and `agents/openai.yaml` provide explicit-call compatibility for legacy standalone installations only.
 - `evals/plugin-split/` preserves independent forward-test and installed-session evidence for all three bundled skills.
+- `evals/delivery-contracts/` defines one realistic task and observable evidence assertions for each of the six delivery contracts.
 - `evals/product-starting-point/` contains fixed small-change, major-redesign, and zero-to-one evidence cases, review assertions, and preserved forward-test evidence.
+- `scripts/validate_delivery_contract_evals.py` checks contract coverage, fixture integrity, required artifacts, forbidden claims, and evidence expectations.
 - `scripts/validate_product_starting_point_evals.py` checks the evaluation schema, required scenarios, assertions, and fixture paths.
 - `scripts/validate_plugin_architecture.py` protects skill boundaries, shared-reference ownership, and package hygiene.
 - `tests/` protects the plugin architecture, evaluation, and source-registry validators.

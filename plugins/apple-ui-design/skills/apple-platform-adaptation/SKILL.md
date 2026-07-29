@@ -20,7 +20,7 @@ Derive from the project before asking:
 
 If platform roles or feature relationships are unresolved and would change the information architecture, ask one highest-impact question. Never impose primary, peer, or companion labels.
 
-Read `../../references/authority-and-principles.md`, `../../references/context-and-alignment.md`, and `../../references/apple-platform-adaptation.md` before defining the adaptation.
+Read `../../references/authority-and-principles.md`, `../../references/context-and-alignment.md`, `../../references/delivery-contracts.md`, and `../../references/apple-platform-adaptation.md` before defining the adaptation. Select the Platform Adaptation contract and state its artifact and evidence gate.
 
 ## Adaptation Workflow
 
@@ -76,6 +76,7 @@ Deliver:
 - minimum-version and fallback implications;
 - accessibility, localization, continuity, and reduced-motion behavior in scope;
 - visible or native evidence matched to each claim;
+- the strongest completion stage supported by that evidence;
 - remaining platform risks and an exact acceptance path.
 
 Do not redefine the whole product direction unless the adaptation reveals a material conflict and the user confirms that expansion.

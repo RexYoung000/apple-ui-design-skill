@@ -121,6 +121,19 @@ Prefer a decision procedure over adding another absolute rule.
 Use realistic prompts to check the skill’s behavior. The fixed product-starting-point suite at `evals/product-starting-point/cases.json` is the repeatable source of truth for the first three branches below; validate its structure with `python3 scripts/validate_product_starting_point_evals.py`.
 
 The plugin split and independent invocation evidence lives under `evals/plugin-split/runs/`.
+The six mode-level delivery contracts live in `evals/delivery-contracts/cases.json`; validate their structure with `python3 scripts/validate_delivery_contract_evals.py`.
+
+Each delivery-contract case must identify:
+
+- one primary contract and owning skill;
+- existing-product or zero-to-one starting point;
+- task-local fixture evidence;
+- the user-visible artifact that must be produced;
+- evidence required for the strongest allowed completion claim;
+- claims that remain forbidden without additional rendering, operation, or native execution;
+- one preserved raw forward-test result.
+
+Do not pass the assertions or desired result to the forward-test agent. A contract passes only when the response produces or explicitly stops for the missing artifact instead of substituting polished prose.
 
 1. Small existing-product adjustment — must reuse verified user and interaction facts without forcing a new intake.
 2. Major existing-product redesign — must expose material evidence conflicts and ask only the highest-impact unresolved question.
