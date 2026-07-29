@@ -47,34 +47,62 @@ The skill selects the appropriate depth for the request:
 - **Native prototype or implementation** — create SwiftUI prototypes or production UI when requested
 - **Review and iteration** — assess an existing design or implementation against confirmed intent
 
-## Installation
+## Install as a Standalone Skill
 
-Clone this repository into your personal Codex skills directory:
-
-```bash
-git clone https://github.com/RexYoung000/apple-ui-design-skill.git ~/.codex/skills/apple-ui-design
-```
-
-If you already have a local copy, update it with:
+For personal local use, clone this repository into the current user-level skills directory:
 
 ```bash
-git -C ~/.codex/skills/apple-ui-design pull --ff-only
+mkdir -p "$HOME/.agents/skills"
+git clone https://github.com/RexYoung000/apple-ui-design-skill.git "$HOME/.agents/skills/apple-ui-design"
 ```
 
-## Usage
+Codex detects skill changes automatically. If the skill does not appear, restart Codex or the ChatGPT desktop app.
 
-Invoke the skill explicitly:
+To update an existing installation:
+
+```bash
+git -C "$HOME/.agents/skills/apple-ui-design" pull --ff-only
+```
+
+To remove the skill without permanently deleting the checkout, move it outside the scanned `skills` directory:
+
+```bash
+mkdir -p "$HOME/.agents/skill-backups"
+mv "$HOME/.agents/skills/apple-ui-design" "$HOME/.agents/skill-backups/apple-ui-design"
+```
+
+Choose a different backup name if that destination already exists.
+
+For a repository-scoped team workflow, place the skill at `.agents/skills/apple-ui-design` inside the repository instead. Codex scans `.agents/skills` from the current working directory up to the repository root.
+
+This standalone installation is intended for local use and source development. OpenAI recommends packaging reusable public distribution as a plugin. Plugin packaging and migration for this project are tracked in [Issue #2](https://github.com/RexYoung000/apple-ui-design-skill/issues/2); this README does not claim that the current repository is already an installable plugin.
+
+See the current OpenAI documentation for [building skills](https://learn.chatgpt.com/docs/build-skills) and [packaging plugins](https://developers.openai.com/plugins/build/plugins).
+
+## Use in Codex
+
+Invoke the skill explicitly with `$`:
 
 ```text
 Use $apple-ui-design to design the onboarding flow for this iPad app.
 ```
 
-Or describe an Apple UI task naturally:
+Codex may also select it when a request matches the skill description:
 
 ```text
 Review this macOS interface for hierarchy, keyboard use, accessibility,
 and consistency with the product's existing design system.
 ```
+
+## Use in the ChatGPT Desktop App
+
+Open **Skills** in the sidebar to confirm that Apple UI Design is available. In a chat, type `@`, select **Apple UI Design**, and then describe the task:
+
+```text
+Use Apple UI Design to adapt this existing iPhone flow for iPad and Mac.
+```
+
+Standalone skills are supported in the ChatGPT desktop app, Codex CLI, and the Codex IDE extension. Plugin installation through the shared Plugins Directory will be documented after Issue #2 is complete.
 
 The skill will inspect available project evidence before asking questions. When a decision materially affects the product, it asks one focused question at a time and explains the recommended direction.
 

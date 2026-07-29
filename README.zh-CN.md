@@ -47,34 +47,62 @@ Skill 会根据当前任务选择合适的处理深度：
 - **原生原型或实现**——在明确需要时创建 SwiftUI 原型或生产界面
 - **评审与迭代**——依据已确认的产品意图评估现有设计或实现
 
-## 安装
+## 作为独立 Skill 安装
 
-将仓库克隆到个人 Codex Skills 目录：
-
-```bash
-git clone https://github.com/RexYoung000/apple-ui-design-skill.git ~/.codex/skills/apple-ui-design
-```
-
-如果已经安装，可以使用以下命令更新：
+个人本地使用时，将仓库克隆到当前用户级 Skills 目录：
 
 ```bash
-git -C ~/.codex/skills/apple-ui-design pull --ff-only
+mkdir -p "$HOME/.agents/skills"
+git clone https://github.com/RexYoung000/apple-ui-design-skill.git "$HOME/.agents/skills/apple-ui-design"
 ```
 
-## 使用方式
+Codex 会自动检测 Skill 变化。如果没有出现，请重启 Codex 或 ChatGPT 桌面应用。
 
-可以明确调用 Skill：
+更新已有安装：
+
+```bash
+git -C "$HOME/.agents/skills/apple-ui-design" pull --ff-only
+```
+
+如需移除但不永久删除源码，可以将它移出会被扫描的 `skills` 目录：
+
+```bash
+mkdir -p "$HOME/.agents/skill-backups"
+mv "$HOME/.agents/skills/apple-ui-design" "$HOME/.agents/skill-backups/apple-ui-design"
+```
+
+如果目标备份目录已经存在，请使用另一个备份名称。
+
+对于仓库级团队协作，可以将 Skill 放在项目内的 `.agents/skills/apple-ui-design`。Codex 会从当前工作目录向上扫描到仓库根目录中的 `.agents/skills`。
+
+当前独立安装方式用于本地使用和源码开发。OpenAI 建议将面向公开分发的可复用能力包装为 Plugin。本项目的 Plugin 包装与迁移由 [Issue #2](https://github.com/RexYoung000/apple-ui-design-skill/issues/2) 跟踪；当前 README 不会把尚未完成的仓库结构描述成可安装 Plugin。
+
+当前官方说明参见 [构建 Skills](https://learn.chatgpt.com/docs/build-skills) 与 [包装 Plugins](https://developers.openai.com/plugins/build/plugins)。
+
+## 在 Codex 中使用
+
+使用 `$` 明确调用 Skill：
 
 ```text
 使用 $apple-ui-design 为这个 iPad 应用设计新用户引导流程。
 ```
 
-也可以自然描述 Apple UI 任务：
+Codex 也可以在请求与 Skill 描述匹配时自动选择它：
 
 ```text
 评审这个 macOS 界面的信息层级、键盘操作、可访问性，
 以及它与现有产品设计系统的一致性。
 ```
+
+## 在 ChatGPT 桌面应用中使用
+
+先在侧栏打开 **Skills**，确认 Apple UI Design 已经出现。在聊天输入框中键入 `@`，选择 **Apple UI Design**，然后描述任务：
+
+```text
+使用 Apple UI Design 将这个现有 iPhone 流程适配到 iPad 和 Mac。
+```
+
+独立 Skills 可用于 ChatGPT 桌面应用、Codex CLI 和 Codex IDE 扩展。共享 Plugins Directory 的安装方式将在 Issue #2 完成后补充。
 
 Skill 会先检查项目中已有的证据，再提出问题。当某项决定会实质影响产品时，它会一次只确认一个关键问题，并说明推荐方向及理由。
 
