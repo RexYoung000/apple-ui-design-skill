@@ -44,6 +44,8 @@ Required validation:
 
 Do not cite a broad homepage when a specific current page supports the claim. For version-sensitive Apple facts, record the supported OS or API version and fallback requirement.
 
+Use `current-sources.md` as the single procedure for exact Apple pages, access dates, version splits, unavailable sources, and conflicts between published guidance and project runtime evidence.
+
 ## Observation and Reuse
 
 Observing a public page does not grant permission to redistribute its screenshots, icons, templates, code, or brand assets.

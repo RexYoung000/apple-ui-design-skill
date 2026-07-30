@@ -19,6 +19,7 @@ def main() -> int:
         [python, "scripts/validate_trigger_routing_evals.py"],
         [python, "scripts/validate_skill_regression_evals.py"],
         [python, "scripts/validate_source_registry.py"],
+        [python, "scripts/validate_current_source_evals.py"],
         [
             python,
             "scripts/evaluate_skill_regression_output.py",

@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "id": "swiftui-glass-effect-ios26",
+  "status": "verified",
+  "verified_on": "2026-07-30",
+  "claim": "SwiftUI View.glassEffect(_:in:) applies Liquid Glass to a view and is available on iOS 26.0 and newer; an app that supports iOS 17 must guard the enhancement and provide older-system behavior.",
+  "claim_type": "api-availability",
+  "product_context": {
+    "target_platforms": [
+      "iOS"
+    ],
+    "decision": "Treat Liquid Glass as an optional iOS 26 enhancement candidate, not as the default visual direction."
+  },
+  "official_sources": [
+    {
+      "title": "glassEffect(_:in:) | Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/swiftui/view/glasseffect(_:in:)",
+      "accessed_on": "2026-07-30",
+      "supports": [
+        "The modifier applies the Liquid Glass effect to a view.",
+        "The API is available on iOS 26.0 and newer.",
+        "The default variant is regular glass with a capsule shape."
+      ]
+    }
+  ],
+  "version_scope": {
+    "project_minimum_versions": {
+      "iOS": "17.0"
+    },
+    "enhancement_versions": {
+      "iOS": "26.0"
+    },
+    "fallback": "Use a regular-material capsule on iOS 17 through iOS 25, guarded by if #available(iOS 26.0, *)."
+  },
+  "runtime_evidence": {
+    "status": "compile-verified",
+    "environment": {
+      "xcode": "26.6 (17F113)",
+      "sdk": "iPhoneSimulator 26.5",
+      "target": "arm64-apple-ios17.0-simulator"
+    },
+    "checks": [
+      {
+        "id": "unguarded-api-use",
+        "expected": "Type checking fails because glassEffect(_:in:) requires iOS 26.0 or newer.",
+        "result": "pass",
+        "evidence": "evals/current-source-verification/runs/2026-07-30/unguarded-typecheck.log"
+      },
+      {
+        "id": "guarded-api-use-with-fallback",
+        "expected": "Type checking succeeds for an iOS 17 deployment target when the API is guarded and a fallback is present.",
+        "result": "pass",
+        "evidence": "evals/current-source-verification/runs/2026-07-30/guarded-typecheck.log"
+      }
+    ]
+  },
+  "evidence_labels": {
+    "official_source": "Apple publishes the API purpose and iOS 26.0 availability.",
+    "project_runtime": "Xcode 26.6 type checking confirms the availability error without a guard and successful compilation with a guard for an iOS 17 target.",
+    "design_inference": "The API may be explored when it fits the product, but availability alone does not justify adopting Liquid Glass as the default direction."
+  },
+  "conflicts": [],
+  "remaining_unverified": [
+    "Rendered appearance on representative content",
+    "Runtime behavior on iOS 17.5 and iOS 26.5 simulators",
+    "Accessibility, Reduce Transparency, contrast, and motion behavior",
+    "Performance and user acceptance"
+  ]
+}

@@ -1,0 +1,6 @@
+verification=guarded-api-use-with-fallback
+xcode=26.6 (17F113)
+sdk=iPhoneSimulator 26.5
+target=arm64-apple-ios17.0-simulator
+expected=typecheck success with iOS 26 availability guard and fallback
+exit_code=0

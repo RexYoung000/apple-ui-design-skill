@@ -78,7 +78,7 @@ For a disputed recommendation, state the observed fact, user impact, recommendat
 
 Use screenshots for static hierarchy, recordings for interaction and motion, accessibility inspection for semantics, simulator or device runs for iOS and iPadOS, and a real Mac app for window, menu, command, and focus behavior.
 
-Read `../../references/prototyping-and-implementation.md` when judging prototype or implementation evidence. Use `../../references/current-sources.md` and `../../references/research-and-source-evidence.md` when citing current Apple guidance or external examples.
+Read `../../references/prototyping-and-implementation.md` when judging prototype or implementation evidence. Use `../../references/current-sources.md` and `../../references/research-and-source-evidence.md` when citing current Apple guidance or external examples. A version-sensitive finding must include the exact current Apple page and access date, separate published availability from the project’s tested runtime, and remain unverified when the source cannot be checked.
 
 Do not claim native validation from HTML, interaction validation from a static image, or experience completion from compilation.
 

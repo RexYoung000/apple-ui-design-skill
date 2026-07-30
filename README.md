@@ -107,6 +107,8 @@ CI deliberately does not call a live model: network availability and model varia
 
 Issue #6 also has a seven-case decision-authority suite covering confirmed custom interactions, shipped defects, accessibility outcomes, privacy boundaries, implementation convenience, communication pace, and project-internal terminology.
 
+Issue #9 adds a current-source verification suite covering exact Apple pages, unavailable-source degradation, minimum-versus-enhancement versions, and official-source/runtime conflicts. Its preserved Liquid Glass record verifies the iOS 26 API claim and an iOS 17 guarded fallback without treating the newest material as a default direction.
+
 ## Install the Plugin
 
 Add this public repository as a Codex marketplace, then install the plugin:
@@ -212,6 +214,11 @@ Web references such as 60fps, Recent, Awwwards, React Bits, and Magic UI may ins
 │   │   ├── cases.json
 │   │   ├── fixtures/
 │   │   └── runs/
+│   ├── current-source-verification/
+│   │   ├── README.md
+│   │   ├── cases.json
+│   │   ├── fixtures/
+│   │   └── runs/
 │   └── product-starting-point/
 │       ├── README.md
 │       ├── cases.json
@@ -234,9 +241,11 @@ Web references such as 60fps, Recent, Awwwards, React Bits, and Magic UI may ins
 │   ├── validate_trigger_routing_evals.py
 │   ├── validate_product_starting_point_evals.py
 │   ├── validate_delivery_contract_evals.py
+│   ├── validate_current_source_evals.py
 │   ├── validate_plugin_architecture.py
 │   └── validate_source_registry.py
 └── tests/
+    ├── test_current_source_evals.py
     ├── test_decision_authority_evals.py
     ├── test_skill_regression_evals.py
     ├── test_skill_regression_output.py
@@ -256,7 +265,9 @@ Web references such as 60fps, Recent, Awwwards, React Bits, and Magic UI may ins
 - `evals/trigger-routing/` separates positive design intents, implementation-only negatives, and mixed design-engineering boundary cases.
 - `evals/skill-regression/` is the unified 15-case trigger-and-output matrix and golden-output registry.
 - `evals/delivery-contracts/` defines one realistic task and observable evidence assertions for each of the six delivery contracts.
+- `evals/current-source-verification/` protects exact Apple sources, access failure, version fallbacks, runtime conflicts, and the preserved Liquid Glass verification record.
 - `evals/product-starting-point/` contains fixed small-change, major-redesign, and zero-to-one evidence cases, review assertions, and preserved forward-test evidence.
+- `scripts/validate_current_source_evals.py` checks source-record integrity, exact Apple URLs, access dates, version splits, fallbacks, evidence labels, and referenced runtime artifacts.
 - `scripts/validate_delivery_contract_evals.py` checks contract coverage, fixture integrity, required artifacts, forbidden claims, and evidence expectations.
 - `scripts/validate_trigger_routing_evals.py` checks route coverage, implementation boundaries, and the required engineering-negative domains.
 - `scripts/evaluate_skill_regression_output.py` checks a saved trace and response against one case without exposing assertions to the model.

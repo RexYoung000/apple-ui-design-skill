@@ -51,6 +51,25 @@ Primary entry points:
 
 Treat these as entry points, not as permission to apply every newest treatment. Resolve current platform guidance against the project’s minimum versions and confirmed product intent.
 
+## Version-Sensitive Apple Claim Protocol
+
+Treat a conclusion as version-sensitive when it depends on current HIG wording, API or OS availability, deprecation, platform policy, hardware or input behavior, or a newly introduced Apple design language.
+
+Before presenting one of these conclusions as verified:
+
+1. inspect the project’s deployment targets and the environment represented by its runtime evidence;
+2. open the exact current Apple page that supports the claim, not only a documentation homepage or search result;
+3. record the page title, URL, access date, affected platforms, supported versions, and the exact part of the claim it supports;
+4. separate the project’s minimum supported version from any newer enhancement version;
+5. define the fallback or state that the capability cannot support the current deployment target;
+6. label Apple documentation, project runtime evidence, and design inference separately.
+
+If the exact official source cannot be reached or does not support the claim, mark the conclusion unverified. Do not reconstruct current behavior from memory, quietly substitute a community article, or recommend the newest treatment as a default.
+
+Apple documentation and project runtime evidence answer different questions. Official documentation establishes published availability or guidance; a reproducible project run establishes what the tested build and environment actually did. When they disagree, preserve both records, capture the toolchain and runtime, reduce the claim to what each source proves, and define a reproduction or escalation step. Do not silently treat either the shipped project behavior or an implementation anomaly as a replacement for the published Apple rule.
+
+The installable workflow lives in `plugins/apple-ui-design/references/current-sources.md`. Reviewable verification records and their deterministic validator live under `evals/current-source-verification/` and `scripts/validate_current_source_evals.py`.
+
 ## Hybrid Source Registry
 
 Use `plugins/apple-ui-design/references/source-registry.json` as the curated starting set and `plugins/apple-ui-design/references/research-and-source-evidence.md` as the research and claim-labeling method.
@@ -136,6 +155,7 @@ The six mode-level delivery contracts live in `evals/delivery-contracts/cases.js
 Trigger ownership and engineering boundaries live in `evals/trigger-routing/cases.json`; validate their structure with `python3 scripts/validate_trigger_routing_evals.py`.
 The release-level trigger and output matrix lives in `evals/skill-regression/cases.json`. Run the complete deterministic gate with `python3 scripts/run_regression_checks.py`.
 The decision-authority contract lives in `evals/decision-authority/cases.json`; validate it with `python3 scripts/validate_decision_authority_evals.py`.
+The current-source contract and preserved version-sensitive records live under `evals/current-source-verification/`; validate them with `python3 scripts/validate_current_source_evals.py`.
 
 The unified matrix must contain exactly five scenario types for each bundled skill:
 

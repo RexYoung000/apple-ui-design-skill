@@ -53,7 +53,7 @@ Define representative layouts and behaviors for:
 - iPadOS compact and expansive windows, columns, sidebars, inspectors, pointer, keyboard, drag and drop, and reflow;
 - macOS window sizes, menus, commands, shortcuts, pointer, hover, focus, selection, context menus, and multiple-window behavior.
 
-Read `../../references/current-sources.md` and use current official Apple sources for version-sensitive platform claims. Use platform convention as evidence, not as automatic ownership of visual style.
+Read `../../references/current-sources.md` and use exact current Apple pages for version-sensitive platform claims. Keep the project minimum version, newer enhancement version, fallback, and represented runtime evidence separate. Mark unavailable or unsupported conclusions unverified. Use platform convention as evidence, not as automatic ownership of visual style.
 
 ### 4. Preserve accessibility, localization, and task meaning
 

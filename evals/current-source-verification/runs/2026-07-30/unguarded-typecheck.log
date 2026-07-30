@@ -1,0 +1,20 @@
+verification=unguarded-api-use
+xcode=26.6 (17F113)
+sdk=iPhoneSimulator 26.5
+target=arm64-apple-ios17.0-simulator
+expected=typecheck failure because glassEffect requires iOS 26.0 or newer
+evals/current-source-verification/fixtures/unguarded-glass-effect.swift:7:14: error: 'glassEffect(_:in:)' is only available in iOS 26.0 or newer
+ 1 | import SwiftUI
+ 2 |
+ 3 | struct UnguardedGlassEffectView: View {
+   |        `- note: add '@available' attribute to enclosing struct
+ 4 |     var body: some View {
+   |         `- note: add '@available' attribute to enclosing property
+ 5 |         Text("Unverified")
+ 6 |             .padding()
+ 7 |             .glassEffect()
+   |              |- error: 'glassEffect(_:in:)' is only available in iOS 26.0 or newer
+   |              `- note: add 'if #available' version check
+ 8 |     }
+ 9 | }
+exit_code=1

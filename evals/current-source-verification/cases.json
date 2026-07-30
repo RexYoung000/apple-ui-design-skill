@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "suite": "current-source-verification",
+  "linked_issue": 9,
+  "purpose": "Protect exact Apple source verification, honest degradation, version and fallback separation, and official-source/runtime conflict handling.",
+  "cases": [
+    {
+      "id": "liquid-glass-exact-api-availability",
+      "owner_skill": "apple-ui-direction",
+      "tags": [
+        "exact-source",
+        "version-split",
+        "evidence-labeling",
+        "new-capability-record"
+      ],
+      "prompt": "Use the newest SwiftUI Liquid Glass treatment for an iOS app that still supports iOS 17, and tell me whether it is ready to become the default visual direction.",
+      "expected_behavior": [
+        "Open and cite the exact current Apple API page with an access date.",
+        "Separate the iOS 17 project minimum from the iOS 26 enhancement availability.",
+        "Provide a guarded fallback and keep product fit separate from API availability.",
+        "Limit completion claims to the recorded compile evidence."
+      ],
+      "forbidden_behavior": [
+        "Cite only a SwiftUI or HIG homepage.",
+        "Assume the newest material should become the default visual direction.",
+        "Claim visual, accessibility, runtime, or user acceptance from compilation."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/current-sources.md": [
+          "Open the exact current Apple page that supports the claim.",
+          "Separate the project’s minimum supported version from the enhancement version",
+          "Compilation can verify API availability and guarded fallback code."
+        ]
+      },
+      "verification_record": "evals/current-source-verification/runs/2026-07-30/glass-effect-ios26.json"
+    },
+    {
+      "id": "official-source-unavailable",
+      "owner_skill": "apple-ui-direction",
+      "tags": [
+        "access-failure",
+        "evidence-labeling"
+      ],
+      "prompt": "Apple's current documentation is unavailable. From memory, confirm the newest navigation behavior and finish the design recommendation anyway.",
+      "expected_behavior": [
+        "State which version-sensitive fact could not be checked.",
+        "Mark the conclusion unverified and avoid a version-specific recommendation.",
+        "Use another current Apple source in the same authority layer only when it supports the same claim."
+      ],
+      "forbidden_behavior": [
+        "Reconstruct current Apple behavior from memory.",
+        "Silently replace Apple authority with a community source.",
+        "Present an unsupported recommendation as current platform guidance."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/current-sources.md": [
+          "mark the affected conclusion `unverified`",
+          "Do not reconstruct current behavior from memory."
+        ]
+      }
+    },
+    {
+      "id": "minimum-version-cross-platform-adaptation",
+      "owner_skill": "apple-platform-adaptation",
+      "tags": [
+        "exact-source",
+        "version-split"
+      ],
+      "prompt": "Adapt an iOS 17 product to iPad and Mac using a platform capability that Apple introduced in version 26.",
+      "expected_behavior": [
+        "Record the exact Apple source and availability for each affected platform.",
+        "Keep the product minimum versions distinct from the version 26 enhancement.",
+        "Define equivalent older-system behavior instead of silently raising deployment targets."
+      ],
+      "forbidden_behavior": [
+        "Assume every target platform ships the capability at the same version without checking.",
+        "Raise minimum versions without a product decision.",
+        "Remove the fallback because the newest SDK is installed."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/current-sources.md": [
+          "Define the fallback for older supported systems",
+          "The newest capability is an enhancement candidate, not an automatic default."
+        ]
+      }
+    },
+    {
+      "id": "official-source-runtime-conflict",
+      "owner_skill": "apple-ui-review",
+      "tags": [
+        "runtime-conflict",
+        "evidence-labeling"
+      ],
+      "prompt": "Apple's documentation says a behavior is supported, but the supplied simulator recording consistently shows a different result. Decide which one is authoritative and close the review.",
+      "expected_behavior": [
+        "Preserve the official claim and the reproducible runtime result as separate evidence.",
+        "Record toolchain, OS, device or simulator, target, code path, and reproduction conditions.",
+        "Reduce the finding to what each source proves and define the next reproduction or escalation step."
+      ],
+      "forbidden_behavior": [
+        "Dismiss reproducible runtime evidence because documentation differs.",
+        "Turn one project observation into a universal Apple rule.",
+        "Claim the conflict resolved without another scoped check."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/current-sources.md": [
+          "Preserve both records when they disagree.",
+          "Do not promote shipped behavior into an Apple rule."
+        ]
+      }
+    }
+  ]
+}

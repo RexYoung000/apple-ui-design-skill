@@ -107,6 +107,8 @@ CI 不调用在线模型，因为网络状态和模型波动不应伪装成确�
 
 Issue #6 另有一套 7 案例决策权回归，覆盖已确认的自定义交互、已上线缺陷、无障碍结果、隐私硬边界、实现便利、沟通节奏与项目内部术语。
 
+Issue #9 增加当前来源核验套件，覆盖精确 Apple 页面、来源不可用时的降级、最低版本与增强版本分离，以及官方来源和项目实测冲突。保存的 Liquid Glass 记录验证 iOS 26 API 结论和 iOS 17 受保护降级，但不会把最新材质自动设为默认方向。
+
 ## 安装 Plugin
 
 先将本公开仓库添加为 Codex Marketplace，再安装 Plugin：
@@ -214,6 +216,11 @@ Skill 使用混合研究模式：
 │   │   ├── cases.json
 │   │   ├── fixtures/
 │   │   └── runs/
+│   ├── current-source-verification/
+│   │   ├── README.md
+│   │   ├── cases.json
+│   │   ├── fixtures/
+│   │   └── runs/
 │   └── product-starting-point/
 │       ├── README.md
 │       ├── cases.json
@@ -236,9 +243,11 @@ Skill 使用混合研究模式：
 │   ├── validate_trigger_routing_evals.py
 │   ├── validate_product_starting_point_evals.py
 │   ├── validate_delivery_contract_evals.py
+│   ├── validate_current_source_evals.py
 │   ├── validate_plugin_architecture.py
 │   └── validate_source_registry.py
 └── tests/
+    ├── test_current_source_evals.py
     ├── test_decision_authority_evals.py
     ├── test_skill_regression_evals.py
     ├── test_skill_regression_output.py
@@ -258,7 +267,9 @@ Skill 使用混合研究模式：
 - `evals/trigger-routing/` 区分正向设计意图、仅工程负例和设计与工程混合边界案例。
 - `evals/skill-regression/` 是统一的 15 案例触发与输出矩阵及黄金输出注册表。
 - `evals/delivery-contracts/` 为六类交付合同分别提供一项真实任务与可观察的证据断言。
+- `evals/current-source-verification/` 用于保护精确 Apple 来源、来源不可用、版本降级、运行冲突和保存的 Liquid Glass 核验记录。
 - `evals/product-starting-point/` 提供固定的小改动、重大改版与从零产品证据场景、评审断言和保留的前向测试证据。
+- `scripts/validate_current_source_evals.py` 用于检查来源记录、精确 Apple URL、访问日期、版本分离、降级方案、证据标签和运行产物。
 - `scripts/validate_delivery_contract_evals.py` 用于检查合同覆盖、固定素材、必需产物、禁止声明和证据要求。
 - `scripts/validate_trigger_routing_evals.py` 用于检查路由覆盖、实现边界和必须覆盖的工程负例领域。
 - `scripts/evaluate_skill_regression_output.py` 在不向模型泄露断言的情况下检查一次保存的加载轨迹和响应。

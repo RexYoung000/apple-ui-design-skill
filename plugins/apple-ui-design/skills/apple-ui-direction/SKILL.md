@@ -41,7 +41,7 @@ State the user outcome, affected flow or system, target platforms, selected deli
 
 Read actual deployment targets for existing products. For new products, help decide minimum versions from audience, required capabilities, release horizon, and compatibility cost. Do not assume all Apple platforms or the newest visual treatment.
 
-Read `../../references/current-sources.md` for version-sensitive claims. Read `../../references/apple-platform-adaptation.md` when the direction spans platforms or platform roles affect the result.
+Read `../../references/current-sources.md` for version-sensitive claims. Record the exact current Apple page, access date, project minimum version, enhancement version, and fallback near every material conclusion. If the source cannot be verified, label the conclusion unverified and do not make the newest treatment a default. Read `../../references/apple-platform-adaptation.md` when the direction spans platforms or platform roles affect the result.
 
 ### 3. Research only what changes the decision
 
