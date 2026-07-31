@@ -119,7 +119,7 @@ Apple 规范和原生组件可以揭示风险、降低实现不确定性，但�
 
 仓库使用两层互补的回归机制：
 
-- **确定性 CI 检查**用于验证 Plugin 结构、来源完整性、交付合同、产品起点、路由规则、固定的 15 案例 Skill 矩阵、输出断言和受保护的黄金输出校验和。
+- **确定性 CI 检查**用于验证 Plugin 结构、通用包构建、来源完整性、交付合同、产品起点、路由规则、固定的 15 案例 Skill 矩阵、输出断言和受保护的黄金输出校验和。
 - **全新会话模型检查**在不泄露断言的前提下运行选定 Prompt，再用同一案例定义检查保存的 Skill 加载轨迹与最终输出。
 
 每个内置 Skill 都固定包含一个直接请求、一个间接请求、一个信息不足案例、一个仅工程负例和一个证据风险边界案例。每个案例都包含固定输入素材、应加载和禁止加载的 Skill、必需输出行为以及禁止声明。
@@ -172,6 +172,34 @@ codex plugin add apple-ui-design@apple-ui-design
 GitHub Marketplace 是当前公开安装路径。本仓库不会把“已提交到 OpenAI 通用 Plugins Directory”作为已完成事实；那属于单独的正式发布步骤。
 
 官方说明参见[构建 Skills](https://learn.chatgpt.com/docs/build-skills)、[包装 Plugins](https://developers.openai.com/plugins/build/plugins)与[使用 Plugins](https://learn.chatgpt.com/docs/plugins)。
+
+## 安装跨 Agent 通用 Skill
+
+SkillPay 与兼容 Agent Skills 的客户端使用一个统一的 `apple-ui-design` 包。它在内部继续区分界面方向、平台适配与 UI 评审三个工作流，但只要求用户安装一个商品。Codex 仍优先使用现有 Plugin 发行版，因为 Plugin 能通过原生元数据分别展示三个工作流。
+
+使用与 Plugin 相同的正式工作流和 reference 来源生成通用文件夹与 ZIP：
+
+```bash
+python3 scripts/build_portable_skill.py
+```
+
+命令会生成用于文件夹上传的 `dist/apple-ui-design/`，以及用于 ZIP 上传的 `dist/apple-ui-design.zip`。两种产物都会把 `SKILL.md` 放在包根目录，只包含运行时指令与 MIT 协议，不包含仓库测试、评测记录、CI 配置或 Codex 专用元数据。
+
+将生成的 `apple-ui-design` 文件夹安装到目标客户端支持的位置：
+
+| 客户端 | 安装位置 |
+| --- | --- |
+| Claude Code | `~/.claude/skills/apple-ui-design/` |
+| OpenAI Codex 独立 Skill | `$CODEX_HOME/skills/apple-ui-design/`；未设置 `CODEX_HOME` 时使用 `~/.codex/skills/apple-ui-design/` |
+| OpenCode | `~/.agents/skills/apple-ui-design/` 或 `~/.config/opencode/skills/apple-ui-design/` |
+| Pi | `~/.agents/skills/apple-ui-design/` 或 `~/.pi/agent/skills/apple-ui-design/` |
+| Harness 类仓库 | `skills/apple-ui-design/`；无法自动发现时，再从仓库级 Agent 指令引用它 |
+
+通用包遵循 [Agent Skills 开放规范](https://agentskills.io/specification)，只使用标准 frontmatter 和包内相对引用。特定 Agent 的调用控制、工具名称、权限和界面元数据不会进入共享运行时指令。
+
+### SkillPay 商品定位
+
+SkillPay 上架版本是本公开 MIT 项目的付费便捷发行版，不是独占或加密版本。商品价值来自已经生成的跨 Agent 安装包、结构验证、经过测试的工作流路由和持续兼容维护。商品说明必须透明表达这一关系，让购买者理解自己购买的是免手工适配与对维护工作的支持，而不是私有源代码。
 
 ## 从旧版独立 Skill 迁移
 
@@ -293,8 +321,13 @@ Skill 使用混合研究模式：
 │           ├── apple-platform-adaptation/
 │           ├── apple-ui-direction/
 │           └── apple-ui-review/
+├── packaging/
+│   └── portable-skill/
+│       └── SKILL.md.in
 ├── scripts/
+│   ├── build_portable_skill.py
 │   ├── run_regression_checks.py
+│   ├── validate_portable_skill.py
 │   ├── validate_decision_authority_evals.py
 │   ├── evaluate_skill_regression_output.py
 │   ├── validate_skill_regression_evals.py
@@ -320,6 +353,7 @@ Skill 使用混合研究模式：
     ├── test_content_sensitive_flow_evals.py
     ├── test_runtime_context.py
     ├── test_interaction_motion_evals.py
+    ├── test_portable_skill.py
     ├── test_product_starting_point_evals.py
     └── test_source_registry.py
 ```
@@ -327,6 +361,8 @@ Skill 使用混合研究模式：
 - `plugins/apple-ui-design/` 是完整可安装包，不包含仓库 README、Issue 历史或评测运行记录。
 - `plugins/apple-ui-design/skills/` 包含三个可独立发现的工作流。
 - `plugins/apple-ui-design/references/` 是产品、证据、平台、无障碍、研究与验证规则的唯一共享来源。
+- `packaging/portable-skill/SKILL.md.in` 是不绑定具体 Agent 的入口模板；构建时会从正式 Plugin 来源生成三个工作流 reference 和全部共享 references。
+- `dist/apple-ui-design/` 与 `dist/apple-ui-design.zip` 是被 Git 忽略的生成产物，分别用于 SkillPay 与兼容 Agent Skills 的客户端。
 - `.agents/plugins/marketplace.json` 通过公开 GitHub 仓库暴露 Plugin。
 - 根级 `SKILL.md` 与 `agents/openai.yaml` 只为旧版独立安装提供显式调用兼容。
 - `evals/plugin-split/` 保留三个内置 Skills 的独立前向测试与安装后新会话证据。
@@ -350,7 +386,8 @@ Skill 使用混合研究模式：
 - `scripts/run_regression_checks.py` 是本地和 CI 共用的唯一确定性入口。
 - `scripts/validate_product_starting_point_evals.py` 用于检查评测结构、必需场景、行为断言和固定素材路径。
 - `scripts/validate_plugin_architecture.py` 用于保护 Skill 边界、共享规则所有权和安装包纯度。
-- `tests/` 用于保护 Plugin 架构、评测与资源校验器必须识别的错误场景。
+- `scripts/build_portable_skill.py` 与 `scripts/validate_portable_skill.py` 用于生成文件夹和 ZIP，并拒绝缺失文件、越界引用、客户端专用元数据、仓库开发文件和超过 SkillPay 限制的产物。
+- `tests/` 用于保护 Plugin 架构、通用发行包、评测与资源校验器必须识别的错误场景。
 - `.github/workflows/validate.yml` 会在 push 与 pull request 中执行同一套确定性门禁。
 
 ## 边界

@@ -261,7 +261,7 @@ def validate(repo_root: Path) -> list[str]:
     source_registries = [
         path
         for path in root.rglob("source-registry.json")
-        if ".git" not in path.parts
+        if ".git" not in path.parts and "dist" not in path.parts
     ]
     if source_registries != [references_root / "source-registry.json"]:
         errors.append("source-registry.json must have exactly one plugin-owned copy")

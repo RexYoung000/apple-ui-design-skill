@@ -94,6 +94,21 @@ class PluginArchitectureTests(unittest.TestCase):
                 any("exactly one plugin-owned copy" in error for error in errors)
             )
 
+    def test_generated_distribution_is_not_a_second_editable_source(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            fixture = self.make_fixture(temp_dir)
+            generated = (
+                fixture
+                / "dist"
+                / "apple-ui-design"
+                / "references"
+                / "source-registry.json"
+            )
+            generated.parent.mkdir(parents=True)
+            generated.write_text("{}", encoding="utf-8")
+
+            self.assertEqual(validate(fixture), [])
+
     def test_wrong_marketplace_path_is_rejected(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             fixture = self.make_fixture(temp_dir)

@@ -140,6 +140,21 @@ The initial public examples are the Today visual-direction comparison, the Orbit
 
 Run `python3 scripts/validate_public_interface.py` whenever public metadata, assets, starter prompts, or either README changes. The validator checks asset paths and PNG signatures, prompt routing, description length, brand-color contrast, manifest boundaries, three-workflow example parity, links back to preserved evidence, and the three-scenario first-use record under `evals/public-interface/`. It supplements rather than replaces the plugin-creator validator and the complete regression gate.
 
+## Portable Agent Skill Distribution
+
+The Codex Plugin and the portable Agent Skill are two distributions of the same product, not separate method forks.
+
+- Keep the three bundled Plugin Skills and `plugins/apple-ui-design/references/` as the canonical runtime sources.
+- Generate the portable `apple-ui-design` package at build time. Do not commit copied runtime references as a second editable source tree.
+- Expose one portable Skill that routes UI direction, platform adaptation, and UI review internally. Keep the three separate Plugin Skills for the richer Codex installation surface.
+- Use only Agent Skills-standard frontmatter in the portable entry. Keep `agents/openai.yaml`, `.codex-plugin`, marketplace metadata, invocation policy, and other client-specific fields out of the portable package.
+- Rewrite every workflow reference to a package-root-relative `references/...` path and reject any path that escapes the generated package.
+- Include `SKILL.md`, generated workflow references, shared runtime references, and `LICENSE` only. Do not package repository README files, tests, evaluations, CI files, or maintenance documentation.
+- Produce both `dist/apple-ui-design/` for SkillPay folder upload and `dist/apple-ui-design.zip` for ZIP upload. `SKILL.md` must be at the root of each artifact, and the ZIP must remain below SkillPay's 20 MB per-file limit.
+- Describe the SkillPay product as a paid convenience distribution of the public MIT project. Do not imply encryption, exclusivity, private source access, or functionality that differs from the generated artifact.
+
+Run the portable validator after every workflow, reference, license, packaging, or portable-entry change. The complete deterministic regression gate must build and validate the portable artifact in addition to protecting the Codex Plugin.
+
 ## Runtime Context Architecture
 
 Issue #10 separates repository maintenance from instructions needed during a product task. The installable runtime path contains only the three `SKILL.md` entry files, shared Markdown references, and `source-registry.json`. Repository comparison notes, creation history, evaluation fixtures, release procedures, and source-registry maintenance belong in this document or under `evals/`, never in a runtime reference.

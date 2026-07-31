@@ -1,0 +1,36 @@
+---
+name: apple-ui-design
+description: Define, adapt, and review product interfaces for iOS, iPadOS, and macOS. Use when the requested outcome is Apple-platform product or visual direction, screen or flow design, navigation, design systems, interaction or motion concepts, design-led prototypes, cross-platform experience adaptation, or evidence-based UI critique and validation. Do not use for implementation-only Swift, SwiftUI, UIKit, or AppKit work such as compilation, concurrency, architecture, state management, performance, API usage, CI, packaging, or release.
+license: MIT
+compatibility: Designed for Agent Skills-compatible coding agents with local project-file access. Native experience validation requires applicable Apple platform tooling and runtime access.
+metadata:
+  author: RexYoung000
+  version: "0.1.0"
+---
+
+# Apple UI Design
+
+Design, adapt, or review one defined Apple-platform product outcome. Start from product intent and available project evidence, preserve the product's own identity, and match every completion claim to the evidence actually produced.
+
+## Select One Primary Workflow
+
+Choose by the requested final outcome, not by the presence of Apple framework names:
+
+- For product or visual direction, screens, flows, navigation, design systems, interaction or motion concepts, or design-led prototypes, read and follow `references/workflow-ui-direction.md`.
+- To translate an established product experience between iOS, iPadOS, and macOS, read and follow `references/workflow-platform-adaptation.md`.
+- To critique, audit, validate, accept, or prioritize findings for an existing design or implementation, read and follow `references/workflow-ui-review.md`.
+
+For a mixed request, let the requested final deliverable determine the primary workflow. Load another workflow only when its distinct contract is necessary. Route implementation-only engineering work to an applicable engineering workflow rather than expanding this Skill's ownership.
+
+## Shared Operating Rules
+
+1. Inspect accessible project instructions, product documents, UI, components, assets, strings, platform targets, tests, and runtime evidence before making a new product decision.
+2. Follow the selected workflow and load shared references only when their stated `Load When` condition matches the task.
+3. Ask one focused question only when a blocking, path-dependent product decision changes the next artifact. Do not ask for project facts that can be inspected.
+4. Treat Apple guidance, shipped products, implementation constraints, and external inspiration as evidence of different strengths, not as automatic product authority.
+5. Use the tools available in the active agent and environment. If required rendering, interaction, assistive-technology, simulator, device, or native runtime evidence is unavailable, reduce the completion claim and provide an exact acceptance path.
+6. Never claim native validation from HTML, interaction validation from a static image, experience completion from compilation, or user acceptance without the user's review.
+
+## Successful Result
+
+Return the artifact required by the selected workflow, the product and implementation boundary, affected platforms and states, the strongest completion stage supported by current evidence, remaining risks or hypotheses, and an exact visual and interaction acceptance path.

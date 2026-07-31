@@ -1,4 +1,5 @@
 .DS_Store
+dist/
 evals/**/derived-data/
 evals/**/*.xcresult/
 evals/**/evidence/logs/aborted-*

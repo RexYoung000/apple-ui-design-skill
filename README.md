@@ -119,7 +119,7 @@ Completion is reported in distinct stages: **direction aligned**, **design compl
 
 The repository uses two complementary regression layers:
 
-- **Deterministic CI checks** validate plugin structure, source integrity, delivery contracts, product starting points, routing rules, the fixed 15-case skill matrix, output assertions, and protected golden-output checksums.
+- **Deterministic CI checks** validate plugin structure, portable-package construction, source integrity, delivery contracts, product starting points, routing rules, the fixed 15-case skill matrix, output assertions, and protected golden-output checksums.
 - **Fresh-session model checks** run selected prompts without exposing their assertions, then evaluate the saved skill trace and final output against the same case definition.
 
 Each bundled skill has one direct request, one indirect request, one incomplete-information case, one implementation-only negative, and one evidence-risk boundary case. Every case includes fixed input material, the expected loaded and forbidden skills, required output behavior, and forbidden claims.
@@ -172,6 +172,34 @@ codex plugin add apple-ui-design@apple-ui-design
 This GitHub marketplace is the current public installation path. Submission to OpenAI’s universal Plugins Directory is a separate publication step and is not claimed by this repository.
 
 See the official OpenAI documentation for [building skills](https://learn.chatgpt.com/docs/build-skills), [packaging plugins](https://developers.openai.com/plugins/build/plugins), and [using plugins](https://learn.chatgpt.com/docs/plugins).
+
+## Install the Portable Agent Skill
+
+SkillPay and Agent Skills-compatible clients use one portable `apple-ui-design` package. It keeps UI direction, platform adaptation, and UI review as distinct internal workflows while giving users one product to install. The Codex Plugin remains the preferred Codex distribution because it exposes the three workflows separately with native Plugin metadata.
+
+Build the portable folder and ZIP from the same canonical workflow and reference sources used by the Plugin:
+
+```bash
+python3 scripts/build_portable_skill.py
+```
+
+The command writes `dist/apple-ui-design/` for folder upload and `dist/apple-ui-design.zip` for ZIP upload. Both artifacts place `SKILL.md` at the package root, include only runtime instructions and the MIT license, and exclude repository tests, evaluations, CI configuration, and Codex-only metadata.
+
+Install the generated `apple-ui-design` folder in a location supported by the target client:
+
+| Client | Installation location |
+| --- | --- |
+| Claude Code | `~/.claude/skills/apple-ui-design/` |
+| OpenAI Codex standalone Skill | `$CODEX_HOME/skills/apple-ui-design/`, or `~/.codex/skills/apple-ui-design/` when `CODEX_HOME` is unset |
+| OpenCode | `~/.agents/skills/apple-ui-design/` or `~/.config/opencode/skills/apple-ui-design/` |
+| Pi | `~/.agents/skills/apple-ui-design/` or `~/.pi/agent/skills/apple-ui-design/` |
+| Harness-style repositories | `skills/apple-ui-design/`, then reference it from the repository's agent instructions when automatic discovery is unavailable |
+
+The portable package follows the [Agent Skills specification](https://agentskills.io/specification). It uses only standard frontmatter and package-local relative references; agent-specific invocation controls, tool names, permissions, and UI metadata remain outside the shared runtime instructions.
+
+### SkillPay positioning
+
+The SkillPay listing is a paid convenience distribution of this public MIT-licensed project, not an exclusive or encrypted edition. The product value is the generated cross-agent package, structural validation, tested workflow routing, and continued compatibility maintenance. State that relationship in the listing so buyers understand that purchasing supports maintenance and avoids manual packaging rather than purchasing private source code.
 
 ## Migrate from the Standalone Skill
 
@@ -291,8 +319,13 @@ Web references such as 60fps, Recent, Awwwards, React Bits, and Magic UI may ins
 │           ├── apple-platform-adaptation/
 │           ├── apple-ui-direction/
 │           └── apple-ui-review/
+├── packaging/
+│   └── portable-skill/
+│       └── SKILL.md.in
 ├── scripts/
+│   ├── build_portable_skill.py
 │   ├── run_regression_checks.py
+│   ├── validate_portable_skill.py
 │   ├── validate_decision_authority_evals.py
 │   ├── evaluate_skill_regression_output.py
 │   ├── validate_skill_regression_evals.py
@@ -318,6 +351,7 @@ Web references such as 60fps, Recent, Awwwards, React Bits, and Magic UI may ins
     ├── test_content_sensitive_flow_evals.py
     ├── test_runtime_context.py
     ├── test_interaction_motion_evals.py
+    ├── test_portable_skill.py
     ├── test_product_starting_point_evals.py
     └── test_source_registry.py
 ```
@@ -325,6 +359,8 @@ Web references such as 60fps, Recent, Awwwards, React Bits, and Magic UI may ins
 - `plugins/apple-ui-design/` is the complete installable archive; it contains no repository README, issue history, or evaluation runs.
 - `plugins/apple-ui-design/skills/` contains three independently discoverable workflows.
 - `plugins/apple-ui-design/references/` is their single shared source for product, evidence, platform, accessibility, research, and validation rules.
+- `packaging/portable-skill/SKILL.md.in` is the provider-neutral entry template. The build derives its three workflow references and all shared references from the canonical Plugin sources.
+- `dist/apple-ui-design/` and `dist/apple-ui-design.zip` are ignored generated artifacts for SkillPay and Agent Skills-compatible clients.
 - `.agents/plugins/marketplace.json` exposes the plugin through the public GitHub repository.
 - Root `SKILL.md` and `agents/openai.yaml` provide explicit-call compatibility for legacy standalone installations only.
 - `evals/plugin-split/` preserves independent forward-test and installed-session evidence for all three bundled skills.
@@ -348,7 +384,8 @@ Web references such as 60fps, Recent, Awwwards, React Bits, and Magic UI may ins
 - `scripts/run_regression_checks.py` is the single deterministic local and CI entry point.
 - `scripts/validate_product_starting_point_evals.py` checks the evaluation schema, required scenarios, assertions, and fixture paths.
 - `scripts/validate_plugin_architecture.py` protects skill boundaries, shared-reference ownership, and package hygiene.
-- `tests/` protects the plugin architecture, evaluation, and source-registry validators.
+- `scripts/build_portable_skill.py` and `scripts/validate_portable_skill.py` build the folder and ZIP, then reject missing files, escaping references, client-specific metadata, repository-only files, and SkillPay size violations.
+- `tests/` protects the Plugin architecture, portable distribution, evaluation, and source-registry validators.
 - `.github/workflows/validate.yml` runs the same deterministic gate for pushes and pull requests.
 
 ## Scope
