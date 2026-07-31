@@ -111,6 +111,8 @@ Issue #9 增加当前来源核验套件，覆盖精确 Apple 页面、来源不�
 
 Issue #7 增加 6 案例可访问性与本地化套件，覆盖平台任务矩阵、多种辅助技术、视觉设置、自定义控件和本地化风险。保存的 Stillpoint 记录只证明语义自动化与指定的 Reduce Motion 任务；尚未执行的 VoiceOver 路径仍明确标记为未验证。
 
+Issue #14 增加交互与动效方法及固定回归，分别覆盖工具型、内容型与实验性交互。它保护用户已经确认的交互方向，并要求通过任务状态、输入、打断、反向、恢复、Reduce Motion 和原生录屏来验证实际行为，而不是用常见 Apple 模式或系统组件替代产品判断。
+
 ## 安装 Plugin
 
 先将本公开仓库添加为 Codex Marketplace，再安装 Plugin：
@@ -227,6 +229,10 @@ Skill 使用混合研究模式：
 │   │   ├── README.md
 │   │   ├── cases.json
 │   │   └── runs/
+│   ├── interaction-motion/
+│   │   ├── README.md
+│   │   ├── cases.json
+│   │   └── runs/
 │   └── product-starting-point/
 │       ├── README.md
 │       ├── cases.json
@@ -250,9 +256,12 @@ Skill 使用混合研究模式：
 │   ├── validate_product_starting_point_evals.py
 │   ├── validate_delivery_contract_evals.py
 │   ├── validate_current_source_evals.py
+│   ├── validate_accessibility_localization_evals.py
+│   ├── validate_interaction_motion_evals.py
 │   ├── validate_plugin_architecture.py
 │   └── validate_source_registry.py
 └── tests/
+    ├── test_accessibility_localization_evals.py
     ├── test_current_source_evals.py
     ├── test_decision_authority_evals.py
     ├── test_skill_regression_evals.py
@@ -260,6 +269,7 @@ Skill 使用混合研究模式：
     ├── test_trigger_routing_evals.py
     ├── test_plugin_architecture.py
     ├── test_delivery_contract_evals.py
+    ├── test_interaction_motion_evals.py
     ├── test_product_starting_point_evals.py
     └── test_source_registry.py
 ```
@@ -275,9 +285,11 @@ Skill 使用混合研究模式：
 - `evals/delivery-contracts/` 为六类交付合同分别提供一项真实任务与可观察的证据断言。
 - `evals/current-source-verification/` 用于保护精确 Apple 来源、来源不可用、版本降级、运行冲突和保存的 Liquid Glass 核验记录。
 - `evals/accessibility-localization/` 用于保护平台任务、辅助技术证据边界、视觉设置、自定义控件和本地化风险方法。
+- `evals/interaction-motion/` 用于保护用户决策权、交互体验契约、动效语言、平台输入、打断与反向、Reduce Motion 和原生证据边界。
 - `evals/product-starting-point/` 提供固定的小改动、重大改版与从零产品证据场景、评审断言和保留的前向测试证据。
 - `scripts/validate_current_source_evals.py` 用于检查来源记录、精确 Apple URL、访问日期、版本分离、降级方案、证据标签和运行产物。
 - `scripts/validate_accessibility_localization_evals.py` 用于检查 Issue #7 的六类方法覆盖、Skill 路由和来源标记。
+- `scripts/validate_interaction_motion_evals.py` 用于检查 Issue #14 的三类产品场景、三项 Skill 路由与方法覆盖。
 - `scripts/validate_delivery_contract_evals.py` 用于检查合同覆盖、固定素材、必需产物、禁止声明和证据要求。
 - `scripts/validate_trigger_routing_evals.py` 用于检查路由覆盖、实现边界和必须覆盖的工程负例领域。
 - `scripts/evaluate_skill_regression_output.py` 在不向模型泄露断言的情况下检查一次保存的加载轨迹和响应。

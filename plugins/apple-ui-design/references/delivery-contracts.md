@@ -33,7 +33,7 @@ Never present an unrendered number as proven visual quality. Prefer semantic int
 
 The user owns product, interaction, and motion decisions. Platform convention and native components are evidence and risk-reduction tools, not a visual veto.
 
-When motion is in scope, define its purpose, input relationship, continuity, interruption, reversal, repetition, and platform expression. Deliver the reduced-motion expression as an intentional equivalent: preserve state, feedback, spatial meaning, and suitable brand character rather than mechanically disabling all animation.
+Read `interaction-and-motion.md` when behavior is materially in scope. Define the relevant interaction contract, motion language, product-specific risk focus, and evidence plan. Deliver the reduced-motion expression as an intentional equivalent: preserve state, feedback, spatial meaning, and suitable brand character rather than mechanically disabling all animation.
 
 Motion is visually explored through rendered prototypes and is verified only through a representative native run and recording. A duration table, static storyboard, HTML animation, or successful build does not prove native motion behavior.
 

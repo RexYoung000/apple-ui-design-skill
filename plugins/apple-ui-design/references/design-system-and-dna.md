@@ -105,30 +105,9 @@ Do not force the same component geometry across platforms when a native structur
 
 ## Interaction and Motion Language
 
-Treat confirmed interaction and motion decisions as product design, not as decoration added after layout.
+Keep shared interaction character, semantic motion roles, and reusable motion tokens in the product DNA. Read `interaction-and-motion.md` when creating, adapting, prototyping, or reviewing material behavior; it owns the interaction contract, motion purposes, product-specific risk focus, exploration rules, and evidence boundary.
 
-For interaction, capture:
-
-- the product mental model and the user’s intended way of manipulating it;
-- primary, expert, gestural, spatial, or experimental interaction paths;
-- what the user has explicitly approved;
-- discoverability, learning, error recovery, input, and accessibility implications;
-- platform conventions that support the idea or create a known tradeoff.
-
-Platform conventions are recommendations and evidence. Do not silently add an alternative path, replace an unconventional interaction, or remove a product-specific gesture after the user has chosen it. Explain material risk and validate the chosen behavior.
-
-For motion, define:
-
-- character and emotional tone;
-- functional, spatial, feedback, expressive, or brand purpose;
-- relationship to touch, pointer, keyboard, Pencil, scroll, or system events;
-- continuity, interruption, reversal, repetition, and duration logic;
-- expression by platform and input method;
-- reduced-motion behavior that preserves meaning and appropriate brand character.
-
-Motion may exist for delight or identity as well as utility. Do not require every animation to explain a state change. Do require it to coexist with the task, user comfort, system settings, and the claimed performance envelope.
-
-When motion direction is unresolved, make two or three visibly different prototypes. When it is already established, extend it without manufacturing alternatives. Validate meaningful motion through native execution and recording; a timing specification alone is not evidence.
+Do not duplicate detailed behavior rules here. Record only the durable product language and token intent that must stay coherent across components and platforms.
 
 ## Meaningful Direction Exploration
 

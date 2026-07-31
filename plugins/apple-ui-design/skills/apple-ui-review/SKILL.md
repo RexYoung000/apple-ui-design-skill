@@ -46,6 +46,7 @@ Read `../../references/validation-and-review.md` and assess:
 - runtime evidence and honest completion state.
 
 Read `../../references/apple-platform-adaptation.md` when a finding depends on platform or input behavior. Read `../../references/design-system-and-dna.md` when consistency or brand expression is in scope. Read `../../references/accessibility-and-localization.md` for outcome-based accessibility and localization checks.
+Read `../../references/interaction-and-motion.md` when the artifact includes material behavior. Review it against the confirmed interaction contract, motion purpose, platform inputs, interruption, reversal, final intent, recovery, Reduce Motion expression, and evidence actually supplied.
 
 ### 3. Classify only actionable findings
 
@@ -58,6 +59,8 @@ Use:
 Do not assign numeric scores by default. Do not inflate severity because a solution differs from reviewer taste.
 
 Apple guidance, native components, shipped patterns, and reviewer preference are evidence or advice, not product authority. A confirmed unconventional interaction is not a finding merely because it is unconventional. Report a finding only when the supplied evidence shows a product, task, required-experience, or hard-boundary impact.
+
+For experimental interactions, report discoverability, learning, equivalent-input, limit, error, and recovery risk without replacing the model merely because it is nonstandard. For tool and content products, apply the product-specific risk focus in `../../references/interaction-and-motion.md` instead of a generic motion checklist.
 
 For each finding, provide:
 
@@ -77,6 +80,8 @@ For a disputed recommendation, state the observed fact, user impact, recommendat
 ### 4. Verify claims at the right level
 
 Use screenshots for static hierarchy, recordings for interaction and motion, accessibility inspection and audits for semantics, simulator or device runs for iOS and iPadOS, and a real Mac app for window, menu, command, and focus behavior. Do not report an audit, label check, or UI test as a VoiceOver, Voice Control, Switch Control, AssistiveTouch, Full Keyboard Access, or Pointer Control run. Name the exact technology, task, environment, and evidence behind every experience-verification claim.
+
+For material motion, inspect representative-speed native recordings for input relationship, continuity, interruption, reversal, repeat use, completion, recovery, and the intentional Reduce Motion expression. Leave rhythm and aesthetic acceptance to the user; do not infer them from timing values or build success.
 
 Read `../../references/prototyping-and-implementation.md` when judging prototype or implementation evidence. Use `../../references/current-sources.md` and `../../references/research-and-source-evidence.md` when citing current Apple guidance or external examples. A version-sensitive finding must include the exact current Apple page and access date, separate published availability from the project’s tested runtime, and remain unverified when the source cannot be checked.
 

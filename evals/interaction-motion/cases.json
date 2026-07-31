@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "suite": "interaction-motion",
+  "linked_issue": 14,
+  "purpose": "Protect user-owned interaction direction, testable behavior contracts, product-specific motion judgment, platform input adaptation, and honest native evidence claims.",
+  "required_tags": [
+    "product-authority",
+    "experience-contract",
+    "motion-language",
+    "platform-inputs",
+    "interruption-reversal",
+    "reduced-motion",
+    "native-evidence",
+    "meaningful-exploration"
+  ],
+  "preserved_evidence": {
+    "scenario": "tool",
+    "artifacts": [
+      "evals/delivery-contracts/runs/2026-07-29/native-prototype/DESIGN.md",
+      "evals/delivery-contracts/runs/2026-07-29/native-prototype/VALIDATION.md",
+      "evals/delivery-contracts/runs/2026-07-29/native-prototype/evidence/recordings/standard-interruption-reversal.mp4",
+      "evals/delivery-contracts/runs/2026-07-29/native-prototype/evidence/recordings/reduce-motion-interruption-reversal.mp4"
+    ],
+    "supports": [
+      "The named Stillpoint tool path is experience-verified for expansion, final-intent handling, Pause, Finish, and the recorded standard and Reduce Motion expressions on the represented iOS 17.5 simulator."
+    ],
+    "does_not_support": [
+      "Content-product interaction or motion quality.",
+      "Experimental-interaction learnability or user acceptance.",
+      "Production integration, a real device, or broad accessibility completion."
+    ]
+  },
+  "cases": [
+    {
+      "id": "tool-spatial-navigation-platform-inputs",
+      "scenario": "tool",
+      "skill": "apple-platform-adaptation",
+      "tags": ["product-authority", "experience-contract", "platform-inputs"],
+      "prompt": "Adapt our confirmed spatial project navigator from iPad to Mac. Engineering suggests replacing it with a stock sidebar because it is cheaper. Preserve the product model and define the Mac interaction.",
+      "expected_behavior": [
+        "Preserve the confirmed spatial navigator unless a hard boundary or newly confirmed product decision changes it.",
+        "Map state meaning and operation to pointer, hover, keyboard, focus, commands, windows, and relevant accessibility actions.",
+        "Specify interruption, reversal, recovery, and native evidence needed for the Mac behavior."
+      ],
+      "forbidden_behavior": [
+        "Replace the navigator solely because a stock sidebar is familiar or cheaper.",
+        "Treat a static Mac layout as verified input or window behavior."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/interaction-and-motion.md": [
+          "Apple convention, native component, shipped pattern, or implementation shortcut is evidence and risk-control advice",
+          "Platform expression",
+          "Tool products"
+        ],
+        "plugins/apple-ui-design/skills/apple-platform-adaptation/SKILL.md": [
+          "Preserve the confirmed interaction contract and motion purposes",
+          "Map the confirmed operation to touch, Pencil, keyboard, pointer"
+        ]
+      }
+    },
+    {
+      "id": "content-reading-continuity",
+      "scenario": "content",
+      "skill": "apple-ui-direction",
+      "tags": ["experience-contract", "motion-language", "reduced-motion"],
+      "prompt": "Design the transition from a saved article list into immersive reading and back. Preserve reading position and make the motion feel editorial rather than like a utility panel.",
+      "expected_behavior": [
+        "Define entry, content state, transition context, reading-position persistence, return, interruption, and restoration.",
+        "Give the motion an explicit spatial, expressive, brand, or emotional purpose without letting it compete with reading.",
+        "Define a Reduce Motion expression that preserves orientation, state, feedback, and editorial character."
+      ],
+      "forbidden_behavior": [
+        "Apply a generic tool-product motion checklist without reading-continuity concerns.",
+        "Claim native rhythm or comfort from a storyboard or HTML prototype."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/interaction-and-motion.md": [
+          "Content products",
+          "place preservation",
+          "Reduce Motion is a parallel expression"
+        ],
+        "plugins/apple-ui-design/skills/apple-ui-direction/SKILL.md": [
+          "Define the relevant interaction contract and motion language",
+          "intentional Reduce Motion expression"
+        ]
+      }
+    },
+    {
+      "id": "experimental-radial-scrub-review",
+      "scenario": "experimental",
+      "skill": "apple-ui-review",
+      "tags": ["product-authority", "experience-contract", "platform-inputs"],
+      "prompt": "Review our confirmed radial scrub interaction. It is unconventional, but early testers understand it after one attempt. Identify real risks without redesigning it into a standard slider.",
+      "expected_behavior": [
+        "Review the confirmed model rather than treating novelty as a defect.",
+        "Assess discovery, learning, feedback, limits, equivalent inputs, cancellation, error, and recovery against supplied evidence.",
+        "Separate observed findings from remaining user-test and native-runtime gaps."
+      ],
+      "forbidden_behavior": [
+        "Replace the radial scrub solely because a slider is conventional.",
+        "Treat early tester comprehension as complete accessibility or platform validation."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/interaction-and-motion.md": [
+          "Experimental interactions",
+          "Novelty is not a defect by itself",
+          "Keep the learning and failure risk visible until tested."
+        ],
+        "plugins/apple-ui-design/skills/apple-ui-review/SKILL.md": [
+          "For experimental interactions",
+          "without replacing the model merely because it is nonstandard"
+        ]
+      }
+    },
+    {
+      "id": "rapid-repeat-final-intent",
+      "scenario": "tool",
+      "skill": "apple-ui-review",
+      "tags": ["experience-contract", "interruption-reversal", "native-evidence"],
+      "prompt": "The expandable session card looks right in screenshots and builds successfully. Verify that rapid repeated taps reverse cleanly and settle on the user's final intent.",
+      "expected_behavior": [
+        "Require the state transition, interruption, reversal, rapid-repeat, and final settled state to be exercised.",
+        "Use representative-speed native recording and name the platform, input, states, and observed result.",
+        "Limit any verified claim to the represented Stillpoint path and environment."
+      ],
+      "forbidden_behavior": [
+        "Infer reversal or final-intent behavior from screenshots or compilation.",
+        "Transfer the Stillpoint result to unrelated product scenarios."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/interaction-and-motion.md": [
+          "final settled state must reflect the user’s final intent",
+          "rapid repeat input",
+          "a native recording can establish only the exercised environment"
+        ],
+        "evals/delivery-contracts/runs/2026-07-29/native-prototype/VALIDATION.md": [
+          "final state is expanded",
+          "standard-interruption-reversal.mp4"
+        ]
+      }
+    },
+    {
+      "id": "reduced-motion-parallel-expression",
+      "scenario": "tool",
+      "skill": "apple-ui-direction",
+      "tags": ["motion-language", "interruption-reversal", "reduced-motion", "native-evidence"],
+      "prompt": "Keep the expandable card's quiet spatial motion, but define and validate what happens when Reduce Motion is enabled.",
+      "expected_behavior": [
+        "Preserve state, causality, feedback, completion, and suitable product character in a parallel expression.",
+        "Reduce disorienting spatial travel without deleting all feedback by default.",
+        "Require separate native execution and recording of standard and Reduce Motion paths before experience verification."
+      ],
+      "forbidden_behavior": [
+        "Disable every animation without considering feedback or brand meaning.",
+        "Claim the reduced-motion path is verified from code branches or timing values."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/interaction-and-motion.md": [
+          "Reduce Motion is a parallel expression",
+          "Run and record the Reduce Motion expression"
+        ],
+        "evals/delivery-contracts/runs/2026-07-29/native-prototype/VALIDATION.md": [
+          "Reduce Motion disables the layout transaction animation",
+          "reduce-motion-interruption-reversal.mp4"
+        ]
+      }
+    },
+    {
+      "id": "html-build-is-not-native-evidence",
+      "scenario": "content",
+      "skill": "apple-ui-review",
+      "tags": ["native-evidence"],
+      "prompt": "The article transition matches the storyboard in HTML and the Swift project compiles. Mark the iOS motion experience verified.",
+      "expected_behavior": [
+        "Refuse the native experience-verification claim from HTML and build success.",
+        "Require an operable native path and representative recording for the claimed input, transition, interruption, and system-setting behavior.",
+        "Keep final rhythm and aesthetic acceptance with the user."
+      ],
+      "forbidden_behavior": [
+        "Treat browser timing as iOS motion evidence.",
+        "Infer user acceptance or native quality from compilation."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/interaction-and-motion.md": [
+          "a successful build establishes implementation integrity only",
+          "Do not claim native interaction or motion quality from HTML"
+        ],
+        "plugins/apple-ui-design/skills/apple-ui-review/SKILL.md": [
+          "Leave rhythm and aesthetic acceptance to the user",
+          "do not infer them from timing values or build success"
+        ]
+      }
+    },
+    {
+      "id": "meaningful-interaction-exploration",
+      "scenario": "experimental",
+      "skill": "apple-ui-direction",
+      "tags": ["motion-language", "meaningful-exploration"],
+      "prompt": "We have not decided how a new spatial collection should open and reorganize. Show interaction directions we can actually compare, not just different colors or animation speeds.",
+      "expected_behavior": [
+        "Produce two or three operable hypotheses that differ in operation, feedback, state, or motion purpose.",
+        "Compare the core-task effect, platform and accessibility implications, risk, and evidence needed for selection.",
+        "Keep all hypotheses unapproved until the user selects a direction."
+      ],
+      "forbidden_behavior": [
+        "Present recolors, easing curves, or duration-only changes as separate interaction directions.",
+        "Implement one arbitrary direction as if it were already aligned."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/interaction-and-motion.md": [
+          "Meaningful Exploration",
+          "two or three operable hypotheses",
+          "Do not present recolors, duration-only changes"
+        ],
+        "plugins/apple-ui-design/skills/apple-ui-direction/SKILL.md": [
+          "two or three operable hypotheses with real differences",
+          "Do not present recolors, duration-only changes"
+        ]
+      }
+    }
+  ]
+}

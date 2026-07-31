@@ -48,6 +48,7 @@ REQUIRED_SHARED_REFERENCES = {
     "design-system-and-dna.md",
     "delivery-contracts.md",
     "engineering-routing.md",
+    "interaction-and-motion.md",
     "prototyping-and-implementation.md",
     "research-and-source-evidence.md",
     "source-registry.json",

@@ -64,11 +64,14 @@ Production UIKit and AppKit implementation, framework API correctness, interoper
 
 A native high-fidelity prototype should include only what is needed to validate the decision, but it must not fake the tested behavior.
 
+Read `interaction-and-motion.md` for material behavior. Model the scoped interaction contract as an explicit state and transition graph, including the inputs, feedback, interruption, reversal, rapid repeat input, final settled state, error, and recovery paths that can change the core task.
+
 Include as applicable:
 
 - representative real-world content;
 - normal, empty, loading, error, disabled, selected, and destructive states;
 - navigation, dismissal, focus, keyboard, pointer, touch, and resizing;
+- interruption, reversal, cancellation, retry, undo, and restoration;
 - accessibility labels and scalable content;
 - reduced-motion behavior;
 - platform and version fallback;

@@ -157,6 +157,23 @@ The release-level trigger and output matrix lives in `evals/skill-regression/cas
 The decision-authority contract lives in `evals/decision-authority/cases.json`; validate it with `python3 scripts/validate_decision_authority_evals.py`.
 The current-source contract and preserved version-sensitive records live under `evals/current-source-verification/`; validate them with `python3 scripts/validate_current_source_evals.py`.
 The accessibility and localization contract lives under `evals/accessibility-localization/`; validate it with `python3 scripts/validate_accessibility_localization_evals.py`.
+The interaction and motion contract lives under `evals/interaction-motion/`; validate it with `python3 scripts/validate_interaction_motion_evals.py`.
+
+## Interaction and Motion Method
+
+Issue #14 consolidates interaction and motion decisions in `plugins/apple-ui-design/references/interaction-and-motion.md`. Load that reference only when a task creates, adapts, or reviews material interaction or motion behavior.
+
+The maintained method must preserve these boundaries:
+
+1. confirmed product interaction and motion direction remains user-owned unless a hard boundary conflicts;
+2. Apple conventions and native components are classified as experience baselines, platform recommendations, or implementation evidence rather than visual vetoes;
+3. interaction is specified through task, state, input, result, interruption, reversal, recovery, and accessibility behavior;
+4. motion may serve functional, spatial, feedback, expressive, brand, or emotional purposes, but its task impact and system-setting response remain explicit;
+5. tool, content, and experimental products receive different risk emphasis instead of one generic motion checklist;
+6. HTML, storyboards, timing tables, and successful builds do not establish native interaction or motion quality;
+7. native recording can establish the exercised behavior, while final rhythm and aesthetic acceptance remains with the user.
+
+The deterministic suite must cover tool, content, and experimental interaction scenarios; direction, adaptation, and review ownership; interruption and reversal; Reduce Motion; platform inputs; and honest native-evidence claims.
 
 ## Accessibility and Localization Source Review
 

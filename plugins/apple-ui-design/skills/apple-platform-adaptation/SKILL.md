@@ -44,6 +44,7 @@ Do not create an iPad or Mac experience by stretching the iPhone layout. Do not 
 When a confirmed interaction differs from common Apple behavior, state the observed platform fact, user impact, recommendation, and native verification path. If the product owner knowingly retains the choice and no hard boundary remains, record the tradeoff and adapt it faithfully rather than repeatedly substituting the conventional control.
 
 Read `../../references/design-system-and-dna.md` to preserve shared product DNA without redesigning it by default.
+Read `../../references/interaction-and-motion.md` when behavior is material. Preserve the confirmed interaction contract and motion purposes, then translate their expression rather than reopening the product model by default.
 
 ### 3. Map platform expressions
 
@@ -52,6 +53,8 @@ Define representative layouts and behaviors for:
 - iOS touch, safe areas, navigation, sheets, keyboard, and interruption;
 - iPadOS compact and expansive windows, columns, sidebars, inspectors, pointer, keyboard, drag and drop, and reflow;
 - macOS window sizes, menus, commands, shortcuts, pointer, hover, focus, selection, context menus, and multiple-window behavior.
+
+Map the confirmed operation to touch, Pencil, keyboard, pointer, focus, commands, windows, and system events that are relevant on each target platform. Preserve state meaning, feedback, interruption, reversal, recovery, and final intent even when the surface control or navigation expression changes.
 
 Read `../../references/current-sources.md` and use exact current Apple pages for version-sensitive platform claims. Keep the project minimum version, newer enhancement version, fallback, and represented runtime evidence separate. Mark unavailable or unsupported conclusions unverified. Use platform convention as evidence, not as automatic ownership of visual style.
 

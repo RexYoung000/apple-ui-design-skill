@@ -55,7 +55,9 @@ Use the project’s design system when it is coherent. When direction is genuine
 
 Read `../../references/design-system-and-dna.md` for visual direction, tokens, components, or durable design-system work.
 
-Preserve the user’s ownership of interaction and motion decisions. Explain platform or usability risk and provide a verification path; do not silently replace confirmed choices.
+When interaction or motion is material, read `../../references/interaction-and-motion.md`. Define the relevant interaction contract and motion language before prototyping. Preserve the user’s ownership of confirmed decisions; explain platform or usability risk and provide a verification path without silently replacing the choice.
+
+When behavior is unresolved, make two or three operable hypotheses with real differences in operation, feedback, state, or motion purpose. Do not present recolors, duration-only changes, or easing changes as separate interaction directions.
 
 For a material disagreement, state the observed fact, user impact, recommendation, and verification path, then let the product owner decide. If they understand a non-hard-boundary tradeoff and retain the original direction, record it and proceed without repeatedly reopening the same recommendation. Apple guidance, shipped patterns, and implementation convenience remain evidence or advice rather than product authority.
 
@@ -69,6 +71,8 @@ Follow the selected contract in `../../references/delivery-contracts.md`. Match 
 - use real project components and representative content for an existing product.
 
 Read `../../references/prototyping-and-implementation.md`. A browser prototype does not prove native behavior, and production integration belongs to the project’s engineering workflow. A bounded SwiftUI presentation-layer change is allowed only when it directly validates an approved design question and preserves architecture, domain state, data, dependencies, and delivery mechanics.
+
+For material interaction, prototype the state graph, interruption, reversal, final intent, and recovery paths that affect the core task. For material motion, include the intentional Reduce Motion expression and preserve native recordings before making an experience-verification claim.
 
 ### 6. Design accessibility and localization into the result
 
