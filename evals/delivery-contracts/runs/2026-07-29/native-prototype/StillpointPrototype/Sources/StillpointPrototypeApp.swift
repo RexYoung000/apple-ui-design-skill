@@ -67,6 +67,7 @@ private struct SessionPrototypeView: View {
             Text("A quieter place to focus.")
                 .font(.title2.weight(.medium))
                 .foregroundStyle(Color(red: 0.13, green: 0.15, blue: 0.12))
+                .fixedSize(horizontal: false, vertical: true)
 
             Text(reduceMotion ? "Motion: Reduce Motion" : "Motion: Standard")
                 .font(.caption)
@@ -83,11 +84,13 @@ private struct SessionPrototypeView: View {
                         Text(statusEyebrow)
                             .font(.caption.weight(.semibold))
                             .foregroundStyle(statusColor)
+                            .fixedSize(horizontal: false, vertical: true)
 
                         Text("Write product brief")
                             .font(.title3.weight(.semibold))
                             .foregroundStyle(Color(red: 0.12, green: 0.14, blue: 0.11))
                             .multilineTextAlignment(.leading)
+                            .fixedSize(horizontal: false, vertical: true)
 
                         if sessionStatus != .completed {
                             Text(sessionStatus == .paused ? "24:18 remaining" : "24:18")

@@ -156,6 +156,33 @@ Trigger ownership and engineering boundaries live in `evals/trigger-routing/case
 The release-level trigger and output matrix lives in `evals/skill-regression/cases.json`. Run the complete deterministic gate with `python3 scripts/run_regression_checks.py`.
 The decision-authority contract lives in `evals/decision-authority/cases.json`; validate it with `python3 scripts/validate_decision_authority_evals.py`.
 The current-source contract and preserved version-sensitive records live under `evals/current-source-verification/`; validate them with `python3 scripts/validate_current_source_evals.py`.
+The accessibility and localization contract lives under `evals/accessibility-localization/`; validate it with `python3 scripts/validate_accessibility_localization_evals.py`.
+
+## Accessibility and Localization Source Review
+
+Issue #7 was reviewed against exact Apple pages on 2026-07-30. Keep the stable task-outcome method in `plugins/apple-ui-design/references/accessibility-and-localization.md`; recheck version-sensitive wording and API availability through the current-source protocol.
+
+| Apple page | Claim supported | Maintenance note |
+| --- | --- | --- |
+| `https://developer.apple.com/design/human-interface-guidelines/accessibility` | Current contrast guidance, non-color meaning, VoiceOver, Voice Control, mobility-related assistive technologies, Full Keyboard Access, Switch Control, and Reduce Motion | Recheck numeric thresholds and named technologies when Apple updates the page |
+| `https://developer.apple.com/design/human-interface-guidelines/right-to-left` | Directional mirroring, paragraph alignment, navigation, numbers, logos, and universal symbols | Keep real-language testing in addition to pseudolanguages |
+| `https://developer.apple.com/documentation/xcode/testing-localizations-when-running-your-app` | Run every supported language and region; App Language and App Region are independently selectable | Record the combinations actually run |
+| `https://developer.apple.com/documentation/xcode/preparing-your-interface-for-localization` | Xcode nonlocalized-string diagnostics and Double-Length, RTL, Accented, Bounded String, and Tall pseudolanguages | Pseudolanguages are structural evidence, not linguistic acceptance |
+| `https://developer.apple.com/documentation/xcode/localizing-strings-that-contain-plurals` | Language-specific plural variants and string-catalog handling | Do not reduce plural validation to English singular versus plural |
+| `https://developer.apple.com/videos/play/wwdc2023/10153` | Foundation grammatical agreement guidance | Treat the WWDC year and API availability as version-sensitive |
+| `https://developer.apple.com/documentation/swiftui/environmentvalues/accessibilityreducetransparency` | Reduce Transparency should make mainly window backgrounds opaque | Preserve hierarchy and meaning rather than merely removing material |
+| `https://developer.apple.com/documentation/xcuiautomation/xcuiapplication/performaccessibilityaudit(for:_:)` | XCTest automated accessibility audits | An automated audit is not a VoiceOver or other assistive-technology run |
+| `https://developer.apple.com/documentation/xcuiautomation/xcuivoiceoverservice` | Programmatic VoiceOver testing is published as Beta for OS 27.0+ | Xcode 26.6 with iOS 17.5/26.5 cannot use this as runtime evidence |
+
+The maintained evidence boundary is:
+
+1. design review can establish intended alternatives and layout behavior;
+2. semantic inspection and automation can establish what the tested build exposes;
+3. only a named assistive-technology run can establish end-to-end operation with that technology.
+
+Never turn one layer into a broader completion claim. Preserve unavailable runtime scenarios as explicit acceptance work rather than filling the gap with labels or audit output.
+
+For Issue #7, the product owner accepted the method, source review, deterministic suite, semantic audit, and recorded Reduce Motion task as sufficient to close the method-development scope on 2026-07-31. That product decision does not change the evidence boundary: the preserved Stillpoint run remains explicitly unverified for VoiceOver, and a future VoiceOver or broader assistive-technology completion claim still requires a named end-to-end run in a supported environment.
 
 The unified matrix must contain exactly five scenario types for each bundled skill:
 

@@ -72,7 +72,7 @@ Read `../../references/prototyping-and-implementation.md`. A browser prototype d
 
 ### 6. Design accessibility and localization into the result
 
-Read `../../references/accessibility-and-localization.md`. Protect core-task completion, state meaning, content expansion, relevant input modes, assistive behavior, and reduced-motion information without imposing a generic visual skin.
+Read `../../references/accessibility-and-localization.md`. Select an iOS, iPadOS, or macOS core-task matrix by user need and risk. Protect state meaning, localization, input alternatives, assistive behavior, visual settings, and reduced-motion information without imposing a generic visual skin. Keep design review, semantic automation, and named assistive-technology runs as separate evidence levels.
 
 ### 7. Validate and hand off honestly
 

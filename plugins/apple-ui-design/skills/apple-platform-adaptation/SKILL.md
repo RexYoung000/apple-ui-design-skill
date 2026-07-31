@@ -57,7 +57,7 @@ Read `../../references/current-sources.md` and use exact current Apple pages for
 
 ### 4. Preserve accessibility, localization, and task meaning
 
-Read `../../references/accessibility-and-localization.md`. Define equivalent completion paths for relevant touch, keyboard, pointer, VoiceOver, focus, content expansion, locale, and reduced-motion scenarios.
+Read `../../references/accessibility-and-localization.md`. Define a core-task matrix for each target platform and equivalent completion paths for the relevant touch, keyboard, pointer, VoiceOver, Voice Control, Switch Control, AssistiveTouch, focus, visual-setting, content-expansion, locale, and reduced-motion scenarios. Keep design review, semantic automation, and named assistive-technology runs as separate evidence levels.
 
 Platform-specific presentation may differ; the confirmed outcome and state meaning may not disappear.
 

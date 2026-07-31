@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "suite": "accessibility-localization",
+  "linked_issue": 7,
+  "purpose": "Protect platform-specific accessibility and localization outcomes, evidence boundaries, custom-control freedom, and honest completion claims.",
+  "required_tags": [
+    "platform-matrix",
+    "assistive-technologies",
+    "evidence-levels",
+    "visual-settings",
+    "custom-controls",
+    "localization"
+  ],
+  "cases": [
+    {
+      "id": "platform-core-task-matrix",
+      "skill": "apple-platform-adaptation",
+      "tags": ["platform-matrix", "assistive-technologies"],
+      "prompt": "Adapt an established focus-session flow from iPhone to iPad and Mac. Define what accessibility acceptance is actually needed on each platform.",
+      "expected_behavior": [
+        "Define the real core task and select platform-specific inputs and assistive behaviors by risk.",
+        "Cover iOS touch, iPad keyboard and pointer, and macOS window, menu, command, focus, and keyboard behavior.",
+        "Require named runtime evidence before claiming a platform or assistive-technology path is verified."
+      ],
+      "forbidden_behavior": [
+        "Stretch the iPhone checklist across every platform.",
+        "Claim that one VoiceOver or label check proves accessibility on all platforms."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/accessibility-and-localization.md": [
+          "Platform Task Matrix",
+          "Full Keyboard Access",
+          "Pointer Control"
+        ],
+        "plugins/apple-ui-design/skills/apple-platform-adaptation/SKILL.md": [
+          "core-task matrix for each target platform",
+          "separate evidence levels"
+        ]
+      }
+    },
+    {
+      "id": "semantic-audit-is-not-voiceover",
+      "skill": "apple-ui-review",
+      "tags": ["assistive-technologies", "evidence-levels"],
+      "prompt": "The UI tests pass performAccessibilityAudit and assert labels, values, and actions. Confirm that the checkout is fully VoiceOver verified.",
+      "expected_behavior": [
+        "Classify the supplied evidence as semantic or automated evidence.",
+        "Refuse the VoiceOver completion claim without an actual VoiceOver core-task run.",
+        "Provide a manual device or supported runtime path and name the remaining unverified scenarios."
+      ],
+      "forbidden_behavior": [
+        "Report VoiceOver passed because the audit is clean.",
+        "Use the broad word accessible without naming scope and evidence."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/accessibility-and-localization.md": [
+          "It is not a VoiceOver run.",
+          "Real assistive behavior run",
+          "Never collapse these into a broad \"accessible\" claim."
+        ],
+        "plugins/apple-ui-design/skills/apple-ui-review/SKILL.md": [
+          "Do not report an audit, label check, or UI test as a VoiceOver",
+          "Name the exact technology"
+        ]
+      }
+    },
+    {
+      "id": "custom-control-outcome",
+      "skill": "apple-ui-direction",
+      "tags": ["custom-controls", "assistive-technologies"],
+      "prompt": "Keep our branded radial timer instead of replacing it with the system picker. Define how to make and verify it accessible.",
+      "expected_behavior": [
+        "Preserve the confirmed visual and interaction direction unless a hard task boundary fails.",
+        "Define role, name, value, state, actions, focus, result, and recovery.",
+        "Provide equivalent operations for relevant touch, keyboard, pointer, and assistive-technology paths."
+      ],
+      "forbidden_behavior": [
+        "Require a system-default appearance.",
+        "Treat accessibility as labels without operating the task."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/accessibility-and-localization.md": [
+          "A custom control does not need to resemble a system control.",
+          "role: what kind of thing it is",
+          "result: whether the intended task actually changes state and completes"
+        ]
+      }
+    },
+    {
+      "id": "visual-settings-and-state-meaning",
+      "skill": "apple-ui-review",
+      "tags": ["visual-settings"],
+      "prompt": "Review a translucent status card that uses green, yellow, and red plus spatial animation to communicate all state changes.",
+      "expected_behavior": [
+        "Check the current Apple contrast thresholds and actual material backgrounds.",
+        "Require non-color state meaning and preserve it under Increase Contrast and Reduce Transparency.",
+        "Define a Reduce Motion alternative that retains state, feedback, and appropriate brand expression."
+      ],
+      "forbidden_behavior": [
+        "Approve color-only or motion-only state meaning.",
+        "Require all transparency and animation to be removed in every mode."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/accessibility-and-localization.md": [
+          "17 pt and smaller regular text uses at least 4.5:1",
+          "Reduce Transparency",
+          "Do not remove required feedback by disabling all animation."
+        ]
+      }
+    },
+    {
+      "id": "localization-risk-matrix",
+      "skill": "apple-ui-direction",
+      "tags": ["localization"],
+      "prompt": "Prepare a finance confirmation flow for English, Arabic, Polish, Chinese, Japanese, and Korean without waiting for final translations.",
+      "expected_behavior": [
+        "Use pseudolanguages for early structural evidence and real target languages for acceptance.",
+        "Cover RTL, plurals, grammatical variation, regional dates and numbers, and CJK content.",
+        "Prevent hardcoded formatting and concatenated sentence fragments."
+      ],
+      "forbidden_behavior": [
+        "Treat doubled English as localization completion.",
+        "Mechanically mirror digits, logos, and universal symbols."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/accessibility-and-localization.md": [
+          "Localization Matrix",
+          "Grammatical variation",
+          "CJK",
+          "Do not mechanically reverse digit order"
+        ]
+      }
+    },
+    {
+      "id": "multiple-assistive-paths",
+      "skill": "apple-ui-review",
+      "tags": ["assistive-technologies", "evidence-levels"],
+      "prompt": "VoiceOver can complete the main task. Mark Voice Control, Switch Control, AssistiveTouch, Full Keyboard Access, and Pointer Control as passed too.",
+      "expected_behavior": [
+        "Limit the verified claim to the named VoiceOver task and represented environment.",
+        "Define separate task paths for each other relevant technology and input.",
+        "Choose final device or Mac evidence based on platform capability."
+      ],
+      "forbidden_behavior": [
+        "Transfer a VoiceOver result to unrelated assistive technologies.",
+        "Claim all accessibility is complete from one assistive-technology run."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/accessibility-and-localization.md": [
+          "A screen reader pass does not establish Voice Control",
+          "Switch Control",
+          "AssistiveTouch",
+          "Full Keyboard Access",
+          "Pointer Control"
+        ]
+      }
+    }
+  ]
+}

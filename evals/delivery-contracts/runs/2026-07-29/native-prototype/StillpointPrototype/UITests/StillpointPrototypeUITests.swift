@@ -32,4 +32,17 @@ final class StillpointPrototypeUITests: XCTestCase {
         ).firstMatch.tap()
         XCTAssertEqual(card.value as? String, "Expanded, Completed")
     }
+
+    func testAutomatedAccessibilityAudit() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["-prototypeState", "collapsed"]
+        app.launch()
+
+        let card = app.buttons.matching(
+            NSPredicate(format: "label == %@", "Write product brief")
+        ).firstMatch
+        XCTAssertTrue(card.waitForExistence(timeout: 3))
+
+        try app.performAccessibilityAudit()
+    }
 }
