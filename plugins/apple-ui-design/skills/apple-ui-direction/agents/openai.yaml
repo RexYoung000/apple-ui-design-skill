@@ -1,6 +1,9 @@
 interface:
   display_name: "Apple UI Direction"
-  short_description: "Define Apple product UI direction and design systems"
-  default_prompt: "Use $apple-ui-direction to define a visible Apple product UI direction from product intent and project evidence."
+  short_description: "Create Apple UI direction, systems, flows, and prototypes"
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.png"
+  brand_color: "#007A6E"
+  default_prompt: "Use $apple-ui-direction to define a visible iPad product direction from this brief, including the key screen, interaction intent, and evidence boundary."
 policy:
   allow_implicit_invocation: true

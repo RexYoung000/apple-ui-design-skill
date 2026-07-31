@@ -26,6 +26,40 @@ Apple UI Design 是一个用于 Apple 生态产品界面设计、适配与评审
 
 SwiftUI 生产架构、调试、性能、CI 与发布仍属于工程职责。以上 Skills 向相应工程工作流提供产品意图、界面决策、证据要求和验收标准。
 
+## 已验证工作流示例
+
+以下示例均来自仓库中已保存的真实评测输出，不是概念性的能力宣传。每个示例都会标明产物类型、实现边界，以及现有证据能支持的最强验证结论。
+
+### 界面方向：Today
+
+**示例请求：** 使用 `$apple-ui-direction`，把已经确认的承诺模型做成视觉上真正不同、同时保留温暖感的两套 iPhone 方向。
+
+**证据标签：** 设计 — 两套已渲染的视觉假设。原型 — 仅静态 HTML。产品代码 — 无。体验验证 — 未执行，视觉方向尚未得到用户确认。
+
+![Today 的两套已渲染视觉方向](plugins/apple-ui-design/assets/screenshot-direction.png)
+
+该结果把层级与产品侧重点的取舍做成可见产物，而不是用换色冒充不同方向。查看[完整方向说明](evals/delivery-contracts/runs/2026-07-29/visual-direction/README.md)与[渲染验证](evals/delivery-contracts/runs/2026-07-29/visual-direction/validation-report.md)。
+
+### 平台适配：OrbitCut
+
+**示例请求：** 使用 `$apple-platform-adaptation`，把已有的径向 iPhone 编辑器带到 iPad 和 Mac，同时避免直接拉伸手机布局。
+
+**证据标签：** 设计 — 共享/平台特定决策与四套已渲染布局。原型 — 仅静态 HTML。产品代码 — 无。体验验证 — 尚未运行原生窗口、输入、焦点和无障碍流程。
+
+![OrbitCut 的 Mac 展开窗口适配布局](plugins/apple-ui-design/assets/screenshot-adaptation.png)
+
+该结果保留径向时间线的核心地位，同时分别处理 iPad 紧凑、iPad 展开、Mac 最小窗口和 Mac 展开窗口的层级与密度。查看[适配决策矩阵](evals/delivery-contracts/runs/2026-07-29/platform-adaptation/decision-matrix.md)与[验证边界](evals/delivery-contracts/runs/2026-07-29/platform-adaptation/validation.md)。
+
+### 界面评审：LedgerDesk
+
+**示例请求：** 使用 `$apple-ui-review`，只根据一份高信任 macOS 对账任务的文字实施包，对有证据支持的问题进行优先级排序。
+
+**证据标签：** 评审/验证结果 — 1 个 Blocking、1 个 Important。原型 — 无。产品代码 — 无。体验验证 — 因缺少截图和运行时访问而不支持。
+
+![LedgerDesk 基于证据边界的界面评审摘录](plugins/apple-ui-design/assets/screenshot-review.png)
+
+该结果不会虚构视觉缺陷，而是只报告有依据的问题，并把键盘、VoiceOver、窗口、本地化和恢复机制分别列入精确验收路径。查看[完整评审报告](evals/delivery-contracts/runs/2026-07-29/ui-review/review.md)与[原始评审包](evals/delivery-contracts/fixtures/ui-review.md)。
+
 ## 触发与工程边界
 
 是否调用内置 Skill 取决于用户要求的最终结果，而不是提示中是否出现 Apple、SwiftUI、UIKit 或 AppKit。

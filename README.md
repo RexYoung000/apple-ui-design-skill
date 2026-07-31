@@ -26,6 +26,40 @@ The installable plugin contains three focused skills. They share one evidence an
 
 Production SwiftUI architecture, debugging, performance, CI, and release work remain engineering responsibilities. These skills provide product intent, interface decisions, evidence requirements, and acceptance criteria to the applicable engineering workflow.
 
+## Verified Workflow Examples
+
+These examples are preserved repository outputs, not aspirational mockups. Each one identifies the artifact, implementation boundary, and strongest validation claim supported by its evidence.
+
+### UI direction: Today
+
+**Example request:** Use `$apple-ui-direction` to turn an approved commitment model into visibly distinct iPhone directions without losing warmth.
+
+**Evidence label:** Design — two rendered visual hypotheses. Prototype — static HTML only. Product code — none. Experience validation — not run; visual choice remains unaccepted.
+
+![Two rendered Today visual-direction hypotheses](plugins/apple-ui-design/assets/screenshot-direction.png)
+
+The result makes the hierarchy and product-emphasis tradeoff visible instead of presenting recolors as separate directions. Review the [full direction rationale](evals/delivery-contracts/runs/2026-07-29/visual-direction/README.md) and [render validation](evals/delivery-contracts/runs/2026-07-29/visual-direction/validation-report.md).
+
+### Platform adaptation: OrbitCut
+
+**Example request:** Use `$apple-platform-adaptation` to carry an established radial iPhone editor to iPad and Mac without stretching the phone layout.
+
+**Evidence label:** Design — shared-versus-specific decisions and four rendered layouts. Prototype — static HTML only. Product code — none. Experience validation — native windowing, input, focus, and accessibility were not run.
+
+![OrbitCut Mac expanded adaptation layout](plugins/apple-ui-design/assets/screenshot-adaptation.png)
+
+The result keeps the radial timeline central while changing surrounding hierarchy and density for compact iPad, expansive iPad, minimum Mac, and expanded Mac environments. Review the [decision matrix](evals/delivery-contracts/runs/2026-07-29/platform-adaptation/decision-matrix.md) and [validation boundary](evals/delivery-contracts/runs/2026-07-29/platform-adaptation/validation.md).
+
+### UI review: LedgerDesk
+
+**Example request:** Use `$apple-ui-review` to prioritize only findings supported by a text implementation packet for a high-trust macOS reconciliation task.
+
+**Evidence label:** Review/validation result — one Blocking and one Important finding. Prototype — none. Product code — none. Experience validation — not supported because screenshots and runtime access were absent.
+
+![LedgerDesk evidence-bounded UI review excerpt](plugins/apple-ui-design/assets/screenshot-review.png)
+
+The result reports supported findings without inventing visual defects, then separates keyboard, VoiceOver, window, localization, and recovery gaps into an exact acceptance path. Review the [complete finding report](evals/delivery-contracts/runs/2026-07-29/ui-review/review.md) and [source packet](evals/delivery-contracts/fixtures/ui-review.md).
+
 ## Trigger and Engineering Boundaries
 
 The requested outcome—not the presence of words such as Apple, SwiftUI, UIKit, or AppKit—determines whether a bundled skill should run.

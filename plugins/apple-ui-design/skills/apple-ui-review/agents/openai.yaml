@@ -1,6 +1,9 @@
 interface:
   display_name: "Apple UI Review"
-  short_description: "Review Apple product UI with evidence and severity"
-  default_prompt: "Use $apple-ui-review to review this existing Apple product interface against confirmed intent and runtime evidence."
+  short_description: "Review Apple UI with evidence-backed, prioritized findings"
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.png"
+  brand_color: "#007A6E"
+  default_prompt: "Use $apple-ui-review to review this macOS interface against product intent, prioritize only evidence-backed findings, and name the remaining validation gaps."
 policy:
   allow_implicit_invocation: true

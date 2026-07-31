@@ -21,18 +21,28 @@
   "interface": {
     "displayName": "Apple UI Design",
     "shortDescription": "Design, adapt, and review Apple product interfaces",
-    "longDescription": "Three focused skills for product-first Apple UI direction, cross-platform adaptation, and evidence-based interface review.",
+    "longDescription": "Three focused skills for Apple product UI direction, iPhone, iPad, and Mac adaptation, and evidence-bounded interface review. They produce design artifacts and acceptance criteria without claiming production engineering or native validation that has not been run.",
     "developerName": "RexYoung000",
     "category": "Design",
     "capabilities": [
-      "Design",
-      "Review"
+      "UI Direction",
+      "Platform Adaptation",
+      "UI Review"
     ],
     "websiteURL": "https://github.com/RexYoung000/apple-ui-design-skill",
+    "brandColor": "#007A6E",
+    "composerIcon": "./assets/composer-icon.png",
+    "logo": "./assets/logo-light.png",
+    "logoDark": "./assets/logo-dark.png",
+    "screenshots": [
+      "./assets/screenshot-direction.png",
+      "./assets/screenshot-adaptation.png",
+      "./assets/screenshot-review.png"
+    ],
     "defaultPrompt": [
-      "Define a distinctive UI direction for this Apple product.",
-      "Adapt this established iPhone experience for iPad and Mac.",
-      "Review this Apple UI against product intent and runtime evidence."
+      "Use $apple-ui-direction to define and render two distinct iPad UI directions for this brief.",
+      "Use $apple-platform-adaptation to adapt this iPhone editor for iPad and Mac.",
+      "Use $apple-ui-review to prioritize evidence-backed findings for this macOS screen."
     ]
   }
 }

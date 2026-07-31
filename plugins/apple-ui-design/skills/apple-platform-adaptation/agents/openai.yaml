@@ -1,6 +1,9 @@
 interface:
   display_name: "Apple Platform Adaptation"
-  short_description: "Adapt product experiences across Apple platforms"
-  default_prompt: "Use $apple-platform-adaptation to adapt this established product experience across its target Apple platforms."
+  short_description: "Adapt established Apple products across iPhone, iPad, and Mac"
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.png"
+  brand_color: "#007A6E"
+  default_prompt: "Use $apple-platform-adaptation to translate this established iPhone experience to iPad and Mac, separating shared product DNA from platform-specific hierarchy and input."
 policy:
   allow_implicit_invocation: true

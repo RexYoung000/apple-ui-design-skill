@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" role="img" aria-labelledby="title">
+  <title id="title">Apple UI Review icon</title>
+  <rect x="5" y="5" width="90" height="90" rx="23" fill="#007A6E"/>
+  <path d="M25 40V27h13M62 27h13v13M75 60v13H62M38 73H25V60" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m37 51 9 9 18-20" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="77" cy="24" r="7" fill="#FFCFB3"/>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Apple UI Design logo for light interfaces</title>
+  <rect x="92" y="180" width="88" height="184" rx="26" fill="none" stroke="#007A6E" stroke-width="20"/>
+  <rect x="204" y="148" width="132" height="216" rx="30" fill="none" stroke="#007A6E" stroke-width="20"/>
+  <path d="M362 190h58a20 20 0 0 1 20 20v118a20 20 0 0 1-20 20h-58a20 20 0 0 1-20-20V210a20 20 0 0 1 20-20Z" fill="none" stroke="#007A6E" stroke-width="20"/>
+  <path d="M368 372h46" stroke="#007A6E" stroke-width="20" stroke-linecap="round"/>
+  <circle cx="396" cy="132" r="24" fill="#C94F3D"/>
+</svg>

@@ -121,6 +121,25 @@ When Apple introduces a new design language or platform capability:
 7. inspect the diff for accidental rule conflicts;
 8. version the change in Git with a concrete commit message.
 
+## Public Interface Metadata and Examples
+
+Issue #11 treats the plugin card, Skill selectors, starter prompts, and README examples as one public product surface. Their job is to explain the three workflow boundaries and the strongest evidence each example actually supports; they must not advertise production engineering, native verification, or user acceptance that the underlying artifact has not earned.
+
+The public visual identity uses an original multi-surface and evidence-focus motif rather than an Apple logo, SF Symbol, copied app icon, or third-party artwork. `#007A6E` is the shared brand color. Its contrast is approximately 5.24:1 against white and 4.01:1 against black, so the accent remains distinguishable on both light and dark plugin surfaces. Each bundled Skill uses a related but distinct icon for direction, platform adaptation, and review. The legacy compatibility router is not a public bundled Skill and does not receive new promotional metadata.
+
+Maintain these metadata rules:
+
+1. each bundled `agents/openai.yaml` includes a user-facing name, a 25–64 character short description, small and large local icon paths, the shared brand color, a one-sentence starter prompt that explicitly names its `$skill`, and the explicit implicit-invocation policy;
+2. the plugin manifest names the same three capabilities without implying production Swift ownership, and exposes at most three short starter prompts mapped one-to-one to direction, adaptation, and review;
+3. plugin icons, light and dark logos, and screenshots resolve to files inside the installable package; repository evaluation material is not pulled into the installed runtime by path;
+4. the English and Simplified Chinese READMEs preserve the same workflow order, artifact type, evidence label, limitations, and source links even when prose is localized rather than translated literally;
+5. public examples come from preserved repository runs, identify whether the artifact is a design, operable prototype, code, or review/validation result, and link to their full evidence boundary;
+6. screenshots may present or crop a preserved result for browsing, but presentation work must not upgrade its completion claim.
+
+The initial public examples are the Today visual-direction comparison, the OrbitCut iPhone-to-iPad-and-Mac adaptation, and the LedgerDesk macOS UI review. They intentionally cover all three bundled Skills. The Today and OrbitCut images support rendered visual or layout decisions only. The LedgerDesk result is a text-evidence review with two prioritized findings and explicitly does not claim visual or runtime validation.
+
+Run `python3 scripts/validate_public_interface.py` whenever public metadata, assets, starter prompts, or either README changes. The validator checks asset paths and PNG signatures, prompt routing, description length, brand-color contrast, manifest boundaries, three-workflow example parity, links back to preserved evidence, and the three-scenario first-use record under `evals/public-interface/`. It supplements rather than replaces the plugin-creator validator and the complete regression gate.
+
 ## Runtime Context Architecture
 
 Issue #10 separates repository maintenance from instructions needed during a product task. The installable runtime path contains only the three `SKILL.md` entry files, shared Markdown references, and `source-registry.json`. Repository comparison notes, creation history, evaluation fixtures, release procedures, and source-registry maintenance belong in this document or under `evals/`, never in a runtime reference.
