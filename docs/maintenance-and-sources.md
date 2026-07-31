@@ -158,6 +158,39 @@ The decision-authority contract lives in `evals/decision-authority/cases.json`; 
 The current-source contract and preserved version-sensitive records live under `evals/current-source-verification/`; validate them with `python3 scripts/validate_current_source_evals.py`.
 The accessibility and localization contract lives under `evals/accessibility-localization/`; validate it with `python3 scripts/validate_accessibility_localization_evals.py`.
 The interaction and motion contract lives under `evals/interaction-motion/`; validate it with `python3 scripts/validate_interaction_motion_evals.py`.
+The content and sensitive-flow contract lives under `evals/content-sensitive-flows/`; validate it with `python3 scripts/validate_content_sensitive_flow_evals.py`.
+
+## Content and Sensitive-Flow Method
+
+Issue #8 consolidates content design, permissions, privacy, identity, account-data control, commerce, and regulated-domain boundaries in `plugins/apple-ui-design/references/content-and-sensitive-flows.md`. Load it only when the task includes a material user decision, sensitive data or access, destructive account action, purchase consequence, or professional-domain claim.
+
+The maintained method must preserve these boundaries:
+
+1. content states what is happening, why it matters, what the user can choose, what changes next, and how failure is recovered;
+2. product, policy, price, entitlement, retention, refund, medical, financial, and legal facts come from named owners or current authoritative sources rather than design inference;
+3. permission and privacy flows request only the access needed for the task, respect denial or limited access, and expose a truthful alternative where one exists;
+4. identity, export, and deletion paths make scope, consequence, progress, cancellation, and recovery explicit without adding unnecessary obstruction;
+5. subscription and purchase flows present the billed amount, duration, renewal or trial consequence, entitlement, restoration, and management path supported by the actual product and current policy;
+6. manipulative urgency, shame, disguised choices, hidden dismissal, repeated pressure, and false success are unacceptable evidence of conversion quality;
+7. design review can assess comprehension and control, while native permission, authentication, StoreKit, data-operation, and policy-compliance claims require their own real evidence and responsible owner.
+
+The deterministic suite must cover content and recovery, permission and privacy, identity and account data, commerce, and regulated-domain boundaries across all bundled skills. At least two independent product scenarios must be forward-tested without exposing the hidden assertions.
+
+## Content and Sensitive-Flow Source Review
+
+Issue #8 was reviewed against these exact Apple pages on 2026-07-31. Treat their policy and availability details as current-source claims and recheck them when a product decision depends on them.
+
+| Apple page | Claim supported | Maintenance note |
+| --- | --- | --- |
+| `https://developer.apple.com/design/human-interface-guidelines/writing` | Interface words are part of the product experience | Use project voice and localization evidence; do not turn general writing guidance into one mandatory tone |
+| `https://developer.apple.com/design/human-interface-guidelines/privacy` | Privacy-sensitive access requires transparency and protection | Recheck the current page before making platform-guidance claims |
+| `https://developer.apple.com/design/human-interface-guidelines/in-app-purchase` | Current Apple design guidance for in-app purchase presentation | Verify the product type, storefront, OS, and current policy separately |
+| `https://developer.apple.com/app-store/subscriptions/` | Subscription sign-up must clearly present the product, duration, billed renewal price, and sign-in or restore path; trials disclose duration and post-trial price | Pricing, offer eligibility, management APIs, and storefront rules can change |
+| `https://developer.apple.com/app-store/review/guidelines/` | Current review rules for consent, minimization, alternative paths, account sign-in, subscriptions, sensitive data, and regulated services | Cite the current section and access date; do not let the design skill make legal-compliance conclusions |
+| `https://developer.apple.com/support/offering-account-deletion-in-your-app/` | Apps with account creation must let users initiate deletion in-app; the flow should be findable, transparent, and not unnecessarily difficult | Retention and legal obligations still require project legal ownership |
+| `https://developer.apple.com/app-store/app-privacy-details/` | App privacy disclosures depend on the app's and third-party partners' actual data practices | Treat App Store disclosures as product facts to verify, not copy invented by the design skill |
+
+The stable method belongs in the shared reference; changing App Store rules, StoreKit behavior, storefront exceptions, API availability, and regulated-domain requirements remain live research. If an exact current source cannot be checked, mark the affected recommendation unverified and route the policy decision to its responsible owner.
 
 ## Interaction and Motion Method
 

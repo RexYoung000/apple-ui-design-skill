@@ -22,6 +22,7 @@ def main() -> int:
         [python, "scripts/validate_current_source_evals.py"],
         [python, "scripts/validate_accessibility_localization_evals.py"],
         [python, "scripts/validate_interaction_motion_evals.py"],
+        [python, "scripts/validate_content_sensitive_flow_evals.py"],
         [
             python,
             "scripts/evaluate_skill_regression_output.py",

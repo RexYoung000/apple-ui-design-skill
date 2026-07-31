@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "registry_scope": "shared-plugin-reference",
-  "last_reviewed": "2026-07-29",
+  "last_reviewed": "2026-07-31",
   "sources": [
     {
       "id": "apple-hig",
@@ -80,6 +80,58 @@
       "last_checked": "2026-07-29",
       "status": "active",
       "notes": "Check each sample's availability, license, and minimum OS requirements."
+    },
+    {
+      "id": "apple-app-review-guidelines",
+      "name": "App Review Guidelines",
+      "url": "https://developer.apple.com/app-store/review/guidelines/",
+      "category": "official-authority",
+      "access": "public-no-account",
+      "platforms": ["iOS", "iPadOS", "macOS"],
+      "allowed_uses": ["app-review-policy", "privacy-guidance", "commerce-guidance", "regulated-domain-routing"],
+      "reuse_status": "reference-only",
+      "last_checked": "2026-07-31",
+      "status": "active",
+      "notes": "Use the exact current section and access date; policy evidence does not make the design skill a legal or compliance authority."
+    },
+    {
+      "id": "apple-account-deletion",
+      "name": "Offering Account Deletion in Your App",
+      "url": "https://developer.apple.com/support/offering-account-deletion-in-your-app/",
+      "category": "official-authority",
+      "access": "public-no-account",
+      "platforms": ["iOS", "iPadOS", "macOS"],
+      "allowed_uses": ["account-deletion-policy", "data-control-guidance"],
+      "reuse_status": "reference-only",
+      "last_checked": "2026-07-31",
+      "status": "active",
+      "notes": "Recheck current account-deletion, reauthentication, subscription, and regulated-industry guidance before a release claim."
+    },
+    {
+      "id": "apple-subscriptions",
+      "name": "Auto-Renewable Subscriptions",
+      "url": "https://developer.apple.com/app-store/subscriptions/",
+      "category": "official-authority",
+      "access": "public-no-account",
+      "platforms": ["iOS", "iPadOS", "macOS"],
+      "allowed_uses": ["subscription-guidance", "purchase-flow-guidance", "commerce-policy"],
+      "reuse_status": "reference-only",
+      "last_checked": "2026-07-31",
+      "status": "active",
+      "notes": "Subscription presentation, offer, pricing, management, and API details are current-source claims and may vary by storefront or OS."
+    },
+    {
+      "id": "apple-app-privacy-details",
+      "name": "App Privacy Details on the App Store",
+      "url": "https://developer.apple.com/app-store/app-privacy-details/",
+      "category": "official-authority",
+      "access": "public-no-account",
+      "platforms": ["iOS", "iPadOS", "macOS"],
+      "allowed_uses": ["data-disclosure-guidance", "privacy-label-guidance"],
+      "reuse_status": "reference-only",
+      "last_checked": "2026-07-31",
+      "status": "active",
+      "notes": "Verify the app's and third-party partners' actual data practices; never invent disclosure content from a generic design brief."
     },
     {
       "id": "ui-pocket",

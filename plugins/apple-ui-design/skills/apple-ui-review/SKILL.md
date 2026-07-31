@@ -47,6 +47,7 @@ Read `../../references/validation-and-review.md` and assess:
 
 Read `../../references/apple-platform-adaptation.md` when a finding depends on platform or input behavior. Read `../../references/design-system-and-dna.md` when consistency or brand expression is in scope. Read `../../references/accessibility-and-localization.md` for outcome-based accessibility and localization checks.
 Read `../../references/interaction-and-motion.md` when the artifact includes material behavior. Review it against the confirmed interaction contract, motion purpose, platform inputs, interruption, reversal, final intent, recovery, Reduce Motion expression, and evidence actually supplied.
+Read `../../references/content-and-sensitive-flows.md` when the artifact includes material content, consent, protected access, identity, account data, destructive action, purchase, or professional-domain meaning. Review verified facts, hierarchy, informed control, decline, consequence, failure, recovery, manipulation risk, and the evidence represented.
 
 ### 3. Classify only actionable findings
 
@@ -61,6 +62,8 @@ Do not assign numeric scores by default. Do not inflate severity because a solut
 Apple guidance, native components, shipped patterns, and reviewer preference are evidence or advice, not product authority. A confirmed unconventional interaction is not a finding merely because it is unconventional. Report a finding only when the supplied evidence shows a product, task, required-experience, or hard-boundary impact.
 
 For experimental interactions, report discoverability, learning, equivalent-input, limit, error, and recovery risk without replacing the model merely because it is nonstandard. For tool and content products, apply the product-specific risk focus in `../../references/interaction-and-motion.md` instead of a generic motion checklist.
+
+Treat a misleading permission, purchase, deletion, privacy, or professional claim as blocking when it materially distorts consent, cost, data consequence, safety, or recovery. Do not call a flow legally compliant, medically correct, financially suitable, secure, or App Review ready from design evidence alone; name the responsible review and current source still required.
 
 For each finding, provide:
 
@@ -82,6 +85,8 @@ For a disputed recommendation, state the observed fact, user impact, recommendat
 Use screenshots for static hierarchy, recordings for interaction and motion, accessibility inspection and audits for semantics, simulator or device runs for iOS and iPadOS, and a real Mac app for window, menu, command, and focus behavior. Do not report an audit, label check, or UI test as a VoiceOver, Voice Control, Switch Control, AssistiveTouch, Full Keyboard Access, or Pointer Control run. Name the exact technology, task, environment, and evidence behind every experience-verification claim.
 
 For material motion, inspect representative-speed native recordings for input relationship, continuity, interruption, reversal, repeat use, completion, recovery, and the intentional Reduce Motion expression. Leave rhythm and aesthetic acceptance to the user; do not infer them from timing values or build success.
+
+For sensitive flows, match evidence to the claim: rendered screens for hierarchy, an operable prototype for app-level continuity, native permission or Settings runs for access behavior, service runs for account data operations, StoreKit sandbox or approved test runs for commerce behavior, and named professional approval for regulated claims. Never promote a mock into a system, service, policy, or professional result.
 
 Read `../../references/prototyping-and-implementation.md` when judging prototype or implementation evidence. Use `../../references/current-sources.md` and `../../references/research-and-source-evidence.md` when citing current Apple guidance or external examples. A version-sensitive finding must include the exact current Apple page and access date, separate published availability from the project’s tested runtime, and remain unverified when the source cannot be checked.
 

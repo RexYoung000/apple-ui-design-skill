@@ -45,6 +45,7 @@ REQUIRED_SHARED_REFERENCES = {
     "authority-and-principles.md",
     "context-and-alignment.md",
     "current-sources.md",
+    "content-and-sensitive-flows.md",
     "design-system-and-dna.md",
     "delivery-contracts.md",
     "engineering-routing.md",

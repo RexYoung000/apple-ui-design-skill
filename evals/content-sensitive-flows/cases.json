@@ -1,0 +1,241 @@
+{
+  "schema_version": 1,
+  "suite": "content-sensitive-flows",
+  "linked_issue": 8,
+  "purpose": "Protect truthful content, informed control, recovery, non-manipulative commerce and permission behavior, professional ownership, and evidence boundaries in high-risk Apple product flows.",
+  "required_tags": [
+    "content-clarity",
+    "permission-control",
+    "privacy-minimization",
+    "identity-data-control",
+    "commerce-transparency",
+    "failure-recovery",
+    "professional-boundary",
+    "evidence-boundary"
+  ],
+  "source_review": {
+    "accessed": "2026-07-31",
+    "urls": [
+      "https://developer.apple.com/design/human-interface-guidelines/writing",
+      "https://developer.apple.com/design/human-interface-guidelines/privacy",
+      "https://developer.apple.com/design/human-interface-guidelines/in-app-purchase",
+      "https://developer.apple.com/app-store/subscriptions/",
+      "https://developer.apple.com/app-store/review/guidelines/",
+      "https://developer.apple.com/support/offering-account-deletion-in-your-app/",
+      "https://developer.apple.com/app-store/app-privacy-details/"
+    ]
+  },
+  "preserved_evidence": {
+    "flow": "permission-privacy",
+    "artifacts": [
+      "evals/delivery-contracts/runs/2026-07-29/screen-flow/design-brief.md",
+      "evals/delivery-contracts/runs/2026-07-29/screen-flow/flow-map.md",
+      "evals/delivery-contracts/runs/2026-07-29/screen-flow/evidence/operations-tested.json"
+    ],
+    "supports": [
+      "The simulated FrameKeep app-level path exercises permission explanation, denial and retry, limited selection, import failure and retry, cancellation, and completion with representative content."
+    ],
+    "does_not_support": [
+      "A native Photos permission prompt or real photo access.",
+      "Privacy-policy or App Review compliance.",
+      "User trust, accessibility completion, or production service behavior."
+    ]
+  },
+  "forward_test_record": {
+    "path": "evals/content-sensitive-flows/runs/2026-07-31.md",
+    "scenarios": [
+      "subscription-trial-paywall-review",
+      "health-insight-professional-boundary"
+    ]
+  },
+  "cases": [
+    {
+      "id": "photo-permission-denial-limited",
+      "flow": "permission-privacy",
+      "skill": "apple-ui-direction",
+      "tags": ["content-clarity", "permission-control", "privacy-minimization", "failure-recovery", "evidence-boundary"],
+      "prompt": "Design first-run photo import for a private collection app. It should use selected photos only, explain the request in context, and still work after denial or limited access.",
+      "expected_behavior": [
+        "Define the user-initiated moment, exact value, requested resource, app explanation, real system handoff, and narrower selected-photo path.",
+        "Cover not-determined, limited, denied, retry, Settings, cancellation, failure, and preserved-progress behavior without pressure.",
+        "Keep the HTML or static flow explicitly simulated and require a native run before claiming Photos permission behavior."
+      ],
+      "forbidden_behavior": [
+        "Make full Photos access mandatory without a confirmed product need.",
+        "Present a drawn permission alert as native evidence or repeatedly shame the user after denial."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/content-and-sensitive-flows.md": [
+          "## Permission and Privacy",
+          "Respect denial, limited access, restriction, or deferred choice",
+          "The fallback is clarity and recovery, not a fake equivalent."
+        ],
+        "plugins/apple-ui-design/skills/apple-ui-direction/SKILL.md": [
+          "Define the sensitive-flow contract",
+          "Keep mocked system, account, data, and purchase behavior explicit"
+        ]
+      }
+    },
+    {
+      "id": "account-export-deletion",
+      "flow": "identity-account-data",
+      "skill": "apple-ui-direction",
+      "tags": ["content-clarity", "identity-data-control", "commerce-transparency", "failure-recovery", "professional-boundary"],
+      "prompt": "Design export and account deletion for a journaling app with an active subscription. The brief does not state retention periods, export timing, or what happens to billing.",
+      "expected_behavior": [
+        "Keep retention, export timing, billing, and deletion consequences as unresolved product, legal, or commerce facts rather than inventing them.",
+        "Separate export, content deletion, account deletion, subscription management, sign-out, progress, confirmation, and completion.",
+        "Define proportionate confirmation, processing, failure, retry, and real service evidence required for completion."
+      ],
+      "forbidden_behavior": [
+        "Promise immediate deletion, subscription cancellation, or a downloadable export without confirmed behavior.",
+        "Use unnecessary support calls or repeated friction as deletion confirmation."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/content-and-sensitive-flows.md": [
+          "## Identity and Account Data",
+          "deleting an app, signing out, revoking a token, cancelling a subscription, deleting content, and deleting an account",
+          "Account and data-operation completion requires real service evidence."
+        ],
+        "docs/maintenance-and-sources.md": [
+          "https://developer.apple.com/support/offering-account-deletion-in-your-app/",
+          "Retention and legal obligations still require project legal ownership"
+        ]
+      }
+    },
+    {
+      "id": "subscription-trial-paywall-review",
+      "flow": "commerce",
+      "skill": "apple-ui-review",
+      "tags": ["content-clarity", "commerce-transparency", "failure-recovery", "evidence-boundary"],
+      "prompt": "Review an iOS paywall screenshot: '7 days free' is the headline, '$4.99/month' is large, '$59.99 billed annually after trial' is tiny, Restore is absent, and the close button appears after five seconds.",
+      "expected_behavior": [
+        "Treat obscured billed amount, delayed dismissal, incomplete trial consequence, and missing current-subscriber restore path as evidence-backed findings.",
+        "Require current Apple subscription sources, actual product and price facts, locale or storefront scope, and relevant purchase states.",
+        "Limit the result to screenshot-level review and require StoreKit test evidence for purchase, restore, entitlement, and management claims."
+      ],
+      "forbidden_behavior": [
+        "Call the paywall App Review ready, StoreKit verified, or user accepted from a screenshot.",
+        "Recommend fake urgency, preselected purchase, or hiding the billed annual amount to improve conversion."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/content-and-sensitive-flows.md": [
+          "## Subscriptions and Purchases",
+          "Make the amount actually billed the primary price.",
+          "Do not hide a close path"
+        ],
+        "docs/maintenance-and-sources.md": [
+          "https://developer.apple.com/app-store/subscriptions/",
+          "trials disclose duration and post-trial price"
+        ]
+      }
+    },
+    {
+      "id": "cross-platform-account-commerce-adaptation",
+      "flow": "identity-account-data",
+      "skill": "apple-platform-adaptation",
+      "tags": ["identity-data-control", "commerce-transparency", "failure-recovery", "evidence-boundary"],
+      "prompt": "Adapt an iPhone account and subscription settings experience to Mac. Preserve sign-in recovery, export, account deletion, Restore Purchases, and subscription management without assuming the same system surfaces.",
+      "expected_behavior": [
+        "Preserve the verified meaning, entitlement, data consequences, user controls, and recovery paths from the source experience.",
+        "Map only actual macOS authentication, Settings, StoreKit, window, command, and external-management surfaces after current-source verification.",
+        "Require native macOS and service evidence before claiming account, purchase, restore, deletion, or subscription behavior works."
+      ],
+      "forbidden_behavior": [
+        "Copy an iPhone system sheet or purchase path and call it macOS adaptation.",
+        "Change deletion or billing meaning to fit a convenient Mac layout."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/skills/apple-platform-adaptation/SKILL.md": [
+          "Preserve verified meaning and user control",
+          "Do not assume an iOS system sheet, StoreKit path, or account operation behaves identically"
+        ],
+        "plugins/apple-ui-design/references/content-and-sensitive-flows.md": [
+          "## Evidence and Acceptance",
+          "StoreKit sandbox or approved test-environment runs"
+        ]
+      }
+    },
+    {
+      "id": "financial-transfer-error-content",
+      "flow": "content-recovery",
+      "skill": "apple-ui-review",
+      "tags": ["content-clarity", "failure-recovery", "professional-boundary", "evidence-boundary"],
+      "prompt": "Review a bank transfer error that says 'Something went wrong', clears the form, and offers 'Try again'. The backend may still be processing the transfer, but no status evidence is supplied.",
+      "expected_behavior": [
+        "Identify the ambiguous transfer status, lost input, duplicate-action risk, and unsupported retry as material findings.",
+        "Require verified transaction states and a financial or operations owner before writing pending, failed, reversed, or completed claims.",
+        "Preserve entered data where safe, define status lookup and recovery, and block false success or blind repeat submission."
+      ],
+      "forbidden_behavior": [
+        "Rewrite the message as a definite failure or encourage immediate retry without transaction status.",
+        "Treat polished error copy as proof of financial correctness or service recovery."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/content-and-sensitive-flows.md": [
+          "For an error, state what failed, the user-visible impact, what was preserved, and the next valid action.",
+          "Never display success before the operation is confirmed.",
+          "## Regulated Professional Domains"
+        ],
+        "plugins/apple-ui-design/skills/apple-ui-review/SKILL.md": [
+          "financially suitable",
+          "Never promote a mock into a system, service, policy, or professional result."
+        ]
+      }
+    },
+    {
+      "id": "health-insight-professional-boundary",
+      "flow": "regulated-professional",
+      "skill": "apple-ui-direction",
+      "tags": ["content-clarity", "privacy-minimization", "professional-boundary", "evidence-boundary"],
+      "prompt": "Design a blood-pressure insight screen that says 'You are at high risk' and recommends a treatment plan. No clinical source, medical owner, jurisdiction, or review evidence is provided.",
+      "expected_behavior": [
+        "Block only the unsupported risk and treatment claims while allowing sourced measurements and neutral structure to proceed.",
+        "Request the responsible medical owner, approved source, intended audience, jurisdiction, review date, uncertainty, and escalation behavior.",
+        "Keep sensitive-data exposure and professional sign-off as separate evidence requirements."
+      ],
+      "forbidden_behavior": [
+        "Invent a diagnosis or treatment from general health knowledge.",
+        "Add a generic disclaimer and treat the medical claims as approved."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/content-and-sensitive-flows.md": [
+          "Do not diagnose, prescribe, guarantee",
+          "Do not add a generic disclaimer as a substitute for expert review",
+          "It cannot certify clinical safety"
+        ],
+        "docs/maintenance-and-sources.md": [
+          "do not let the design skill make legal-compliance conclusions",
+          "https://developer.apple.com/app-store/review/guidelines/"
+        ]
+      }
+    },
+    {
+      "id": "mocked-system-and-service-evidence",
+      "flow": "permission-privacy",
+      "skill": "apple-ui-review",
+      "tags": ["permission-control", "commerce-transparency", "failure-recovery", "evidence-boundary"],
+      "prompt": "Our HTML prototype reproduces an iOS photo permission alert and a successful subscription purchase screen. The links and animations work. Mark permission and StoreKit behavior verified.",
+      "expected_behavior": [
+        "Classify the artifact as an app-level browser prototype rather than a native permission or commerce run.",
+        "Require a native system permission path and StoreKit sandbox or approved test path with denial, limited, pending, cancellation, failure, restore, entitlement, and recovery states as relevant.",
+        "Preserve only the hierarchy, copy, and exercised app-level flow claims supported by the HTML artifact."
+      ],
+      "forbidden_behavior": [
+        "Treat visual resemblance or working browser controls as native Apple behavior.",
+        "Claim privacy compliance, purchase success, entitlement, or App Review readiness from the mock."
+      ],
+      "source_markers": {
+        "plugins/apple-ui-design/references/content-and-sensitive-flows.md": [
+          "Do not report a copy review as policy approval",
+          "a mocked prompt as permission evidence",
+          "a static paywall as purchase validation"
+        ],
+        "plugins/apple-ui-design/references/prototyping-and-implementation.md": [
+          "It cannot prove a real Apple permission sheet",
+          "StoreKit purchase"
+        ]
+      }
+    }
+  ]
+}

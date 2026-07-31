@@ -113,6 +113,8 @@ Issue #7 adds a six-case accessibility and localization suite covering platform 
 
 Issue #14 adds a fixed interaction and motion method across tool, content, and experimental products. It protects confirmed user-owned interaction direction and requires task state, input, interruption, reversal, recovery, Reduce Motion, and native recordings to establish actual behavior instead of letting common Apple patterns or system components replace product judgment.
 
+Issue #8 adds a content and sensitive-flow method for permission, privacy, identity, account data, subscription, purchase, and regulated-domain experiences. It requires truthful content, informed user control, non-manipulative choices, explicit failure recovery, current policy sources, and professional review where the design skill cannot own the underlying legal, medical, financial, or commercial fact.
+
 ## Install the Plugin
 
 Add this public repository as a Codex marketplace, then install the plugin:
@@ -231,6 +233,10 @@ Web references such as 60fps, Recent, Awwwards, React Bits, and Magic UI may ins
 │   │   ├── README.md
 │   │   ├── cases.json
 │   │   └── runs/
+│   ├── content-sensitive-flows/
+│   │   ├── README.md
+│   │   ├── cases.json
+│   │   └── runs/
 │   └── product-starting-point/
 │       ├── README.md
 │       ├── cases.json
@@ -256,6 +262,7 @@ Web references such as 60fps, Recent, Awwwards, React Bits, and Magic UI may ins
 │   ├── validate_current_source_evals.py
 │   ├── validate_accessibility_localization_evals.py
 │   ├── validate_interaction_motion_evals.py
+│   ├── validate_content_sensitive_flow_evals.py
 │   ├── validate_plugin_architecture.py
 │   └── validate_source_registry.py
 └── tests/
@@ -267,6 +274,7 @@ Web references such as 60fps, Recent, Awwwards, React Bits, and Magic UI may ins
     ├── test_trigger_routing_evals.py
     ├── test_plugin_architecture.py
     ├── test_delivery_contract_evals.py
+    ├── test_content_sensitive_flow_evals.py
     ├── test_interaction_motion_evals.py
     ├── test_product_starting_point_evals.py
     └── test_source_registry.py
@@ -284,10 +292,12 @@ Web references such as 60fps, Recent, Awwwards, React Bits, and Magic UI may ins
 - `evals/current-source-verification/` protects exact Apple sources, access failure, version fallbacks, runtime conflicts, and the preserved Liquid Glass verification record.
 - `evals/accessibility-localization/` protects platform task selection, assistive-technology evidence boundaries, visual settings, custom controls, and localization risks.
 - `evals/interaction-motion/` protects product authority, interaction contracts, motion language, platform inputs, interruption and reversal, Reduce Motion, and native-evidence boundaries.
+- `evals/content-sensitive-flows/` protects content clarity, permission and privacy control, identity and account-data paths, commerce transparency, failure recovery, professional boundaries, and honest evidence claims.
 - `evals/product-starting-point/` contains fixed small-change, major-redesign, and zero-to-one evidence cases, review assertions, and preserved forward-test evidence.
 - `scripts/validate_current_source_evals.py` checks source-record integrity, exact Apple URLs, access dates, version splits, fallbacks, evidence labels, and referenced runtime artifacts.
 - `scripts/validate_accessibility_localization_evals.py` checks Issue #7 method coverage, skill routing, and source markers across six fixed cases.
 - `scripts/validate_interaction_motion_evals.py` checks Issue #14 coverage across three product scenarios and all bundled skills.
+- `scripts/validate_content_sensitive_flow_evals.py` checks Issue #8 coverage across five high-risk flow families, current official sources, and all bundled skills.
 - `scripts/validate_delivery_contract_evals.py` checks contract coverage, fixture integrity, required artifacts, forbidden claims, and evidence expectations.
 - `scripts/validate_trigger_routing_evals.py` checks route coverage, implementation boundaries, and the required engineering-negative domains.
 - `scripts/evaluate_skill_regression_output.py` checks a saved trace and response against one case without exposing assertions to the model.

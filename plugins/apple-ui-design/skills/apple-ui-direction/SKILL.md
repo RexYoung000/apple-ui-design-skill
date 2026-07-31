@@ -59,6 +59,8 @@ When interaction or motion is material, read `../../references/interaction-and-m
 
 When behavior is unresolved, make two or three operable hypotheses with real differences in operation, feedback, state, or motion purpose. Do not present recolors, duration-only changes, or easing changes as separate interaction directions.
 
+When content, permission, privacy, identity, account data, destructive action, commerce, or a regulated claim is material, read `../../references/content-and-sensitive-flows.md`. Define the sensitive-flow contract, distinguish verified facts from design inference, preserve an informed decline or alternative path where applicable, and route missing policy or professional decisions to their responsible owner instead of inventing them.
+
 For a material disagreement, state the observed fact, user impact, recommendation, and verification path, then let the product owner decide. If they understand a non-hard-boundary tradeoff and retain the original direction, record it and proceed without repeatedly reopening the same recommendation. Apple guidance, shipped patterns, and implementation convenience remain evidence or advice rather than product authority.
 
 ### 5. Make the result visible
@@ -73,6 +75,8 @@ Follow the selected contract in `../../references/delivery-contracts.md`. Match 
 Read `../../references/prototyping-and-implementation.md`. A browser prototype does not prove native behavior, and production integration belongs to the project’s engineering workflow. A bounded SwiftUI presentation-layer change is allowed only when it directly validates an approved design question and preserves architecture, domain state, data, dependencies, and delivery mechanics.
 
 For material interaction, prototype the state graph, interruption, reversal, final intent, and recovery paths that affect the core task. For material motion, include the intentional Reduce Motion expression and preserve native recordings before making an experience-verification claim.
+
+For sensitive flows, render the consequential content and operate decline, limited, pending, failure, cancellation, restoration, or recovery states that can change the task. Keep mocked system, account, data, and purchase behavior explicit and do not claim it as native or service evidence.
 
 ### 6. Design accessibility and localization into the result
 

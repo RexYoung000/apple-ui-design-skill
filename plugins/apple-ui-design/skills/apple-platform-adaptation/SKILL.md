@@ -45,6 +45,7 @@ When a confirmed interaction differs from common Apple behavior, state the obser
 
 Read `../../references/design-system-and-dna.md` to preserve shared product DNA without redesigning it by default.
 Read `../../references/interaction-and-motion.md` when behavior is material. Preserve the confirmed interaction contract and motion purposes, then translate their expression rather than reopening the product model by default.
+Read `../../references/content-and-sensitive-flows.md` when the source experience includes material content, permission, privacy, identity, account-data, destructive, commerce, or regulated behavior. Preserve verified meaning and user control while translating the actual platform surface.
 
 ### 3. Map platform expressions
 
@@ -55,6 +56,8 @@ Define representative layouts and behaviors for:
 - macOS window sizes, menus, commands, shortcuts, pointer, hover, focus, selection, context menus, and multiple-window behavior.
 
 Map the confirmed operation to touch, Pencil, keyboard, pointer, focus, commands, windows, and system events that are relevant on each target platform. Preserve state meaning, feedback, interruption, reversal, recovery, and final intent even when the surface control or navigation expression changes.
+
+Map app explanations, system permission handoffs, Settings recovery, authentication, account controls, purchase or subscription management, locale or storefront content, and external support surfaces only where they actually exist on the target platform. Do not assume an iOS system sheet, StoreKit path, or account operation behaves identically on iPadOS or macOS; verify current sources and native behavior.
 
 Read `../../references/current-sources.md` and use exact current Apple pages for version-sensitive platform claims. Keep the project minimum version, newer enhancement version, fallback, and represented runtime evidence separate. Mark unavailable or unsupported conclusions unverified. Use platform convention as evidence, not as automatic ownership of visual style.
 

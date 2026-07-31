@@ -8,6 +8,8 @@ The review skill owns formal findings; direction and adaptation use this file on
 
 Select checks based on the changed experience. Not every task needs every row, but every omitted high-risk scenario should be intentional.
 
+Read `content-and-sensitive-flows.md` when content, consent, protected access, identity, account data, destructive action, purchase, or professional-domain meaning can affect the outcome.
+
 ## State Matrix
 
 Consider:
@@ -25,6 +27,18 @@ Consider:
 - large numbers, dates, and localized formats;
 - interrupted and resumed flow;
 - minimum-version fallback.
+
+## Sensitive-Flow Matrix
+
+Select relevant scenarios and name omissions:
+
+- content hierarchy, button consequence, empty state, error, preserved progress, retry, cancellation, and confirmed completion;
+- permission not determined, allowed, limited, denied, restricted, deferred, Settings recovery, and the truthful no-access path;
+- sign-in, reauthentication, recovery, session loss, export preparation, deletion confirmation, processing, failure, and completion;
+- purchase loading, pending, success, cancellation, failure, restoration, entitlement refresh, expiry, billing issue, and management path;
+- professional source present, stale, unavailable, disputed, outside jurisdiction, awaiting review, and explicitly unverified.
+
+Check that the design does not use false urgency, shame, disguised choices, hidden dismissal, repeated pressure, price obfuscation, false success, or unsupported professional authority.
 
 ## Environment Matrix
 
@@ -67,6 +81,8 @@ Match evidence to the claim:
 - build and tests for implementation integrity.
 
 A successful build does not prove a usable interface. A screenshot does not prove interaction. A browser prototype does not prove native behavior.
+
+A copy review does not prove policy compliance. A mocked permission or purchase does not prove the system path. A UI completion message does not prove an account, data, or payment operation succeeded. A generic disclaimer does not prove professional review.
 
 Native evidence verifies operation in the target environment, not visual conformity to Apple system apps. A custom interaction can pass when it behaves as intended for the confirmed users and inputs; a system-looking interface can fail when the core task does not work.
 

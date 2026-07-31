@@ -37,6 +37,12 @@ Read `interaction-and-motion.md` when behavior is materially in scope. Define th
 
 Motion is visually explored through rendered prototypes and is verified only through a representative native run and recording. A duration table, static storyboard, HTML animation, or successful build does not prove native motion behavior.
 
+### Content and sensitive flows
+
+Read `content-and-sensitive-flows.md` when the task includes material content, permission, privacy, identity, account data, destructive action, commerce, or a regulated claim. Separate verified product, policy, price, entitlement, retention, and professional facts from design inference. Define informed user control, decline or defer behavior, consequences, failure, and recovery before treating the flow as design-complete.
+
+Rendered content can establish hierarchy and visible control. A mocked permission, authentication, data operation, purchase, or professional claim cannot establish real system behavior, service completion, policy compliance, or expert approval.
+
 ### Evidence gates
 
 | Claim | Minimum evidence |
@@ -99,6 +105,7 @@ Prose, mood words, token tables, or implementation suggestions alone do not comp
 - navigation and data assumptions;
 - relevant touch, keyboard, pointer, focus, gesture, and assistive paths;
 - failure, cancellation, interruption, and recovery behavior.
+- verified content, permission, privacy, account, commerce, or professional facts and owners when the flow depends on them.
 
 **Do not infer**
 
@@ -111,9 +118,10 @@ Prose, mood words, token tables, or implementation suggestions alone do not comp
 
 1. map the happy path and necessary non-happy states;
 2. define transitions, feedback, cancellation, recovery, and focus;
-3. create an operable prototype using the cheapest medium that answers the question;
-4. exercise the scoped path with representative content and inputs;
-5. record missing native behavior separately from prototype findings.
+3. define consequential content, informed choices, system boundaries, and non-manipulative decline or recovery behavior when sensitive decisions are present;
+4. create an operable prototype using the cheapest medium that answers the question;
+5. exercise the scoped path with representative content and inputs;
+6. record missing native, service, policy, and professional evidence separately from prototype findings.
 
 **Required artifact**
 

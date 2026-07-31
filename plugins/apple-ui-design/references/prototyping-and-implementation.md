@@ -66,12 +66,15 @@ A native high-fidelity prototype should include only what is needed to validate 
 
 Read `interaction-and-motion.md` for material behavior. Model the scoped interaction contract as an explicit state and transition graph, including the inputs, feedback, interruption, reversal, rapid repeat input, final settled state, error, and recovery paths that can change the core task.
 
+Read `content-and-sensitive-flows.md` for permission, privacy, identity, account data, destructive action, commerce, or regulated-domain behavior. Label every mocked system prompt, authentication result, data operation, purchase state, price, entitlement, support path, and professional claim. A prototype may test comprehension and continuity without pretending those dependencies are real.
+
 Include as applicable:
 
 - representative real-world content;
 - normal, empty, loading, error, disabled, selected, and destructive states;
 - navigation, dismissal, focus, keyboard, pointer, touch, and resizing;
 - interruption, reversal, cancellation, retry, undo, and restoration;
+- permission denial or limited access, pending operations, purchase or entitlement failure, and destructive confirmation when relevant;
 - accessibility labels and scalable content;
 - reduced-motion behavior;
 - platform and version fallback;
@@ -87,6 +90,8 @@ HTML or static artifacts are acceptable for:
 - stakeholder review before native implementation.
 
 Label them accurately. Avoid device-frame theater that hides whether the actual content adapts. An iPhone-shaped browser window is not proof of iOS behavior, and a desktop browser is not proof of macOS window or command behavior.
+
+HTML may exercise app-level explanation, choice, and recovery. It cannot prove a real Apple permission sheet, Settings path, authentication service, account deletion, StoreKit purchase, entitlement, cancellation, refund, or regulated-domain approval.
 
 ## Implementation Handoff
 
