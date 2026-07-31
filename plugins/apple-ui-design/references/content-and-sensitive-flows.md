@@ -1,8 +1,10 @@
 # Content and Sensitive Flows
 
-Load this reference when a task includes material product content, permission or privacy decisions, authentication, account data, destructive or sensitive actions, subscriptions or purchases, or claims in a regulated professional domain. Do not load it for ordinary visual polish with no change to meaning, consent, consequence, or recovery.
+## Load When
 
-The direction skill defines the intended flow, content hierarchy, and user-control model. The adaptation skill translates confirmed behavior across platform permissions, settings, windows, inputs, and commerce surfaces. The review skill assesses the supplied artifact and evidence. None of these roles owns legal, medical, financial, security, privacy-policy, pricing, refund, tax, or App Store compliance decisions.
+Load this reference when content changes consequential meaning, consent, protected access, authentication, account data, destructive action, commerce, recovery, or a regulated professional claim. Do not load it for ordinary visual polish with no change to meaning, control, consequence, or recovery.
+
+This is the single runtime source for sensitive-flow content and control. The direction skill defines the intended flow, the adaptation skill translates confirmed behavior, and the review skill assesses supplied evidence. None owns legal, medical, financial, security, privacy-policy, pricing, refund, tax, or App Store compliance decisions.
 
 ## Contents
 

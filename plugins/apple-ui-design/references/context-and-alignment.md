@@ -1,8 +1,20 @@
 # Context and Alignment
 
-Use this reference for new design work, ambiguous requests, cross-platform expansion, or any change that may alter information hierarchy, navigation, brand, or a core flow.
+## Load When
 
-All bundled skills use this file as their single product-starting-point and evidence-label source.
+Load this reference when the product starting point, target user or task evidence, major scope, or a path-dependent decision is unresolved. Do not load it for a small change or review whose relevant context is already verified.
+
+This is the single runtime source for product starting-point and evidence-label procedure.
+
+## Contents
+
+- Inspect before asking
+- Evidence labels
+- Existing and zero-to-one products
+- Starting-point procedure
+- Material questions and communication pace
+- Platform and minimum-version definition
+- Decision recording
 
 ## Inspect Before Asking
 

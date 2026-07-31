@@ -1,6 +1,10 @@
 # Accessibility and Localization
 
-Use this reference when accessibility or localization can affect the requested Apple-platform outcome. Select scenarios by the product's core task, target users, platforms, input modes, content, and risk. Do not claim broad accessibility from one label check or one assistive technology.
+## Load When
+
+Load this reference when accessibility, localization, assistive behavior, input alternatives, visual settings, content expansion, or locale behavior affects the requested outcome or completion claim. Do not load the full method for a task with no material scenario in scope.
+
+This is the single runtime source for the accessibility and localization method. Select scenarios by the product's core task, target users, platforms, input modes, content, and risk. Do not claim broad accessibility from one label check or one assistive technology.
 
 ## Contents
 

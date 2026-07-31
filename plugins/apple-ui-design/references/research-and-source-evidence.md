@@ -1,8 +1,10 @@
 # Research and Source Evidence
 
-Use this reference when a task needs product research, Apple guidance, shipped examples, UI or motion inspiration, or reusable assets.
+## Load When
 
-All bundled skills use this file as their single research and reuse-boundary source.
+Load this reference when external research, shipped examples, UI or motion inspiration, or reusable assets can change a decision. Do not load it when project evidence already resolves the question or browsing would be ornamental.
+
+This is the single runtime source for external-source evidence and reuse.
 
 ## Hybrid Research Model
 
@@ -67,7 +69,3 @@ If a source is unavailable:
 4. mark the affected conclusion as unverified when no equivalent evidence exists.
 
 Use conditional sources only for their public preview. Do not ask the user to create an account unless the user explicitly wants that source and its unique value justifies the interruption.
-
-## Registry Maintenance
-
-Repository maintainers must validate `source-registry.json` with the root source-registry validator after editing it. Recheck active entries periodically and whenever a redirect, access wall, licensing change, or material content change is observed.

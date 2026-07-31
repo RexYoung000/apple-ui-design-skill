@@ -1,295 +1,151 @@
 # Delivery Contracts and Evidence Gates
 
-Use this reference at the start and end of every task. Select one primary contract, state it to the user, and use its evidence gate to limit completion claims. A task may produce supporting artifacts from another contract, but do not blur their completion criteria.
+## Load When
 
-## Shared Rules
+Load this reference at the start and end of every activated Apple UI design task. Select one primary contract, use its artifact and evidence gate to plan the work, and limit completion claims to the evidence actually produced.
 
-### Inputs and evidence
+This is the single runtime source for delivery artifacts and evidence gates.
 
-Before producing a direction or finding:
+## Contents
 
-1. derive known product facts from the project;
-2. separate confirmed decisions, observed implementation, external evidence, design inference, and unvalidated hypotheses;
-3. name the artifact requested and the decision it must support;
-4. ask one focused question only when a blocking, path-dependent decision would materially change the artifact; gather independent factual gaps compactly or in parallel;
-5. pause when required source material, user approval, or runtime access is unavailable and cannot be safely substituted.
+- Shared evidence rules
+- Contract selection
+- Visual Direction
+- Screen or Flow
+- Design System
+- Platform Adaptation
+- Native Prototype
+- UI Review
 
-For an existing product, inspect its requirements, current interface, components, assets, content, platform targets, and available runtime behavior. Preserve confirmed boundaries unless the user approves a change.
+## Shared Evidence Rules
 
-For a zero-to-one product, keep audience, core-task, platform-capability, and visual hypotheses visibly unvalidated until evidence or user decisions support them. Do not invent a mature design system, brand asset, or tested user need.
+Inspect project evidence before proposing work. Keep user-confirmed decisions, project facts, external evidence, design inference, and unvalidated hypotheses distinct. Do not make the user repeat facts that can be verified locally.
+
+Every task selects one primary contract. Supporting artifacts may use another contract, but their completion criteria remain separate.
 
 ### Exact values
 
-A precise color, type size, spacing, radius, opacity, blur, breakpoint, spring, easing curve, or duration must be one of:
+Treat exact visual values as one of:
 
-- **project value** — read from an existing token, asset, component, or approved specification;
-- **rendered proposal** — used in a visible artifact and explicitly open to visual acceptance;
-- **measured result** — observed in a running implementation or recorded test;
-- **unverified proposal** — clearly labelled for later rendering or runtime validation.
+- existing project tokens or measured values;
+- values visible in a rendered artifact;
+- proposed values explicitly awaiting visual acceptance.
 
-Never present an unrendered number as proven visual quality. Prefer semantic intent before raw values.
+Do not present an unrendered number as polished or approved design. Prefer semantic roles over disconnected constants.
 
-### Interaction and motion
+### Cross-cutting scope
 
-The user owns product, interaction, and motion decisions. Platform convention and native components are evidence and risk-reduction tools, not a visual veto.
+When interaction or motion is material, apply `interaction-and-motion.md`. When content, consent, protected access, account data, purchase, deletion, recovery, or professional meaning is material, apply `content-and-sensitive-flows.md`. Apply the accessibility and localization scenarios that can affect the core task or completion claim.
 
-Read `interaction-and-motion.md` when behavior is materially in scope. Define the relevant interaction contract, motion language, product-specific risk focus, and evidence plan. Deliver the reduced-motion expression as an intentional equivalent: preserve state, feedback, spatial meaning, and suitable brand character rather than mechanically disabling all animation.
-
-Motion is visually explored through rendered prototypes and is verified only through a representative native run and recording. A duration table, static storyboard, HTML animation, or successful build does not prove native motion behavior.
-
-### Content and sensitive flows
-
-Read `content-and-sensitive-flows.md` when the task includes material content, permission, privacy, identity, account data, destructive action, commerce, or a regulated claim. Separate verified product, policy, price, entitlement, retention, and professional facts from design inference. Define informed user control, decline or defer behavior, consequences, failure, and recovery before treating the flow as design-complete.
-
-Rendered content can establish hierarchy and visible control. A mocked permission, authentication, data operation, purchase, or professional claim cannot establish real system behavior, service completion, policy compliance, or expert approval.
+Rendered content can establish hierarchy and visible control. Mocked permission, authentication, service, data, commerce, or professional behavior cannot establish native operation, service completion, policy compliance, or expert approval.
 
 ### Evidence gates
 
 | Claim | Minimum evidence |
-|---|---|
-| Direction aligned | The user selected or confirmed a visible hypothesis or bounded direction |
-| Design complete | Required screens, states, specifications, and visible artifacts exist |
-| Prototype complete | The scoped path is operable in the stated prototype medium |
-| Code complete | Scoped implementation exists and passes stated technical checks |
-| Experience verified | Required native environments, states, and inputs were rendered and exercised with preserved evidence |
-| User accepted | The user confirmed the visual and real-use result |
+| --- | --- |
+| Visual direction is visible | Rendered screen or canvas with representative content |
+| Screen or flow is operable | Exercised interactive prototype or running implementation |
+| Design system is usable | Rendered representative states and a real product application |
+| Platform layout is adapted | Visible evidence at each material size or window state |
+| Platform behavior works | Native run in each claimed environment and input path |
+| Interaction or motion works | Representative-speed native run; recording for behavior or quality claims |
+| Accessibility semantics exist | Inspection or automation of the represented build |
+| Assistive technology works | Named end-to-end run for that technology and task |
+| Sensitive system or service flow works | Matching native, sandbox, service, or professional evidence |
+| Experience is accepted | User confirmation after inspecting the actual result |
 
-Do not infer a later claim from an earlier one. A screenshot supports static appearance, an interactive prototype supports its exercised path, a native run supports the exercised platform behavior, and a recording supports the interaction or motion it visibly captures.
+A build does not prove a usable interface. A screenshot does not prove interaction. HTML does not prove Apple-native behavior. Earlier evidence never implies a later completion stage.
+
+Use only these completion stages: **direction aligned**, **design complete**, **prototype complete**, **code complete**, **experience verified**, and **user accepted**.
+
+## Contract Selection
+
+| Requested outcome | Primary contract |
+| --- | --- |
+| Establish or compare visible product expression | Visual Direction |
+| Define and exercise a stateful task | Screen or Flow |
+| Define reusable tokens and components | Design System |
+| Translate an established product across Apple platforms | Platform Adaptation |
+| Validate scoped behavior in an Apple runtime | Native Prototype |
+| Assess an existing artifact and prioritize findings | UI Review |
 
 ## Contract 1: Visual Direction
-
-**Owner:** `$apple-ui-direction`
-
-**Required inputs**
-
-- product outcome, primary user or labelled audience hypothesis, and core task;
-- target platform and usage context;
-- project or user-confirmed constraints;
-- existing design DNA and assets, or their confirmed absence;
-- the decision the direction must help the user make.
-
-**Do not infer**
-
-- validated user preference from public inspiration;
-- a complete brand system from an adjective;
-- exact visual values without a project source or rendered proposal;
-- user approval before visible review.
-
-**Steps**
-
-1. establish the evidence state and design boundary;
-2. reuse the current system when direction is established;
-3. when unresolved, produce two or three materially different visible hypotheses;
-4. apply representative content to the key screens;
-5. compare visible tradeoffs against the confirmed product goal;
-6. obtain user direction before treating the hypothesis as aligned.
 
 **Required artifact**
 
 - rendered key screens with representative content;
-- meaningful alternatives when the direction is unresolved;
-- evidence labels, platform implications, risks, and an acceptance path.
+- two or three visibly meaningful alternatives when direction is unresolved;
+- comparison against the confirmed product goal and an exact acceptance path.
 
-**Completion**
+Alternatives must differ in hierarchy, composition, product emphasis, interaction stance, or visual language, not only color, font, duration, or easing.
 
-Prose, mood words, token tables, or implementation suggestions alone do not complete this contract. Without rendered key screens, report the direction as a bounded proposal or pause for the missing asset or rendering capability.
+**Evidence gate**
+
+Rendered artifacts support visible comparison. Direction becomes aligned only after the user selects or combines an option. Static work does not verify native behavior.
 
 ## Contract 2: Screen or Flow
 
-**Owner:** `$apple-ui-direction`
-
-**Required inputs**
-
-- entry condition, user goal, success result, and exit;
-- screens and states in scope;
-- navigation and data assumptions;
-- relevant touch, keyboard, pointer, focus, gesture, and assistive paths;
-- failure, cancellation, interruption, and recovery behavior.
-- verified content, permission, privacy, account, commerce, or professional facts and owners when the flow depends on them.
-
-**Do not infer**
-
-- that connected static screens are operable;
-- unavailable product capability or data;
-- a hidden alternative interaction not approved by the user;
-- successful recovery without exercising it.
-
-**Steps**
-
-1. map the happy path and necessary non-happy states;
-2. define transitions, feedback, cancellation, recovery, and focus;
-3. define consequential content, informed choices, system boundaries, and non-manipulative decline or recovery behavior when sensitive decisions are present;
-4. create an operable prototype using the cheapest medium that answers the question;
-5. exercise the scoped path with representative content and inputs;
-6. record missing native, service, policy, and professional evidence separately from prototype findings.
-
 **Required artifact**
 
-- an operable path;
-- state and transition map;
-- representative normal, loading, empty, error, disabled, destructive, and interrupted states when relevant;
-- observed results and an exact acceptance path.
+- state and transition map for the scoped task;
+- an operable happy path and material non-happy paths;
+- representative content, inputs, feedback, cancellation, failure, and recovery;
+- exact user acceptance steps.
 
-**Completion**
+When sensitive decisions are present, include consequential content, informed choices, system boundaries, decline or defer behavior, and honest recovery.
 
-Static screens support appearance review only. Interaction is prototype-complete only after the scoped path can be operated; Apple-native behavior remains unverified until exercised natively.
+**Evidence gate**
+
+Exercise the scoped path and preserve the observed result. Static screens prove appearance only. Record mocked system, service, policy, and professional behavior as unverified.
 
 ## Contract 3: Design System
 
-**Owner:** `$apple-ui-direction`
-
-**Required inputs**
-
-- product principles and design DNA;
-- target platforms, environments, appearance modes, and content needs;
-- current tokens, components, assets, and known inconsistencies;
-- the screens or product areas the system must serve.
-
-**Do not infer**
-
-- a universal spacing grid, typeface, material, or component style;
-- token values from generic Apple convention;
-- system completeness from an isolated component sheet;
-- cross-platform equivalence from identical geometry.
-
-**Steps**
-
-1. define semantic roles before values;
-2. separate product DNA from platform expression;
-3. specify component purpose, states, content, input, adaptation, semantics, and motion;
-4. render representative states;
-5. apply the system to at least one real product screen;
-6. record platform, accessibility, localization, and version variations.
-
 **Required artifact**
 
-- semantic tokens and decision rationale;
-- component definitions with representative states;
-- rendered component evidence;
-- at least one representative product screen using the system;
-- adoption boundary and unresolved exceptions.
+- product principles and shared design DNA in scope;
+- semantic tokens linked to existing or rendered evidence;
+- component intent, anatomy, states, interaction, accessibility, and platform variation;
+- rendered representative states and at least one real product screen using the system.
 
-**Completion**
+**Evidence gate**
 
-A token list alone is not a complete design system. Claim design complete only when the system is visibly applied to representative product content and its necessary states are shown.
+A token table or isolated swatches do not complete a design system. Show realistic content, state combinations, content expansion, and the product context the system must support.
 
 ## Contract 4: Platform Adaptation
 
-**Owner:** `$apple-platform-adaptation`
-
-**Required inputs**
-
-- established source experience and runtime evidence;
-- source and target platforms, versions, sizes, windows, orientations, and inputs;
-- shared product goal, content model, terminology, and design DNA;
-- product role and feature relationship on each platform;
-- confirmed interaction decisions and continuity requirements.
-
-**Do not infer**
-
-- that all platforms have equal feature scope;
-- that enlargement is adaptation;
-- that visual similarity proves equivalent behavior;
-- that platform convention may silently replace a confirmed product interaction.
-
-**Steps**
-
-1. inspect the source experience;
-2. record shared and platform-specific decisions;
-3. produce representative layouts for every material target environment;
-4. translate navigation, density, windowing, commands, and inputs;
-5. exercise material platform behavior natively;
-6. record fallbacks, continuity, accessibility, localization, and reduced-motion behavior.
-
 **Required artifact**
 
+- source and target platform scope;
 - shared-versus-platform-specific decision matrix;
-- representative layouts and states for material sizes or window configurations;
-- input and interaction mapping;
-- visible evidence for each material environment;
-- native evidence for windowing, input, command, focus, or platform-behavior claims.
+- representative layouts for each material size or window state;
+- navigation, input, focus, command, continuity, accessibility, and fallback behavior in scope.
 
-**Completion**
+**Evidence gate**
 
-Layouts can be design-complete without native verification when labelled accurately. Claim the adaptation experience verified only for target environments and behaviors actually rendered and exercised.
+Rendered layouts establish visible adaptation. Native runs establish only the exercised window, input, focus, command, system, or continuity behavior. Do not infer platform completion from an enlarged phone layout.
 
 ## Contract 5: Native Prototype
 
-**Owner:** `$apple-ui-direction`, paired with an engineering workflow when production architecture is requested
-
-**Required inputs**
-
-- the product or experience question being tested;
-- target platform, minimum versions, environments, and inputs;
-- approved direction and interaction boundary;
-- representative data and states;
-- build, Preview, Simulator, device, or macOS run path.
-
-**Do not infer**
-
-- production readiness from a prototype;
-- native behavior from HTML;
-- experience quality from compilation;
-- backend, permissions, or services that are mocked.
-
-**Steps**
-
-1. implement only the behavior required to answer the question;
-2. identify mocks and production boundaries;
-3. include representative states, semantics, content expansion, version fallbacks, and input behavior;
-4. run in SwiftUI Preview, Simulator or device, or a real Mac app as appropriate;
-5. operate the scoped path and preserve screenshots or recordings;
-6. when motion is present, run and record both standard and reduced-motion expressions.
-
 **Required artifact**
 
-- runnable scoped SwiftUI prototype;
-- representative states and content;
-- native run log and environment details;
-- screenshots for static states;
-- recording for interaction or motion;
-- reduced-motion evidence when motion is present;
-- unresolved production and service boundaries.
+- runnable, narrowly scoped Apple-platform prototype;
+- representative states, content, semantics, fallback, failure, and recovery;
+- standard and Reduce Motion behavior when motion is present;
+- validation record naming environment, path, observed result, and mocked boundaries.
 
-**Completion**
+**Evidence gate**
 
-Compilation supports code-complete claims only. Prototype complete requires an operable scoped path. Experience verified requires recorded native execution of the claimed states, inputs, and motion behavior.
+Use SwiftUI Preview, Simulator or device, or a real macOS app as appropriate. Preserve recordings for material interaction or motion claims. Compilation alone proves neither behavior nor experience quality, and prototype completeness does not imply production integration.
 
 ## Contract 6: UI Review
 
-**Owner:** `$apple-ui-review`
-
-**Required inputs**
-
-- intended product outcome and core task;
-- exact artifact and version;
-- target platform, environment, state, content, and input represented;
-- requested review depth;
-- available screenshots, recordings, implementation, and runtime evidence.
-
-**Do not infer**
-
-- runtime behavior from appearance;
-- visual contrast or layout from prose;
-- user validation from reviewer preference;
-- native fit from visual resemblance to Apple apps.
-
-**Steps**
-
-1. state the evidence boundary and review level;
-2. inspect only claims supported by the artifact;
-3. report actionable findings by severity and user impact;
-4. use fact, impact, evidence, recommendation, and verification for each finding;
-5. separate required outcomes, Apple-supported recommendations, optional optimizations, and explorations;
-6. name unrepresented scenarios and the acceptance path.
-
 **Required artifact**
 
-- evidence and scope statement;
-- severity-ordered findings;
-- verification method for every actionable finding;
-- unresolved risks and an exact user acceptance path.
+- review scope and evidence statement;
+- actionable findings ordered by Blocking, Important, and Optimization;
+- observed fact, user impact, evidence, recommendation, and verification for each finding;
+- missing scenarios and concise user acceptance path.
 
-**Completion**
+**Evidence gate**
 
-Text-only input permits unverified consultation, not visual or experience validation. Do not manufacture findings when the supplied evidence supports none.
+Limit findings to the supplied artifact and represented states. Text-only input supports unverified consultation. A screenshot supports visible facts, a recording supports shown behavior, and native or service evidence supports only the exercised environment and path. If no actionable findings exist, say so without inventing issues.

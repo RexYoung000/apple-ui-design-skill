@@ -115,6 +115,8 @@ Issue #14 增加交互与动效方法及固定回归，分别覆盖工具型、�
 
 Issue #8 增加内容与敏感流程方法，覆盖权限、隐私、身份、账户数据、订阅购买和受监管领域。它要求内容真实、用户知情且可控、选择不受操纵、失败后可恢复，并在设计 Skill 无权决定法律、医疗、金融或商业事实时保留当前政策来源与专业审校边界。
 
+Issue #10 增加运行时上下文预算和条件加载契约。Skill 入口文件只保留角色、核心流程、路由和关键证据底线；详细方法由唯一的共享 reference 持有，并且只在其声明的任务条件命中时加载。Skill 入口从 3,382 词降至 2,194 词，运行时总指令从 19,083 词降至 17,457 词，固定回归结果没有下降。仓库历史、比较记录和发布维护信息继续留在安装包运行路径之外。
+
 ## 安装 Plugin
 
 先将本公开仓库添加为 Codex Marketplace，再安装 Plugin：
@@ -239,6 +241,10 @@ Skill 使用混合研究模式：
 │   │   ├── README.md
 │   │   ├── cases.json
 │   │   └── runs/
+│   ├── runtime-context/
+│   │   ├── README.md
+│   │   ├── contract.json
+│   │   └── runs/
 │   └── product-starting-point/
 │       ├── README.md
 │       ├── cases.json
@@ -265,6 +271,7 @@ Skill 使用混合研究模式：
 │   ├── validate_accessibility_localization_evals.py
 │   ├── validate_interaction_motion_evals.py
 │   ├── validate_content_sensitive_flow_evals.py
+│   ├── validate_runtime_context.py
 │   ├── validate_plugin_architecture.py
 │   └── validate_source_registry.py
 └── tests/
@@ -277,6 +284,7 @@ Skill 使用混合研究模式：
     ├── test_plugin_architecture.py
     ├── test_delivery_contract_evals.py
     ├── test_content_sensitive_flow_evals.py
+    ├── test_runtime_context.py
     ├── test_interaction_motion_evals.py
     ├── test_product_starting_point_evals.py
     └── test_source_registry.py
@@ -295,11 +303,13 @@ Skill 使用混合研究模式：
 - `evals/accessibility-localization/` 用于保护平台任务、辅助技术证据边界、视觉设置、自定义控件和本地化风险方法。
 - `evals/interaction-motion/` 用于保护用户决策权、交互体验契约、动效语言、平台输入、打断与反向、Reduce Motion 和原生证据边界。
 - `evals/content-sensitive-flows/` 用于保护内容清晰度、权限与隐私控制、身份和账户数据路径、商业透明度、失败恢复、专业边界与证据声明。
+- `evals/runtime-context/` 记录优化前基线，并保护规则单一所有权、reference 条件加载、长文档目录和运行时规模预算。
 - `evals/product-starting-point/` 提供固定的小改动、重大改版与从零产品证据场景、评审断言和保留的前向测试证据。
 - `scripts/validate_current_source_evals.py` 用于检查来源记录、精确 Apple URL、访问日期、版本分离、降级方案、证据标签和运行产物。
 - `scripts/validate_accessibility_localization_evals.py` 用于检查 Issue #7 的六类方法覆盖、Skill 路由和来源标记。
 - `scripts/validate_interaction_motion_evals.py` 用于检查 Issue #14 的三类产品场景、三项 Skill 路由与方法覆盖。
 - `scripts/validate_content_sensitive_flow_evals.py` 用于检查 Issue #8 的五类高风险流程、当前官方来源与三项 Skill 覆盖。
+- `scripts/validate_runtime_context.py` 用于测量安装包指令规模，并检查 reference 所有权、加载条件、长文档目录与上下文预算。
 - `scripts/validate_delivery_contract_evals.py` 用于检查合同覆盖、固定素材、必需产物、禁止声明和证据要求。
 - `scripts/validate_trigger_routing_evals.py` 用于检查路由覆盖、实现边界和必须覆盖的工程负例领域。
 - `scripts/evaluate_skill_regression_output.py` 在不向模型泄露断言的情况下检查一次保存的加载轨迹和响应。

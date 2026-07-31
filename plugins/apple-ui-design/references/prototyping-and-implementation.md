@@ -1,10 +1,22 @@
 # Prototyping and Implementation
 
-Use this reference when choosing a prototype medium, generating SwiftUI, or translating approved design into an existing app.
+## Load When
 
-Bundled design skills use it to select evidence fidelity and hand work to engineering without claiming production ownership.
+Load this reference when choosing a prototype medium, creating design-led code, translating approved design into an existing app, handing off implementation, or judging prototype evidence. Do not load it for prose-only alignment or review with no prototype or implementation claim.
+
+This is the single runtime source for prototype fidelity and design-led implementation.
 
 Read `engineering-routing.md` first when the task includes implementation code. It defines when a design artifact is sufficient, when bounded design-led SwiftUI work is allowed, and when an engineering workflow is required.
+
+## Contents
+
+- Choose fidelity by decision
+- Existing project first
+- SwiftUI, UIKit, and AppKit boundaries
+- Prototype requirements
+- HTML and static exploration
+- Implementation handoff
+- Completion language
 
 ## Choose Fidelity by Decision
 

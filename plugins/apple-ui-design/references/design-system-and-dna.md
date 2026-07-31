@@ -1,8 +1,20 @@
 # Design System and Product DNA
 
-Use this reference when establishing a direction, extending a design system, comparing alternatives, or creating a durable Project Design Decision Profile.
+## Load When
 
-The direction skill owns design-system changes; adaptation and review read this file only to preserve or assess established product DNA.
+Load this reference when defining visual direction, semantic tokens, components, durable product DNA, or meaningfully different visual alternatives. Do not load it for review or adaptation when no visual-system decision is in scope.
+
+This is the single runtime source for the visual-system and product-DNA method. The direction skill owns changes; adaptation and review use it only to preserve or assess established DNA.
+
+## Contents
+
+- Three layers of product expression
+- Semantic tokens
+- Typography, color, and materials
+- Components
+- Interaction and motion language
+- Meaningful direction exploration
+- Minimal decision profile
 
 ## Three Layers
 

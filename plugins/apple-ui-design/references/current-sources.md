@@ -1,6 +1,10 @@
 # Current Apple Source Verification
 
-Use this reference when a material claim depends on current Apple guidance, API or OS availability, deprecation, platform policy, hardware or input behavior, or a newly introduced design language.
+## Load When
+
+Load this reference when a material claim depends on current Apple guidance, API or OS availability, deprecation, platform policy, hardware or input behavior, or a newly introduced design language. Do not load it for stable product decisions with no version-sensitive Apple claim.
+
+This is the single runtime source for current Apple-source verification.
 
 ## What Stays Stable
 

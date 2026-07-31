@@ -121,6 +121,67 @@ When Apple introduces a new design language or platform capability:
 7. inspect the diff for accidental rule conflicts;
 8. version the change in Git with a concrete commit message.
 
+## Runtime Context Architecture
+
+Issue #10 separates repository maintenance from instructions needed during a product task. The installable runtime path contains only the three `SKILL.md` entry files, shared Markdown references, and `source-registry.json`. Repository comparison notes, creation history, evaluation fixtures, release procedures, and source-registry maintenance belong in this document or under `evals/`, never in a runtime reference.
+
+Use three disclosure levels:
+
+1. Skill metadata decides whether one focused workflow should activate.
+2. The selected `SKILL.md` keeps only role, core workflow, reference routing, output, and hard evidence boundaries.
+3. A shared reference loads only when its opening `Load When` condition matches the current task.
+
+Every stable rule has one runtime owner. Skill entry files route to that owner instead of restating its detailed method. Each reference must state both the condition that loads it and the rule family it owns. Markdown references longer than 100 lines must include a concise `Contents` section near the top.
+
+The runtime-context contract lives under `evals/runtime-context/`. Its validator measures the installable instruction files, rejects missing or duplicate ownership markers, verifies explicit load conditions, requires browseable long references, and enforces budgets without counting repository-only documentation or evaluation records.
+
+### Pre-optimization baseline
+
+Measured on 2026-07-31 before Issue #10 changes with whitespace-delimited words and physical lines:
+
+| Runtime group | Files included | Lines | Words | Bytes |
+| --- | --- | ---: | ---: | ---: |
+| Skill entry instructions | `plugins/apple-ui-design/skills/*/SKILL.md` | 324 | 3,382 | 26,535 |
+| Shared references | `plugins/apple-ui-design/references/*.md` and `source-registry.json` | 2,186 | 15,701 | 118,476 |
+| Total | Both groups above | 2,510 | 19,083 | 145,011 |
+
+The first optimization budget is at most 2,500 Skill-entry words and at most 17,500 total runtime words. These are regression ceilings, not writing targets: a future change may stay below them only when every added instruction still has a unique owner and task-specific loading reason.
+
+### Post-optimization result
+
+Measured after the Issue #10 implementation on the same date and with the same method:
+
+| Runtime group | Lines | Words | Bytes | Word reduction |
+| --- | ---: | ---: | ---: | ---: |
+| Skill entry instructions | 200 | 2,194 | 17,658 | 35.1% |
+| Shared references | 2,132 | 15,263 | 114,653 | 2.8% |
+| Total | 2,332 | 17,457 | 132,311 | 8.5% |
+
+The larger reduction is intentionally concentrated in always-loaded Skill entry files. Shared references changed less because their detailed methods remain useful when a matching condition loads them. The fixed trigger, output, delivery, authority, source, accessibility, interaction, and sensitive-flow regression suites all retained their prior pass result after the reduction.
+
+### Reference loading and ownership
+
+Maintain these boundaries:
+
+| Runtime source | Load only when | Owns |
+| --- | --- | --- |
+| `authority-and-principles.md` | sources, product authority, hard boundaries, or platform convention materially conflict | decision authority and tradeoff resolution |
+| `context-and-alignment.md` | the product start, user/task evidence, major scope, or a path-dependent decision is unresolved | starting-point and evidence-label procedure |
+| `engineering-routing.md` | code, framework delivery, production integration, or implementation ownership is in question | design-versus-engineering routing |
+| `delivery-contracts.md` | every activated design task, to select the artifact and completion evidence | delivery artifact and evidence gates |
+| `apple-platform-adaptation.md` | more than one Apple platform or platform-specific behavior affects the result | cross-platform translation method |
+| `design-system-and-dna.md` | visual direction, tokens, components, or durable product DNA is being defined | visual-system and product-DNA method |
+| `interaction-and-motion.md` | interaction or motion is created, changed, adapted, prototyped, or reviewed | interaction and motion contracts |
+| `accessibility-and-localization.md` | an accessibility, localization, input, content-expansion, or assistive scenario affects the requested outcome or claim | accessibility and localization method |
+| `content-and-sensitive-flows.md` | content changes consequential meaning, consent, access, account data, payment, deletion, recovery, or professional claims | sensitive-flow content and control method |
+| `prototyping-and-implementation.md` | prototype medium, design-led code, implementation handoff, or prototype evidence is in scope | prototype fidelity and design-led implementation method |
+| `validation-and-review.md` | planning evidence, performing review, or deciding completion | validation matrix and finding method |
+| `current-sources.md` | a material claim depends on current Apple guidance, API, OS, policy, hardware, or design language | current Apple-source verification procedure |
+| `research-and-source-evidence.md` | external research, examples, inspiration, or reusable assets can change a decision | external-source evidence and reuse method |
+| `source-registry.json` | the external-source method needs a curated starting point for the active question | maintained source entries and reuse metadata |
+
+Source-registry editing, periodic rechecks, redirects, access walls, license changes, and publication steps are repository maintenance. Run `python3 scripts/validate_source_registry.py` after changing the registry; do not add this maintenance procedure back to the runtime reference.
+
 ## Conflict Audit
 
 Before releasing an update, check for contradictions involving:

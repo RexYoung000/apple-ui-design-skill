@@ -1,8 +1,21 @@
 # Validation and Review
 
-Use this reference to plan evidence, review an interface, or determine whether a UI task is complete.
+## Load When
 
-The review skill owns formal findings; direction and adaptation use this file only to plan evidence and define honest completion.
+Load this reference when planning evidence, performing a formal review, or determining whether a UI task is complete. Do not load the full review method when no validation, finding, or completion claim is required.
+
+This is the single runtime source for the validation matrix and actionable-finding method. The review skill owns formal findings; direction and adaptation use it to plan evidence and define honest completion.
+
+## Contents
+
+- Risk-based validation
+- State and sensitive-flow matrices
+- Platform environment matrix
+- Evidence levels
+- Evidence-based review
+- Severity and finding format
+- Direction comparison
+- Handoff
 
 ## Validation Is Risk-Based
 

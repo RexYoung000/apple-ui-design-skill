@@ -1,8 +1,19 @@
 # Apple Platform Adaptation
 
-Use this reference when designing for more than one supported platform or adapting an existing experience.
+## Load When
 
-This is the detailed platform source for the adaptation workflow and for platform checks used by other bundled skills.
+Load this reference when more than one Apple platform or platform-specific hierarchy, navigation, windowing, input, continuity, or system behavior affects the result. Do not load it for a single-platform task with no adaptation decision.
+
+This is the single runtime source for cross-platform translation.
+
+## Contents
+
+- Shared product and platform roles
+- Adaptation questions
+- iOS, iPadOS, and macOS expression
+- Responsive and adaptive logic
+- Navigation translation
+- Platform fit check
 
 ## Shared Product, User-Defined Platform Roles
 

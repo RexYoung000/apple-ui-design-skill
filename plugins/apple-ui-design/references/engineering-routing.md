@@ -1,8 +1,18 @@
 # Design and Engineering Routing
 
-Use this reference before changing implementation code or promising framework-specific delivery.
+## Load When
 
-The Apple UI Design plugin owns product and interface decisions. It may create bounded code artifacts when code is the cheapest honest way to validate a design decision, but it is not a general Swift engineering workflow.
+Load this reference when code, framework delivery, production integration, or implementation ownership is in question. Do not load it for a design-only task with an already selected non-code artifact.
+
+This is the single runtime source for design-versus-engineering routing. The Apple UI Design plugin may create bounded code artifacts when code is the cheapest honest way to validate a design decision, but it is not a general Swift engineering workflow.
+
+## Contents
+
+- Primary owner by requested outcome
+- Three implementation levels
+- Framework support
+- Trigger boundaries
+- Completion language
 
 ## Choose the Primary Owner by Requested Outcome
 

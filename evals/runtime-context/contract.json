@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "suite": "runtime-context",
+  "linked_issue": 10,
+  "measured_at": "2026-07-31",
+  "measurement": {
+    "line_method": "newline-bytes",
+    "word_method": "non-whitespace-runs",
+    "skill_glob": "plugins/apple-ui-design/skills/*/SKILL.md",
+    "reference_globs": [
+      "plugins/apple-ui-design/references/*.md",
+      "plugins/apple-ui-design/references/source-registry.json"
+    ]
+  },
+  "baseline": {
+    "skills": {"lines": 324, "words": 3382, "bytes": 26535},
+    "references": {"lines": 2186, "words": 15701, "bytes": 118476},
+    "total": {"lines": 2510, "words": 19083, "bytes": 145011}
+  },
+  "current": {
+    "skills": {"lines": 200, "words": 2194, "bytes": 17658},
+    "references": {"lines": 2132, "words": 15263, "bytes": 114653},
+    "total": {"lines": 2332, "words": 17457, "bytes": 132311}
+  },
+  "limits": {
+    "skill_words": 2500,
+    "total_words": 17500,
+    "single_skill_lines": 100,
+    "long_reference_lines": 100
+  },
+  "reference_contracts": [
+    {
+      "path": "plugins/apple-ui-design/references/authority-and-principles.md",
+      "load_marker": "Load this reference when project sources, product authority, a hard boundary, Apple convention, or an implementation shortcut materially conflict.",
+      "ownership_marker": "single runtime source for decision authority and tradeoff resolution"
+    },
+    {
+      "path": "plugins/apple-ui-design/references/context-and-alignment.md",
+      "load_marker": "Load this reference when the product starting point, target user or task evidence, major scope, or a path-dependent decision is unresolved.",
+      "ownership_marker": "single runtime source for product starting-point and evidence-label procedure"
+    },
+    {
+      "path": "plugins/apple-ui-design/references/engineering-routing.md",
+      "load_marker": "Load this reference when code, framework delivery, production integration, or implementation ownership is in question.",
+      "ownership_marker": "single runtime source for design-versus-engineering routing"
+    },
+    {
+      "path": "plugins/apple-ui-design/references/delivery-contracts.md",
+      "load_marker": "Load this reference at the start and end of every activated Apple UI design task.",
+      "ownership_marker": "single runtime source for delivery artifacts and evidence gates"
+    },
+    {
+      "path": "plugins/apple-ui-design/references/apple-platform-adaptation.md",
+      "load_marker": "Load this reference when more than one Apple platform or platform-specific hierarchy, navigation, windowing, input, continuity, or system behavior affects the result.",
+      "ownership_marker": "single runtime source for cross-platform translation"
+    },
+    {
+      "path": "plugins/apple-ui-design/references/design-system-and-dna.md",
+      "load_marker": "Load this reference when defining visual direction, semantic tokens, components, durable product DNA, or meaningfully different visual alternatives.",
+      "ownership_marker": "single runtime source for the visual-system and product-DNA method"
+    },
+    {
+      "path": "plugins/apple-ui-design/references/interaction-and-motion.md",
+      "load_marker": "Load this reference when a task creates, materially changes, adapts, prototypes, or reviews interaction or motion.",
+      "ownership_marker": "single runtime source for interaction and motion contracts"
+    },
+    {
+      "path": "plugins/apple-ui-design/references/accessibility-and-localization.md",
+      "load_marker": "Load this reference when accessibility, localization, assistive behavior, input alternatives, visual settings, content expansion, or locale behavior affects the requested outcome or completion claim.",
+      "ownership_marker": "single runtime source for the accessibility and localization method"
+    },
+    {
+      "path": "plugins/apple-ui-design/references/content-and-sensitive-flows.md",
+      "load_marker": "Load this reference when content changes consequential meaning, consent, protected access, authentication, account data, destructive action, commerce, recovery, or a regulated professional claim.",
+      "ownership_marker": "single runtime source for sensitive-flow content and control"
+    },
+    {
+      "path": "plugins/apple-ui-design/references/prototyping-and-implementation.md",
+      "load_marker": "Load this reference when choosing a prototype medium, creating design-led code, translating approved design into an existing app, handing off implementation, or judging prototype evidence.",
+      "ownership_marker": "single runtime source for prototype fidelity and design-led implementation"
+    },
+    {
+      "path": "plugins/apple-ui-design/references/validation-and-review.md",
+      "load_marker": "Load this reference when planning evidence, performing a formal review, or determining whether a UI task is complete.",
+      "ownership_marker": "single runtime source for the validation matrix and actionable-finding method"
+    },
+    {
+      "path": "plugins/apple-ui-design/references/current-sources.md",
+      "load_marker": "Load this reference when a material claim depends on current Apple guidance, API or OS availability, deprecation, platform policy, hardware or input behavior, or a newly introduced design language.",
+      "ownership_marker": "single runtime source for current Apple-source verification"
+    },
+    {
+      "path": "plugins/apple-ui-design/references/research-and-source-evidence.md",
+      "load_marker": "Load this reference when external research, shipped examples, UI or motion inspiration, or reusable assets can change a decision.",
+      "ownership_marker": "single runtime source for external-source evidence and reuse"
+    }
+  ],
+  "source_registry": {
+    "path": "plugins/apple-ui-design/references/source-registry.json",
+    "route_owner": "plugins/apple-ui-design/references/research-and-source-evidence.md",
+    "route_marker": "Use `source-registry.json` as a maintained set of starting points"
+  },
+  "forbidden_runtime_markers": [
+    "## Registry Maintenance",
+    "Repository maintainers must validate `source-registry.json`",
+    "## Comparative Sources Behind This Skill",
+    "## Updating This Plugin"
+  ],
+  "forward_test_record": {
+    "path": "evals/runtime-context/runs/2026-07-31.md",
+    "scenarios": [
+      "small-static-direction",
+      "behavioral-platform-adaptation"
+    ]
+  }
+}

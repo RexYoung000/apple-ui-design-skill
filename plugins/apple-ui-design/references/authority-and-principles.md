@@ -1,8 +1,18 @@
 # Authority and Design Principles
 
-Use this reference when project sources disagree, when Apple convention appears to conflict with product identity, or when an implementation shortcut would change the experience.
+## Load When
 
-All bundled skills use this file as their single decision-authority and design-principle source. The layer names and procedures below are a **project-internal method**, not Apple terminology or an Apple-approved framework.
+Load this reference when project sources, product authority, a hard boundary, Apple convention, or an implementation shortcut materially conflict. Do not load it for a routine choice already resolved by consistent project evidence.
+
+This is the single runtime source for decision authority and tradeoff resolution. The layer names and procedures below are a **project-internal method**, not Apple terminology or an Apple-approved framework.
+
+## Contents
+
+- Decision layers
+- Tradeoff procedure
+- Rule levels
+- Native and distinctive
+- Decision test
 
 ## Decision Layers, Not One Authority Ranking
 

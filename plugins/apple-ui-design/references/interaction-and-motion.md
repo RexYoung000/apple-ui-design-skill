@@ -1,8 +1,10 @@
 # Interaction and Motion
 
+## Load When
+
 Load this reference when a task creates, materially changes, adapts, prototypes, or reviews interaction or motion. Do not load it for a static visual change with no behavioral consequence.
 
-The direction skill defines or revises the product interaction and motion language. The adaptation skill translates a confirmed model across platform inputs and environments. The review skill assesses supplied behavior against confirmed intent and evidence. This is a project-internal method, not an Apple framework.
+This is the single runtime source for interaction and motion contracts. The direction skill defines the language, adaptation translates it, and review assesses supplied behavior. This is a project-internal method, not an Apple framework.
 
 ## Decision Authority
 
