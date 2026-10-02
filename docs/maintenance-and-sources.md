@@ -82,6 +82,8 @@ Use `plugins/apple-ui-design/references/source-registry.json` as the curated sta
 - Prefer public, no-account sources; use public previews of limited sources only when they add unique evidence.
 - Do not package third-party screenshots or assets without verified reuse rights.
 
+Schema 2 adds a non-empty, overlapping `design_domains` list using `ui`, `ux`, `interaction`, `motion`, and `terminology`. Keep category, access, platform, allowed use, reuse status, checked date, and curation status as separate facts. Excluded entries must retain excluded category/status, `allowed_uses: ["none"]`, and `reuse_status: "do-not-use"`.
+
 The registry is a map, not a frozen archive or a ranking. Run `python3 scripts/validate_source_registry.py` after changing it.
 
 ## Comparative Sources Behind This Skill
@@ -120,6 +122,29 @@ When Apple introduces a new design language or platform capability:
 6. run structural validation;
 7. inspect the diff for accidental rule conflicts;
 8. version the change in Git with a concrete commit message.
+
+## Design Quality Update — 2026-10-02
+
+The approved update keeps UI Direction, Platform Adaptation, and UI Review as the three public workflows. UI, UX, interaction, and motion are overlapping quality lenses inside those workflows, not four new Skills. Accessibility, localization, content, design-system consistency, platform adaptation, and evidence remain shared concerns.
+
+Implementation scope:
+
+- Map each quality lens to observable criteria, its existing method owner, an appropriate reference layer, and a representative acceptance task. Scope checks to the requested outcome; small changes do not acquire a full product-discovery process.
+- Strengthen UI standards with examples of hierarchy, legibility, real content, component states, and content/window adaptation. Separate confirmed project choices, experience baselines, and current platform guidance; do not prescribe a universal font, grid, palette, aesthetic, or numeric score.
+- Translate informal descriptions into candidate component, interaction, or motion terms only when this changes the decision. Preserve product language, explain ambiguous alternatives by their behavior, and verify target-platform names/APIs separately.
+- Organize source selection by design domain and evidence purpose. Add only selected UX, component-comparison, and terminology sources; preserve access, reuse, and Apple-native evidence limits. Directory/introduction inspection is not specific-case observation, code validation, or reuse permission.
+- Reuse existing shared references rather than copying methods into every Skill. Keep the 2,500-word Skill-entry and 17,500-word total runtime ceilings; additions must be offset by removing redundancy, not raising limits.
+- Validate the packaged and portable distributions, registry metadata and context contract, then run independent isolated tasks against the revised source. Retain actual outputs and inspected artifacts; distinguish structural checks, agent behavior, browser evidence, native evidence, and Rex's final acceptance.
+
+This update does not publish to a plugin directory, add telemetry, adopt a component library, change production architecture, or close Roadmap #12. The three original end-to-end acceptance items remain open until the matching experience and user acceptance evidence exists. Verification results are recorded below.
+
+### Implementation and verification result
+
+Version 0.1.1 adds the four-lens acceptance map, six observable UI criteria, five informal-term mappings, and question/domain-based source selection. It retains the three public workflows and thirteen shared Markdown references. NN/g heuristics, Component Gallery, and NameThatUI are selected additions; current-source and reuse boundaries remain explicit.
+
+The complete deterministic gate passed 108 unit tests, all validators and saved goldens, plus generated portable folder/ZIP checks. All three Skill-creator quick validations passed. The [independent forward run](../evals/design-quality/runs/2026-10-02/README.md) retains four requests, actual outputs, source review, browser observations, screenshots, and checksums. Browser checks covered FieldNote failure/retry/draft/focus and OrbitCut compact/wide layout, pointer/keyboard range adjustment, invalid input, cancellation, undo, and export-boundary focus. They establish only the exercised browser paths.
+
+No native iPhone/iPad/Mac run, motion recording, named assistive-technology task, real media preview/export, or user acceptance was performed for this update. These remain explicit acceptance work; Roadmap #12 stays open. Historical native and evaluation evidence was preserved rather than relabelled.
 
 ## Public Interface Metadata and Examples
 
@@ -181,7 +206,7 @@ Measured on 2026-07-31 before Issue #10 changes with whitespace-delimited words 
 
 The first optimization budget is at most 2,500 Skill-entry words and at most 17,500 total runtime words. These are regression ceilings, not writing targets: a future change may stay below them only when every added instruction still has a unique owner and task-specific loading reason.
 
-### Post-optimization result
+### Issue #10 result — 2026-07-31
 
 Measured after the Issue #10 implementation on the same date and with the same method:
 
@@ -192,6 +217,18 @@ Measured after the Issue #10 implementation on the same date and with the same m
 | Total | 2,332 | 17,457 | 132,311 | 8.5% |
 
 The larger reduction is intentionally concentrated in always-loaded Skill entry files. Shared references changed less because their detailed methods remain useful when a matching condition loads them. The fixed trigger, output, delivery, authority, source, accessibility, interaction, and sensitive-flow regression suites all retained their prior pass result after the reduction.
+
+### Current quality update — 2026-10-02
+
+Measured with the same method; the 2026-07-31 results above remain historical:
+
+| Runtime group | Lines | Words | Bytes |
+| --- | ---: | ---: | ---: |
+| Skill entry instructions | 166 | 1,621 | 13,822 |
+| Shared references | 2,105 | 15,676 | 121,290 |
+| Total | 2,271 | 17,297 | 135,112 |
+
+The original 2,500/17,500 ceilings remain unchanged. The contract's measurement date is a validated ISO calendar date; exact current measurements are checked against files rather than frozen to an earlier release date.
 
 ### Reference loading and ownership
 
@@ -204,7 +241,7 @@ Maintain these boundaries:
 | `engineering-routing.md` | code, framework delivery, production integration, or implementation ownership is in question | design-versus-engineering routing |
 | `delivery-contracts.md` | every activated design task, to select the artifact and completion evidence | delivery artifact and evidence gates |
 | `apple-platform-adaptation.md` | more than one Apple platform or platform-specific behavior affects the result | cross-platform translation method |
-| `design-system-and-dna.md` | visual direction, tokens, components, or durable product DNA is being defined | visual-system and product-DNA method |
+| `design-system-and-dna.md` | visual direction, tokens, components, DNA, observable UI quality, or a material terminology ambiguity is in scope | visual-system, UI-criteria, and candidate-term method |
 | `interaction-and-motion.md` | interaction or motion is created, changed, adapted, prototyped, or reviewed | interaction and motion contracts |
 | `accessibility-and-localization.md` | an accessibility, localization, input, content-expansion, or assistive scenario affects the requested outcome or claim | accessibility and localization method |
 | `content-and-sensitive-flows.md` | content changes consequential meaning, consent, access, account data, payment, deletion, recovery, or professional claims | sensitive-flow content and control method |

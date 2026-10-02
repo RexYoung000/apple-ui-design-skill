@@ -2,16 +2,18 @@
 
 ## Load When
 
-Load this reference when defining visual direction, semantic tokens, components, durable product DNA, or meaningfully different visual alternatives. Do not load it for review or adaptation when no visual-system decision is in scope.
+Load this reference when defining visual direction, semantic tokens, components, durable product DNA, or meaningfully different visual alternatives. Use its focused UI or terminology sections when assessing consistency or resolving an informal description that changes a design decision. Skip it when established project rules already resolve a small adjustment.
 
-This is the single runtime source for the visual-system and product-DNA method. The direction skill owns changes; adaptation and review use it only to preserve or assess established DNA.
+This is the single runtime source for the visual-system and product-DNA method, including observable UI criteria and informal-term translation. Direction owns changes; adaptation and review preserve or assess established DNA. `validation-and-review.md` owns the quality-lens map and acceptance checks.
 
 ## Contents
 
 - Three layers of product expression
+- Observable UI criteria
 - Semantic tokens
 - Typography, color, and materials
 - Components
+- Informal descriptions and candidate terms
 - Interaction and motion language
 - Meaningful direction exploration
 - Minimal decision profile
@@ -20,131 +22,76 @@ This is the single runtime source for the visual-system and product-DNA method. 
 
 ### 1. Product principles
 
-Capture stable product meaning:
-
-- user promise and core task;
-- product mental model;
-- trust and control boundaries;
-- content voice;
-- what the product must never imply.
-
-These principles constrain design without prescribing exact pixels.
+Capture the user promise, core task, mental model, trust/control boundaries, content voice, and what the product must never imply. These constrain design without prescribing pixels.
 
 ### 2. Shared design DNA
 
-Define the recognizable system:
-
-- qualitative character and emotional tone;
-- semantic color roles;
-- typography roles and reading behavior;
-- spacing rhythm and grouping logic;
-- shape and surface language;
-- icon and imagery philosophy;
-- information-density stance;
-- motion character and feedback;
-- component behavior that carries product identity.
-
-Avoid universal prescriptions such as mandatory 8-point spacing, a fixed type family, a required warm accent, or a compulsory signature effect. Derive the system from the product and validate consistency.
+Define recognizable character through semantic color, typography/reading behavior, spacing/grouping, shape/surfaces, imagery, density, motion, and component behavior. Avoid universal prescriptions such as mandatory 8-point spacing, a fixed type family, a required warm accent, or a compulsory effect. Derive the system from the product and validate consistency.
 
 ### 3. Platform expression
 
-Describe how shared DNA appears through platform-native structures:
+Translate shared DNA through navigation/presentation, touch/keyboard/focus/pointer, commands, columns/inspectors/tables/windows, system materials, and version-gated enhancement/fallback. Platform expression can differ without fragmenting identity.
 
-- navigation and presentation;
-- touch, keyboard, focus, pointer, commands, menus, and shortcuts;
-- columns, inspectors, tables, toolbars, windows, and resizable layouts;
-- system materials and visual effects;
-- version-specific enhancement and fallback.
+## Observable UI Criteria
 
-Platform expression can differ without fragmenting the brand.
+First distinguish confirmed project choices, experience baselines, and current platform guidance through `authority-and-principles.md`. Aesthetic preference is not a platform requirement. Use real content and affected states; check only criteria that can change the scoped outcome.
+
+| Criterion | Observable good result | Problem to investigate |
+|---|---|---|
+| Hierarchy | Core task, next action, and result remain distinguishable | Primary and destructive actions compete with equal emphasis |
+| Legibility | Labels and values remain readable on actual surfaces | Muted text disappears over a translucent background |
+| Content fit | Realistic long, empty, and unusual content preserves meaning | A polished short placeholder hides clipping of a real Chinese title |
+| State clarity | Selection, focus, disabled state, and error are perceptible | Color alone distinguishes selected and unselected items |
+| Adaptation | Content reflows; required actions stay reachable | Large text or a compact window hides completion controls |
+| Coherence | Repeated roles behave and look consistently | Identical actions use conflicting hierarchy or feedback |
+
+These examples identify risks, not automatic findings: inspect the artifact and user impact. `accessibility-and-localization.md` owns contrast, text expansion, semantic and assistive checks; `apple-platform-adaptation.md` owns window/input translation. A screenshot can establish visible state, not successful use.
 
 ## Semantic Tokens
 
-Prefer semantic roles over raw visual names:
+Prefer reusable intent over raw visual names: `contentPrimary`, `contentCritical`, `surfaceBase`, `surfaceSelection`, `actionDestructive`, `focusRing`, `spacingRelated`, `contentMeasure`, `motionFeedback`, `motionReduced`.
 
-- `contentPrimary`, `contentSecondary`, `contentCritical`;
-- `surfaceBase`, `surfaceRaised`, `surfaceSelection`;
-- `actionPrimary`, `actionDestructive`, `focusRing`;
-- `spacingRelated`, `spacingSection`, `contentMeasure`;
-- `motionFeedback`, `motionTransition`, `motionReduced`.
-
-Token names should explain purpose. Values may vary by appearance, contrast, platform, size, or environment.
-
-Do not create tokens for every one-off value. A token earns existence when it expresses reusable intent.
+Values may vary by appearance, contrast, platform, size, or environment. Avoid tokens for every one-off value; record project values or unverified proposals honestly.
 
 ## Typography
 
-Choose typography based on:
-
-- language coverage and product voice;
-- Dynamic Type or scalable text needs;
-- legibility at expected sizes and density;
-- platform availability and licensing;
-- numeric alignment or tabular needs;
-- hierarchy that survives content expansion.
-
-System typography is a valid choice, not a mandatory choice. Custom typography must include appropriate fallbacks and accessibility behavior.
+Choose for language coverage and voice, scalable text, expected size/density, availability/license, numeric alignment, and hierarchy under expansion. System typography is valid, not mandatory. Custom fonts need fallbacks and accessibility behavior.
 
 ## Color and Materials
 
-Define roles before values. Check:
+Define semantic roles before values. Inspect contrast on changing backgrounds, appearance modes, transparency/vibrancy, selected/focused/disabled/critical states, non-color redundancy, and competing chart or brand content.
 
-- contrast in real states;
-- appearance modes in scope;
-- vibrancy and transparency against changing backgrounds;
-- selected, focused, disabled, critical, and elevated states;
-- color-blind-safe redundancy;
-- screenshots, charts, and branded content that may introduce competing color.
-
-Do not ban gradients, glass, shadows, pure tones, or system colors categorically. Reject them when they are unjustified, illegible, inconsistent, or overused.
-
-Use version-specific materials only after confirming minimum versions and fallback behavior.
+Reject gradients, glass, shadows, or pure tones when unjustified, illegible, inconsistent, or overused—not categorically. Confirm minimum versions and fallback before using version-specific materials.
 
 ## Components
 
-A component definition should cover:
+Define purpose and limits, content hierarchy, states/transitions, platform inputs, sizing/adaptation, accessibility, localization, and relationship to shared DNA. Do not force identical geometry when another native structure better serves the task. Show representative states in an actual product application.
 
-- purpose and when not to use it;
-- content and hierarchy;
-- states and transitions;
-- input behaviors by platform;
-- sizing and adaptation rules;
-- accessibility semantics;
-- localization and content expansion;
-- relationship to shared DNA and platform expression.
+## Informal Descriptions and Candidate Terms
 
-Do not force the same component geometry across platforms when a native structure better serves the task.
+Translate only when naming helps select behavior, research, or implementation. Preserve the user's description and offer candidates; clarify only ambiguity that changes the next decision. A term is neither a requirement nor proof of an API.
+
+| User description | Candidate terms | Behavior and platform distinction |
+|---|---|---|
+| “从底下出来一层” | 底部面板 / bottom sheet; 弹出层 / popover | Modal task versus anchored context; an iPhone sheet may need a popover, panel, or window on iPad/Mac |
+| “点卡片展开细节” | 渐进披露 / progressive disclosure; 展开控件 / disclosure | Inline detail differs from navigating elsewhere; preserve focus, state, and return meaning on each platform |
+| “拖起来跟手，松开回弹” | 直接操纵 / direct manipulation; 弹簧动效 / spring motion | Continuous input plus settling; touch/Pencil and pointer/keyboard need equivalent task results |
+| “页面像同一块东西变过去” | 共享元素转场 / shared-element transition; 形变 / morphing | Preserve object continuity versus change shape; neither implies a particular SwiftUI API |
+| “背景跟着滚动慢一点” | 视差 / parallax; 滚动联动 / scroll-linked motion | Relative movement versus any scroll-driven effect; scrolling inputs and Reduce Motion expression differ |
+
+Explain stable vocabulary from known behavior without mandatory browsing. Verify unfamiliar meanings when needed; verify exact Apple component names, APIs, availability, and version-sensitive guidance separately through `current-sources.md`. Source examples follow `research-and-source-evidence.md`; a gallery label cannot prove native semantics.
 
 ## Interaction and Motion Language
 
-Keep shared interaction character, semantic motion roles, and reusable motion tokens in the product DNA. Read `interaction-and-motion.md` when creating, adapting, prototyping, or reviewing material behavior; it owns the interaction contract, motion purposes, product-specific risk focus, exploration rules, and evidence boundary.
-
-Do not duplicate detailed behavior rules here. Record only the durable product language and token intent that must stay coherent across components and platforms.
+Keep durable interaction character and semantic motion tokens in product DNA. `interaction-and-motion.md` owns behavior contracts, purposes, risks, exploration, and evidence; do not duplicate its detailed rules here.
 
 ## Meaningful Direction Exploration
 
-When direction is unresolved, create two or three hypotheses that differ in a decision users can evaluate:
-
-- calm vs energetic hierarchy;
-- sparse focus vs dense professional workspace;
-- content-led vs tool-led navigation;
-- restrained vs expressive material;
-- direct manipulation vs explicit controls;
-- typographic vs illustrative identity.
-
-For each direction, state:
-
-- product idea;
-- visible evidence;
-- platform implications;
-- accessibility or implementation risks;
-- what it optimizes and sacrifices.
-
-Do not present superficial recolors as separate directions.
+When unresolved, compare two or three hypotheses differing in hierarchy, density, navigation, materials, operation, or identity. For each show product idea, visible evidence, platform implications, risks, and what it optimizes/sacrifices. Superficial recolors are not separate directions. Extend confirmed direction without manufacturing choices.
 
 ## Minimal Project Design Decision Profile
 
-This profile is a **project-internal documentation template**, not an Apple document, certification, or official Apple design method. Create it only when the project lacks an appropriate durable source:
+This is a **project-internal documentation template**, not an Apple document, certification, or official method. Use the project's existing format; create it only if no durable source can carry decisions:
 
 ```markdown
 # Project Design Decision Profile
@@ -162,4 +109,4 @@ This profile is a **project-internal documentation template**, not an Apple docu
 ## Validation matrix
 ```
 
-Use the project’s existing format when one exists. The profile records decisions; it does not replace prototypes or visual validation.
+The profile records decisions; it does not replace prototypes or visual validation.

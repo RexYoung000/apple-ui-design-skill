@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OrbitCut — Mac 设计适配</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="review-bar" aria-label="设计审阅工具">
+    <span><strong>iPad → Mac</strong> · 代表布局 / 浏览器设计演示</span>
+    <div class="review-actions">
+      <div class="mode-switch" role="group" aria-label="窗口布局">
+        <button type="button" id="compactMode" aria-pressed="false">紧凑</button>
+        <button type="button" id="wideMode" aria-pressed="true">宽窗口</button>
+      </div>
+      <label class="motion-choice"><input type="checkbox" id="reduceMotion"> 减少动效示意</label>
+      <a href="decision-matrix.md">决策矩阵</a>
+    </div>
+  </header>
+
+  <div class="workspace-wrap">
+    <main class="app-shell" id="appShell" data-layout="wide" lang="en" aria-label="OrbitCut Mac layout proposal">
+      <header class="topbar">
+        <div class="brand-group">
+          <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="brand-copy"><strong>OrbitCut</strong><span>Summer Loop</span></div>
+        </div>
+        <div class="history-controls" aria-label="Edit history">
+          <button type="button" id="undoButton" class="icon-button" aria-label="Undo range change" disabled>↶</button>
+          <button type="button" id="redoButton" class="icon-button" aria-label="Redo range change" disabled>↷</button>
+        </div>
+        <div class="top-actions">
+          <button type="button" class="quiet-button" id="importButton">＋ Import</button>
+          <button type="button" class="quiet-button inspect-button" id="inspectButton" aria-expanded="false" aria-controls="inspectorPanel">Inspect</button>
+          <button type="button" class="primary-button" id="exportButton">Export Loop</button>
+        </div>
+      </header>
+
+      <aside class="library-panel" aria-label="Clip library">
+        <div class="panel-heading"><div><span class="eyebrow">Media</span><h2>Clips</h2></div><span class="clip-count">6</span></div>
+        <div class="library-summary"><strong>Summer Loop</strong><span>24.0 sec</span></div>
+        <div class="clip-list" id="clipList" role="group" aria-label="Choose a clip"></div>
+        <div class="drop-note"><span aria-hidden="true">↓</span><strong>Choose a clip to trim</strong><small>↑ ↓ select · Enter confirm</small></div>
+      </aside>
+
+      <section class="canvas-panel" aria-label="Radial timeline editor">
+        <div class="canvas-heading"><div><span class="eyebrow">Composition</span><h1>24-second loop</h1></div><span class="mode-tag">Trim</span></div>
+        <div class="radial-stage">
+          <svg class="radial-timeline" id="timeline" viewBox="0 0 560 560" aria-labelledby="timelineTitle timelineDesc">
+            <title id="timelineTitle">Radial timeline</title>
+            <desc id="timelineDesc">Choose a clip in the list. Drag its start or end handle, or adjust the same range in the timing fields.</desc>
+            <defs><filter id="softGlow"><feGaussianBlur stdDeviation="7"></feGaussianBlur></filter></defs>
+            <circle class="orbit-halo" cx="280" cy="280" r="188" aria-hidden="true"></circle>
+            <circle class="orbit-base" cx="280" cy="280" r="188" aria-hidden="true"></circle>
+            <g id="segmentLayer" aria-hidden="true"></g>
+            <g id="tickLayer" aria-hidden="true"></g>
+            <circle class="orbit-inner" cx="280" cy="280" r="132" aria-hidden="true"></circle>
+            <path class="range-outline" id="rangeOutline" aria-hidden="true"></path>
+            <g id="playhead" aria-hidden="true"><line x1="280" y1="58" x2="280" y2="126"></line><circle cx="280" cy="60" r="6"></circle></g>
+            <text class="time-main" id="canvasTime" x="280" y="257" text-anchor="middle" aria-hidden="true">00:08.4</text>
+            <text class="time-label" x="280" y="283" text-anchor="middle" aria-hidden="true">SELECTED RANGE</text>
+            <text class="range-caption" id="canvasRange" x="280" y="309" text-anchor="middle" aria-hidden="true">08.4 — 13.0 s</text>
+            <g class="range-handle" id="startHandle" role="slider" tabindex="0" aria-label="Selected clip start, seconds" aria-orientation="horizontal">
+              <circle class="handle-target" r="23"></circle><circle class="handle-surface" r="10"></circle><text y="4" text-anchor="middle" aria-hidden="true">S</text>
+            </g>
+            <g class="range-handle" id="endHandle" role="slider" tabindex="0" aria-label="Selected clip end, seconds" aria-orientation="horizontal">
+              <circle class="handle-target" r="23"></circle><circle class="handle-surface" r="10"></circle><text y="4" text-anchor="middle" aria-hidden="true">E</text>
+            </g>
+          </svg>
+        </div>
+        <div class="selection-readout"><span class="selection-dot" aria-hidden="true"></span><div><strong id="selectedName">Ocean Foam</strong><span id="selectedRange">08.4–13.0 sec · 4.6 sec selected</span></div><span class="selection-mark">✓ Selected</span></div>
+        <footer class="transport" aria-label="Preview controls">
+          <div class="transport-time"><strong id="transportTime">00:08.4</strong><span>/ 00:24.0</span></div>
+          <button type="button" class="play-button" id="playButton" aria-label="Preview selected range">▶</button>
+          <span class="transport-hint">Preview <kbd>Space</kbd></span>
+        </footer>
+      </section>
+
+      <aside class="inspector-panel" id="inspectorPanel" aria-label="Selected clip timing">
+        <div class="panel-heading"><div><span class="eyebrow">Selection</span><h2 id="inspectorName">Ocean Foam</h2></div><button type="button" class="close-inspector" id="closeInspector" aria-label="Close inspector">×</button></div>
+        <div class="preview-tile" id="previewTile"><span>CLIP <span id="clipNumber">03</span></span><strong id="previewName">Ocean Foam</strong></div>
+        <p class="preview-note">Illustrative preview · no video playback</p>
+        <section class="property-group">
+          <h3>Selected range</h3>
+          <label for="startField"><span>Start</span><span class="number-field"><input id="startField" type="number" step="0.1" value="8.4" inputmode="decimal"><span>s</span></span></label>
+          <label for="endField"><span>End</span><span class="number-field"><input id="endField" type="number" step="0.1" value="13.0" inputmode="decimal"><span>s</span></span></label>
+          <div class="property-row"><span>Duration</span><output id="durationValue">4.6 s</output></div>
+          <p class="field-error" id="fieldError" role="alert"></p>
+          <p class="shortcut-note">↑ ↓ / ← → adjust 0.1s<br>Shift + arrow adjusts 1s<br>Enter commits · Esc cancels</p>
+        </section>
+        <section class="property-group source-info"><h3>Source clip</h3><div class="property-row"><span>Available</span><output id="sourceRange">8.4–13.0 s</output></div><p>Drag S / E on the orbit, or enter the same range here.</p></section>
+      </aside>
+
+      <footer class="statusbar"><span id="statusText" role="status" aria-live="polite">Design preview · edits stay in this tab</span><span id="layoutLabel">Mac · wide layout</span></footer>
+    </main>
+  </div>
+  <p class="artifact-note">布局和输入关系用于审阅；视频播放、素材导入、保存、导出及原生 Mac 手感尚未验证。</p>
+
+  <dialog id="boundaryDialog" aria-labelledby="dialogTitle">
+    <h2 id="dialogTitle">Export Loop</h2><p id="dialogBody"></p>
+    <button type="button" class="primary-button" id="dismissDialog">Return to editing</button>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>

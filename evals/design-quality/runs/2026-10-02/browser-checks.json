@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-02",
+  "environment": "Codex in-app browser on this Mac; HTML prototypes served only on 127.0.0.1. These are browser behavior checks, not Apple-native runs.",
+  "direction": [
+    "Empty submit showed both required-field errors; focus moved to book title.",
+    "Chinese multi-line text and a long title saved to browser storage; one edit card and an explicit browser-save confirmation appeared.",
+    "Edit save was forced to fail; title and quote remained in the modal, with failure explanation and retry.",
+    "Retry updated the same card and returned focus to it.",
+    "Return retained uncommitted edits; reopening restored that draft.",
+    "At a verified 390x844 viewport, scrollWidth remained 390 and the edit/save controls were visible.",
+    "The prototype reduced-motion toggle selected fade-in instead of spatial slide. This does not test the OS preference or native timing.",
+    "Shift+Tab wrapped from Return to Save; Escape closed the dialog after its exit animation and returned focus to the card.",
+    "No captured console warnings or errors in the exercised path."
+  ],
+  "adaptation": [
+    "Verified actual 900x640 and 1440x900 browser viewports with compact and wide layouts; no horizontal overflow.",
+    "Inspect opened Start/End fields; closing returned focus to Inspect.",
+    "Editing start 8.4 to 9.4 committed a 9.4-13.0 range with 3.6 seconds duration.",
+    "Shift+ArrowUp produced the same 1-second adjustment; Enter committed.",
+    "A pointer drag changed start 9.4 to 10.7; Undo restored 9.4.",
+    "Switching to wide preserved Ocean Foam, the range, and current selection.",
+    "Out-of-range start 25 showed an error and disabled export; Escape restored the prior legal range and enabled export.",
+    "Export opened an explicit no-video-exported boundary; return preserved range and restored focus to Export Loop.",
+    "The illustrative preview progressed and ended at 13.0 while preserving the selected range; no actual media playback occurred.",
+    "Reduced-motion demo was enabled. No native motion/OS setting claim is supported.",
+    "No captured console warnings or errors in the exercised path."
+  ],
+  "review": "Primary agent inspected the written findings and two compact screenshot inputs; the isolated reviewer inspected all four provided screenshots. Findings distinguish visible risks from unverified behavior and do not assign a numeric score.",
+  "sources": "The isolated source task followed Component Gallery to the originating GOV.UK design system and exercised its public accordion example. Its response limits adoption to inline disclosure/state feedback and leaves Apple APIs, native behavior, and product fit unverified.",
+  "not_verified": [
+    "Native iPhone/iPad/Mac execution",
+    "Native motion recordings, interruption/reversal/rapid repeat and Reduce Motion OS behavior",
+    "VoiceOver or other named assistive-technology task runs",
+    "OS soft keyboard or native Dynamic Type",
+    "Real media preview/export",
+    "User visual or experience acceptance"
+  ],
+  "archive_note": "Original generated outputs were copied, with local absolute Markdown paths normalized for repository portability. Runtime checksums describe the final reviewed plugin; these observations are a human-readable primary-agent record, not a machine-exported UI trace."
+}

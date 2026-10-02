@@ -26,6 +26,21 @@ The installable plugin contains three focused skills. They share one evidence an
 
 Production SwiftUI architecture, debugging, performance, CI, and release work remain engineering responsibilities. These skills provide product intent, interface decisions, evidence requirements, and acceptance criteria to the applicable engineering workflow.
 
+## Design Quality Lenses
+
+The three workflows select only the quality lenses relevant to your task. UX describes the overall experience; the lenses overlap rather than forming four separate Skills.
+
+| Lens | What it examines | Representative acceptance task |
+| --- | --- | --- |
+| UI | Hierarchy, readability, layout, component states, and product expression | Inspect a key screen with real content, long text, larger type, and relevant window sizes. |
+| UX | Task entry, information organization, result comprehension, and recovery | Complete a core task, encounter a failure, preserve progress, retry, and return. |
+| Interaction | Discoverability, input, feedback, cancellation, repetition, and undo | Operate a key control, cancel or repeat input, and check the final state. |
+| Motion | Purpose, continuity, rhythm, interruption, and operation efficiency | Exercise and record a key transition, reversal, and reduced-motion expression. |
+
+Accessibility, localization, content, design-system consistency, and platform adaptation apply across these lenses. A screenshot supports visible UI facts; operated flows support the exercised interaction; Apple-native behavior requires matching native evidence. Final aesthetic and experience acceptance belongs to the user.
+
+You can describe a problem in everyday language. The workflow translates unclear component or effect descriptions into candidate terms and their behavioral differences without requiring a design vocabulary lesson or assuming a Web term names an Apple API. Reference selection distinguishes platform guidance, usability methods, observed products, inspiration, and implementation examples. Selected additions include [NN/g usability heuristics](https://www.nngroup.com/articles/ten-usability-heuristics/), [Component Gallery](https://component.gallery/), and [NameThatUI](https://namethatui.com/); these are starting points, not validation of a particular component or API.
+
 ## Verified Workflow Examples
 
 These examples are preserved repository outputs, not aspirational mockups. Each one identifies the artifact, implementation boundary, and strongest validation claim supported by its evidence.
@@ -150,6 +165,8 @@ Issue #14 adds a fixed interaction and motion method across tool, content, and e
 Issue #8 adds a content and sensitive-flow method for permission, privacy, identity, account data, subscription, purchase, and regulated-domain experiences. It requires truthful content, informed user control, non-manipulative choices, explicit failure recovery, current policy sources, and professional review where the design skill cannot own the underlying legal, medical, financial, or commercial fact.
 
 Issue #10 adds a runtime-context budget and conditional-loading contract. Skill entry files retain only role, workflow, routing, and hard evidence boundaries; detailed methods remain single-owned shared references that load only when their stated task condition applies. Skill-entry size fell from 3,382 to 2,194 words, while total runtime instructions fell from 19,083 to 17,457 words without reducing the fixed regression result. Repository history, comparison notes, and release maintenance stay outside the installable runtime path.
+
+The 2026-10-02 quality update adds the four-lens map, observable UI criteria, candidate terminology, and selected reference purposes. The [four isolated tasks and browser evidence](evals/design-quality/runs/2026-10-02/README.md) retain actual outputs and limitations; native and user acceptance remain pending. Runtime stays below the existing budget at 1,621 Skill-entry words and 17,297 total words.
 
 ## Install the Plugin
 

@@ -2,13 +2,14 @@
 
 ## Load When
 
-Load this reference when planning evidence, performing a formal review, or determining whether a UI task is complete. Do not load the full review method when no validation, finding, or completion claim is required.
+Load this reference when planning evidence, performing a formal review, or determining whether a UI task is complete. Use focused sections for a small change; do not turn every check into a full review.
 
-This is the single runtime source for the validation matrix and actionable-finding method. The review skill owns formal findings; direction and adaptation use it to plan evidence and define honest completion.
+This is the single runtime source for the validation matrix and actionable-finding method. Review owns formal findings; direction and adaptation use it to plan evidence and state honest completion.
 
 ## Contents
 
-- Risk-based validation
+- Quality lenses and representative acceptance tasks
+- Shared checks and risk-based validation
 - State and sensitive-flow matrices
 - Platform environment matrix
 - Evidence levels
@@ -17,134 +18,98 @@ This is the single runtime source for the validation matrix and actionable-findi
 - Direction comparison
 - Handoff
 
+## Quality Lenses and Acceptance Tasks
+
+UI, UX, Interaction, and Motion are overlapping lenses inside the three workflows. UX concerns the whole task experience, including interface, interaction, and motion; the columns below are navigation aids, not mutually exclusive categories. Select affected lenses and their existing owners. A narrow request does not require every task.
+
+| Lens | Observable question | Method owner and source purpose | Minimal representative acceptance task |
+|---|---|---|---|
+| UI — visual interface | Are hierarchy, text, content, surfaces, and states coherent and readable? | `design-system-and-dna.md`; project rules and applicable current Apple guidance; galleries offer candidates | Render one key screen with real content, a relevant state, and long/large text; inspect priority and reachable actions |
+| UX — task experience | Can the intended user understand, complete, and recover the core task? | `context-and-alignment.md`, `content-and-sensitive-flows.md`; confirmed intent and user/task evidence; observed flows suggest hypotheses | Run one core path through failure and recovery; verify preserved progress, truthful completion, and understandable return |
+| Interaction — operation | Are input, discovery, feedback, cancellation, and final state reliable? | `interaction-and-motion.md`; platform input guidance and actual operation | Execute, cancel, repeat, and undo one material operation using required inputs; check final intent and focus |
+| Motion — temporal expression | Do purpose, continuity, rhythm, and comfort coexist with efficient use? | `interaction-and-motion.md`; project language, current guidance, and motion observations | Record a key native transition at normal speed, interrupt/reverse/repeat it, then exercise Reduce Motion |
+
+Sources inform a criterion; they do not establish that this product passes. Use `research-and-source-evidence.md` to select an evidence layer and inspect specific examples. Terms and candidate mappings belong to `design-system-and-dna.md`, not a new workflow.
+
 ## Validation Is Risk-Based
 
-Select checks based on the changed experience. Not every task needs every row, but every omitted high-risk scenario should be intentional.
+Select checks from the changed experience; make omitted high-risk scenarios explicit. Shared concerns cut across every lens:
 
-Read `content-and-sensitive-flows.md` when content, consent, protected access, identity, account data, destructive action, purchase, or professional-domain meaning can affect the outcome.
+- accessibility/localization: `accessibility-and-localization.md` owns equivalent completion, semantics, settings, and content/locale expansion;
+- content/control: `content-and-sensitive-flows.md` owns consequential meaning and sensitive-flow contracts;
+- design-system consistency: `design-system-and-dna.md` owns reusable roles, components, and identity;
+- platform/adaptation: `apple-platform-adaptation.md` owns window, navigation, input, and continuity translation;
+- evidence/completion: apply the levels below and the selected `delivery-contracts.md` gate.
+
+Do not invent user research from a brief or judge quality by terminology count, number of reference sites, visual novelty, or resemblance to system apps.
 
 ## State Matrix
 
-Consider:
-
-- normal and populated;
-- empty or first use;
-- loading and slow response;
-- partial data;
-- recoverable and terminal error;
-- offline or unavailable service when applicable;
-- disabled, selected, focused, pressed, hovered, and editing;
-- destructive confirmation and undo;
-- permission denied or limited access;
-- long, short, missing, or unusual content;
-- large numbers, dates, and localized formats;
-- interrupted and resumed flow;
-- minimum-version fallback.
+Select relevant populated, empty/first-use, loading/slow, partial, error, offline, disabled/selected/focused/pressed/hovered/editing, destructive/undo, denied-access, long/unusual content, locale-format, interrupted/resumed, and minimum-version states.
 
 ## Sensitive-Flow Matrix
 
-Select relevant scenarios and name omissions:
+Exercise relevant paths; name omissions:
 
-- content hierarchy, button consequence, empty state, error, preserved progress, retry, cancellation, and confirmed completion;
-- permission not determined, allowed, limited, denied, restricted, deferred, Settings recovery, and the truthful no-access path;
-- sign-in, reauthentication, recovery, session loss, export preparation, deletion confirmation, processing, failure, and completion;
-- purchase loading, pending, success, cancellation, failure, restoration, entitlement refresh, expiry, billing issue, and management path;
-- professional source present, stale, unavailable, disputed, outside jurisdiction, awaiting review, and explicitly unverified.
+- content/action meaning, retry, cancellation, preserved progress, and confirmed completion;
+- permission not determined, allowed/limited/denied/restricted/deferred, Settings recovery, and no-access operation;
+- sign-in, reauthentication/recovery/session loss, export, deletion confirmation/processing/failure/completion;
+- purchase loading/pending/success/cancellation/failure, restoration, entitlement refresh/expiry/billing, and management;
+- professional sources present/stale/unavailable/disputed, jurisdiction, review pending, and unverified claims.
 
-Check that the design does not use false urgency, shame, disguised choices, hidden dismissal, repeated pressure, price obfuscation, false success, or unsupported professional authority.
+Check false urgency, shame, disguised choices, hidden dismissal, repeated pressure, obscured price, false success, and unsupported authority.
 
 ## Environment Matrix
 
 ### iOS
 
-- smallest and largest relevant device sizes;
-- portrait and landscape only when supported or materially different;
-- keyboard shown and dismissed;
-- safe areas, sheets, navigation, interruption, and restoration;
-- touch and VoiceOver;
-- supported text sizes and appearance modes.
+Check relevant device sizes, supported orientations, keyboard/safe areas, sheets/navigation/interruption/restoration, touch/VoiceOver, text sizes, and appearances.
 
 ### iPadOS
 
-- compact and expansive windows relevant to the product;
-- split view or stage/window behavior when in scope;
-- touch, keyboard, focus, pointer, and drag and drop;
-- sidebar, column, inspector, popover, and toolbar transitions;
-- content reflow rather than empty enlargement.
+Check compact/expansive windows, split or stage/window behavior, touch/keyboard/focus/pointer/drag and drop, sidebar/column/inspector/popover/toolbar transitions, and content reflow rather than empty enlargement.
 
 ### macOS
 
-- minimum, default, and expanded window sizes;
-- keyboard-only task path and visible focus;
-- menus, commands, shortcuts, pointer, hover, and context menu;
-- selection, multi-selection, drag and drop, undo/redo when applicable;
-- sheets, panels, inspectors, multiple windows, and focus restoration;
-- VoiceOver and text scaling behavior relevant to the app.
+Check minimum/default/expanded windows, keyboard-only completion and focus, menus/commands/shortcuts/hover/context actions, selection/drag/undo, sheets/panels/inspectors/multiple windows/focus restoration, VoiceOver, and relevant text scaling.
 
 ## Evidence
 
-Match evidence to the claim:
+Match each claim to what was actually exercised:
 
-- screenshot for static hierarchy and visual state;
-- state-by-state preview for component coverage;
-- recording for motion, navigation, resizing, keyboard, pointer, or touch;
-- accessibility inspection or narrated test path for semantic behavior;
-- simulator or device run for iOS/iPadOS native interaction;
-- real Mac app run for window, menu, command, and focus behavior;
-- build and tests for implementation integrity.
+| Evidence | Can support |
+|---|---|
+| Screenshot or component preview | Visible hierarchy and represented states |
+| Operable prototype | Exercised flow in that prototype's medium |
+| Representative-speed native recording/run | Shown input, navigation, motion, resize, focus, and system-setting behavior |
+| Semantic inspection/automation | Checked labels, roles, state, and supported automated paths |
+| Named assistive-technology run | Exercised technology, task, environment, and path |
+| Build/tests | Implementation integrity |
+| Matching service/sandbox/professional evidence | Exercised external operation or reviewed domain claim |
 
-A successful build does not prove a usable interface. A screenshot does not prove interaction. A browser prototype does not prove native behavior.
+A build does not prove usability; a screenshot does not prove interaction; HTML does not prove native behavior. Record simulator/device or real Mac environment. Material motion needs representative-speed recordings and its Reduce Motion expression. Timing values alone cannot prove rhythm, continuity, interruption, or comfort.
 
-A copy review does not prove policy compliance. A mocked permission or purchase does not prove the system path. A UI completion message does not prove an account, data, or payment operation succeeded. A generic disclaimer does not prove professional review.
+Copy review cannot prove policy compliance; mocked permission/purchase cannot prove the system path; a completion label cannot prove account/data/payment success; a generic disclaimer cannot prove professional review.
 
-Native evidence verifies operation in the target environment, not visual conformity to Apple system apps. A custom interaction can pass when it behaves as intended for the confirmed users and inputs; a system-looking interface can fail when the core task does not work.
-
-Native validation reports observed behavior and risk. It does not gain authority to replace a confirmed product decision. If the product owner accepts a non-hard-boundary risk after the fact, impact, recommendation, and verification gap are clear, record the tradeoff and keep the unverified claim visible.
-
-For motion claims, provide a recording at representative speed and input conditions, plus the reduced-motion expression when in scope. Static timing values do not prove perceived rhythm, interruption, continuity, or comfort.
+Native evidence concerns operation, not visual conformity. A custom interaction can pass when it serves confirmed tasks/inputs, while a system-looking interface can fail. Evidence reveals risk without overruling confirmed decisions; record accepted non-hard-boundary tradeoffs and remaining gaps.
 
 ## Evidence-Based Review
 
-Assess:
-
-1. **Product alignment**: Does the interface support the confirmed goal and mental model?
-2. **Task clarity**: Can the user understand state, priority, action, result, and recovery?
-3. **Platform fit**: Does it work with the platform role and required input/window model?
-4. **Design DNA**: Is the product recognizable and internally coherent?
-5. **Adaptivity**: Does layout respond to content, size, locale, and platform?
-6. **Accessibility**: Can users complete the core task with relevant assistive behavior?
-7. **Craft and motion**: Are spacing, typography, assets, transitions, and feedback intentional?
-8. **Runtime evidence**: Has the claimed experience actually been exercised?
-
-Do not assign numeric scores by default. Scores hide missing criteria and imply precision that the evidence rarely supports.
+Use the affected quality lenses to assess product/task alignment, platform fit, shared DNA, content/size/locale adaptivity, accessibility, craft, and actual runtime evidence. Do not assign numeric scores by default: they can imply precision or conceal missing evidence.
 
 ## Severity
 
 ### Blocking
 
-Use when:
-
-- a core task cannot be completed;
-- behavior contradicts confirmed product intent;
-- data meaning or destructive consequence is misleading;
-- essential content or action becomes inaccessible;
-- navigation, focus, or state recovery fundamentally fails.
+Core-task failure, contradiction of confirmed intent, misleading data/destructive consequences, inaccessible essential content/actions, or fundamental navigation/focus/recovery failure.
 
 ### Important
 
-Use when:
-
-- hierarchy or affordance creates significant friction;
-- platform behavior is notably inappropriate;
-- brand or component inconsistency weakens comprehension;
-- important localization, adaptivity, or accessibility conditions fail;
-- motion or state feedback materially obscures the result.
+Material hierarchy/affordance friction, inappropriate platform behavior, incoherent identity/components, failed relevant accessibility/localization/adaptation, or obscured results/feedback.
 
 ### Optimization
 
-Use for polish that improves quality without preventing the intended task.
-
-Do not inflate severity because a recommendation differs from personal taste.
+Polish that improves quality without preventing the task. Do not inflate severity for taste.
 
 ## Finding Format
 
@@ -159,36 +124,17 @@ Recommendation:
 How to verify:
 ```
 
-Ground critique in the actual artifact. Name the screen, state, platform, and environment. Avoid generic comments such as “make it more Apple-like” or “improve hierarchy.”
-
-Mark whether the recommendation is:
-
-- required to meet a confirmed product or experience outcome;
-- supported by current Apple platform guidance;
-- an optional optimization;
-- an exploration or reviewer preference.
-
-Do not present a platform recommendation or personal preference as if it overrides a confirmed interaction decision.
+Name artifact, screen/state, platform, and environment. Explain the observable problem, not “make it more Apple-like.” Mark a recommendation as a confirmed outcome requirement, current platform guidance, optional optimization, or unapproved exploration/preference. Convention does not override product authority.
 
 ## Comparing Directions
 
-Use a relative decision table rather than scores:
+Compare criteria relevant to the confirmed goal:
 
 | Direction | Optimizes | Tradeoff | Platform implication | Risk | Best fit |
 |---|---|---|---|---|---|
 
-Compare only criteria that matter to the confirmed product goal. If the user combines directions, restate the resulting design logic before implementation.
+If directions are combined, restate the resulting design logic before implementation.
 
 ## Handoff
 
-Provide:
-
-- outcome and scope;
-- affected platforms;
-- states and environments checked;
-- evidence produced;
-- blocking and important findings resolved;
-- remaining risks or unverified scenarios;
-- exact user acceptance path and expected behavior.
-
-Final visual acceptance belongs to the user. If acceptance reveals a meaningful mismatch, return to alignment rather than patching symptoms blindly.
+Report outcome/scope, platforms, checked states/environments, evidence, resolved findings, remaining risks, and the exact acceptance path with expected behavior. Final visual acceptance belongs to the user; a meaningful mismatch returns to alignment.

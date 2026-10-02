@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <title>FieldNote · 整理一条摘录</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="state.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="workspace">
+    <div class="app-surface" id="app-surface">
+      <header class="app-header">
+        <span class="wordmark">FieldNote<span aria-hidden="true" class="wordmark-dot">.</span></span>
+        <span class="scope-label">今天 · 一条摘录</span>
+      </header>
+      <main id="main">
+        <div id="compose-view">
+          <div class="page-heading">
+            <span class="eyebrow">纸书里的片刻</span>
+            <h1>整理摘录</h1>
+            <p>把想留下的文字，好好记下来。</p>
+          </div>
+          <form id="compose-form" novalidate>
+            <div class="field-group">
+              <label for="compose-book">书名</label>
+              <input id="compose-book" name="book" autocomplete="off" placeholder="这句话，来自哪本书？" aria-describedby="compose-book-error">
+              <p class="field-error" id="compose-book-error" hidden></p>
+            </div>
+            <div class="field-group excerpt-field">
+              <label for="compose-quote">摘录</label>
+              <textarea id="compose-quote" name="quote" rows="7" placeholder="写下这一段文字……" aria-describedby="compose-quote-error"></textarea>
+              <p class="field-error" id="compose-quote-error" hidden></p>
+            </div>
+            <div class="save-error" id="compose-error" role="alert" hidden></div>
+            <div class="form-footer">
+              <button type="submit" class="primary" id="compose-save">保存摘录 <span aria-hidden="true">↗</span></button>
+              <p class="storage-caption">保存至此浏览器，便于演示本地流程</p>
+            </div>
+          </form>
+        </div>
+        <div id="saved-view" hidden>
+          <div class="page-heading saved-heading">
+            <span class="eyebrow">纸书里的片刻</span>
+            <h1>今天的摘录</h1>
+            <p id="saved-status" class="saved-status">已保存到此浏览器</p>
+          </div>
+          <button class="note-card" id="note-card" type="button" aria-label="编辑摘录">
+            <span class="card-top"><span class="card-label">摘录 01</span><span class="edit-label">编辑摘录 <span aria-hidden="true">↗</span></span></span>
+            <span class="quote-mark" aria-hidden="true">“</span>
+            <span class="card-quote" id="card-quote"></span>
+            <span class="card-divider" aria-hidden="true"></span>
+            <span class="card-book" id="card-book"></span>
+          </button>
+          <p class="unsaved-message" id="unsaved-message" hidden>有修改尚未保存。点卡片继续编辑。</p>
+          <p class="after-note">这一句，已经留下了。</p>
+        </div>
+      </main>
+      <footer class="app-footer"><span aria-hidden="true">—</span> 只留下一段值得记住的话 <span aria-hidden="true">—</span></footer>
+    </div>
+
+    <aside class="prototype-panel" aria-labelledby="prototype-title">
+      <p class="prototype-tag">浏览器设计原型</p>
+      <h2 id="prototype-title">同一条摘录，<br>从输入到留下。</h2>
+      <p>先输入书名与文字，保存后点卡片编辑。这里只演示这一条流程。</p>
+      <div class="demo-controls">
+        <h3>演示控制</h3>
+        <label class="toggle-row"><input type="checkbox" id="fail-next"><span>下一次保存失败<span class="control-caption">编辑失败：先勾选，再点卡片。重试仍用原输入。</span></span></label>
+        <label class="toggle-row"><input type="checkbox" id="reduce-motion"><span>减少动态效果<span class="control-caption">也会响应浏览器的系统偏好</span></span></label>
+        <button class="reset-button" id="reset-demo" type="button">清空这条演示摘录</button>
+      </div>
+      <div class="annotation">
+        <h3>底部编辑面板 · bottom sheet</h3>
+        <p>从底部出现的一层临时编辑区域。原卡片留在背景，说明正在修改同一条内容；保存后退下，回到卡片确认结果。</p>
+        <p>失败时停留在编辑处，不把人带走。减少动态效果时用淡入淡出保留层次。</p>
+      </div>
+      <p class="evidence-note">保存使用此浏览器的 localStorage；失败开关为模拟。此页面不能验证 iPhone 原生行为。</p>
+    </aside>
+  </div>
+
+  <dialog id="editor-dialog" aria-labelledby="editor-title" aria-describedby="editor-description">
+    <div class="sheet-content">
+      <div class="sheet-handle" aria-hidden="true"></div>
+      <header class="sheet-header"><button type="button" class="return-button" id="editor-return">返回</button><span class="sheet-label">同一条摘录</span></header>
+      <h2 id="editor-title">编辑摘录</h2>
+      <p id="editor-description" class="sheet-description">保存后更新原卡片。返回时保留这次输入。</p>
+      <form id="editor-form" novalidate>
+        <div class="field-group">
+          <label for="editor-book">书名</label>
+          <input id="editor-book" name="book" autocomplete="off" aria-describedby="editor-book-error">
+          <p class="field-error" id="editor-book-error" hidden></p>
+        </div>
+        <div class="field-group excerpt-field">
+          <label for="editor-quote">摘录</label>
+          <textarea id="editor-quote" name="quote" rows="6" aria-describedby="editor-quote-error"></textarea>
+          <p class="field-error" id="editor-quote-error" hidden></p>
+        </div>
+        <div class="save-error" id="editor-error" role="alert" hidden></div>
+        <div class="sheet-actions"><button type="submit" class="primary" id="editor-save">保存修改 <span aria-hidden="true">↗</span></button></div>
+      </form>
+    </div>
+  </dialog>
+  <div class="sr-only" id="announcement" role="status" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>

@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+from datetime import date
 from pathlib import Path
 
 
@@ -91,8 +92,12 @@ def validate(contract_path: Path, repo_root: Path | None = None) -> tuple[list[s
         errors.append("suite must equal 'runtime-context'")
     if contract.get("linked_issue") != 10:
         errors.append("linked_issue must equal 10")
-    if contract.get("measured_at") != "2026-07-31":
-        errors.append("measured_at must equal 2026-07-31")
+    measured_at = contract.get("measured_at")
+    try:
+        if not isinstance(measured_at, str) or date.fromisoformat(measured_at).isoformat() != measured_at:
+            raise ValueError
+    except ValueError:
+        errors.append("measured_at must be an ISO calendar date (YYYY-MM-DD)")
 
     skills_root = root / "plugins" / "apple-ui-design" / "skills"
     references_root = root / "plugins" / "apple-ui-design" / "references"

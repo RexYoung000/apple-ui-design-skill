@@ -1,7 +1,7 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "registry_scope": "shared-plugin-reference",
-  "last_reviewed": "2026-07-31",
+  "last_reviewed": "2026-10-02",
   "sources": [
     {
       "id": "apple-hig",
@@ -10,11 +10,12 @@
       "category": "official-authority",
       "access": "public-no-account",
       "platforms": ["iOS", "iPadOS", "macOS"],
+      "design_domains": ["ui", "ux", "interaction", "motion", "terminology"],
       "allowed_uses": ["platform-guidance", "interaction-guidance", "accessibility-guidance"],
       "reuse_status": "reference-only",
       "last_checked": "2026-07-29",
       "status": "active",
-      "notes": "Use specific current pages for claims; the HIG guides behavior but does not own product identity."
+      "notes": "Verify specific current pages; platform guidance does not own product identity."
     },
     {
       "id": "apple-design-resources",
@@ -23,11 +24,12 @@
       "category": "official-assets",
       "access": "public-no-account",
       "platforms": ["iOS", "iPadOS", "macOS"],
+      "design_domains": ["ui"],
       "allowed_uses": ["ui-kits", "templates", "icons", "design-reference"],
       "reuse_status": "license-specific",
       "last_checked": "2026-07-29",
       "status": "active",
-      "notes": "Review the current Apple Design Resources license before redistribution or use outside permitted mockups."
+      "notes": "Check current asset licenses before reuse or redistribution."
     },
     {
       "id": "apple-sf-symbols",
@@ -36,11 +38,12 @@
       "category": "official-assets",
       "access": "public-no-account",
       "platforms": ["iOS", "iPadOS", "macOS"],
+      "design_domains": ["ui", "motion", "terminology"],
       "allowed_uses": ["system-action-symbols", "symbol-animation", "design-reference"],
       "reuse_status": "license-specific",
       "last_checked": "2026-07-29",
       "status": "active",
-      "notes": "Prefer for suitable platform actions; do not use as a replacement for all product-specific graphics."
+      "notes": "Use for suitable platform actions, not all product graphics; check symbol licenses."
     },
     {
       "id": "apple-design-awards",
@@ -49,11 +52,12 @@
       "category": "shipped-examples",
       "access": "public-no-account",
       "platforms": ["iOS", "iPadOS", "macOS"],
+      "design_domains": ["ui", "ux", "interaction", "motion"],
       "allowed_uses": ["shipped-product-observation", "interaction-comparison", "inclusion-reference"],
       "reuse_status": "observe-and-link-only",
       "last_checked": "2026-07-29",
       "status": "active",
-      "notes": "Curated examples are observable precedent, not proof that a solution fits another product."
+      "notes": "Shipped precedent, not proof of fit for another product."
     },
     {
       "id": "apple-design-videos",
@@ -62,11 +66,12 @@
       "category": "official-authority",
       "access": "public-no-account",
       "platforms": ["iOS", "iPadOS", "macOS"],
+      "design_domains": ["ui", "ux", "interaction", "motion"],
       "allowed_uses": ["design-guidance", "motion-guidance", "platform-capability"],
       "reuse_status": "reference-only",
       "last_checked": "2026-07-29",
       "status": "active",
-      "notes": "Use the exact session and year for version-sensitive guidance."
+      "notes": "Cite exact session and year for version-sensitive guidance."
     },
     {
       "id": "apple-sample-code",
@@ -75,11 +80,12 @@
       "category": "official-authority",
       "access": "public-no-account",
       "platforms": ["iOS", "iPadOS", "macOS"],
+      "design_domains": ["ui", "interaction", "motion"],
       "allowed_uses": ["api-behavior", "implementation-reference", "platform-capability"],
       "reuse_status": "license-specific",
       "last_checked": "2026-07-29",
       "status": "active",
-      "notes": "Check each sample's availability, license, and minimum OS requirements."
+      "notes": "Check sample availability, license, and minimum OS."
     },
     {
       "id": "apple-app-review-guidelines",
@@ -88,11 +94,12 @@
       "category": "official-authority",
       "access": "public-no-account",
       "platforms": ["iOS", "iPadOS", "macOS"],
+      "design_domains": ["ux", "interaction"],
       "allowed_uses": ["app-review-policy", "privacy-guidance", "commerce-guidance", "regulated-domain-routing"],
       "reuse_status": "reference-only",
       "last_checked": "2026-07-31",
       "status": "active",
-      "notes": "Use the exact current section and access date; policy evidence does not make the design skill a legal or compliance authority."
+      "notes": "Verify exact current section and date; not legal or compliance authority."
     },
     {
       "id": "apple-account-deletion",
@@ -101,11 +108,12 @@
       "category": "official-authority",
       "access": "public-no-account",
       "platforms": ["iOS", "iPadOS", "macOS"],
+      "design_domains": ["ux", "interaction"],
       "allowed_uses": ["account-deletion-policy", "data-control-guidance"],
       "reuse_status": "reference-only",
       "last_checked": "2026-07-31",
       "status": "active",
-      "notes": "Recheck current account-deletion, reauthentication, subscription, and regulated-industry guidance before a release claim."
+      "notes": "Recheck deletion, reauthentication, subscriptions, and regulated-industry requirements before release claims."
     },
     {
       "id": "apple-subscriptions",
@@ -114,11 +122,12 @@
       "category": "official-authority",
       "access": "public-no-account",
       "platforms": ["iOS", "iPadOS", "macOS"],
+      "design_domains": ["ui", "ux", "interaction"],
       "allowed_uses": ["subscription-guidance", "purchase-flow-guidance", "commerce-policy"],
       "reuse_status": "reference-only",
       "last_checked": "2026-07-31",
       "status": "active",
-      "notes": "Subscription presentation, offer, pricing, management, and API details are current-source claims and may vary by storefront or OS."
+      "notes": "Recheck presentation, pricing, management, and API details by storefront and OS."
     },
     {
       "id": "apple-app-privacy-details",
@@ -127,11 +136,12 @@
       "category": "official-authority",
       "access": "public-no-account",
       "platforms": ["iOS", "iPadOS", "macOS"],
+      "design_domains": ["ui", "ux"],
       "allowed_uses": ["data-disclosure-guidance", "privacy-label-guidance"],
       "reuse_status": "reference-only",
       "last_checked": "2026-07-31",
       "status": "active",
-      "notes": "Verify the app's and third-party partners' actual data practices; never invent disclosure content from a generic design brief."
+      "notes": "Use actual app and partner data practices; never infer disclosure from a brief."
     },
     {
       "id": "ui-pocket",
@@ -140,11 +150,12 @@
       "category": "observable-gallery",
       "access": "public-no-account",
       "platforms": ["mobile-unspecified"],
+      "design_domains": ["ui", "ux", "interaction"],
       "allowed_uses": ["screen-observation", "pattern-comparison"],
       "reuse_status": "observe-and-link-only",
       "last_checked": "2026-07-29",
       "status": "active",
-      "notes": "Verify the platform, app version, and context of each example before drawing conclusions."
+      "notes": "Verify each example's platform, version, and context."
     },
     {
       "id": "60fps-design",
@@ -153,11 +164,12 @@
       "category": "inspiration-only",
       "access": "public-no-account",
       "platforms": ["cross-platform"],
+      "design_domains": ["interaction", "motion"],
       "allowed_uses": ["motion-observation", "motion-direction", "interaction-inspiration"],
       "reuse_status": "observe-and-link-only",
       "last_checked": "2026-07-29",
       "status": "active",
-      "notes": "Useful for motion reference; native Apple behavior still requires translation and runtime validation."
+      "notes": "Motion starting point; specific examples need inspection and Apple-native runtime validation."
     },
     {
       "id": "recent-design",
@@ -166,11 +178,12 @@
       "category": "inspiration-only",
       "access": "public-no-account",
       "platforms": ["web", "cross-platform"],
+      "design_domains": ["ui", "motion"],
       "allowed_uses": ["visual-direction", "product-inspiration", "motion-inspiration"],
       "reuse_status": "observe-and-link-only",
       "last_checked": "2026-07-29",
       "status": "active",
-      "notes": "Godly redirects here; use for broad inspiration, not Apple-native authority."
+      "notes": "Godly redirects here; broad inspiration, not Apple-native authority."
     },
     {
       "id": "awwwards",
@@ -179,11 +192,12 @@
       "category": "inspiration-only",
       "access": "public-no-account",
       "platforms": ["web"],
+      "design_domains": ["ui", "motion"],
       "allowed_uses": ["visual-direction", "motion-inspiration", "brand-expression"],
       "reuse_status": "observe-and-link-only",
       "last_checked": "2026-07-29",
       "status": "active",
-      "notes": "Web-award examples are visually useful but do not validate Apple interaction."
+      "notes": "Web visual inspiration does not validate Apple interaction."
     },
     {
       "id": "react-bits",
@@ -192,11 +206,12 @@
       "category": "implementation-inspiration",
       "access": "public-no-account",
       "platforms": ["web"],
+      "design_domains": ["ui", "motion"],
       "allowed_uses": ["visual-effect-inspiration", "motion-mechanism-study"],
       "reuse_status": "license-check-required",
       "last_checked": "2026-07-29",
       "status": "active",
-      "notes": "React implementation is not SwiftUI evidence; check component-specific license before reuse."
+      "notes": "Web effects are not SwiftUI evidence; check component licenses before reuse."
     },
     {
       "id": "magic-ui-theme-toggler",
@@ -205,11 +220,12 @@
       "category": "implementation-inspiration",
       "access": "public-no-account",
       "platforms": ["web"],
+      "design_domains": ["interaction", "motion"],
       "allowed_uses": ["motion-mechanism-study", "interaction-inspiration"],
       "reuse_status": "license-check-required",
       "last_checked": "2026-07-29",
       "status": "active",
-      "notes": "Use as Web implementation inspiration only; re-express and validate natively."
+      "notes": "Web mechanism inspiration only; translate and validate natively."
     },
     {
       "id": "supahero",
@@ -218,11 +234,12 @@
       "category": "inspiration-only",
       "access": "public-no-account",
       "platforms": ["web"],
+      "design_domains": ["ui"],
       "allowed_uses": ["marketing-layout", "hero-composition", "brand-expression"],
       "reuse_status": "observe-and-link-only",
       "last_checked": "2026-07-29",
       "status": "active",
-      "notes": "Use for websites and product marketing, not native app interaction."
+      "notes": "Web marketing composition, not native interaction."
     },
     {
       "id": "uiux-showcase",
@@ -231,11 +248,12 @@
       "category": "inspiration-only",
       "access": "public-no-account",
       "platforms": ["web"],
+      "design_domains": ["ui"],
       "allowed_uses": ["marketing-layout", "web-template-discovery"],
       "reuse_status": "license-check-required",
       "last_checked": "2026-07-29",
       "status": "conditional",
-      "notes": "Check each linked template's owner and license; not evidence for native interaction."
+      "notes": "Verify each linked template owner and license; not native evidence."
     },
     {
       "id": "iconsax",
@@ -244,11 +262,12 @@
       "category": "third-party-assets",
       "access": "public-no-account",
       "platforms": ["cross-platform"],
+      "design_domains": ["ui"],
       "allowed_uses": ["icon-candidate", "icon-style-reference"],
       "reuse_status": "license-check-required",
       "last_checked": "2026-07-29",
       "status": "conditional",
-      "notes": "Check the current license and product fit; SF Symbols remains the default candidate for suitable Apple platform actions."
+      "notes": "Verify license and product fit; prefer SF Symbols for suitable Apple actions."
     },
     {
       "id": "oriform",
@@ -257,11 +276,12 @@
       "category": "inspiration-only",
       "access": "public-no-account",
       "platforms": ["cross-platform"],
+      "design_domains": ["ui"],
       "allowed_uses": ["art-direction", "moodboard", "visual-language"],
       "reuse_status": "observe-and-link-only",
       "last_checked": "2026-07-29",
       "status": "active",
-      "notes": "Use for art and visual inspiration, not platform authority."
+      "notes": "Art and visual inspiration, not platform authority."
     },
     {
       "id": "mobbin",
@@ -270,11 +290,12 @@
       "category": "limited-preview",
       "access": "public-preview-limited",
       "platforms": ["iOS", "web"],
+      "design_domains": ["ui", "ux", "interaction"],
       "allowed_uses": ["public-preview-observation"],
       "reuse_status": "observe-and-link-only",
       "last_checked": "2026-07-29",
       "status": "conditional",
-      "notes": "Use only visible public previews; do not make an account or paid plan a default dependency."
+      "notes": "Inspect only visible public previews; account or paid access is not a default dependency."
     },
     {
       "id": "pinterest-ui-inspiration",
@@ -283,11 +304,12 @@
       "category": "limited-preview",
       "access": "account-likely",
       "platforms": ["cross-platform"],
+      "design_domains": ["ui"],
       "allowed_uses": ["public-preview-inspiration"],
       "reuse_status": "observe-and-link-only",
       "last_checked": "2026-07-29",
       "status": "conditional",
-      "notes": "Algorithmic context, account prompts, provenance, and copyright make it unsuitable as a core source."
+      "notes": "Account prompts, uncertain provenance, and copyright prevent core-source use."
     },
     {
       "id": "xclient",
@@ -296,11 +318,54 @@
       "category": "excluded",
       "access": "public-no-account",
       "platforms": ["macOS"],
+      "design_domains": ["ui"],
       "allowed_uses": ["none"],
       "reuse_status": "do-not-use",
       "last_checked": "2026-07-29",
       "status": "excluded",
-      "notes": "Software download and distribution content is not reliable UI evidence or an approved asset source."
+      "notes": "Download/distribution content; excluded from UI evidence and asset selection."
+    },
+    {
+      "id": "nng-usability-heuristics",
+      "name": "NN/g Ten Usability Heuristics",
+      "url": "https://www.nngroup.com/articles/ten-usability-heuristics/",
+      "category": "usability-reference",
+      "access": "public-no-account",
+      "platforms": ["cross-platform"],
+      "design_domains": ["ux", "interaction"],
+      "allowed_uses": ["usability-review", "error-recovery-guidance"],
+      "reuse_status": "reference-only",
+      "last_checked": "2026-10-02",
+      "status": "active",
+      "notes": "Article checked; broad heuristics, not user-test or Apple-policy evidence. Linked cases, assets, and reproduction rights unchecked."
+    },
+    {
+      "id": "component-gallery",
+      "name": "The Component Gallery",
+      "url": "https://component.gallery/",
+      "category": "component-comparison",
+      "access": "public-no-account",
+      "platforms": ["web"],
+      "design_domains": ["ui", "interaction", "terminology"],
+      "allowed_uses": ["component-comparison", "terminology-candidate"],
+      "reuse_status": "observe-and-link-only",
+      "last_checked": "2026-10-02",
+      "status": "active",
+      "notes": "Homepage catalog checked; inspect exact component and originating system. Linked cases, code, and licenses unchecked; not Apple-native evidence."
+    },
+    {
+      "id": "namethatui",
+      "name": "NameThatUI",
+      "url": "https://namethatui.com/",
+      "category": "terminology-reference",
+      "access": "public-no-account",
+      "platforms": ["macOS", "web"],
+      "design_domains": ["ui", "interaction", "motion", "terminology"],
+      "allowed_uses": ["terminology-candidate", "component-disambiguation"],
+      "reuse_status": "reference-only",
+      "last_checked": "2026-10-02",
+      "status": "active",
+      "notes": "Homepage introduction checked. Names/APIs are candidates; verify platform availability separately. Individual entries, API accuracy, and reuse licenses unchecked."
     }
   ]
 }

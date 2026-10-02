@@ -19,6 +19,7 @@ REQUIRED_FIELDS = {
     "category",
     "access",
     "platforms",
+    "design_domains",
     "allowed_uses",
     "reuse_status",
     "last_checked",
@@ -26,6 +27,7 @@ REQUIRED_FIELDS = {
     "notes",
 }
 VALID_STATUSES = {"active", "conditional", "excluded"}
+VALID_DESIGN_DOMAINS = {"ui", "ux", "interaction", "motion", "terminology"}
 VALID_CATEGORIES = {
     "official-authority",
     "official-assets",
@@ -35,6 +37,9 @@ VALID_CATEGORIES = {
     "implementation-inspiration",
     "third-party-assets",
     "limited-preview",
+    "usability-reference",
+    "component-comparison",
+    "terminology-reference",
     "excluded",
 }
 
@@ -62,8 +67,8 @@ def validate(path: Path, max_age_days: int) -> tuple[list[str], list[str], Count
     except (OSError, json.JSONDecodeError) as exc:
         return [f"cannot load {path}: {exc}"], warnings, Counter()
 
-    if data.get("schema_version") != 1:
-        errors.append("schema_version must equal 1")
+    if data.get("schema_version") != 2:
+        errors.append("schema_version must equal 2")
 
     reviewed = parse_date(data.get("last_reviewed"), "last_reviewed", errors)
     if reviewed and reviewed > date.today():
@@ -116,8 +121,24 @@ def validate(path: Path, max_age_days: int) -> tuple[list[str], list[str], Count
             errors.append(f"{label}.status is invalid: {status!r}")
         if category == "excluded" and status != "excluded":
             errors.append(f"{label} excluded category must use excluded status")
+        if status == "excluded" and category != "excluded":
+            errors.append(f"{label} excluded status must use excluded category")
         if status == "excluded" and source["allowed_uses"] != ["none"]:
             errors.append(f"{label} excluded source must allow only 'none'")
+        if status == "excluded" and source["reuse_status"] != "do-not-use":
+            errors.append(f"{label} excluded source must use do-not-use reuse status")
+        if status != "excluded" and isinstance(source["allowed_uses"], list) and "none" in source["allowed_uses"]:
+            errors.append(f"{label} source allowing 'none' must be excluded")
+        if source["reuse_status"] == "do-not-use" and status != "excluded":
+            errors.append(f"{label} do-not-use source must be excluded")
+
+        domains = source["design_domains"]
+        if not isinstance(domains, list) or not domains:
+            errors.append(f"{label}.design_domains must be a non-empty list")
+        elif not all(isinstance(domain, str) and domain in VALID_DESIGN_DOMAINS for domain in domains):
+            errors.append(f"{label}.design_domains must use only ui, ux, interaction, motion, terminology")
+        elif len(domains) != len(set(domains)):
+            errors.append(f"{label}.design_domains must not repeat a domain")
 
         for list_field in ("platforms", "allowed_uses"):
             value = source[list_field]

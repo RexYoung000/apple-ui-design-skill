@@ -40,8 +40,21 @@ class RuntimeContextTests(unittest.TestCase):
     def test_current_runtime_context_is_valid(self) -> None:
         errors, metrics = validate(self.contract_path, repo_root=REPO_ROOT)
         self.assertEqual(errors, [])
-        self.assertEqual(metrics["skills"]["words"], 2194)
-        self.assertEqual(metrics["total"]["words"], 17457)
+        contract = json.loads(self.contract_path.read_text(encoding="utf-8"))
+        self.assertEqual(metrics, contract["current"])
+        self.assertEqual(contract["limits"]["skill_words"], 2500)
+        self.assertEqual(contract["limits"]["total_words"], 17500)
+        self.assertLessEqual(metrics["skills"]["words"], 2500)
+        self.assertLessEqual(metrics["total"]["words"], 17500)
+
+    def test_invalid_measurement_date_is_rejected(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root, contract_path = self.make_fixture(temp_dir)
+            contract = json.loads(contract_path.read_text(encoding="utf-8"))
+            contract["measured_at"] = "2026-02-30"
+            contract_path.write_text(json.dumps(contract), encoding="utf-8")
+            errors, _ = validate(contract_path, repo_root=root)
+        self.assertTrue(any("measured_at" in error for error in errors))
 
     def test_recorded_measurement_drift_is_rejected(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:

@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-02",
+  "execution": "Four separate collaboration agents, fork_turns=none. Each received the matching local Skill path, user brief, listed source material, output location, and execution constraints. No hidden assertions or implementation history was supplied. Runtime hashes describe the final reviewed package; they are not a per-read tool trace.",
+  "cases": [
+    {
+      "id": "direction",
+      "skill": "apple-ui-direction",
+      "request": "我在做 iPhone 上的 FieldNote，一个本地读书摘录小工具，目标用户是读纸书的人。已有方向是安静、文字优先，今天要整理一条摘录并确认保存；不做云端、账号或商业化。帮我做一个能点的浏览器设计原型，包含输入书名、摘录文字、保存、保存失败后重试，失败时保留输入。点摘录卡片后从底下出来一层编辑，帮我说清这叫什么，以及这个动效如何服务任务。请只完成这一条流程，不探索新的品牌方向。",
+      "inputs": [],
+      "constraints": "Write to a separate output directory; do not modify the plugin or install dependencies. Browser validation of generated local prototypes belongs to the primary agent. Report references read and evidence limits."
+    },
+    {
+      "id": "adaptation",
+      "skill": "apple-platform-adaptation",
+      "request": "OrbitCut 已有 iPad 设计，要给 Mac 用。用户要选素材、拖选片段、预览、导出；请保留现有安静深色的DNA，不新增功能或换品牌。请给我一份 iPad→Mac 的决策矩阵，加一张可在浏览器打开、带紧凑/宽窗口选择的代表性布局；说明拖起来跟手、松开回弹这种效果应保留什么目的，如何给键盘提供同等任务结果。只需要设计适配，不写生产Swift工程。",
+      "inputs": [
+        "evals/delivery-contracts/runs/2026-07-29/platform-adaptation/prototype/",
+        "evals/delivery-contracts/runs/2026-07-29/platform-adaptation/README.md"
+      ],
+      "constraints": "Write to a separate output directory; do not modify the plugin or install dependencies. Browser validation of generated local prototypes belongs to the primary agent. Report references read and evidence limits."
+    },
+    {
+      "id": "review",
+      "skill": "apple-ui-review",
+      "request": "帮我验收这个 iPad/Mac 剪辑工具 OrbitCut 的设计。核心任务是选素材、拖选片段、预览、导出。我们提供的材料只有四张静态截图。请查看图片后给可操作的质量反馈，并告诉我还缺什么才可以认定体验验收完成。不要浏览相邻历史报告/代码，不要修改设计。",
+      "inputs": [
+        "evals/delivery-contracts/runs/2026-07-29/platform-adaptation/evidence/ipad-compact.png",
+        "evals/delivery-contracts/runs/2026-07-29/platform-adaptation/evidence/ipad-expansive.png",
+        "evals/delivery-contracts/runs/2026-07-29/platform-adaptation/evidence/mac-minimum.png",
+        "evals/delivery-contracts/runs/2026-07-29/platform-adaptation/evidence/mac-expanded.png"
+      ],
+      "constraints": "Write to a separate output directory; do not modify the plugin or install dependencies. Browser validation of generated local prototypes belongs to the primary agent. Report references read and evidence limits."
+    },
+    {
+      "id": "sources",
+      "skill": "apple-ui-direction",
+      "request": "用户做已有 iPhone 清单工具，详情目前逐条点击进入新页，想改成“点某条，就在原位置往下展开更多信息”。请解释合适的候选名词，以及与抽屉/弹窗的行为差异；帮我查一个能参考的网站，具体指出借鉴什么、还不能据此认定什么。只需要咨询，不改代码，不做新品牌方向，不新增功能；公开网站即可。",
+      "inputs": [],
+      "constraints": "Write to a separate output directory; do not modify the plugin or install dependencies. Browser validation of generated local prototypes belongs to the primary agent. Report references read and evidence limits."
+    }
+  ]
+}

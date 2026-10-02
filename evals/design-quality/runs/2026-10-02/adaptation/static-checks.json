@@ -1,0 +1,13 @@
+{
+  "check": "static artifact integrity",
+  "unique_html_ids": 43,
+  "control_references": 6,
+  "linked_assets": [
+    "styles.css",
+    "app.js"
+  ],
+  "script_id_references": 41,
+  "css_braces_balanced": true,
+  "browser_rendered": false,
+  "native_run": false
+}

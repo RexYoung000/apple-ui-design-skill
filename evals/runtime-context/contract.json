@@ -2,7 +2,7 @@
   "schema_version": 1,
   "suite": "runtime-context",
   "linked_issue": 10,
-  "measured_at": "2026-07-31",
+  "measured_at": "2026-10-02",
   "measurement": {
     "line_method": "newline-bytes",
     "word_method": "non-whitespace-runs",
@@ -13,14 +13,38 @@
     ]
   },
   "baseline": {
-    "skills": {"lines": 324, "words": 3382, "bytes": 26535},
-    "references": {"lines": 2186, "words": 15701, "bytes": 118476},
-    "total": {"lines": 2510, "words": 19083, "bytes": 145011}
+    "skills": {
+      "lines": 324,
+      "words": 3382,
+      "bytes": 26535
+    },
+    "references": {
+      "lines": 2186,
+      "words": 15701,
+      "bytes": 118476
+    },
+    "total": {
+      "lines": 2510,
+      "words": 19083,
+      "bytes": 145011
+    }
   },
   "current": {
-    "skills": {"lines": 200, "words": 2194, "bytes": 17658},
-    "references": {"lines": 2132, "words": 15263, "bytes": 114653},
-    "total": {"lines": 2332, "words": 17457, "bytes": 132311}
+    "skills": {
+      "lines": 166,
+      "words": 1621,
+      "bytes": 13822
+    },
+    "references": {
+      "lines": 2105,
+      "words": 15676,
+      "bytes": 121290
+    },
+    "total": {
+      "lines": 2271,
+      "words": 17297,
+      "bytes": 135112
+    }
   },
   "limits": {
     "skill_words": 2500,

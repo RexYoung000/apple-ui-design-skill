@@ -5,67 +5,54 @@ description: Review an existing iOS, iPadOS, or macOS design, screenshot, protot
 
 # Apple UI Review
 
-Assess an existing artifact against its intended product outcome. Report evidence-backed findings and validation gaps without turning personal taste or Apple convention into product authority.
+Assess an existing artifact against its product outcome; report evidence-backed findings without promoting personal taste or convention into authority.
 
 ## Required Evidence
 
-1. Inspect product intent, users and tasks, platform scope, design system, supplied artifacts, implementation, tests, and runtime evidence.
-2. Identify the exact artifact, version, screen, state, framework, platform, environment, and requested review depth.
-3. Read `../../references/delivery-contracts.md`, select UI Review, and state its artifact and evidence gate.
-4. Read `../../references/validation-and-review.md` for the review and finding method. Load other references only when their opening `Load When` condition matches.
-5. Ask one focused question only when a blocking, path-dependent uncertainty materially changes the findings.
+1. Inspect intent, users/tasks, platforms, design system, artifacts, implementation, tests, and runtime evidence.
+2. Identify artifact/version, screen/state, framework, environment, and review depth.
+3. Read `../../references/delivery-contracts.md`; select UI Review and its evidence gate.
+4. Read `../../references/validation-and-review.md` for overlapping UI, UX, interaction, and motion lenses, scoped checks, severity, and finding format.
+5. Load other references only under matching `Load When` conditions. Ask only about uncertainty that blocks and materially changes findings.
 
-A screenshot or recording supports only what it shows. Text alone supports unverified consultation. A build does not prove usable interaction.
+Screenshots/recordings support shown states only; text supports unverified consultation. A build does not prove usable interaction.
 
 ## Review Workflow
 
-### 1. Establish the review contract
+### 1. Establish the contract
 
-State the intended outcome, reviewed artifact and version, represented platforms and states, available and missing evidence, and whether this is design review, implementation review, or experience-validation review.
+State outcome, artifact/version, represented states/platforms, available/missing evidence, and whether reviewing design, implementation, or verified experience. Appearance cannot establish validated user needs or runtime behavior.
 
-Do not infer validated user needs or runtime behavior from appearance.
+### 2. Apply relevant method owners
 
-### 2. Review against shared evidence
+Use `../../references/context-and-alignment.md` for unresolved context and `../../references/authority-and-principles.md` for material authority conflicts.
 
-Read `../../references/context-and-alignment.md` only when product intent, user/task evidence, or scope is unresolved. Read `../../references/authority-and-principles.md` only when intent, a hard boundary, Apple convention, or reviewer preference conflicts.
+Use `../../references/design-system-and-dna.md` for observable UI criteria, consistency, or candidate terminology; `../../references/apple-platform-adaptation.md` for platform fit; `../../references/accessibility-and-localization.md` for relevant shared checks.
 
-Read `../../references/apple-platform-adaptation.md` for platform behavior, `../../references/design-system-and-dna.md` for consistency or brand, and `../../references/accessibility-and-localization.md` for material accessibility or localization claims.
-Read `../../references/interaction-and-motion.md` for material behavior and `../../references/content-and-sensitive-flows.md` for consequential content, consent, access, account data, destructive action, commerce, or professional meaning.
+Use `../../references/interaction-and-motion.md` for behavior and `../../references/content-and-sensitive-flows.md` for consequential meaning. Candidate terminology is an interpretation to check, not evidence of a platform/API choice. A small static review needs neither full discovery nor every method.
 
-### 3. Classify only actionable findings
+### 3. Report actionable findings
 
-Use **Blocking**, **Important**, and **Optimization** as defined in `../../references/validation-and-review.md`. Do not assign numeric scores by default or inflate severity because a solution differs from reviewer taste.
-
-Apple guidance, shipped patterns, and reviewer preference are evidence, not product authority. A confirmed unconventional interaction is not a finding merely because it is unconventional.
+Apply the shared severity and finding method. Do not assign numeric scores by default or use taste-based severity. A confirmed unconventional interaction is not a finding merely because it is unconventional.
 
 For experimental interactions, report learning, equivalent-input, limit, error, and recovery risk without replacing the model merely because it is nonstandard.
 
-Treat a misleading permission, purchase, deletion, privacy, or professional claim as blocking when it distorts consent, cost, data, safety, or recovery. Do not call it legally compliant, medically correct, financially suitable, secure, or App Review ready from design evidence.
+Misleading consent, cost, data, safety, or recovery can be blocking. Design evidence cannot establish legal compliance, medical correctness, financially suitable advice, security, or App Review readiness.
 
-For each finding use the shared fact, impact, evidence, recommendation, and verification format. If the product owner accepts a non-hard-boundary risk, record the decision and remaining evidence gap without repeatedly escalating it.
+If the owner accepts an informed non-hard-boundary risk, record the decision and remaining gap rather than repeatedly escalating it.
 
-### 4. Verify claims at the right level
+### 4. Verify claims
 
-Apply the evidence levels in `../../references/validation-and-review.md`. Do not report an audit, label check, or UI test as a VoiceOver or other assistive-technology run. Name the exact technology, task, environment, and evidence.
+Match claims to the shared evidence levels. Do not report an audit, label check, or UI test as a VoiceOver or other assistive run. Name the exact technology, task, environment, and evidence.
 
-For material motion, inspect representative-speed native recordings and Reduce Motion. Leave rhythm and aesthetic acceptance to the user; do not infer them from timing values or build success.
+Inspect representative-speed native recordings and Reduce Motion for material motion. Leave rhythm and aesthetic acceptance to the user; do not infer them from timing values or build success.
 
-For sensitive flows, match hierarchy, app, native, service, commerce, and professional claims to their corresponding evidence. Never promote a mock into a system, service, policy, or professional result.
+Never promote a mock into a system, service, policy, or professional result. Do not claim native validation from HTML; static images cannot prove interaction.
 
-Read `../../references/prototyping-and-implementation.md` for prototype evidence, `../../references/current-sources.md` for current Apple claims, `../../references/research-and-source-evidence.md` for external evidence, and `../../references/engineering-routing.md` when a correction crosses into implementation ownership.
-
-Do not claim native validation from HTML, interaction validation from a static image, or experience completion from compilation.
+Use `../../references/prototyping-and-implementation.md` for prototype evidence, `../../references/current-sources.md` for current Apple claims, `../../references/research-and-source-evidence.md` for external evidence, and `../../references/engineering-routing.md` for implementation ownership.
 
 ## Successful Result
 
-- review scope and evidence status;
-- findings ordered by severity and user impact;
-- exact facts, impacts, recommendations, and verification paths;
-- validation methods for every actionable finding;
-- unresolved risks and unrepresented scenarios;
-- the strongest completion stage supported by the supplied evidence;
-- a concise user acceptance path.
+Provide scope/evidence status, findings ordered by impact/severity with facts and verification paths, remaining risks/unrepresented scenarios, supported completion stage, and a concise acceptance path. If there are no actionable findings, say so; do not invent issues.
 
-If there are no actionable findings, say so and name the evidence limits. Do not manufacture issues to fill a report.
-
-Route new direction to `$apple-ui-direction`, cross-platform redesign to `$apple-platform-adaptation`, and production correctness or integration to an applicable engineering workflow. A review may define the correction and verification path; it does not own integration.
+Route new direction to `$apple-ui-direction`, adaptation to `$apple-platform-adaptation`, and production correctness/integration to engineering. Review owns correction and verification guidance, not integration.
